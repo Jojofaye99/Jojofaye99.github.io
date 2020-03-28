@@ -403,7 +403,7 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    2k
+                    2.1k
                 </div>
                 
 
@@ -444,13 +444,13 @@
 <p>nodejs 和 git 工具都下载好了之后 </p>
 </blockquote>
 <pre><code>node -v   
-npm -v            //检查版本</code></pre><h3 id="3-生成本地的公钥-（大坑指南）"><a href="#3-生成本地的公钥-（大坑指南）" class="headerlink" title="3.生成本地的公钥     （大坑指南）"></a>3.生成本地的公钥     （大坑指南）</h3><blockquote>
+npm -v            //检查版本</code></pre><h3 id="3-生成本地的公钥"><a href="#3-生成本地的公钥" class="headerlink" title="3.生成本地的公钥"></a>3.生成本地的公钥</h3><blockquote>
 <p>如果你之前已经生成过公钥了，可以不进行这一步只需要把公钥提取出来即可。  </p>
 </blockquote>
 <p> 在命令行（或Git Bash）输入以下命令， 回车三下： </p>
 <p> <code>ssh-keygen -t rsa -C &quot;邮箱地址&quot;</code>  </p>
 <p> 复制密钥文件内容（路径形如C:\Users\username.ssh\id_rsa.pub），粘贴保存，后面服务端会用到。这里的 <em>username</em> 是你电脑的名字</p>
-<p> 如果这一步你有困难，具体操作请看这里。</p>
+<p> 如果这一步你有困难，具体操作请看<a href="http://golife.top/2020/03/28/chuang-jian-ssh-key-ji-cha-kan-ssh-key/">这里</a>。</p>
 <h3 id="4-安装-Cnpm"><a href="#4-安装-Cnpm" class="headerlink" title="4. 安装 Cnpm"></a>4. 安装 Cnpm</h3><blockquote>
 <p>由于使用npm直接下载会有很多人遇到卡顿的问题(国外服务器)，所以我们要做的第一步工作是将npm换成淘宝的服务器。</p>
 </blockquote>
@@ -462,7 +462,8 @@ npm -v            //检查版本</code></pre><h3 id="3-生成本地的公钥-（
 <pre><code> cd G:
  cd Blog
  hexo init</code></pre><p> 再安装 Hexo的插件<br> <code>npm install hexo-deployer-git --save</code><br> 执行完成后：</p>
-<pre><code> hexo g
+<pre><code> hexo clean
+ hexo g
  hexo s</code></pre><p> 我们可以在本地端看我们的博客啦<br> 打开浏览器访问 <a href="http://localhost:4000" target="_blank" rel="noopener">http://localhost:4000</a></p>
 </li>
 <li><p>配置 _config.yml 文件<br>  在刚才生成hexo的目录下，找到_config.yml，打开它。<br>  找到deploy 做如下配置</p>
@@ -510,27 +511,28 @@ npm - v</code></pre><p>此时发现 node 和npm都安装好啦，并且是最新
 <p> <code>mkdir blog.git</code><br> <code>cd blog.git</code><br> <code>git init - -bare</code>     //初始化<strong>仓库</strong><br> <img src="https://i.loli.net/2020/03/28/ZdNqv1EX4BCUnzk.png" alt="仓库里面的文件.png"></p>
 <p> <code>cd blog.git/hooks/</code> </p>
 <p> <code>ls</code>      //查看文件   </p>
-<p> <code>vi post-receive.</code>   //设置git的<strong>钩子</strong>脚本，这是非常重要的</p>
-<pre><code> #！/bin/bash
+<ul>
+<li><p><code>vi post-receive.</code>   //设置git的<strong>钩子</strong>脚本，这是非常重要的</p>
+<pre><code>  #!/bin/bash
 
- GIT_REPO=/home/git/blog.git   //定义一个变量GIT_REPO并指定所在位置
-
- TMP_DIR_CLONE=/tmp/blog       //定义一个临时的文件并指定所在位置
-
- PUBLIC_WWW=/var/www/blog      //最后发布的网站服务器根目录
-
- rm -rf ${TMP_DIR_CLONE}
- git clone $GIT_REPO $TMP_DIR_CLONE
- rm -rf $PUBLIC_WWW/*
- cp -rf $TMP_DIR_CLONE/* $PUBLIC_WWW
-</code></pre><p> 保存退出 :wq   </p>
-<p> <code>chmod +x post-receive</code>        //给文章加权限 </p>
-<p> <code>cd</code>                          //到git主目录</p>
-<p> <code>mkdir .ssh</code>    </p>
-<p> <code>cd .ssh</code>   </p>
-<p> <code>vi authorized_keys</code>      //将自己本地的公钥拷贝过来    再 :wq 保存退出  </p>
-<p> <code>Exit</code>   //回到root用户     </p>
+  GIT_REPO=/home/git/blog.git   //定义一个变量GIT_REPO并指定所在位置
+  TMP_DIR_CLONE=/tmp/blog       //定义一个临时的文件并指定所在位置
+  PUBLIC_WWW=/var/www/blog      //最后发布的网站服务器根目录
+  rm -rf ${TMP_DIR_CLONE}
+  git clone $GIT_REPO $TMP_DIR_CLONE
+  rm -rf $PUBLIC_WWW/*
+  cp -rf $TMP_DIR_CLONE/* $PUBLIC_WWW
+</code></pre><p>  大概作用:本地客户端有pushug更新,就会运行上面脚本.</p>
+<p>  删除临时文件<br>  从GIT_REPO中pull一部分到TMP_DIR_CLONE中<br>  删除网站服务器根目录<br>  把临时文件中的内容拷贝到网站服务器根目录.<br>  保存退出 :wq   </p>
+<p><code>chmod +x post-receive</code>        //给文章加权限 </p>
+<p><code>cd</code>                          //到git主目录</p>
+<p><code>mkdir .ssh</code>    </p>
+<p><code>cd .ssh</code>   </p>
+<p><code>vi authorized_keys</code>      //将自己本地的公钥拷贝过来    再 :wq 保存退出  </p>
+<p><code>Exit</code>   //回到root用户     </p>
 <h3 id="5-接下来是nginx的操作"><a href="#5-接下来是nginx的操作" class="headerlink" title="5. 接下来是nginx的操作"></a>5. 接下来是nginx的操作</h3></li>
+</ul>
+</li>
 </ul>
 <p><code>vi /etc/nginx/sites-enabled/default</code>  //进入文件</p>
 <p>只需要将 html 改成 blog 即可</p>
@@ -559,7 +561,7 @@ npm - v</code></pre><p>此时发现 node 和npm都安装好啦，并且是最新
 <hr>
 <p>参考链接：</p>
 <ol>
-<li>创建SSH KEY及查看SSH KEY</li>
+<li><a href="http://golife.top/2020/03/28/chuang-jian-ssh-key-ji-cha-kan-ssh-key/">创建SSH KEY及查看SSH KEY</a></li>
 <li>Linux 相关指令学习</li>
 <li><a href="https://github.com/blinkfox/hexo-theme-matery/blob/develop/README_CN.md" target="_blank" rel="noopener">hexo-theme-matery主题讲解</a></li>
 <li><a href="http://leon.cmylife.xyz/" target="_blank" rel="noopener">参考博客 ：学习进化史</a></li>
