@@ -399,7 +399,7 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    339
+                    338
                 </div>
                 
 
@@ -412,8 +412,11 @@
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h2 id="只适用于Mac和windows下的Git-Bash操作界面。"><a href="#只适用于Mac和windows下的Git-Bash操作界面。" class="headerlink" title="只适用于Mac和windows下的Git Bash操作界面。"></a>只适用于Mac和windows下的Git Bash操作界面。</h2><p><code>ssh-keygen -t rsa -C &quot;邮箱地址&quot;</code>  //执行成功后将会返回Generating public/private rsa key pair. <strong>直接按回车，冒号可以不用管</strong><br>这里的 <em>username</em> 是你电脑的名字</p>
-<h3 id="检查本地是否有SSH-Key存在"><a href="#检查本地是否有SSH-Key存在" class="headerlink" title="检查本地是否有SSH Key存在"></a>检查本地是否有SSH Key存在</h3><ul>
+                <blockquote>
+<p> 只适用于Mac和windows下的Git Bash操作界面。</p>
+</blockquote>
+<h2 id="检查本地是否有SSH-Key存在"><a href="#检查本地是否有SSH-Key存在" class="headerlink" title="检查本地是否有SSH Key存在"></a>检查本地是否有SSH Key存在</h2><p><code>ssh-keygen -t rsa -C &quot;邮箱地址&quot;</code>  //执行成功后将会返回Generating public/private rsa key pair. <strong>直接按回车，冒号可以不用管</strong><br>这里的 <em>username</em> 是你电脑的名字</p>
+<ul>
 <li><p>如果正常运行的话，会出现</p>
 <p>  Enter passphrase (empty for no passphrase):</p>
 <p>  然后我们直接回车</p>
@@ -423,7 +426,7 @@
 <p>  Overwrite (y/n)?  y</p>
 <p>  这说明你已经设置了存储地址，我们输入“y”覆盖</p>
 <p>  回车    </p>
-<h3 id="生成新的ssh"><a href="#生成新的ssh" class="headerlink" title="生成新的ssh"></a>生成新的ssh</h3></li>
+<h2 id="生成新的ssh"><a href="#生成新的ssh" class="headerlink" title="生成新的ssh"></a>生成新的ssh</h2></li>
 </ul>
 <p>上面的任意两种情况之后，会出现</p>
 <p>Enter same passphrase again: </p>
@@ -435,7 +438,7 @@
 <p>The key’s randomart image is:</p>
 <p>+–[ RSA 2048]—-+    (心形的图案)</p>
 <p>这说明SSH key就已经生成了。文件目录就是：/Users/username/.ssh/id_rsa</p>
-<h3 id="查看ssh"><a href="#查看ssh" class="headerlink" title="查看ssh"></a>查看ssh</h3><p>我们直接在git bash 里面执行指令，<br><code>cat c/User/username/.ssh/id_rsa.pub</code>   //<strong>这里的username 是你电脑的名字。</strong></p>
+<h2 id="查看ssh"><a href="#查看ssh" class="headerlink" title="查看ssh"></a>查看ssh</h2><p>我们直接在git bash 里面执行指令，<br><code>cat c/User/username/.ssh/id_rsa.pub</code>   //<strong>这里的username 是你电脑的名字。</strong></p>
 <p>接下来将会看到公钥ssh-rsa AAAAB3NzaC1yc2。。。。。。。。。</p>
 <p>后面的内容我省略了<br>(说明：ssh-rsa 后面的内容这就是你的SSH keys，复制ssh keys的时候要<em>全部复制</em>下来)</p>
 
@@ -685,7 +688,10 @@
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            只适用于Mac和windows下的Git Bash操作界面。ssh-keygen -t rsa -C &quot;邮箱地址&quot;  //执行成功后将会返回Generating public/private rsa key pair. 
+                            
+ 只适用于Mac和windows下的Git Bash操作界面。
+
+检查本地是否有SSH Key存在ssh-keygen -t rsa -C &quot;邮箱地址&quot;  //执行成功后将会返回Generating public/pr
                         
                     </div>
                     <div class="publish-info">
