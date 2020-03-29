@@ -399,7 +399,7 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    325
+                    326
                 </div>
                 
 
@@ -425,19 +425,22 @@
 <p>  /Users/your username/.ssh/id_rsa already exists.</p>
 <p>  Overwrite (y/n)?  y</p>
 <p>  这说明你已经设置了存储地址，我们输入“y”覆盖</p>
-<p>  回车 </p>
+<p>  回车</p>
 </li>
 </ul>
-<h2 id="生成新的ssh"><a href="#生成新的ssh" class="headerlink" title="生成新的ssh"></a>生成新的ssh</h2><p>上面的任意两种情况之后，会出现</p>
-<p>Enter same passphrase again: </p>
-<p>再次<strong>回车</strong>，这时候你会看见：</p>
-<p>Your identification has been saved in /Users/username/.ssh/id_rsa.</p>
-<p>Your public key has been saved in /Users/username/.ssh/id_rsa.pub.</p>
-<p>The key fingerprint is:</p>
-<p>16:27:ac:a5:76:28:2d:36:63:1b:56:4d:eb:df:a6:48 <a href="mailto:your_email@example.com">your_email@example.com</a></p>
-<p>The key’s randomart image is:</p>
-<p>+–[ RSA 2048]—-+    <em>(心形的图案)</em></p>
-<p>这说明SSH key就已经生成了。文件目录就是：/Users/username/.ssh/id_rsa</p>
+<h2 id="生成新的ssh"><a href="#生成新的ssh" class="headerlink" title="生成新的ssh"></a>生成新的ssh</h2><p>  上面的任意两种情况之后，会出现</p>
+<pre><code>Enter same passphrase again: </code></pre><p>再次<strong>回车</strong>，这时候你会看见：</p>
+<pre><code>Your identification has been saved in /Users/username/.ssh/id_rsa.
+
+Your public key has been saved in /Users/username/.ssh/id_rsa.pub.
+
+The key fingerprint is:
+
+16:27:ac:a5:76:28:2d:36:63:1b:56:4d:eb:df:a6:48 your_email@example.com
+
+The key&#39;s randomart image is:
+
++--[ RSA 2048]----+    *(心形的图案)*</code></pre><p>这说明SSH key就已经生成了。文件目录就是：/Users/username/.ssh/id_rsa</p>
 <h2 id="查看ssh"><a href="#查看ssh" class="headerlink" title="查看ssh"></a>查看ssh</h2><p><code>cat c/User/username/.ssh/id_rsa.pub</code>   //<strong>这里的username 是你电脑的名字。</strong></p>
 <p>接下来将会看到公钥ssh-rsa AAAAB3NzaC1yc2。。。。。。。。。</p>
 <p>后面的内容我省略了<br>(说明：ssh-rsa 后面的内容这就是你的SSH keys，复制ssh keys的时候要<em>全部复制</em>下来)</p>
