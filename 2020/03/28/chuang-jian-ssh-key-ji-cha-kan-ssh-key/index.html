@@ -425,10 +425,10 @@
 <p>  /Users/your username/.ssh/id_rsa already exists.</p>
 <p>  Overwrite (y/n)?  y</p>
 <p>  这说明你已经设置了存储地址，我们输入“y”覆盖</p>
-<p>  回车    </p>
-<h2 id="生成新的ssh"><a href="#生成新的ssh" class="headerlink" title="生成新的ssh"></a>生成新的ssh</h2></li>
+<p>  回车 </p>
+</li>
 </ul>
-<p>上面的任意两种情况之后，会出现</p>
+<h2 id="生成新的ssh"><a href="#生成新的ssh" class="headerlink" title="生成新的ssh"></a>生成新的ssh</h2><p>上面的任意两种情况之后，会出现</p>
 <p>Enter same passphrase again: </p>
 <p>再次<strong>回车</strong>，这时候你会看见：</p>
 <p>Your identification has been saved in /Users/username/.ssh/id_rsa.</p>
@@ -871,7 +871,7 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
             contentSelector: '#articleContent',
             headingsOffset: -($(window).height() * 0.4 - 45),
             collapseDepth: Number('0'),
-            headingSelector: 'h2, h3, h4'
+            headingSelector: 'h2, h3, h4，h5, h6, h7'
         });
 
         // modify the toc link href to support Chinese.
@@ -883,7 +883,7 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
 
         // modify the heading title id to support Chinese.
         i = 0;
-        $('#articleContent').children('h2, h3, h4').each(function () {
+        $('#articleContent').children('h2, h3, h4，h5, h6, h7').each(function () {
             $(this).attr('id', tocHeading + (++i));
         });
 
@@ -1004,7 +1004,7 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">3k</span>&nbsp;字
+                class="white-color">3.1k</span>&nbsp;字
             
             
             
