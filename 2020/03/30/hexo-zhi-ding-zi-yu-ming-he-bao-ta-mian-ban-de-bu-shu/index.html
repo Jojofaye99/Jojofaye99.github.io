@@ -468,7 +468,7 @@ sudo service nginx restart  #重启nginx</code></pre><blockquote>
 </li>
 <li><p>安装完成后 ，会自动提示我们修改宝塔面板的端口，因为原始的8888 端口不安全。修改建议端口范围8888 - 65535。<strong>注意：有安全组的服务器请提前在安全组放行新端口</strong> 打开阿里云服务器管理控制台 -&gt; 点击左侧安全组 -&gt; 点击右侧的配置规则 -&gt; 点击添加安全组规则</p>
 </li>
-<li><p>修改原始用户名密码和宝塔面板的域名。（ps：修改域名的时候一定要记得去域名解析那里添加A记录，还有宝塔面板的安全入口也一定要重视，否则仅仅通过域名是打不开宝塔面板的，后面会有问题参考的）<br><img src="https://i.loli.net/2020/03/31/rSIOXRvCotnY1sL.png" alt="解析ip"></p>
+<li><p>修改原始用户名密码和宝塔面板的域名。（ps：修改域名的时候一定要记得去域名解析那里添加A记录，还有宝塔面板的安全入口也一定要重视，否则仅仅通过域名是打不开宝塔面板的，这里出现问题也不要怕，后面会有问题参考的）<br><img src="https://i.loli.net/2020/03/31/rSIOXRvCotnY1sL.png" alt="解析ip"></p>
 </li>
 </ul>
 <h3 id="4-宝塔面板的探索"><a href="#4-宝塔面板的探索" class="headerlink" title="4. 宝塔面板的探索"></a>4. 宝塔面板的探索</h3><p>在安装相应的插件、修改好端口之后，你可以自由得探索宝塔面板了，毕竟来到新环境，还是非常陌生的。</p>
@@ -487,7 +487,7 @@ sudo service nginx restart  #重启nginx</code></pre><blockquote>
 <ul>
 <li><strong>如果你已经在宝塔面板里面添加过了这个站点</strong><br>不需要删除重建，你也可以直接修改配置文件，将文件指向你博客的根目录即可。<img src="https://i.loli.net/2020/03/31/dBtGvCpKQ52SXiY.png" alt="修改后的配置文件"></li>
 </ul>
-<h2 id="问题参考："><a href="#问题参考：" class="headerlink" title="问题参考："></a>问题参考：</h2><p>修改好了宝塔面板的域名后，想通过域名直接进入面板，但出现如下的错误。<img src="https://i.loli.net/2020/03/31/HFEsaRW4YweUVL7.png" alt="登录错误.png"><br>这是因为你安全入口的8字符没有加上哦。</p>
+<h2 id="问题参考"><a href="#问题参考" class="headerlink" title="问题参考"></a>问题参考</h2><p>修改好了宝塔面板的域名后，想通过域名直接进入面板，但出现如下的错误。<img src="https://i.loli.net/2020/03/31/HFEsaRW4YweUVL7.png" alt="登录错误.png"><br>这是因为你安全入口的8字符没有加上哦。</p>
 <p>解决方法：直接在服务器上的 敲</p>
 <p>/etc/init.d/bt default</p>
 <p>就可以看到面板的正确网址啦！</p>
