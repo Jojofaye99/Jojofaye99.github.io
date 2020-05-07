@@ -4,6 +4,31 @@
   
     
     <entry>
+      <title>Linux Crontab 定时任务</title>
+      <link href="/2020/05/07/linux-crontab-ding-shi-ren-wu/"/>
+      <url>/2020/05/07/linux-crontab-ding-shi-ren-wu/</url>
+      
+        <content type="html"><![CDATA[<h2 id="Crontab命令介绍"><a href="#Crontab命令介绍" class="headerlink" title="Crontab命令介绍"></a>Crontab命令介绍</h2><p>Linux Crontab是用来定期执行程序的命令。</p><p>Linux内置的Crontab进程能帮我们实现这些需求，Crontab搭配<strong>shell脚本</strong>，非常复杂的指令也没有问题。</p><p>用Crontab 做一个定时命令，比如每天自动签到等等。。</p><p><img src="https://ss2.bdstatic.com/70cFvnSh_Q1YnxGkpoWK1HF6hhy/it/u=1377028624,1913731558&fm=26&gp=0.jpg" alt=""></p><p><img src="https://i.loli.net/2020/05/07/d7p8lnhqORBPtUM.png" alt="crontab"></p><h2 id="Crontab相关指令"><a href="#Crontab相关指令" class="headerlink" title="Crontab相关指令"></a>Crontab相关指令</h2><p><code>vim /etc/crontab</code> </p><p><code>crontab -l</code>  查看正在定时执行的脚本        </p><pre><code>/etc/init.d/cron crond start       //启动服务/etc/init.d/cron stop              //关闭服务/etc/init.d/cron restart           //重启服务/etc/init.d/cron reload            //重新载入配置</code></pre><h2 id="实例"><a href="#实例" class="headerlink" title="实例"></a>实例</h2><ul><li><p>实例1：每1分钟执行一次myCommand</p><p>  <code>* * * * * myCommand</code></p></li><li><p>实例2：每小时的第3和第15分钟执行</p><p>  <code>3,15 * * * * myCommand</code></p></li><li><p>实例3：在上午8点到11点的第3和第15分钟执行</p><p>  <code>3,15 8-11 * * * myCommand</code></p></li><li><p>实例4：每隔两天的上午8点到11点的第3和第15分钟执行</p><p>  <code>3,15 8-11 */2  *  * myCommand</code></p></li><li><p>实例5：每周一上午8点到11点的第3和第15分钟执行</p><p>  <code>3,15 8-11 * * 1 myCommand</code></p></li><li><p>实例6：每晚的21:30重启smb</p><p>  <code>30 21 * * * /etc/init.d/smb restart</code></p></li><li><p>实例7：每月1、10、22日的4 : 45重启smb</p><p>  <code>45 4 1,10,22 * * /etc/init.d/smb restart</code></p></li><li><p>实例8：每周六、周日的1 : 10重启smb</p><p>  <code>10 1 * * 6,0 /etc/init.d/smb restart</code></p></li><li><p>实例9：每天18 : 00至23 : 00之间每隔30分钟重启smb</p><p>  <code>0,30 18-23 * * * /etc/init.d/smb restart</code></p></li><li><p>实例10：每星期六的晚上11 : 00 pm重启smb</p><p>  <code>0 23 * * 6 /etc/init.d/smb restart</code></p></li><li><p>实例11：每一小时重启smb</p><p>  <code>* */1 * * * /etc/init.d/smb restart</code></p></li><li><p>实例12：晚上11点到早上7点之间，每隔一小时重启smb</p><p>  <code>* 23-7/1 * * * /etc/init.d/smb restart</code></p></li></ul><hr><p>参考链接 ：<a href="https://www.runoob.com/linux/linux-comm-crontab.html" target="_blank" rel="noopener">菜鸟教程</a></p>]]></content>
+      
+      
+      <categories>
+          
+          <category> ECS </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Linux </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>Hexo指定域名和宝塔面板的部署</title>
       <link href="/2020/03/30/hexo-zhi-ding-zi-yu-ming-he-bao-ta-mian-ban-de-bu-shu/"/>
       <url>/2020/03/30/hexo-zhi-ding-zi-yu-ming-he-bao-ta-mian-ban-de-bu-shu/</url>
@@ -97,9 +122,9 @@
       
         <tags>
             
-            <tag> Hexo </tag>
-            
             <tag> Markdown </tag>
+            
+            <tag> Hexo </tag>
             
         </tags>
       
