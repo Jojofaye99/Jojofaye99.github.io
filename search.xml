@@ -4,6 +4,31 @@
   
     
     <entry>
+      <title>C语言 正序分解整数</title>
+      <link href="/2020/05/25/c-yu-yan-zheng-xu-fen-jie-zheng-shu/"/>
+      <url>/2020/05/25/c-yu-yan-zheng-xu-fen-jie-zheng-shu/</url>
+      
+        <content type="html"><![CDATA[<h2 id="C语言-正序分解整数"><a href="#C语言-正序分解整数" class="headerlink" title="C语言 正序分解整数"></a>C语言 正序分解整数</h2><ul><li><p>输入一个非负整数 ， 正序输出它的每一位数字</p></li><li><p>输入 13526</p></li><li><p>输出 1 3 5 2 6</p><p><strong>分析思路：</strong><br>需要正序输出每一位数字 ，我们可以先把数逆序一遍，再逆序输出每一位数字。<br>这种方法看上去更加简单 ，但是当我们验证10 的倍数（比如 700）的时候，<br>输出的是 7 而不是    7 0 0。</p><pre><code># include&lt;stdio.h&gt;</code></pre></li></ul><p>int main()<br>{<br>    int num,num1,a;<br>    int ret = 0;<br>    scanf(“%d”, &amp;num);</p><pre><code>while (num &gt; 0) {    num1 = num % 10 ;    num /= 10;    ret = ret * 10 + num1 ;    // ret 是逆过来的整数。}while (ret &gt; 0){    a = ret % 10;    ret /= 10;    printf(&quot;%d&quot;,a);    if (ret &gt;= 1){        printf(&quot; &quot;);    }}return 0;</code></pre><p>}</p><pre><code>因此 ，加以改进。**分析思路：** 输入数 352， 这个数除以 100得到 3，再对100 取余得到52 ，52 再除以 10得到5 ，再对10 取余得到2 ，2再除以1得到2，对1取余得到 0。当余数为 0 时，程序结束。输入其他的数 ，也是同样的道理。</code></pre><h1 id="include-lt-stdio-h-gt"><a href="#include-lt-stdio-h-gt" class="headerlink" title="include&lt;stdio.h&gt;"></a>include&lt;stdio.h&gt;</h1><p>int main()<br>{<br>    int num, num1;<br>    int first = 1;</p><pre><code>scanf(&quot;%d&quot;, &amp;num);int t = num;    while (num &gt;= 10){    num /= 10;    first *= 10 ;}               // first 是 根据输入的数得到的10的倍数。while (first &gt;= 1) {    num1 = t / first;    t %= first;    first /= 10;    printf(&quot;%d&quot;,num1);    if (first &gt;= 1){        printf(&quot; &quot;);    }              // 这个if是防止输出的最后一位还存有空格。}return 0;</code></pre><p>}</p><pre><code></code></pre>]]></content>
+      
+      
+      <categories>
+          
+          <category> C语言 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> c语言题目 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>Linux Crontab 定时任务</title>
       <link href="/2020/05/07/linux-crontab-ding-shi-ren-wu/"/>
       <url>/2020/05/07/linux-crontab-ding-shi-ren-wu/</url>

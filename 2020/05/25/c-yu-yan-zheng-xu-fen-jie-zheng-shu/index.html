@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="Hexo 书写入门指南, 造梦空间">
+    <meta name="keywords" content="C语言 正序分解整数, 造梦空间">
     <meta name="description" content="">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -16,7 +16,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>Hexo 书写入门指南 | 造梦空间</title>
+    <title>C语言 正序分解整数 | 造梦空间</title>
     <link rel="icon" type="image/png" href="/hfavicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -243,12 +243,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/6.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/9.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">Hexo 书写入门指南</h1>
+                    <h1 class="description center-align post-title">C语言 正序分解整数</h1>
                 </div>
             </div>
         </div>
@@ -365,12 +365,8 @@
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/Markdown/">
-                                <span class="chip bg-color">Markdown</span>
-                            </a>
-                        
-                            <a href="/tags/Hexo/">
-                                <span class="chip bg-color">Hexo</span>
+                            <a href="/tags/c%E8%AF%AD%E8%A8%80%E9%A2%98%E7%9B%AE/">
+                                <span class="chip bg-color">c语言题目</span>
                             </a>
                         
                     </div>
@@ -381,8 +377,8 @@
                     <div class="post-cate">
                         <i class="fas fa-bookmark fa-fw icon-category"></i>
                         
-                            <a href="/categories/blog/" class="post-category">
-                                blog
+                            <a href="/categories/C%E8%AF%AD%E8%A8%80/" class="post-category">
+                                C语言
                             </a>
                         
                     </div>
@@ -394,7 +390,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2020-03-26
+                    2020-05-25
                 </div>
                 
 
@@ -403,7 +399,7 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    551
+                    345
                 </div>
                 
 
@@ -416,62 +412,57 @@
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h1 id="使用-Markdown-去写-hexo"><a href="#使用-Markdown-去写-hexo" class="headerlink" title="使用 Markdown 去写 hexo"></a>使用 Markdown 去写 hexo</h1><ul>
-<li>使用 Typora 来编辑文件更加方便，Typora 编辑器来讲解 Markdown 的语法，Typora 支持 MacOS 、Windows、Linux 平台，且包含多种主题，编辑后直接渲染出效果。点击<a href="https://typora.io/" target="_blank" rel="noopener">这里</a>即可下载。</li>
-<li>也可以用vs code 进行编写，点击<a href="https://code.visualstudio.com/" target="_blank" rel="noopener">这里</a>g官网下载，建议在vs code里面下载 Markdown Preview Enhanced ，这是是一个很好用的完善预览功能的插件，可以更加形象的展示所编写的pdf格式的文档样式。</li>
+                <h2 id="C语言-正序分解整数"><a href="#C语言-正序分解整数" class="headerlink" title="C语言 正序分解整数"></a>C语言 正序分解整数</h2><ul>
+<li><p>输入一个非负整数 ， 正序输出它的每一位数字</p>
+</li>
+<li><p>输入 13526</p>
+</li>
+<li><p>输出 1 3 5 2 6</p>
+<p><strong>分析思路：</strong><br>需要正序输出每一位数字 ，我们可以先把数逆序一遍，再逆序输出每一位数字。<br>这种方法看上去更加简单 ，但是当我们验证10 的倍数（比如 700）的时候，<br>输出的是 7 而不是    7 0 0。</p>
+<pre><code># include&lt;stdio.h&gt;
+</code></pre></li>
 </ul>
-<h1 id="Markdown-的基本使用"><a href="#Markdown-的基本使用" class="headerlink" title="Markdown 的基本使用"></a>Markdown 的基本使用</h1><h2 id="标题"><a href="#标题" class="headerlink" title="标题"></a>标题</h2><p>建议在 # 号后加一个空格，这是 Markdown 的基本语法</p>
-<pre><code>#  一级标题
-## 二级标题
-### 三级标题 </code></pre><h2 id="列表"><a href="#列表" class="headerlink" title="列表"></a>列表</h2><p>列表的显示只需要在文字前加上 - 或 * 即可变为无序列表，有序列表则直接在文字前加 1. 2. 3.  符号要和文字之间加上一个字符的空格。</p>
-<pre><code>- 列表1
-- 列表2</code></pre><h2 id="插入代码"><a href="#插入代码" class="headerlink" title="插入代码"></a>插入代码</h2><p> `  这是tab键上面那个符号</p>
-<pre><code>- 插入代码行    
-在两个 ` 中间插入代码行
+<p>int main()<br>{<br>    int num,num1,a;<br>    int ret = 0;<br>    scanf(“%d”, &amp;num);</p>
+<pre><code>while (num &gt; 0) {
+    num1 = num % 10 ;
+    num /= 10;
+    ret = ret * 10 + num1 ;    // ret 是逆过来的整数。
+}
 
-- 插入代码框    
-在六个 ` 插入代码框&lt;``````&gt; 
+while (ret &gt; 0){
+    a = ret % 10;
+    ret /= 10;
+    printf(&quot;%d&quot;,a);
+    if (ret &gt;= 1){
+        printf(&quot; &quot;);
+    }
+}
 
+return 0;</code></pre><p>}</p>
+<pre><code>
+因此 ，加以改进。
 
-`code` //代码行
+**分析思路：** 输入数 352， 这个数除以 100得到 3，再对100 取余得到52 ，52 再除以 10得到5 ，再对10 取余得到2 ，2再除以1得到2，对1取余得到 0。当余数为 0 时，程序结束。
+输入其他的数 ，也是同样的道理。</code></pre><h1 id="include-lt-stdio-h-gt"><a href="#include-lt-stdio-h-gt" class="headerlink" title="include&lt;stdio.h&gt;"></a>include&lt;stdio.h&gt;</h1><p>int main()<br>{<br>    int num, num1;<br>    int first = 1;</p>
+<pre><code>scanf(&quot;%d&quot;, &amp;num);
+int t = num;    
+while (num &gt;= 10){
+    num /= 10;
+    first *= 10 ;
+}               // first 是 根据输入的数得到的10的倍数。
 
-```
-&lt;html&gt;&lt;html&gt;
-code
-```     // 代码框</code></pre><h2 id="插入图片与链接"><a href="#插入图片与链接" class="headerlink" title="插入图片与链接"></a>插入图片与链接</h2><p>括号里面填图片或者链接的所处路径。</p>
-<pre><code>图片为：![]()
-链接为： []()</code></pre><h2 id="粗体与斜体"><a href="#粗体与斜体" class="headerlink" title="粗体与斜体"></a>粗体与斜体</h2><p>粗体和斜体也非常简单，用两个 * 包含一段文本就是粗体的语法，用一个 * 包含一段文本就是斜体的语法。</p>
-<h2 id="引用"><a href="#引用" class="headerlink" title="引用"></a>引用</h2><p>只需要在文本前加入 &gt; 这种尖括号（大于号）即可<br>eg: &gt; 你好</p>
-<h2 id="表格"><a href="#表格" class="headerlink" title="表格"></a>表格</h2><p>表格是我觉得 Markdown 比较累人的地方，例子如下：</p>
-<p><img src="https://i.loli.net/2020/03/26/1nvIk24fbaLiqUM.png" alt="表格"></p>
-<table>
-<thead>
-<tr>
-<th>A</th>
-<th align="center">B</th>
-<th align="right">总计</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>1</td>
-<td align="center">1</td>
-<td align="right">2</td>
-</tr>
-<tr>
-<td>2</td>
-<td align="center">2</td>
-<td align="right">4</td>
-</tr>
-</tbody></table>
-<h2 id="分割线"><a href="#分割线" class="headerlink" title="分割线"></a>分割线</h2><p>分割线的语法只需要三个 * 号</p>
-<h2 id="脚注"><a href="#脚注" class="headerlink" title="脚注"></a>脚注</h2><p>文字内容[^1]</p>
-<p>在文章末尾[^1]:脚注说明文字</p>
-<p>注：1可以为任意数字或文字或单词，但文章末尾[^]中内容与文中应保持一致。</p>
-<h2 id="其他补充"><a href="#其他补充" class="headerlink" title="其他补充"></a>其他补充</h2><p>Markdown中的转义字符为\，若不想使符号变成文字的格式等，在符号前加\。</p>
-<blockquote>
-<p>至此，markdown的基本使用方法就写到这里，只要多加运用，写Hexo应该是行云流水了吧！</p>
-</blockquote>
+while (first &gt;= 1) {
+    num1 = t / first;
+    t %= first;
+    first /= 10;
+    printf(&quot;%d&quot;,num1);
+    if (first &gt;= 1){
+        printf(&quot; &quot;);
+    }              // 这个if是防止输出的最后一位还存有空格。
+}
 
+return 0;</code></pre><p>}</p>
+<pre><code></code></pre>
             </div>
             <hr/>
 
@@ -496,7 +487,7 @@ code
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="http://golife.top/2020/03/26/hexo-shu-xie-ru-men-zhi-nan/">http://golife.top/2020/03/26/hexo-shu-xie-ru-men-zhi-nan/</a>
+                    <a href="http://golife.top/2020/05/25/c-yu-yan-zheng-xu-fen-jie-zheng-shu/">http://golife.top/2020/05/25/c-yu-yan-zheng-xu-fen-jie-zheng-shu/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -534,12 +525,8 @@ code
                     
                         <div class="article-tag">
                             
-                                <a href="/tags/Markdown/">
-                                    <span class="chip bg-color">Markdown</span>
-                                </a>
-                            
-                                <a href="/tags/Hexo/">
-                                    <span class="chip bg-color">Hexo</span>
+                                <a href="/tags/c%E8%AF%AD%E8%A8%80%E9%A2%98%E7%9B%AE/">
+                                    <span class="chip bg-color">c语言题目</span>
                                 </a>
                             
                         </div>
@@ -705,29 +692,88 @@ code
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="far fa-dot-circle"></i>&nbsp;本篇
+            </div>
             <div class="card">
-                <a href="/2020/03/28/wo-de-hexo-tang-keng-zhi-lu/">
+                <a href="/2020/05/25/c-yu-yan-zheng-xu-fen-jie-zheng-shu/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/11.jpg" class="responsive-img" alt="我的Hexo 趟坑之旅">
+                        <img src="/medias/featureimages/9.jpg" class="responsive-img" alt="C语言 正序分解整数">
                         
-                        <span class="card-title">我的Hexo 趟坑之旅</span>
+                        <span class="card-title">C语言 正序分解整数</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            从零搭建Hexo博客并部署阿里云服务器（无坑化教学）前言   前些天在阿里云买了个云主机，顺便买了个域名，就开始学着搭博客了，对比几个高大上的博客 （ Wordpress 、 z-blog） ，最终还是选择使用 Hexo 来作为自己的博客框
+                            C语言 正序分解整数
+输入一个非负整数 ， 正序输出它的每一位数字
+
+输入 13526
+
+输出 1 3 5 2 6
+分析思路：需要正序输出每一位数字 ，我们可以先把数逆序一遍，再逆序输出每一位数字。这种方法看上去更加简单 ，但是当我们验证1
                         
                     </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2020-03-28
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2020-05-25
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/C%E8%AF%AD%E8%A8%80/" class="post-category">
+                                    C语言
+                                </a>
+                            
+                            
                         </span>
+                    </div>
+                </div>
+
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/c%E8%AF%AD%E8%A8%80%E9%A2%98%E7%9B%AE/">
+                        <span class="chip bg-color">c语言题目</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
+            </div>
+            <div class="card">
+                <a href="/2020/05/07/linux-crontab-ding-shi-ren-wu/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/7.jpg" class="responsive-img" alt="Linux Crontab 定时任务">
+                        
+                        <span class="card-title">Linux Crontab 定时任务</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            Crontab命令介绍Linux Crontab是用来定期执行程序的命令。
+Linux内置的Crontab进程能帮我们实现这些需求，Crontab搭配shell脚本，非常复杂的指令也没有问题。
+用Crontab 做一个定时命令，比如每天自动
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2020-05-07
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
@@ -743,61 +789,8 @@ code
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/Hexo/">
-                        <span class="chip bg-color">Hexo</span>
-                    </a>
-                    
-                    <a href="/tags/blog/">
-                        <span class="chip bg-color">blog</span>
-                    </a>
-                    
-                </div>
-                
-            </div>
-        </div>
-        
-        
-        <div class="article col s12 m6" data-aos="fade-up">
-            <div class="article-badge right-badge text-color">
-                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
-            </div>
-            <div class="card">
-                <a href="/2020/03/25/hello-world/">
-                    <div class="card-image">
-                        
-                        
-                        <img src="/medias/featureimages/12.jpg" class="responsive-img" alt="Hello World">
-                        
-                        <span class="card-title">Hello World</span>
-                    </div>
-                </a>
-                <div class="card-content article-content">
-                    <div class="summary block-with-text">
-                        
-                            Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hex
-                        
-                    </div>
-                    <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2020-03-25
-                            </span>
-                        <span class="publish-author">
-                            
-                            <i class="fas fa-bookmark fa-fw icon-category"></i>
-                            
-                            <a href="/categories/blog/" class="post-category">
-                                    blog
-                                </a>
-                            
-                            
-                        </span>
-                    </div>
-                </div>
-                
-                <div class="card-action article-tags">
-                    
-                    <a href="/tags/Hexo/">
-                        <span class="chip bg-color">Hexo</span>
+                    <a href="/tags/Linux/">
+                        <span class="chip bg-color">Linux</span>
                     </a>
                     
                 </div>
