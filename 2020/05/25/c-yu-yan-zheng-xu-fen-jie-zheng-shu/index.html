@@ -446,7 +446,7 @@ int main()
 
     return 0;
 }</code></pre><p>因此 ，加以改进。</p>
-<p><strong>分析思路：</strong> 输入数 352， 这个数除以 100得到 3，再对100 取余得到52 ，52 再除以 10得到5 ，再对10 取余得到2 ，2再除以1得到2，对1取余得到 0。当余数为 0 时，程序结束。<br>输入其他的数 ，也是同样的道理。</p>
+<p> <strong>分析思路：</strong> 输入数 352， 这个数除以 100得到 3，再对100 取余得到52 ，52 再除以 10得到5 ，再对10 取余得到2 ，2再除以1得到2，对1取余得到 0。当余数为 0 时，程序结束。<br> 输入其他的数 ，也是同样的道理。</p>
 <pre><code># include&lt;stdio.h&gt;
 
 int main()
@@ -456,7 +456,7 @@ int main()
 
     scanf(&quot;%d&quot;, &amp;num);
     int t = num;    
-    while (num &gt;= 10){
+    while (num &gt;= 10) {
         num /= 10;
         first *= 10 ;
     }               // first 是 根据输入的数得到的10的倍数。
@@ -466,7 +466,7 @@ int main()
         t %= first;
         first /= 10;
         printf(&quot;%d&quot;,num1);
-        if (first &gt;= 1){
+        if (first &gt;= 1) {
             printf(&quot; &quot;);
         }              // 这个if是防止输出的最后一位还存有空格。
     }
@@ -702,36 +702,36 @@ int main()
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="far fa-dot-circle"></i>&nbsp;本篇
-            </div>
+                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
-                <a href="/2020/05/25/c-yu-yan-zheng-xu-fen-jie-zheng-shu/">
+                <a href="/2020/06/08/c-yu-yan-su-shu/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/9.jpg" class="responsive-img" alt="C语言 正序分解整数">
+                        <img src="/medias/featureimages/17.jpg" class="responsive-img" alt="C语言 素数专题">
                         
-                        <span class="card-title">C语言 正序分解整数</span>
+                        <span class="card-title">C语言 素数专题</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            C语言 正序分解整数
-输入一个非负整数 ， 正序输出它的每一位数字
+                            C语言素数专题判断该数是否是素数# include&lt;stdio.h&gt;
+# include&lt;math.h&gt;
 
-输入 13526
-
-输出 1 3 5 2 6
-分析思路：需要正序输出每一位数字 ，我们可以先把数逆序一遍，再逆序输出每一位数字。这种方法看上去更加简单 ，但是当我们验证1
+int prime(int x );
+int main()
+{
+    int x;
+    scanf (
                         
                     </div>
                     <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2020-05-25
-                            </span>
+                        <span class="publish-date">
+                            <i class="far fa-clock fa-fw icon-date"></i>2020-06-08
+                        </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
@@ -744,7 +744,6 @@ int main()
                         </span>
                     </div>
                 </div>
-
                 
                 <div class="card-action article-tags">
                     
@@ -1036,7 +1035,7 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">5.7k</span>&nbsp;字
+                class="white-color">6k</span>&nbsp;字
             
             
             

@@ -4,11 +4,36 @@
   
     
     <entry>
+      <title>C语言 素数专题</title>
+      <link href="/2020/06/08/c-yu-yan-su-shu/"/>
+      <url>/2020/06/08/c-yu-yan-su-shu/</url>
+      
+        <content type="html"><![CDATA[<h1 id="C语言素数专题"><a href="#C语言素数专题" class="headerlink" title="C语言素数专题"></a>C语言素数专题</h1><h3 id="判断该数是否是素数"><a href="#判断该数是否是素数" class="headerlink" title="判断该数是否是素数"></a>判断该数是否是素数</h3><pre><code># include&lt;stdio.h&gt;# include&lt;math.h&gt;int prime(int x );int main(){    int x;    scanf (&quot;%d&quot;,&amp;x);    if ( prime(x) )         printf(&quot;这个数是素数\n&quot;);     else         printf(&quot;这个数不是素数\n&quot;);    return 0;}int prime(int x){    int ret = 1;    int i;    if (x == 0 || x % 2 == 0 ) {        ret = 0;    }    for (i = 3; i &lt;= sqrt(x); i +=2) {        if (x % i == 0) {            ret = 0;            break;        }    }    return ret;}</code></pre><h3 id="输出前50个素数"><a href="#输出前50个素数" class="headerlink" title="输出前50个素数"></a>输出前50个素数</h3><pre><code>// 前 50 个素数# include&lt;stdio.h&gt;int isprime (int x);int main(){    int cnt = 0;    int x = 2;    int i;    for (x = 2; cnt &lt; 50; x ++) {        if (isprime (x)) {            cnt ++;            printf(&quot;%d\t&quot;,x);            if (cnt % 5 ==0 ) {                printf(&quot;\n&quot;);            }        }    }    return 0;}int isprime (int x) {    int ret = 1;    int i;    for (i = 2; i &lt; x; i ++) {        if (x % i == 0) {            ret = 0;            break;        }    }    return ret ;}</code></pre><h3 id="统计区间内所有素数的总和（a-lt-x-lt-b）"><a href="#统计区间内所有素数的总和（a-lt-x-lt-b）" class="headerlink" title="统计区间内所有素数的总和（a&lt;= x &lt;= b）"></a>统计区间内所有素数的总和（a&lt;= x &lt;= b）</h3><pre><code># include&lt;stdio.h&gt;int isprime (int x);int main(){    int a, b, x;    scanf (&quot;%d %d&quot;,&amp;a,&amp;b);    if (a == 1) {        a = 2;    }    int sum = 0;    int cnt = 0;    for (x = a; x &lt;= b; x ++) {        if ( isprime(x) ) {            cnt ++;            sum += x;        }    }    printf(&quot;%d  %d&quot;,cnt, sum);    system (&quot;pause&quot;);    return 0;}int isprime (int x){    int ret = 1;    int i;    for (i = 2; i &lt; x; i ++) {        if (x % i == 0) {            ret = 0 ;            break;        }    }    return ret;}</code></pre>]]></content>
+      
+      
+      <categories>
+          
+          <category> C语言 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> c语言题目 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>C语言 正序分解整数</title>
       <link href="/2020/05/25/c-yu-yan-zheng-xu-fen-jie-zheng-shu/"/>
       <url>/2020/05/25/c-yu-yan-zheng-xu-fen-jie-zheng-shu/</url>
       
-        <content type="html"><![CDATA[<h2 id="C语言-正序分解整数"><a href="#C语言-正序分解整数" class="headerlink" title="C语言 正序分解整数"></a>C语言 正序分解整数</h2><ul><li><p>输入一个非负整数 ， 正序输出它的每一位数字</p></li><li><p>输入 13526</p></li><li><p>输出 1 3 5 2 6</p><p><strong>分析思路：</strong><br>需要正序输出每一位数字 ，我们可以先把数逆序一遍，再逆序输出每一位数字。<br>这种方法看上去更加简单 ，但是当我们验证10 的倍数（比如 700）的时候，<br>输出的是 7 而不是    7 0 0。</p></li></ul><pre><code># include&lt;stdio.h&gt;int main(){       int num,num1,a;    int ret = 0;    scanf(&quot;%d&quot;, &amp;num);    while (num &gt; 0) {        num1 = num % 10 ;        num /= 10;        ret = ret * 10 + num1 ;    // ret 是逆过来的整数。    }    while (ret &gt; 0){        a = ret % 10;        ret /= 10;        printf(&quot;%d&quot;,a);        if (ret &gt;= 1){            printf(&quot; &quot;);        }    }    return 0;}</code></pre><p>因此 ，加以改进。</p><p><strong>分析思路：</strong> 输入数 352， 这个数除以 100得到 3，再对100 取余得到52 ，52 再除以 10得到5 ，再对10 取余得到2 ，2再除以1得到2，对1取余得到 0。当余数为 0 时，程序结束。<br>输入其他的数 ，也是同样的道理。</p><pre><code># include&lt;stdio.h&gt;int main(){       int num, num1;    int first = 1;    scanf(&quot;%d&quot;, &amp;num);    int t = num;        while (num &gt;= 10){        num /= 10;        first *= 10 ;    }               // first 是 根据输入的数得到的10的倍数。    while (first &gt;= 1) {        num1 = t / first;        t %= first;        first /= 10;        printf(&quot;%d&quot;,num1);        if (first &gt;= 1){            printf(&quot; &quot;);        }              // 这个if是防止输出的最后一位还存有空格。    }    return 0;}</code></pre>]]></content>
+        <content type="html"><![CDATA[<h2 id="C语言-正序分解整数"><a href="#C语言-正序分解整数" class="headerlink" title="C语言 正序分解整数"></a>C语言 正序分解整数</h2><ul><li><p>输入一个非负整数 ， 正序输出它的每一位数字</p></li><li><p>输入 13526</p></li><li><p>输出 1 3 5 2 6</p><p><strong>分析思路：</strong><br>需要正序输出每一位数字 ，我们可以先把数逆序一遍，再逆序输出每一位数字。<br>这种方法看上去更加简单 ，但是当我们验证10 的倍数（比如 700）的时候，<br>输出的是 7 而不是    7 0 0。</p></li></ul><pre><code># include&lt;stdio.h&gt;int main(){       int num,num1,a;    int ret = 0;    scanf(&quot;%d&quot;, &amp;num);    while (num &gt; 0) {        num1 = num % 10 ;        num /= 10;        ret = ret * 10 + num1 ;    // ret 是逆过来的整数。    }    while (ret &gt; 0){        a = ret % 10;        ret /= 10;        printf(&quot;%d&quot;,a);        if (ret &gt;= 1){            printf(&quot; &quot;);        }    }    return 0;}</code></pre><p>因此 ，加以改进。</p><p> <strong>分析思路：</strong> 输入数 352， 这个数除以 100得到 3，再对100 取余得到52 ，52 再除以 10得到5 ，再对10 取余得到2 ，2再除以1得到2，对1取余得到 0。当余数为 0 时，程序结束。<br> 输入其他的数 ，也是同样的道理。</p><pre><code># include&lt;stdio.h&gt;int main(){       int num, num1;    int first = 1;    scanf(&quot;%d&quot;, &amp;num);    int t = num;        while (num &gt;= 10) {        num /= 10;        first *= 10 ;    }               // first 是 根据输入的数得到的10的倍数。    while (first &gt;= 1) {        num1 = t / first;        t %= first;        first /= 10;        printf(&quot;%d&quot;,num1);        if (first &gt;= 1) {            printf(&quot; &quot;);        }              // 这个if是防止输出的最后一位还存有空格。    }    return 0;}</code></pre>]]></content>
       
       
       <categories>
@@ -54,6 +79,58 @@
     
     
     <entry>
+      <title>创建SSH KEY及查看SSH KEY</title>
+      <link href="/2020/04/10/chuang-jian-ssh-key-ji-cha-kan-ssh-key/"/>
+      <url>/2020/04/10/chuang-jian-ssh-key-ji-cha-kan-ssh-key/</url>
+      
+        <content type="html"><![CDATA[<blockquote><p> 只适用于Mac和windows下的Git Bash操作界面。</p></blockquote><h2 id="检查本地是否有SSH-Key存在"><a href="#检查本地是否有SSH-Key存在" class="headerlink" title="检查本地是否有SSH Key存在"></a>检查本地是否有SSH Key存在</h2><p><code>ssh-keygen -t rsa -C &quot;邮箱地址&quot;</code>  //执行成功后将会返回Generating public/private rsa key pair. <strong>直接按回车，冒号可以不用管</strong><br>这里的 <em>username</em> 是你电脑的名字</p><ul><li><p>如果正常运行的话，会出现</p><p>  Enter passphrase (empty for no passphrase):</p><p>  然后我们直接回车</p></li><li><p>有的时候我们可能会出现</p><p>  /Users/your username/.ssh/id_rsa already exists.</p><p>  Overwrite (y/n)?  y</p><p>  这说明你已经设置了存储地址，我们输入“y”覆盖</p><p>  回车</p></li></ul><h2 id="生成新的ssh"><a href="#生成新的ssh" class="headerlink" title="生成新的ssh"></a>生成新的ssh</h2><p>  上面的任意两种情况之后，会出现</p><pre><code>Enter same passphrase again: </code></pre><p>再次<strong>回车</strong>，这时候你会看见：</p><pre><code>Your identification has been saved in /Users/username/.ssh/id_rsa.Your public key has been saved in /Users/username/.ssh/id_rsa.pub.The key fingerprint is:16:27:ac:a5:76:28:2d:36:63:1b:56:4d:eb:df:a6:48 your_email@example.comThe key&#39;s randomart image is:+--[ RSA 2048]----+    *(心形的图案)*</code></pre><p>这说明SSH key就已经生成了。文件目录就是：/Users/username/.ssh/id_rsa</p><h2 id="查看ssh"><a href="#查看ssh" class="headerlink" title="查看ssh"></a>查看ssh</h2><p><code>cat c/User/username/.ssh/id_rsa.pub</code>   //<strong>这里的username 是你电脑的名字。</strong></p><p>接下来将会看到公钥ssh-rsa AAAAB3NzaC1yc2。。。。。。。。。</p><p>后面的内容我省略了<br>(说明：ssh-rsa 后面的内容这就是你的SSH keys，复制ssh keys的时候要<em>全部复制</em>下来)</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> ECS </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> ssh </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>Hexo 书写入门指南</title>
+      <link href="/2020/04/07/hexo-shu-xie-ru-men-zhi-nan/"/>
+      <url>/2020/04/07/hexo-shu-xie-ru-men-zhi-nan/</url>
+      
+        <content type="html"><![CDATA[<h1 id="使用-Markdown-去写-hexo"><a href="#使用-Markdown-去写-hexo" class="headerlink" title="使用 Markdown 去写 hexo"></a>使用 Markdown 去写 hexo</h1><ul><li>使用 Typora 来编辑文件更加方便，Typora 编辑器来讲解 Markdown 的语法，Typora 支持 MacOS 、Windows、Linux 平台，且包含多种主题，编辑后直接渲染出效果。点击<a href="https://typora.io/" target="_blank" rel="noopener">这里</a>即可下载。</li><li>也可以用vs code 进行编写，点击<a href="https://code.visualstudio.com/" target="_blank" rel="noopener">这里</a>g官网下载，建议在vs code里面下载 Markdown Preview Enhanced ，这是是一个很好用的完善预览功能的插件，可以更加形象的展示所编写的pdf格式的文档样式。</li></ul><h1 id="Markdown-的基本使用"><a href="#Markdown-的基本使用" class="headerlink" title="Markdown 的基本使用"></a>Markdown 的基本使用</h1><h2 id="标题"><a href="#标题" class="headerlink" title="标题"></a>标题</h2><p>建议在 # 号后加一个空格，这是 Markdown 的基本语法</p><pre><code>#  一级标题## 二级标题### 三级标题 </code></pre><h2 id="列表"><a href="#列表" class="headerlink" title="列表"></a>列表</h2><p>列表的显示只需要在文字前加上 - 或 * 即可变为无序列表，有序列表则直接在文字前加 1. 2. 3.  符号要和文字之间加上一个字符的空格。</p><pre><code>- 列表1- 列表2</code></pre><h2 id="插入代码"><a href="#插入代码" class="headerlink" title="插入代码"></a>插入代码</h2><p> `  这是tab键上面那个符号</p><pre><code>- 插入代码行    在两个 ` 中间插入代码行- 插入代码框    在六个 ` 插入代码框&lt;``````&gt; `code` //代码行```&lt;html&gt;&lt;html&gt;code```     // 代码框</code></pre><h2 id="插入图片与链接"><a href="#插入图片与链接" class="headerlink" title="插入图片与链接"></a>插入图片与链接</h2><p>括号里面填图片或者链接的所处路径。</p><pre><code>图片为：![]()链接为： []()</code></pre><h2 id="粗体与斜体"><a href="#粗体与斜体" class="headerlink" title="粗体与斜体"></a>粗体与斜体</h2><p>粗体和斜体也非常简单，用两个 * 包含一段文本就是粗体的语法，用一个 * 包含一段文本就是斜体的语法。</p><h2 id="引用"><a href="#引用" class="headerlink" title="引用"></a>引用</h2><p>只需要在文本前加入 &gt; 这种尖括号（大于号）即可<br>eg: &gt; 你好</p><h2 id="表格"><a href="#表格" class="headerlink" title="表格"></a>表格</h2><p>表格是我觉得 Markdown 比较累人的地方，例子如下：</p><p><img src="https://i.loli.net/2020/03/26/1nvIk24fbaLiqUM.png" alt="表格"></p><table><thead><tr><th>A</th><th align="center">B</th><th align="right">总计</th></tr></thead><tbody><tr><td>1</td><td align="center">1</td><td align="right">2</td></tr><tr><td>2</td><td align="center">2</td><td align="right">4</td></tr></tbody></table><h2 id="分割线"><a href="#分割线" class="headerlink" title="分割线"></a>分割线</h2><p>分割线的语法只需要三个 * 号</p><h2 id="脚注"><a href="#脚注" class="headerlink" title="脚注"></a>脚注</h2><p>文字内容[^1]</p><p>在文章末尾[^1]:脚注说明文字</p><p>注：1可以为任意数字或文字或单词，但文章末尾[^]中内容与文中应保持一致。</p><h2 id="其他补充"><a href="#其他补充" class="headerlink" title="其他补充"></a>其他补充</h2><p>Markdown中的转义字符为\，若不想使符号变成文字的格式等，在符号前加\。</p><blockquote><p>至此，markdown的基本使用方法就写到这里，只要多加运用，写Hexo应该是行云流水了吧！</p></blockquote>]]></content>
+      
+      
+      <categories>
+          
+          <category> blog </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Markdown </tag>
+            
+            <tag> Hexo </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>Hexo指定域名和宝塔面板的部署</title>
       <link href="/2020/03/30/hexo-zhi-ding-zi-yu-ming-he-bao-ta-mian-ban-de-bu-shu/"/>
       <url>/2020/03/30/hexo-zhi-ding-zi-yu-ming-he-bao-ta-mian-ban-de-bu-shu/</url>
@@ -71,31 +148,6 @@
         <tags>
             
             <tag> Hexo </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    
-    
-    <entry>
-      <title>创建SSH KEY及查看SSH KEY</title>
-      <link href="/2020/03/28/chuang-jian-ssh-key-ji-cha-kan-ssh-key/"/>
-      <url>/2020/03/28/chuang-jian-ssh-key-ji-cha-kan-ssh-key/</url>
-      
-        <content type="html"><![CDATA[<blockquote><p> 只适用于Mac和windows下的Git Bash操作界面。</p></blockquote><h2 id="检查本地是否有SSH-Key存在"><a href="#检查本地是否有SSH-Key存在" class="headerlink" title="检查本地是否有SSH Key存在"></a>检查本地是否有SSH Key存在</h2><p><code>ssh-keygen -t rsa -C &quot;邮箱地址&quot;</code>  //执行成功后将会返回Generating public/private rsa key pair. <strong>直接按回车，冒号可以不用管</strong><br>这里的 <em>username</em> 是你电脑的名字</p><ul><li><p>如果正常运行的话，会出现</p><p>  Enter passphrase (empty for no passphrase):</p><p>  然后我们直接回车</p></li><li><p>有的时候我们可能会出现</p><p>  /Users/your username/.ssh/id_rsa already exists.</p><p>  Overwrite (y/n)?  y</p><p>  这说明你已经设置了存储地址，我们输入“y”覆盖</p><p>  回车</p></li></ul><h2 id="生成新的ssh"><a href="#生成新的ssh" class="headerlink" title="生成新的ssh"></a>生成新的ssh</h2><p>  上面的任意两种情况之后，会出现</p><pre><code>Enter same passphrase again: </code></pre><p>再次<strong>回车</strong>，这时候你会看见：</p><pre><code>Your identification has been saved in /Users/username/.ssh/id_rsa.Your public key has been saved in /Users/username/.ssh/id_rsa.pub.The key fingerprint is:16:27:ac:a5:76:28:2d:36:63:1b:56:4d:eb:df:a6:48 your_email@example.comThe key&#39;s randomart image is:+--[ RSA 2048]----+    *(心形的图案)*</code></pre><p>这说明SSH key就已经生成了。文件目录就是：/Users/username/.ssh/id_rsa</p><h2 id="查看ssh"><a href="#查看ssh" class="headerlink" title="查看ssh"></a>查看ssh</h2><p><code>cat c/User/username/.ssh/id_rsa.pub</code>   //<strong>这里的username 是你电脑的名字。</strong></p><p>接下来将会看到公钥ssh-rsa AAAAB3NzaC1yc2。。。。。。。。。</p><p>后面的内容我省略了<br>(说明：ssh-rsa 后面的内容这就是你的SSH keys，复制ssh keys的时候要<em>全部复制</em>下来)</p>]]></content>
-      
-      
-      <categories>
-          
-          <category> ECS </category>
-          
-      </categories>
-      
-      
-        <tags>
-            
-            <tag> ssh </tag>
             
         </tags>
       
@@ -123,33 +175,6 @@
             <tag> Hexo </tag>
             
             <tag> blog </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    
-    
-    <entry>
-      <title>Hexo 书写入门指南</title>
-      <link href="/2020/03/26/hexo-shu-xie-ru-men-zhi-nan/"/>
-      <url>/2020/03/26/hexo-shu-xie-ru-men-zhi-nan/</url>
-      
-        <content type="html"><![CDATA[<h1 id="使用-Markdown-去写-hexo"><a href="#使用-Markdown-去写-hexo" class="headerlink" title="使用 Markdown 去写 hexo"></a>使用 Markdown 去写 hexo</h1><ul><li>使用 Typora 来编辑文件更加方便，Typora 编辑器来讲解 Markdown 的语法，Typora 支持 MacOS 、Windows、Linux 平台，且包含多种主题，编辑后直接渲染出效果。点击<a href="https://typora.io/" target="_blank" rel="noopener">这里</a>即可下载。</li><li>也可以用vs code 进行编写，点击<a href="https://code.visualstudio.com/" target="_blank" rel="noopener">这里</a>g官网下载，建议在vs code里面下载 Markdown Preview Enhanced ，这是是一个很好用的完善预览功能的插件，可以更加形象的展示所编写的pdf格式的文档样式。</li></ul><h1 id="Markdown-的基本使用"><a href="#Markdown-的基本使用" class="headerlink" title="Markdown 的基本使用"></a>Markdown 的基本使用</h1><h2 id="标题"><a href="#标题" class="headerlink" title="标题"></a>标题</h2><p>建议在 # 号后加一个空格，这是 Markdown 的基本语法</p><pre><code>#  一级标题## 二级标题### 三级标题 </code></pre><h2 id="列表"><a href="#列表" class="headerlink" title="列表"></a>列表</h2><p>列表的显示只需要在文字前加上 - 或 * 即可变为无序列表，有序列表则直接在文字前加 1. 2. 3.  符号要和文字之间加上一个字符的空格。</p><pre><code>- 列表1- 列表2</code></pre><h2 id="插入代码"><a href="#插入代码" class="headerlink" title="插入代码"></a>插入代码</h2><p> `  这是tab键上面那个符号</p><pre><code>- 插入代码行    在两个 ` 中间插入代码行- 插入代码框    在六个 ` 插入代码框&lt;``````&gt; `code` //代码行```&lt;html&gt;&lt;html&gt;code```     // 代码框</code></pre><h2 id="插入图片与链接"><a href="#插入图片与链接" class="headerlink" title="插入图片与链接"></a>插入图片与链接</h2><p>括号里面填图片或者链接的所处路径。</p><pre><code>图片为：![]()链接为： []()</code></pre><h2 id="粗体与斜体"><a href="#粗体与斜体" class="headerlink" title="粗体与斜体"></a>粗体与斜体</h2><p>粗体和斜体也非常简单，用两个 * 包含一段文本就是粗体的语法，用一个 * 包含一段文本就是斜体的语法。</p><h2 id="引用"><a href="#引用" class="headerlink" title="引用"></a>引用</h2><p>只需要在文本前加入 &gt; 这种尖括号（大于号）即可<br>eg: &gt; 你好</p><h2 id="表格"><a href="#表格" class="headerlink" title="表格"></a>表格</h2><p>表格是我觉得 Markdown 比较累人的地方，例子如下：</p><p><img src="https://i.loli.net/2020/03/26/1nvIk24fbaLiqUM.png" alt="表格"></p><table><thead><tr><th>A</th><th align="center">B</th><th align="right">总计</th></tr></thead><tbody><tr><td>1</td><td align="center">1</td><td align="right">2</td></tr><tr><td>2</td><td align="center">2</td><td align="right">4</td></tr></tbody></table><h2 id="分割线"><a href="#分割线" class="headerlink" title="分割线"></a>分割线</h2><p>分割线的语法只需要三个 * 号</p><h2 id="脚注"><a href="#脚注" class="headerlink" title="脚注"></a>脚注</h2><p>文字内容[^1]</p><p>在文章末尾[^1]:脚注说明文字</p><p>注：1可以为任意数字或文字或单词，但文章末尾[^]中内容与文中应保持一致。</p><h2 id="其他补充"><a href="#其他补充" class="headerlink" title="其他补充"></a>其他补充</h2><p>Markdown中的转义字符为\，若不想使符号变成文字的格式等，在符号前加\。</p><blockquote><p>至此，markdown的基本使用方法就写到这里，只要多加运用，写Hexo应该是行云流水了吧！</p></blockquote>]]></content>
-      
-      
-      <categories>
-          
-          <category> blog </category>
-          
-      </categories>
-      
-      
-        <tags>
-            
-            <tag> Markdown </tag>
-            
-            <tag> Hexo </tag>
             
         </tags>
       
