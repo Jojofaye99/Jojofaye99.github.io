@@ -1,0 +1,263 @@
+<?xml version="1.0" encoding="utf-8"?>
+<search> 
+  
+  
+    
+    <entry>
+      <title>C++ &amp; STL</title>
+      <link href="/2022/01/10/c-stl/"/>
+      <url>/2022/01/10/c-stl/</url>
+      
+        <content type="html"><![CDATA[<h1 id="STL-基本概念"><a href="#STL-基本概念" class="headerlink" title="STL 基本概念"></a>STL 基本概念</h1><p>六大组件：  容器、 算法、 迭代器、 仿函数、 适配器、 空间配置器</p><p>容器： 各种数据结构， 如 vector list deque set map<br>算法： 各种常用的算法， 如 sort find copy for_each<br>迭代器： 扮演了容器与算法之间的胶合剂<br>仿函数： 行为类似函数， 可以作为算法的某种策略<br>适配器： 一种用来修饰容器或者仿函数或迭代器接口的东西<br>空间配置器： 负责空间的配置与管理</p><p>序列式容器： 强调值的排序， 序列式容器中的每个元素均有固定位置<br>关联式容器： 二叉树结构， 各元素之间没有严格的物理上的顺序关系</p><p>算法： 问题之解法<br>分为： 质变算法  非质变算法<br>质变算法： 是指运算过程中会更改区间内的元素。 比如： 拷贝， 替换， 删除<br>非质变算法： 是指运算过程中不会更改区间内的元素内容。 比如： 查找、 计数、 遍历、 寻找极值等等</p><p>迭代器：容器和算法之间粘合剂<br>提供一种方法， 使之能够依序寻访某个容器所含的各个元素， 每个容器豆有自己的专属的迭代器<br>迭代器非常类似于指针， 初学阶段 我们可以理解为迭代器为指针<br>迭代器种类：<br>![E:\blog\source\images\C++ &amp; STL]</p><hr><p>容器算法迭代初识</p><h2 id="string"><a href="#string" class="headerlink" title="string"></a>string</h2><p>string 本质上是一个类</p><p>string 和 char * 区别<br>char* 是一个指针<br>string 是一个类， 类内部封装了 char* ， 管理这个字符串， 是一个char* 型的容器</p><p>string 类 内部封装了很多成员方法</p><pre><code>// 查找 find  拷贝 copy  删除 delete  替代 replace   插入 insert</code></pre><h3 id="string-初始化"><a href="#string-初始化" class="headerlink" title="string 初始化"></a>string 初始化</h3><p>string 赋值方式很多， operator= 这种方式比较实用的</p><pre><code>构造函数原型：string();  // 创建一个空的字符串string(const char* s);    // 使用字符串s 初始化string(const string&amp; str);   // 使用一个string 对象初始化另一个 string 对象string(int n, char c);     // 使用 n 个字符 c 初始化 </code></pre><h3 id="string-相关操作"><a href="#string-相关操作" class="headerlink" title="string 相关操作"></a>string 相关操作</h3><h4 id="string-拼接"><a href="#string-拼接" class="headerlink" title="string 拼接"></a>string 拼接</h4><pre><code>string&amp; operator+=(const char* str); //重载 += 操作符string&amp; operator+=(const char c);  //重载 += 操作符string&amp; operator+=(const string&amp; str);  //重载 += 操作符string&amp; append(const char *s);  // 把字符串s连接到当前字符串结尾string&amp; append(const char *s, int n); // 把字符串s 的前n个字符连接到当前字符串结尾string&amp; append(const string &amp;s);  // 同 operator+=(const string&amp; str)string&amp; append(const string &amp;s, int pos, int n);  // 字符串s中从pos开始的n个字符连接到字符串结尾</code></pre><h4 id="string-查找和替换"><a href="#string-查找和替换" class="headerlink" title="string 查找和替换"></a>string 查找和替换</h4><pre><code>int find(const string&amp; str, int pos = 0) const;   // 查找str 第一次出现的位置， 从pos 开始查找int find(const char* s, int pos = 0) const; // 查找s 第一次出现位置， 从pos 开始查找int find(const char* s, int pos, int n) const; // 从pos 位置查找s 的前n 个字符第一次位置int find(const char c, int pos = 0) const; // 查找字符c 第一次出现的位置int rfind(const string&amp; str, int pos = npos) const; // 查找str 最后一次位置， 从pos 开始查找int rfind(const char* s, int pos = npos) const;  // 查找s 最后一次出现的位置， 从 pos 开始查找int rfind(const char *s, int pos, int n) const; // 从 pos 查找s 的前n个字符最后一次的位置int rfind(const char c, int pos = 0) const;  // 查找字符C 最后一次出现的位置string&amp; replace(int pos, int n, const string&amp; str); // 替换从 pos 开始n 个字符串为字符串为strstring&amp; replace(int pos, int n, const char*s);   // 替换从 pos 开始的n个字符为字符串s</code></pre><h4 id="string-比较"><a href="#string-比较" class="headerlink" title="string 比较"></a>string 比较</h4><pre><code>函数原型 ：int compare(const string &amp;s) const; // 与字符串s比较int compare(const char *s) const; // 与字符串s比较// 字符串的比较// 字符串比较是按字符串的 ASCII 码进行比较// = 返回0   &gt; 返回 1   &lt; 返回 -1</code></pre><h4 id="string-字符存取"><a href="#string-字符存取" class="headerlink" title="string 字符存取"></a>string 字符存取</h4><pre><code>char&amp; operator[](int n); // 通过 [] 方式取字符char&amp; at(int n);   // 通过at方法获取字符</code></pre><h4 id="string-插入和删除"><a href="#string-插入和删除" class="headerlink" title="string 插入和删除"></a>string 插入和删除</h4><pre><code>string&amp; insert(int pos, const char* s);   插入字符串string&amp; insert(int pos, const string&amp; str);  插入字符串string&amp; insert(int pos, int n, char c);  在指定位置插入n个字符cstring&amp; erase(int pos, int n = npos);   删除从pos开始的n个字符</code></pre><h4 id="string-字串"><a href="#string-字串" class="headerlink" title="string 字串"></a>string 字串</h4><pre><code>string substr(int pos = 0, int n = npos) const; 返回由pos 开始的n个字符组成的字符串</code></pre><h2 id="vector"><a href="#vector" class="headerlink" title="vector"></a>vector</h2><p>vector 数据结构和数组非常相似 ， 也称为单端数组<br>vector 与普通数组区别:<br>不同之处在于数组是静态空间， 而 vector 可以动态扩展<br>动态扩展： 并不是在原空间之后续接新空间， 而是找更大的内存空间， 然后将原数组拷贝新空间， 释放原空间<br>vector 容器的迭代器是支持随机访问的迭代器<br>![vector 容器]（E:\blog\source\images\C++ &amp; STL）</p><h3 id="vector-构造"><a href="#vector-构造" class="headerlink" title="vector 构造"></a>vector 构造</h3><pre><code>vector&lt;T&gt; v;   // 采用模板实现类实现， 默认构造函数vector(v.begin(), v.end()); // 将v[begin(),end()] 区间中的元素拷贝给本身vector(n,elem); // 构造函数将 n 个elem 拷贝给本身vector(const vector &amp;vec);  // 拷贝构造函数</code></pre><pre><code>// 创建一个空的 vectorvector&lt;int&gt; v1;// 拷贝构造vector&lt;int&gt; v2(v1);      // array 转 vector，指定长度int arr[5] = {1, 2, 3, 4, 5};vector&lt;int&gt; v3(arr, arr + 5);// 初始化元素个数为 5，每个值为 0vector&lt;int&gt; v4(5);  // {0,0,0,0,0}// 初始化元素个数为 5，每个值为 1vector&lt;int&gt; v5(5, 1);  // {1,1,1,1,1}// 赋值初始化，等同于 vector&lt;int&gt; v6 = {1,2,3,4,5}vector&lt;int&gt; v6{1,2,3,4,5};// {} 用来进行列表初始化，如果其中的值无法用于列表初始化，编译器则用默认值初始化 vector 对象vector&lt;int&gt; v7{2};           // {2}vector&lt;string&gt; v8{2};        // 初始化长度为 2，每个值为空，{&quot;&quot;, &quot;&quot;}vector&lt;string&gt; v9{2, &quot;hi&quot;};  // 初始化长度为 2，每个值为 hi，{&quot;hi&quot;, &quot;hi&quot;}</code></pre><p>总结： vector 的多种构造方式没有可比性， 灵活使用即可 </p><h3 id="vector-相关操作"><a href="#vector-相关操作" class="headerlink" title="vector 相关操作"></a>vector 相关操作</h3><h4 id="vector-赋值"><a href="#vector-赋值" class="headerlink" title="vector 赋值"></a>vector 赋值</h4><pre><code>vector&amp; operator=(const vector &amp;vec)  // 重载等号操作符 assign(beg, end);  // 将[beg, end] 区间中的数据拷贝赋值给本身assign(n, elem);   // 将 n 个elem 拷贝赋值给本身</code></pre><h4 id="vector-容量和大小"><a href="#vector-容量和大小" class="headerlink" title="vector 容量和大小"></a>vector 容量和大小</h4><pre><code>empty(); // 判断容器是否为空capacity();  // 容器的容量size();  // 返回容器中元素的个数resize(int num);  //  重新指定容器的长度为 num, 若容器变长， 则以默认值填充新位置。// 如果容器变短， 则末尾超出容器长度的元素被删除。resize(int num, elem);    // 重新指定容器的长度为 num, 若容器变长， 则以 elem 值填充新位置。// 如果容器变短， 则末尾超出容器长度的元素被删除</code></pre><h4 id="vector-插入和删除"><a href="#vector-插入和删除" class="headerlink" title="vector 插入和删除"></a>vector 插入和删除</h4><pre><code>push_back(ele); // 尾部插入元素 elepop_back();  // 删除最后一个元素insert(const_iterator pos, ele); // 迭代器指向位置pos 插入元素eleinsert(const_iterator pos, int count, ele);  // 迭代器指向位置pos 插入count 个元素 eleerase(const_iterator pos);  // 删除迭代器指向的元素erase(const_iterator start, const_iterator end);  // 删除迭代器从start 到end 之间的元素clear();  // 删除容器中的所有元素</code></pre><h4 id="vector-数据存取"><a href="#vector-数据存取" class="headerlink" title="vector 数据存取"></a>vector 数据存取</h4><pre><code>at(int idx)  // 返回索引 idx 所指的数据operator[]; // 返回索引中 idx 所指的数据front();  // 返回容器中第一个数据元素 back();   // 返回容器中最后一个数据元素</code></pre><h4 id="vector-互换容器"><a href="#vector-互换容器" class="headerlink" title="vector 互换容器"></a>vector 互换容器</h4><pre><code>swap(vec);   //将vec 与本身的元素互换</code></pre><ol><li>基本使用</li><li>实际用途<br>巧用 swap 可以收缩空间</li></ol><h4 id="vector-预留空间"><a href="#vector-预留空间" class="headerlink" title="vector 预留空间"></a>vector 预留空间</h4><p>减少vector 在动态扩展容量时的扩展次数<br>如果数据量较大， 可以一开始利用reserve 预留空间</p><pre><code>reserve (int len);   //预留len个元素长度， 预留位置不初始化， 元素不可访问</code></pre><h3 id="vector-遍历"><a href="#vector-遍历" class="headerlink" title="vector 遍历"></a>vector 遍历</h3><pre><code>// for 语句体中不应改变其所遍历序列的大小// 循环体内部含有向 vector 对象添加元素的语句，则不能使用 forvoid myPrint(int val){    cout &lt;&lt; val &lt;&lt; endl;}// 通过索引for(int i = 0; i &lt; v.size(); ++i){    cout &lt;&lt; v[i] &lt;&lt; &quot; &quot;;}cout &lt;&lt; endl;// for loopfor (int i: v){    cout &lt;&lt; i &lt;&lt; &quot; &quot;;}cout &lt;&lt; endl;while (itBegin != itEnd){    cout &lt;&lt; *itBegin &lt;&lt; endl;    itBegin++;}// 迭代器for (vector&lt;int&gt;::iterator i = v.begin(); i != v.end(); i++){    cout &lt;&lt; *i &lt;&lt; &quot; &quot;;}cout &lt;&lt; endl;// 利用STL提供遍历算法  三个参数for_each(v.begin(), v.end(), myPrint);  </code></pre><pre><code>最常用的容器 vector  算法： for_each迭代器： vector&lt;int&gt;::iterator</code></pre><h3 id="vector-容器嵌套容器"><a href="#vector-容器嵌套容器" class="headerlink" title="vector 容器嵌套容器"></a>vector 容器嵌套容器</h3><pre><code>// 创建小容器    vector&lt;int&gt;v1;    vector&lt;int&gt;v2;    vector&lt;int&gt;v3;    vector&lt;int&gt;v4;    // 向小容器中添加数据    for (int i = 0; i &lt; 4; i++)    {        v1.push_back(i+1);        v2.push_back(i+2);        v3.push_back(i+3);        v4.push_back(i+4);          }    // 将小容器插入到大容器中    v.push_back(v1);    v.push_back(v2);    v.push_back(v3);    v.push_back(v4);    // 通过大容器， 把所有数据遍历一遍    for (vector&lt;vector&lt;int&gt;&gt;::iterator it = v.begin(); it != v.end(); it++)    {        for (vector&lt;int&gt;::iterator vit = (*it).begin(); vit != (*it).end(); vit++)        {            cout &lt;&lt; *vit &lt;&lt; &quot; &quot;;        }        cout &lt;&lt; endl;    }</code></pre><h2 id="deque-容器"><a href="#deque-容器" class="headerlink" title="deque 容器"></a>deque 容器</h2><p>deque 与 vector 区别<br>vector 对于头部的插入删除效率低, 数据量越大， 效率越低<br>deque 相对而言, 对头部的插入删除速度会比vector 快<br>vector 访问元素时的速度会比 deque 快 , 这和两者内部实现相关<br>vector 是一个连续的内存空间  deque 时双向链表<br>deque 内部工作原理:<br>deque 内部 有个中控器， 维护每段缓冲区的内容， 缓冲区存放真实数据<br>中控器维护的时每个缓冲区的地址， 使得使用deque 时 像一片连续的内存空间<br>deque 容器的迭代器也是支持随机访问的</p><h3 id="deque-容器构造"><a href="#deque-容器构造" class="headerlink" title="deque 容器构造"></a>deque 容器构造</h3><pre><code>deque&lt;T&gt; deqT;   默认构造形式deque(beg, end);   构造函数将 [beg, end] 区间中的元素拷贝给本身deque(n, elem);   构造函数将n 个 elem 拷贝给本身deque(const deque &amp;deq);  拷贝构造函数</code></pre><h3 id="deque-赋值操作"><a href="#deque-赋值操作" class="headerlink" title="deque 赋值操作"></a>deque 赋值操作</h3><pre><code>deque&amp; operator=(const deque &amp;deq); // 重载等号操作符assign(beg, end);  将[beg, end] // 区间中的数据拷贝赋值给本身assign(n, elem); // 将n个 elem 拷贝赋值给本身</code></pre><h3 id="deque-大小操作"><a href="#deque-大小操作" class="headerlink" title="deque 大小操作"></a>deque 大小操作</h3><pre><code>deque.empty()  // 判断容器是否为空deque.size() // 返回容器中元素的个数deque.resize(num)   // 重新指定容器的长度为num, 若容器变长， 则以默认值填充新位置// 如果容器变短， 则末尾超出容器长度的元素被删除deque.resize(num, elem) // 重新指定容器的长度为 num, 若容器变长， 则以elem 值填充新位置// 如果容器变短， 则末尾超出容器长度的元素被删除</code></pre><h3 id="deque-插入和删除"><a href="#deque-插入和删除" class="headerlink" title="deque 插入和删除"></a>deque 插入和删除</h3><pre><code>两端插入操作：push_back(elem);    // 在容器尾部添加一个元素push_front(elem);  // 在容器头部插入一个数据pop_back(); // 删除容器最后一个数据pop_front(); // 删除容器第一个数据指定位置操作insert(pos, elem);  // 在pos 位置插入一个 elem 元素的拷贝， 返回新数据的位置insert(pos, n, elem); // 在pos 位置插入n 个elem 数据， 无返回值insert(pos, beg, end); // 在 pos 位置插入 [beg, end] 区间的数据, 无返回值clear(); // 清空容器的所有数据erase(beg, end); //  删除[beg, end] 区间的数据， 返回下一个数据的位置erase(pos); // 删除pos 位置的数据， 返回下一个数据的位置</code></pre><h3 id="deque-数据存取"><a href="#deque-数据存取" class="headerlink" title="deque 数据存取"></a>deque 数据存取</h3><pre><code>at(int idx); // 返回索引idx 所指的数据operator[]; // 返回索引idx 所指的数据front(); // 返回容器中的一个元素back(); // 返回容器中的最后一个元素 </code></pre><h3 id="deque-排序"><a href="#deque-排序" class="headerlink" title="deque 排序"></a>deque 排序</h3><p>利用算法实现对deque 容器进行排序</p><pre><code>sort(iterator beg, iterator end) // 对beg 和 end 区间内元素 进行排序</code></pre><h2 id="stack"><a href="#stack" class="headerlink" title="stack"></a>stack</h2><p>栈中只有顶部才可以被外界使用， 因此栈不可以有遍历行为<br>栈中进入数据称为 入栈 push<br>弹出 pop</p><h3 id="stack-构造函数"><a href="#stack-构造函数" class="headerlink" title="stack 构造函数"></a>stack 构造函数</h3><pre><code>stack&lt;T&gt; stk;    // stack 采用模板类实现， stack 对象的默认构造形式stack(const stack &amp;stk) // 拷贝构造函数</code></pre><h3 id="stack赋值操作"><a href="#stack赋值操作" class="headerlink" title="stack赋值操作"></a>stack赋值操作</h3><pre><code>stack&amp; operator=(const stack &amp;stk) // 重载等号操作符</code></pre><h3 id="stack数据存取"><a href="#stack数据存取" class="headerlink" title="stack数据存取"></a>stack数据存取</h3><pre><code>push(elem) // 向栈顶添加元素pop() // 从栈顶移除第一个元素top() // 返回栈顶元素</code></pre><h3 id="stack-大小操作"><a href="#stack-大小操作" class="headerlink" title="stack 大小操作"></a>stack 大小操作</h3><pre><code>empty() // 判断堆栈是否为空size() // 返回栈的大小</code></pre><h2 id="queue"><a href="#queue" class="headerlink" title="queue"></a>queue</h2><p>先进先出的数据结构 有两个接口<br>只有对头和队尾被外界访问， 因此不允许有遍历行为<br><code>push</code> 入队<br><code>pop</code> 出队</p><h3 id="queue-函数原型"><a href="#queue-函数原型" class="headerlink" title="queue 函数原型"></a>queue 函数原型</h3><p>queue<T> que; // 采用模板类实现， queue // 对象的默认构造形式<br>queue(const queue &amp;que) // 拷贝构造函数</p><h3 id="queue-赋值操作"><a href="#queue-赋值操作" class="headerlink" title="queue 赋值操作"></a>queue 赋值操作</h3><pre><code>queue&amp; operator=(const queue &amp;que) // 重载等号操作符</code></pre><h3 id="queue数据存取"><a href="#queue数据存取" class="headerlink" title="queue数据存取"></a>queue数据存取</h3><p>push(elem) // 往队尾添加元素<br>pop() // 从对头移除第一个元素<br>back() // 返回最后一个元素<br>front() // 返回第一个元素</p><h3 id="queue大小操作"><a href="#queue大小操作" class="headerlink" title="queue大小操作"></a>queue大小操作</h3><pre><code>empty() // 判断堆栈是否为空size() // 返回栈的大小</code></pre><h2 id="list-容器"><a href="#list-容器" class="headerlink" title="list 容器"></a>list 容器</h2><p>功能： 将数据进行链式存储<br>链表是一种物理存储单元上非连续的存储结构， 数据元素的逻辑顺序是通过链表中的指针链接实现的<br>链表的组成： 链表由一系列结点组成<br>结点的组成： 一个是存储数据元素的数据域， 另一个是存储下一个结点地址的指针域<br>STL 中的链表是一个双向循环链表</p><p>由于链表的存储方式并不是连续的内存空间， 因此链表list中的迭代器只支持前移和后移， 属于双向迭代器</p><p>优点：<br>采用动态存储分配， 不会造成内存浪费和溢出<br>链表执行插入和删除操作十分方便， 修改指针即可， 不需要移动大量元素</p><p>缺点： 链表灵活， 但是空间（指针域）和时间（遍历）额外耗费较大</p><p>list 有一个重要性质： 插入操作和删除操作都不会造成原有list 迭代器的失效， 这在vector 是不成立的</p><p>总结： STL 中的 list 和 vector 是两个最常被使用的容器， 各有优缺点</p><h3 id="list-构造函数"><a href="#list-构造函数" class="headerlink" title="list 构造函数"></a>list 构造函数</h3><pre><code>list&lt;T&gt; lst;  // list 采用模板类实现对象的默认构造形式list(beg, end); // 构造函数将[beg, end] 区间中的元素拷贝给本身list(n, elem); // 构造函数将 n 个elem 拷贝给本身list(const list &amp;lst); // 拷贝构造函数</code></pre><h3 id="list-赋值和交换"><a href="#list-赋值和交换" class="headerlink" title="list 赋值和交换"></a>list 赋值和交换</h3><pre><code>assign(beg, end)   将(beg, end) // 区间中的数据拷贝赋值给本身assign(n, elem) // 将 n 个elem 拷贝赋值给本身list&amp; operator=(const list &amp;lst) // 重载等号操作符swap(lst) // 将lst 与本身的元素互换</code></pre><h3 id="list-大小进行操作"><a href="#list-大小进行操作" class="headerlink" title="list 大小进行操作"></a>list 大小进行操作</h3><pre><code>size() // 返回容器中元素的个数empty() // 判断容器是否为空resize(num) // 重新指定容器的长度为num  若容器变长， 则以默认值填充位置// 若容器变短， 则末尾超出容器的长度的元素被删除resize(num, elem) // 重新指定容器的长度为 num. 若容器变长， 则以elem 值填充新位置。           // 如果容器变短， 则末尾超出容器长度的元素被删除</code></pre><h3 id="list-插入和删除"><a href="#list-插入和删除" class="headerlink" title="list 插入和删除"></a>list 插入和删除</h3><pre><code>push_back(elem); // 在容器尾部加入一个元素pop_back(); // 删除容器中最后一个元素push_front(elem); // 从容器开头插入一个元素pop_front(); // 从容器开头移除第一个元素insert(pos, elem);   // 从pos 位置插入 elem 元素的拷贝， 返回新数据的位置insert(pos, n, elem); // 在 pos 位置插入n 个elem 数据， 无返回值insert(pos, beg, end); // 在pos 位置插入 [beg, end] 区间的数据， 无返回值clear(); // 移除容器的所有数据erase(beg, end)；  // 删除[beg, end] 区间的数据， 返回下一个数据的位置erase(pos); // 删除pos位置的数据， 返回下一个数据的位置remove(elem); // 删除容器中所有与elem 值匹配的元素</code></pre><h3 id="list-数据存取"><a href="#list-数据存取" class="headerlink" title="list 数据存取"></a>list 数据存取</h3><pre><code>front(); // 返回第一个元素back(); // 返回最后一个元素// 不可以用 [] 访问list 容器中的元素// 不可以用 at 方式访问 list 容器中的元素// 原因是 list 本质链表， 不是用连续性空间存取数据， 迭代器也是不支持随机访问的</code></pre><h3 id="list-反转和排序"><a href="#list-反转和排序" class="headerlink" title="list 反转和排序"></a>list 反转和排序</h3><pre><code>reverse(); // 反转链表sort(); // 链表排序</code></pre><h3 id="set-multiset-容器"><a href="#set-multiset-容器" class="headerlink" title="set/ multiset 容器"></a>set/ multiset 容器</h3><p>所有元素都会在插入时自动被排序<br>本质： set/ multiset 属于关联式容器， 底层结构是用 二叉树实现</p><p>set 与 multiset 区别：<br>set 不允许容器中有重复的元素<br>multiset 允许容器中有重复的元素</p><h3 id="set-构造和赋值"><a href="#set-构造和赋值" class="headerlink" title="set 构造和赋值"></a>set 构造和赋值</h3><p>功能： 创建set 容器 以及赋值</p><pre><code>set&lt;T&gt; st;  默认构造函数set(const set &amp;st);  拷贝构造函数set&amp; operator=(const set &amp;st);   重载等号操作符</code></pre><h3 id="set-插入数据"><a href="#set-插入数据" class="headerlink" title="set 插入数据"></a>set 插入数据</h3><p>只有 insert 方式</p><h3 id="set-大小和交换"><a href="#set-大小和交换" class="headerlink" title="set 大小和交换"></a>set 大小和交换</h3><p>统计set 容器大小以及交换 set 容器</p><pre><code>size();   // 返回容器中元素的数据empty(); // 判断容器是否为空swap(st); // 交换两个集合容器</code></pre><h3 id="set-容器插入和删除"><a href="#set-容器插入和删除" class="headerlink" title="set 容器插入和删除"></a>set 容器插入和删除</h3><p>set 容器进行插入数据和删除数据</p><pre><code>insert(elem); // 在容器中插入元素clear(); // 清除所有元素erase(pos); // 删除pos 迭代器所指的元素， 返回下一个元素的迭代器erase(beg, end); // 删除区间[beg, end]的所有元素， 返回下一个元素的迭代器erase(elem); // 删除容器中值为 elem 的元素</code></pre><h3 id="set-查找和统计"><a href="#set-查找和统计" class="headerlink" title="set 查找和统计"></a>set 查找和统计</h3><pre><code>find(key); // 查找 key 是否存在，若存在，返回该键的元素的迭代器； 若不存在， 返回set.end();count(key); // 统计 key 的元素个数  对于set 而言 统计结果要么是0 要么是 1</code></pre><h3 id="pair-对组创建"><a href="#pair-对组创建" class="headerlink" title="pair 对组创建"></a>pair 对组创建</h3><p>成对出现的数据， 利用对组可以返回两个数据</p><p>两种创建方式</p><pre><code>pair&lt;type, type&gt; p (value1, value2); pair&lt;type, type&gt; p = make_pair(value1, value2);</code></pre><h3 id="set-容器排序"><a href="#set-容器排序" class="headerlink" title="set 容器排序"></a>set 容器排序</h3><p>set 容器默认排序规则为从小到大， 掌握如何改变排序规则<br>主要技术点： 利用仿函数， 可以改变排序规则</p><h2 id="map-multimap-容器"><a href="#map-multimap-容器" class="headerlink" title="map/multimap 容器"></a>map/multimap 容器</h2><h3 id="map-基本概念"><a href="#map-基本概念" class="headerlink" title="map 基本概念"></a>map 基本概念</h3><p>简介：<br>map 中所有元素都是 pair<br>pair 中第一个元素为 key（键值）， 起到索引作用， 第二个元素为 value(实值)<br>所有元素都会根据元素的键值自动排序</p><p>本质：<br>map/ multimap 属于关联式容器， 底层结构是用二叉树实现</p><p>优点：<br>可以根据 key 值快速找到 value 值</p><p>map 和 multimap 区别：<br>map 不允许容器中有重复的 key 值元素<br>multimap 允许 容器中有重复 key 值元素</p><h3 id="map-构造和赋值"><a href="#map-构造和赋值" class="headerlink" title="map 构造和赋值"></a>map 构造和赋值</h3><p>对 map 容器经行构造和赋值操作</p><pre><code>map&lt;T1, T2&gt; mp;   // map 默认构造函数map(const map &amp;mp);   // 拷贝构造函数</code></pre><h3 id="map-赋值"><a href="#map-赋值" class="headerlink" title="map 赋值"></a>map 赋值</h3><pre><code>map&amp; operator=(const map &amp;mp);   // 重载等号操作符</code></pre><h3 id="map-大小和交换"><a href="#map-大小和交换" class="headerlink" title="map 大小和交换"></a>map 大小和交换</h3><pre><code>size()   // 返回容器中元素的数目empty()   // 判断容器是否为空swap(st)   // 交换两个集合容器</code></pre><h3 id="map-插入和删除"><a href="#map-插入和删除" class="headerlink" title="map 插入和删除"></a>map 插入和删除</h3><p>map 容器进行插入数据和删除数据</p><pre><code>insert(elem);   // 在容器中插入数据// 第一种m.insert(pair&lt;int, int&gt;(1, 10)); // 第二种m.insert(make_pair(2, 20));// 第三种m.insert(map&lt;int, int&gt;::value_type(3, 30));// 第四种   [] 不建议插入， 用途 可以利用 key 访问 valuem[4] = 40;clear();    // 清除所有元素  m.erase(begin(), end());erase(pos);  // 删除 pos 迭代器所指的元素， 返回下一个元素的迭代器m.erase(m.begin());m.erase(3);  // 按照 key 来删除erase(beg, end);  // 删除区间 [beg, end] 的所有元素， 返回下一个元素的迭代器erase(key);  // 删除容器中的值为 key 的元素</code></pre><h3 id="map-查找和统计"><a href="#map-查找和统计" class="headerlink" title="map 查找和统计"></a>map 查找和统计</h3><p>map 容器进行查找数据以及统计数据</p><pre><code>find(key);    // 查找key是否存在， 若存在， 返回该键的元素的迭代器； 若不存在， 返回set.end();count(key);   // 统计 key 元素的个数 </code></pre><h3 id="map-容器排序"><a href="#map-容器排序" class="headerlink" title="map 容器排序"></a>map 容器排序</h3><p>按照 key 值进行从小到大排序， 掌握如何改变 排序规则</p><p>主要技术点： 利用仿函数， 可以改变排序规则</p><pre><code>对于自定义数据类型， map 必须要指定排序规则， 同 set 容器class myCompare{public:    bool operator()(int v1, int v2)    {        // 降序        return v1 &gt; v2;    }};</code></pre><pre><code>// 默认从小到大排map&lt;int, int, myCompare&gt; m;m.insert(make_pair(1, 10));m.insert(make_pair(2, 20));m.insert(make_pair(3, 30));m.insert(make_pair(4, 40));m.insert(make_pair(5, 50));for (map&lt;int, int&gt;::iterator it = m.begin(); it != m.end(); it++){    cout &lt;&lt; &quot;key = &quot; &lt;&lt; it-&gt;first &lt;&lt; &quot; value = &quot; &lt;&lt; it-&gt;second &lt;&lt; endl;}</code></pre>]]></content>
+      
+      
+      <categories>
+          
+          <category> 编程语言 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> C++ </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>Fiddler的使用</title>
+      <link href="/2021/09/01/fiddler-de-shi-yong/"/>
+      <url>/2021/09/01/fiddler-de-shi-yong/</url>
+      
+        <content type="html"><![CDATA[<h2 id="什么是Fiddler？"><a href="#什么是Fiddler？" class="headerlink" title="什么是Fiddler？"></a>什么是Fiddler？</h2><blockquote><p>Fiddler是位于客户端和服务器端之间的代理，也是目前最常用的抓包工具之一 。它能够记录客户端和服务器之间的所有 请求，可以针对特定的请求，分析请求数据、设置断点、调试web应用、修改请求的数据，甚至可以修改服务器返回的数据，功能非常强大，是web调试的利器。</p></blockquote><h2 id="Fiddler-的安装"><a href="#Fiddler-的安装" class="headerlink" title="Fiddler 的安装"></a>Fiddler 的安装</h2><p>Fiddler的下载<br>打开官网，官网下载地址是<a href="https://www.telerik.com/download/fiddler" target="_blank" rel="noopener">https://www.telerik.com/download/fiddler</a></p><h2 id="关于Fiddler-的相关配置"><a href="#关于Fiddler-的相关配置" class="headerlink" title="关于Fiddler 的相关配置"></a>关于Fiddler 的相关配置</h2><h3 id="PC端的配置"><a href="#PC端的配置" class="headerlink" title="PC端的配置"></a>PC端的配置</h3><h4 id="1-配置fiddler允许监听到https"><a href="#1-配置fiddler允许监听到https" class="headerlink" title="1. 配置fiddler允许监听到https"></a>1. 配置fiddler允许监听到https</h4><ul><li>配置fiddler允许监听到https（fiddler默认只抓取http格式的）</li></ul><p>打开Fiddler菜单项Tools-&gt; Options-&gt;HTTPS，</p><p>勾选CaptureHTTPS CONNECTs,<br>勾选Decrypt HTTPS traffic option点击OK。<br> <img src="https://i.loli.net/2020/09/06/gHS7bRyEl6Ue1h3.jpg" alt=""><br> <img src="https://i.loli.net/2020/09/06/OFtMHZkasVfIRu7.jpg" alt=""></p><h4 id="2-配置fiddler允许远程连接"><a href="#2-配置fiddler允许远程连接" class="headerlink" title="2. 配置fiddler允许远程连接"></a>2. 配置fiddler允许远程连接</h4><p>上一步窗口中点击Tools-&gt;TelerikFiddler Options-&gt;Connections,勾选allow remote computers to connect，默认监听端口为8888，若端口被占用可以设置成其他的，配置好后要重新启动fiddler<br><img src="https://i.loli.net/2020/09/06/gpHyRGt5jnsdVSc.png" alt=""></p><p> <strong>点击完成之后，PC端配置完成</strong></p><p> 至此，已经可以监听PC端浏览器的请求了。<br> 接下来开始配置手机端</p><h3 id="手机端的配置"><a href="#手机端的配置" class="headerlink" title="手机端的配置"></a>手机端的配置</h3><p>首先要保证手机和电脑都处于同一个网络；</p><p>然后要知道电脑的ip地址，查看你的本机IP地址，在Fiddler的右上角有一个Online按钮，点击一下会显示你的IP信息。</p><p>再者要知道fiddler的端口号，Tools-&gt;TelerikFiddler Options-&gt;Connections，port中值就是端口号，一般默认为8888；接下来开始操作手机；</p><ol><li><p>第一步：安装手机证书</p><p> 手机和电脑连接同一个网络，打开手机浏览器，输入<a href="http://ip:端口号，点击前往；进入一个网页，点击最下面那个FiddlerRoot">http://ip:端口号，点击前往；进入一个网页，点击最下面那个FiddlerRoot</a> certificate下载证书，下载成功后在设置里面安装，安装步骤：打开高级设置-&gt;安全-&gt;从SD卡安装证书-&gt;找到证书文件-&gt;点击后为证书命名点击确定即可安装成功。</p></li><li><p>更改手机无线网的代理</p><p> 手机系统设置-无线网-点击高级，代理选择手动，主机名就是fiddler的电脑ip地址，端口号，就是fiddler的端口号，与浏览器中ip：端口号保持一致，点击确定即可。</p></li><li><p>操作手机，电脑fiddler中会显示一些http信息，成功；</p></li></ol>]]></content>
+      
+      
+      <categories>
+          
+          <category> Python3 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Python3 </tag>
+            
+            <tag> 爬虫 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>python之yagmail模块</title>
+      <link href="/2021/08/31/python-zhi-yagmail-mo-kuai/"/>
+      <url>/2021/08/31/python-zhi-yagmail-mo-kuai/</url>
+      
+        <content type="html"><![CDATA[<h1 id="yagmail-实现发邮件"><a href="#yagmail-实现发邮件" class="headerlink" title="yagmail 实现发邮件"></a>yagmail 实现发邮件</h1><p>yagmail 可以简单的来实现自动发邮件功能。</p><h2 id="1-安装"><a href="#1-安装" class="headerlink" title="1.安装"></a>1.安装</h2><pre><code>pip3  install   yagmail</code></pre><h2 id="2-yagmail使用功能介绍"><a href="#2-yagmail使用功能介绍" class="headerlink" title="2.yagmail使用功能介绍"></a>2.yagmail使用功能介绍</h2><pre><code>import  yagmail   </code></pre><pre><code>yag = yagmail.SMTP( user=&quot;user@126.com&quot;, password=&quot;1234&quot;, host=&#39;smtp.126.com&#39;) #密码为授权码</code></pre><pre><code>contents = [&#39;这里是内容&#39;]yag.send([&#39;aa@126.com&#39;,&#39;bb@qq.com&#39;,&#39;cc@gmail.com&#39;], &#39;subject&#39;, contents, &#39;发送附件&#39;,[&quot;d://log.txt&quot;,&quot;d://baidu_img.jpg&quot;])</code></pre>]]></content>
+      
+      
+      <categories>
+          
+          <category> Python3 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Python3 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>Linux Crontab 定时任务</title>
+      <link href="/2021/05/07/linux-crontab-ding-shi-ren-wu/"/>
+      <url>/2021/05/07/linux-crontab-ding-shi-ren-wu/</url>
+      
+        <content type="html"><![CDATA[<h2 id="Crontab命令介绍"><a href="#Crontab命令介绍" class="headerlink" title="Crontab命令介绍"></a>Crontab命令介绍</h2><p>Linux Crontab是用来定期执行程序的命令。</p><p>Linux内置的Crontab进程能帮我们实现这些需求，Crontab搭配<strong>shell脚本</strong>，非常复杂的指令也没有问题。</p><p>用Crontab 做一个定时命令，比如每天自动签到等等。。</p><p><img src="https://ss2.bdstatic.com/70cFvnSh_Q1YnxGkpoWK1HF6hhy/it/u=1377028624,1913731558&fm=26&gp=0.jpg" alt=""></p><p><img src="https://i.loli.net/2020/05/07/d7p8lnhqORBPtUM.png" alt="crontab"></p><h2 id="Crontab相关指令"><a href="#Crontab相关指令" class="headerlink" title="Crontab相关指令"></a>Crontab相关指令</h2><p><code>vim /etc/crontab</code> </p><p><code>crontab -l</code>  查看正在定时执行的脚本        </p><pre><code>/etc/init.d/cron crond start       //启动服务/etc/init.d/cron stop              //关闭服务/etc/init.d/cron restart           //重启服务/etc/init.d/cron reload            //重新载入配置</code></pre><h2 id="实例"><a href="#实例" class="headerlink" title="实例"></a>实例</h2><ul><li><p>实例1：每1分钟执行一次myCommand</p><p>  <code>* * * * * myCommand</code></p></li><li><p>实例2：每小时的第3和第15分钟执行</p><p>  <code>3,15 * * * * myCommand</code></p></li><li><p>实例3：在上午8点到11点的第3和第15分钟执行</p><p>  <code>3,15 8-11 * * * myCommand</code></p></li><li><p>实例4：每隔两天的上午8点到11点的第3和第15分钟执行</p><p>  <code>3,15 8-11 */2  *  * myCommand</code></p></li><li><p>实例5：每周一上午8点到11点的第3和第15分钟执行</p><p>  <code>3,15 8-11 * * 1 myCommand</code></p></li><li><p>实例6：每晚的21:30重启smb</p><p>  <code>30 21 * * * /etc/init.d/smb restart</code></p></li><li><p>实例7：每月1、10、22日的4 : 45重启smb</p><p>  <code>45 4 1,10,22 * * /etc/init.d/smb restart</code></p></li><li><p>实例8：每周六、周日的1 : 10重启smb</p><p>  <code>10 1 * * 6,0 /etc/init.d/smb restart</code></p></li><li><p>实例9：每天18 : 00至23 : 00之间每隔30分钟重启smb</p><p>  <code>0,30 18-23 * * * /etc/init.d/smb restart</code></p></li><li><p>实例10：每星期六的晚上11 : 00 pm重启smb</p><p>  <code>0 23 * * 6 /etc/init.d/smb restart</code></p></li><li><p>实例11：每一小时重启smb</p><p>  <code>* */1 * * * /etc/init.d/smb restart</code></p></li><li><p>实例12：晚上11点到早上7点之间，每隔一小时重启smb</p><p>  <code>* 23-7/1 * * * /etc/init.d/smb restart</code></p></li></ul><hr><p>参考链接 ：<a href="https://www.runoob.com/linux/linux-comm-crontab.html" target="_blank" rel="noopener">菜鸟教程</a></p>]]></content>
+      
+      
+      <categories>
+          
+          <category> ECS </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Linux </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>Vim使用方法</title>
+      <link href="/2021/04/10/vim-shi-yong/"/>
+      <url>/2021/04/10/vim-shi-yong/</url>
+      
+        <content type="html"><![CDATA[<hr><p>正在更新ing….</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> Linux </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 编辑器 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>创建SSH KEY及查看SSH KEY</title>
+      <link href="/2021/04/10/chuang-jian-ssh-key-ji-cha-kan-ssh-key/"/>
+      <url>/2021/04/10/chuang-jian-ssh-key-ji-cha-kan-ssh-key/</url>
+      
+        <content type="html"><![CDATA[<blockquote><p> 只适用于Mac和windows下的Git Bash操作界面。</p></blockquote><h2 id="检查本地是否有SSH-Key存在"><a href="#检查本地是否有SSH-Key存在" class="headerlink" title="检查本地是否有SSH Key存在"></a>检查本地是否有SSH Key存在</h2><p><code>ssh-keygen -t rsa -C &quot;邮箱地址&quot;</code>  //执行成功后将会返回Generating public/private rsa key pair. <strong>直接按回车，冒号可以不用管</strong><br>这里的 <em>username</em> 是你电脑的名字</p><ul><li><p>如果正常运行的话，会出现</p><p>  Enter passphrase (empty for no passphrase):</p><p>  然后我们直接回车</p></li><li><p>有的时候我们可能会出现</p><p>  /Users/your username/.ssh/id_rsa already exists.</p><p>  Overwrite (y/n)?  y</p><p>  这说明你已经设置了存储地址，我们输入“y”覆盖</p><p>  回车</p></li></ul><h2 id="生成新的ssh"><a href="#生成新的ssh" class="headerlink" title="生成新的ssh"></a>生成新的ssh</h2><p>  上面的任意两种情况之后，会出现</p><pre><code>Enter same passphrase again: </code></pre><p>再次<strong>回车</strong>，这时候你会看见：</p><pre><code>Your identification has been saved in /Users/username/.ssh/id_rsa.Your public key has been saved in /Users/username/.ssh/id_rsa.pub.The key fingerprint is:16:27:ac:a5:76:28:2d:36:63:1b:56:4d:eb:df:a6:48 your_email@example.comThe key&#39;s randomart image is:+--[ RSA 2048]----+    *(心形的图案)*</code></pre><p>这说明SSH key就已经生成了。文件目录就是：/Users/username/.ssh/id_rsa</p><h2 id="查看ssh"><a href="#查看ssh" class="headerlink" title="查看ssh"></a>查看ssh</h2><p><code>cat c/User/username/.ssh/id_rsa.pub</code>   //<strong>这里的username 是你电脑的名字。</strong></p><p>接下来将会看到公钥ssh-rsa AAAAB3NzaC1yc2。。。。。。。。。</p><p>后面的内容我省略了<br>(说明：ssh-rsa 后面的内容这就是你的SSH keys，复制ssh keys的时候要<em>全部复制</em>下来)</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> ECS </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> ssh </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>Hexo 书写入门指南</title>
+      <link href="/2021/04/07/hexo-shu-xie-ru-men-zhi-nan/"/>
+      <url>/2021/04/07/hexo-shu-xie-ru-men-zhi-nan/</url>
+      
+        <content type="html"><![CDATA[<h1 id="使用-Markdown-去写-hexo"><a href="#使用-Markdown-去写-hexo" class="headerlink" title="使用 Markdown 去写 hexo"></a>使用 Markdown 去写 hexo</h1><ul><li>使用 Typora 来编辑文件更加方便，Typora 编辑器来讲解 Markdown 的语法，Typora 支持 MacOS 、Windows、Linux 平台，且包含多种主题，编辑后直接渲染出效果。点击<a href="https://typora.io/" target="_blank" rel="noopener">这里</a>即可下载。</li><li>也可以用vs code 进行编写，点击<a href="https://code.visualstudio.com/" target="_blank" rel="noopener">这里</a>g官网下载，建议在vs code里面下载 Markdown Preview Enhanced ，这是是一个很好用的完善预览功能的插件，可以更加形象的展示所编写的pdf格式的文档样式。</li></ul><h1 id="Markdown-的基本使用"><a href="#Markdown-的基本使用" class="headerlink" title="Markdown 的基本使用"></a>Markdown 的基本使用</h1><h2 id="标题"><a href="#标题" class="headerlink" title="标题"></a>标题</h2><p>建议在 # 号后加一个空格，这是 Markdown 的基本语法</p><pre><code>#  一级标题## 二级标题### 三级标题 </code></pre><h2 id="列表"><a href="#列表" class="headerlink" title="列表"></a>列表</h2><p>列表的显示只需要在文字前加上 - 或 * 即可变为无序列表，有序列表则直接在文字前加 1. 2. 3.  符号要和文字之间加上一个字符的空格。</p><pre><code>- 列表1- 列表2</code></pre><h2 id="插入代码"><a href="#插入代码" class="headerlink" title="插入代码"></a>插入代码</h2><p> `  这是tab键上面那个符号</p><pre><code>- 插入代码行    在两个 ` 中间插入代码行- 插入代码框    在六个 ` 插入代码框&lt;``````&gt; `code` //代码行```&lt;html&gt;&lt;html&gt;code```     // 代码框</code></pre><h2 id="上标与下标"><a href="#上标与下标" class="headerlink" title="上标与下标"></a>上标与下标</h2><p>上标：<br>    X^1^</p><p>下标：<br>    10<del>1</del></p><h2 id="插入图片与链接"><a href="#插入图片与链接" class="headerlink" title="插入图片与链接"></a>插入图片与链接</h2><p>括号里面填图片或者链接的所处路径。</p><pre><code>图片为：![]()链接为： []()</code></pre><h2 id="粗体与斜体"><a href="#粗体与斜体" class="headerlink" title="粗体与斜体"></a>粗体与斜体</h2><p>粗体和斜体也非常简单，用两个 * 包含一段文本就是粗体的语法，用一个 * 包含一段文本就是斜体的语法。</p><h2 id="引用"><a href="#引用" class="headerlink" title="引用"></a>引用</h2><p>只需要在文本前加入 &gt; 这种尖括号（大于号）即可<br>eg: &gt; 你好</p><h2 id="表格"><a href="#表格" class="headerlink" title="表格"></a>表格</h2><p>表格是我觉得 Markdown 比较累人的地方，例子如下：</p><p><img src="https://i.loli.net/2020/03/26/1nvIk24fbaLiqUM.png" alt="表格"></p><table><thead><tr><th>A</th><th align="center">B</th><th align="right">总计</th></tr></thead><tbody><tr><td>1</td><td align="center">1</td><td align="right">2</td></tr><tr><td>2</td><td align="center">2</td><td align="right">4</td></tr></tbody></table><h2 id="分割线"><a href="#分割线" class="headerlink" title="分割线"></a>分割线</h2><p>分割线的语法只需要三个 * 号</p><h2 id="脚注"><a href="#脚注" class="headerlink" title="脚注"></a>脚注</h2><p>文字内容[^1]</p><p>在文章末尾[^1]:脚注说明文字</p><p>注：1可以为任意数字或文字或单词，但文章末尾[^]中内容与文中应保持一致。</p><h2 id="其他补充"><a href="#其他补充" class="headerlink" title="其他补充"></a>其他补充</h2><p>Markdown中的转义字符为\，若不想使符号变成文字的格式等，在符号前加\。</p><blockquote><p>至此，markdown的基本使用方法就写到这里，只要多加运用，写Hexo应该是行云流水了吧！</p></blockquote>]]></content>
+      
+      
+      <categories>
+          
+          <category> blog </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Markdown </tag>
+            
+            <tag> Hexo </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>Hexo指定域名和宝塔面板的部署</title>
+      <link href="/2021/03/30/hexo-zhi-ding-zi-yu-ming-he-bao-ta-mian-ban-de-bu-shu/"/>
+      <url>/2021/03/30/hexo-zhi-ding-zi-yu-ming-he-bao-ta-mian-ban-de-bu-shu/</url>
+      
+        <content type="html"><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>前些天用阿里云的云服务器 、 Nginx 的环境和 域名 挂载了一个快速简洁的博客框架 Hexo 。但是却发现整个域名都用于 Hexo 博客的搭载，这并不能发挥域名的最大价值，于是最近总想着怎么让 nginx 绑定我多个域名，从而搭载我更多的业务。使用域名就是为了方便用户访问， 因此想修改一下 Nginx 中的文件，让 Nginx 通过请求的域名来返回相应的根目录下的网站，以达到同时运行多个网站的目的。关于 Hexo 的搭建，详情请参考我另一篇<a href="http://golife.top/2020/03/28/wo-de-hexo-tang-keng-zhi-lu/" target="_blank" rel="noopener">blog</a>。<strong>我这里是利用宝塔面板一键建站，修改根目录的办法来指向域名，如果你有类似的需求，可以参考我这边 blog ，或者你有更好的方法，也欢迎你联系我，我们一起探讨，互相学习。</strong></p><h2 id="问题提出与解决思路"><a href="#问题提出与解决思路" class="headerlink" title="问题提出与解决思路"></a>问题提出与解决思路</h2><p><strong>如何修改 Nginx中的文件 从而利用 Nginx服务器绑定域名</strong></p><p>办法总是有的，但是解决起来实在是相当的棘手。可以直接 vim 命令修改 nginx.config 文件，以达到最终的目的。但是这个过程还是相当繁琐的，甚至还需要用到证书什么的。<br>作为一名<strong>小白</strong>，毕竟一失足成千古恨。所以我知难而退，重新寻找另外更快捷的方法。果不其然，方法总比困难多，我找到了更好部署工具 —— <strong>面板</strong>。</p><blockquote><p>利用面板，我们可以一键建站。再修改一下建站的文件，直接指向我们的网站根目录。对于以后的网站业务也甚是方便，实在是妙不可言。</p></blockquote><h2 id="Nginx的卸载"><a href="#Nginx的卸载" class="headerlink" title="Nginx的卸载"></a>Nginx的卸载</h2><p>因为我们要用到面板，所以原来的nginx文件都不需要了，可以直接下载了。卸载指令如下：（Ubuntu下nginx的卸载）</p><pre><code>sudo apt-get remove nginx nginx-common # 卸载删除除了配置文件以外的所有文件。sudo apt-get purge nginx nginx-common # 卸载所有东东，包括删除配置文件。sudo apt-get autoremove # 在上面命令结束后执行，主要是卸载删除Nginx的不再被使用的依赖包。sudo apt-get remove nginx-full nginx-common #卸载删除两个主要的包。sudo service nginx restart  #重启nginx</code></pre><blockquote><p>Nginx 的安装何其简单，但是卸载却相当不易，一不小心就是个坑。</p></blockquote><h2 id="宝塔面板的部署"><a href="#宝塔面板的部署" class="headerlink" title="宝塔面板的部署"></a>宝塔面板的部署</h2><p>关于面板，市面上有很多种，但是比较常用的还是宝塔面板。</p><blockquote><p>宝塔Linux面板是提升运维效率的服务器管理软件，支持一键LAMP/LNMP/集群/监控/网站/FTP/数据库/JAVA等100多项服务器管理功能。<br>有20个人的专业团队研发及维护，经过200多个版本的迭代，功能全，少出错且足够安全，已获得全球百万用户认可安装。运维要高效，装宝塔。</p></blockquote><p><img src="https://i.loli.net/2020/03/31/fkCeBhAisdRqGMW.png" alt="宝塔面板.png"> </p><p><strong>下面来讲解一下如何部署宝塔面板：</strong></p><h3 id="1-安装宝塔面板"><a href="#1-安装宝塔面板" class="headerlink" title="1. 安装宝塔面板"></a>1. 安装宝塔面板</h3><ul><li>进入宝塔面板的<a href="https://www.bt.cn/" target="_blank" rel="noopener">官网</a> </li><li>点击立即安装，就可以看到宝塔面板的安装要求和安装命令。</li><li>直接复制相应系统的命令在你的服务器上面执行即可。<br><img src="https://i.loli.net/2020/03/30/dqyfkbuzCBW3Xgs.png" alt="宝塔面板"></li></ul><h3 id="2-登录宝塔面板"><a href="#2-登录宝塔面板" class="headerlink" title="2. 登录宝塔面板"></a>2. 登录宝塔面板</h3><ul><li><p>安装完成后，最后会出现你的账号密码以及登录网址。</p><pre><code>  Bt-Panel: http://服务器ip:8888/23a4d083  username:  #用户名  password: #密码  Warning:            #警告  If you cannot access the panel,   release the following port (8888|888|80|443|20|21) in the security group</code></pre></li></ul><p><strong>注意：</strong></p><blockquote><p>最后会出现一个警告，这个意思是我们要先去打开 80 端口和 8888 端口，这个两个端口是一定要开的，否则就访问不了。阿里云服务器默认是关闭，所以我们要手动配置。 打开阿里云服务器管理控制台 -&gt; 点击左侧安全组 -&gt; 点击右侧的配置规则 -&gt; 点击添加安全组规则</p></blockquote><p><img src="https://i.loli.net/2020/03/30/lCMLiXf4167r5yZ.png" alt="打开80端口"><br><img src="https://i.loli.net/2020/03/30/8vrpM21cQgZGtUm.png" alt="打开8888端口"></p><p>ps：这个面板的登录页面不是一定要把8888端口打开的，仅仅只是第一次登录需要打开8888端口，登录之后后面，进入面板设置是可以改掉这个端口的。账号密码面板的域名也是可以改的。</p><ul><li>打开两个端口之后就可以用网站和用户名顺利登录啦！</li></ul><h3 id="3-宝塔面板的自定义设置"><a href="#3-宝塔面板的自定义设置" class="headerlink" title="3.宝塔面板的自定义设置"></a>3.宝塔面板的自定义设置</h3><ul><li><p>进去后会推荐安装 Lamp，这个我们依他的推荐就好了。（安装时间可能有点长，我们需要等一下）</p></li><li><p>安装完成后 ，会自动提示我们修改宝塔面板的端口，因为原始的8888 端口不安全。修改建议端口范围8888 - 65535。<strong>注意：有安全组的服务器请提前在安全组放行新端口</strong> 打开阿里云服务器管理控制台 -&gt; 点击左侧安全组 -&gt; 点击右侧的配置规则 -&gt; 点击添加安全组规则</p></li><li><p>修改原始用户名密码和宝塔面板的域名。（ps：修改域名的时候一定要记得去域名解析那里添加A记录，还有宝塔面板的安全入口也一定要重视，否则仅仅通过域名是打不开宝塔面板的，这里出现问题也不要怕，后面会有问题参考的）<br><img src="https://i.loli.net/2020/03/31/rSIOXRvCotnY1sL.png" alt="解析ip"></p></li></ul><h3 id="4-宝塔面板的探索"><a href="#4-宝塔面板的探索" class="headerlink" title="4. 宝塔面板的探索"></a>4. 宝塔面板的探索</h3><p>在安装相应的插件、修改好端口之后，你可以自由得探索宝塔面板了，毕竟来到新环境，还是非常陌生的。</p><ul><li>简单说下添加站点，如果建站成功会出现如下图所示。当然如果你填了域名，<strong>一定要在域名的控制台解析添加A记录。</strong><br><img src="https://i.loli.net/2020/03/31/65yObsXlo2BiI3P.png" alt="建站成功.png"></li></ul><p>宝塔面板有一键建站，ftp、数据库，甚至在软件商店中的还有一键部署各种各样的功能，是非常强大的，你可以去软件商店里面找找你需要的插件哦！<br><img src="https://i.loli.net/2020/03/31/MhyCIdlgzNsJpa1.png" alt="软件商店中的一键部署"></p><h2 id="在宝塔面板里修改网站的根目录"><a href="#在宝塔面板里修改网站的根目录" class="headerlink" title="在宝塔面板里修改网站的根目录"></a>在宝塔面板里修改网站的根目录</h2><p>顺利安装宝塔面板，也体验了面板的强大之后，我们还是回到正题吧！！！</p><p><strong>如何将我Hexo 绑定到我的域名下的一个子域名：</strong></p><h3 id="点击左边的网站-gt-添加站点"><a href="#点击左边的网站-gt-添加站点" class="headerlink" title="点击左边的网站 &gt;- 添加站点"></a>点击左边的网站 &gt;- 添加站点</h3><p><img src="https://i.loli.net/2020/03/30/M3YrHEX49SOsPV7.png" alt="添加站点"></p><p>此时就有网站的根目录出现，我们把这里的根目录指向我的Hexo 博客的地址。</p><p>我这里是  var/www/blog 文件。详情请看我Hexo搭建另一篇<a href="http://golife.top/2020/03/28/wo-de-hexo-tang-keng-zhi-lu/" target="_blank" rel="noopener">blog</a><br><img src="https://i.loli.net/2020/03/30/2omNfbVSyRZl9i5.png" alt="修改根目录"></p><blockquote><p>如果你还想用你的blog绑定更多的域名，可以直接在方框里面加上去。</p></blockquote><ul><li><strong>如果你已经在宝塔面板里面添加过了这个站点</strong><br>不需要删除重建，你也可以直接修改配置文件，将文件指向你博客的根目录即可。<img src="https://i.loli.net/2020/03/31/dBtGvCpKQ52SXiY.png" alt="修改后的配置文件"></li></ul><h2 id="问题参考"><a href="#问题参考" class="headerlink" title="问题参考"></a>问题参考</h2><p>修改好了宝塔面板的域名后，想通过域名直接进入面板，但出现如下的错误。<img src="https://i.loli.net/2020/03/31/HFEsaRW4YweUVL7.png" alt="登录错误.png"><br>这是因为你安全入口的8字符没有加上哦。</p><p>解决方法：直接在服务器上的 敲</p><p>/etc/init.d/bt default</p><p>就可以看到面板的正确网址啦！</p><h2 id="最后总结"><a href="#最后总结" class="headerlink" title="最后总结"></a>最后总结</h2><p>面板的存在让这个过程变的更加的方便。如果你有类似的需要，也可以这样做。关于Nginx，我们还是慢慢学吧，路还很长/(ㄒoㄒ)/~~。此外，在宝塔的软件商店里，还有许多的插件，不妨花点时间研究研究，还是非常有意思的。</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> ECS </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Hexo </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>我的Hexo 趟坑之旅</title>
+      <link href="/2021/03/28/wo-de-hexo-tang-keng-zhi-lu/"/>
+      <url>/2021/03/28/wo-de-hexo-tang-keng-zhi-lu/</url>
+      
+        <content type="html"><![CDATA[<h1 id="从零搭建Hexo博客并部署阿里云服务器（无坑化教学）"><a href="#从零搭建Hexo博客并部署阿里云服务器（无坑化教学）" class="headerlink" title="从零搭建Hexo博客并部署阿里云服务器（无坑化教学）"></a>从零搭建Hexo博客并部署阿里云服务器（无坑化教学）</h1><h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>   前些天在阿里云买了个云主机，顺便买了个域名，就开始学着搭博客了，对比几个高大上的博客 （ Wordpress 、 z-blog） ，最终还是选择使用 Hexo 来作为自己的博客框架。今天将自己搭博客过程中踩过的坑做一个输出，希望对有想法要做自己的博客的同学们有一些帮助。顺便借此博客来记录自己成长过程的所获所得。   </p><h2 id="我的搭建环境"><a href="#我的搭建环境" class="headerlink" title="我的搭建环境"></a>我的搭建环境</h2><ul><li>本地端 windows10    </li><li>服务端 阿里云ECS（2核4G）Ubuntu 18.04系统   </li><li>域名（域名仅仅只是为了方便访问，你也可以用服务器公ip地址访问）<br>主要思路如图所示：<br><img src="https://i.loli.net/2020/03/28/ty3SNlYWHVw1A5P.jpg" alt=""></li></ul><h2 id="准备工作"><a href="#准备工作" class="headerlink" title="准备工作"></a>准备工作</h2><h3 id="服务器的购买以及域名的备案"><a href="#服务器的购买以及域名的备案" class="headerlink" title="服务器的购买以及域名的备案"></a>服务器的购买以及域名的备案</h3><ul><li>我的服务器是阿里云这边的，由于自己是学生所以体验了一把阿里云的云翼计划，当然阿里云和腾讯云的价格都差不多，同学们可以自行选择。</li><li>域名可以上阿里云的域名专区找自己喜欢的后缀，如果是国内的域名是要<strong>备案</strong>的，备案大概需要7-20天，同学们如果不想等的话，也可以购买国外的域名。</li></ul><h3 id="本地端"><a href="#本地端" class="headerlink" title="本地端"></a>本地端</h3><ul><li>git 安装 （后续都是在git bash操作的）</li><li>nodejs安装</li><li>本地公钥</li><li>hexo</li></ul><h3 id="服务端"><a href="#服务端" class="headerlink" title="服务端"></a>服务端</h3><ul><li>git  </li><li>nodejs</li><li>nginx</li></ul><h2 id="阿里云服务器实例以及的域名解析"><a href="#阿里云服务器实例以及的域名解析" class="headerlink" title="阿里云服务器实例以及的域名解析"></a>阿里云服务器实例以及的域名解析</h2><h3 id="配置安全组"><a href="#配置安全组" class="headerlink" title="配置安全组"></a>配置安全组</h3><p>由于阿里云是默认不授权80端口的访问的，所以我们要手动配置。打开阿里云服务器管理控制台 -&gt; 点击左侧安全组 -&gt; 点击右侧的配置规则 -&gt; 点击添加安全组规则<br><img src="https://i.loli.net/2020/03/28/w6pCMyNGgYrQ3t8.png" alt="开启80端口"><br>这是个<strong>大坑</strong>！！！如果不配置，我们是进不了网页的。</p><h3 id="域名的解析"><a href="#域名的解析" class="headerlink" title="域名的解析"></a>域名的解析</h3><blockquote><p>没有买域名的，或者域名还在备案的，可以不执行此步骤，直接通过ip地址访问也是可以的。<br>这个操作能够是把你注册的域名解析到你服务器的ip上,注意如果是阿里云服务,则是解析到公网ip上.后面在服务器上有对ip的操作也是指的公网IP。打开域名控制台-&gt; 解析 -&gt; 添加记录 （添加A记录，记录值填公网ip即可）<br><img src="https://i.loli.net/2020/03/31/rSIOXRvCotnY1sL.png" alt="解析ip"></p></blockquote><h2 id="本地端的相关操作"><a href="#本地端的相关操作" class="headerlink" title="本地端的相关操作"></a>本地端的相关操作</h2><p>这个Hexo博客的搭建大部分是在本地端完成的。 </p><h3 id="1-下载nodejs"><a href="#1-下载nodejs" class="headerlink" title="1. 下载nodejs"></a>1. 下载nodejs</h3><p>点击<a href="https://nodejs.org/en/download/" target="_blank" rel="noopener">官网</a>下载Node.js安装包及源码。</p><h3 id="2-下载git工具"><a href="#2-下载git工具" class="headerlink" title="2.下载git工具"></a>2.下载git工具</h3><p>点击git<a href="http://msysgit.github.com/" target="_blank" rel="noopener">官网</a>下载</p><blockquote><p>nodejs 和 git 工具都下载好了之后 </p></blockquote><pre><code>node -v   npm -v            //检查版本</code></pre><h3 id="3-生成本地的公钥"><a href="#3-生成本地的公钥" class="headerlink" title="3.生成本地的公钥"></a>3.生成本地的公钥</h3><blockquote><p>如果你之前已经生成过公钥了，可以不进行这一步只需要把公钥提取出来即可。  </p></blockquote><p>在命令行（或Git Bash）输入以下命令， 回车三下： </p><p><code>ssh-keygen -t rsa -C &quot;邮箱地址&quot;</code>  </p><p>复制密钥文件内容（路径形如C:\Users\username.ssh\id_rsa.pub），粘贴保存，后面服务端会用到。这里的 <em>username</em> 是你电脑的名字</p><p>如果这一步你有困难，具体操作请看<a href="http://golife.top/2020/03/28/chuang-jian-ssh-key-ji-cha-kan-ssh-key/" target="_blank" rel="noopener">这里</a>。</p><h3 id="4-安装-Cnpm"><a href="#4-安装-Cnpm" class="headerlink" title="4. 安装 Cnpm"></a>4. 安装 Cnpm</h3><blockquote><p>由于使用npm直接下载会有很多人遇到卡顿的问题(国外服务器)，所以我们要做的第一步工作是将npm换成淘宝的服务器。</p></blockquote><p><code>npm install -g cnpm --registry=https://registry.npm.taobao.org</code></p><h3 id="5-安装Hexo及修改相应文件"><a href="#5-安装Hexo及修改相应文件" class="headerlink" title="5. 安装Hexo及修改相应文件"></a>5. 安装Hexo及修改相应文件</h3><ul><li><p><code>cnpm install -g hexo-cli</code>    //Cnpm 的安装速度很快，后面也直接用 cnpm 在<strong>git bash</strong> 里面进行操作。</p><ul><li><p>选择创建的blog文件<br> 我这里是选择在了F盘</p><pre><code> cd G: cd Blog hexo init</code></pre><p> 再安装 Hexo的插件<br> <code>npm install hexo-deployer-git --save</code><br> 执行完成后：</p><pre><code> hexo clean hexo g hexo s</code></pre><p> 我们可以在本地端看我们的博客啦<br> 打开浏览器访问 <a href="http://localhost:4000" target="_blank" rel="noopener">http://localhost:4000</a></p></li><li><p>配置 _config.yml 文件<br>  在刚才生成hexo的目录下，找到_config.yml，打开它。<br>  找到deploy 做如下配置</p><pre><code>  deploy:  type: git  repo: git@这里改为服务器公网IP:/home/git/blog.git         branch: master                             message:</code></pre><p>  保存退出</p></li></ul></li></ul><h2 id="服务端相关操作"><a href="#服务端相关操作" class="headerlink" title="服务端相关操作"></a>服务端相关操作</h2><h3 id="1-安装-nodej环境"><a href="#1-安装-nodej环境" class="headerlink" title="1. 安装 nodej环境"></a>1. 安装 nodej环境</h3><blockquote><p>方式有很多中，这里我说其中一种安装方法，并把nodejs更新到最新版）可以执行如下指令:     </p></blockquote><p><code>sudo apt install nodejs</code>    //从存储库安装Nodejs<br><code>sudo apt install npm</code>     //需要额外安装npm<br><code>node -v&#39; &#39;npm -v</code>         //检查 node npm版本，结果发现 是8.x  3.x 版本<br>在Ubuntu 18.04 下升级Nodejs 至最新版本</p><pre><code>$ curl -sL https://deb.nodesource.com/setup_10.x -o nodesource_setup.sh$ sudo bash nodesource_setup.sh$ sudo apt install nodejs   //从源代码编译 升级 </code></pre><p>最后检查 版本</p><pre><code>node -vnpm - v</code></pre><p>此时发现 node 和npm都安装好啦，并且是最新版    </p><h3 id="2-安装-git"><a href="#2-安装-git" class="headerlink" title="2. 安装 git"></a>2. 安装 git</h3><pre><code>`apt-get install git`</code></pre><h3 id="3-安装nginx"><a href="#3-安装nginx" class="headerlink" title="3. 安装nginx"></a>3. 安装nginx</h3><p>nginx的安装是非常简单的   </p><p><code>apt install nginx</code>     </p><p><code>/etc/init.d/nginx restart</code>   //重启nginx   </p><p>现在我们可以尝试使用自己的电脑去访问服务器的公网IP。我们可以惊喜地发现，公网IP可以打开一个nginx的默认网页。这样，我们离成功了就近了一大步。<br><img src="https://i.loli.net/2020/03/28/z3sXbgdo6Iupi1O.png" alt=""></p><blockquote><p>接下来就要开始在服务器上面敲啦</p></blockquote><h3 id="4-增加-git-用户并进入-git-用户"><a href="#4-增加-git-用户并进入-git-用户" class="headerlink" title="4. 增加 git 用户并进入 git 用户"></a>4. 增加 git 用户并进入 git 用户</h3><ul><li><p><code>useradd git</code> //增加一个git用户 </p><p><code>vi /etc/sudoers</code>  //进去sudoers文件</p><p>找到 root all=(all:all) all<br>在下面增加 git all=(all:all) all</p><p><img src="https://i.loli.net/2020/03/28/9Nw3tabZz8VxvsW.png" alt="修改后的sudoers文件"><br>修改好后 ，按 ESC键  ：wq! 强制保存退出</p><p><code>chmod 740 /etc/sudoers</code>  //给这个文件增加可读可写可执行权限    </p><p><code>vi /etc/passwd</code>  //进入passwd文件修改   将sh修改成bash</p><p><img src="https://i.loli.net/2020/03/28/E9eSZvgLOx2iTVz.png" alt="修改后">        </p><p><code>mkdir /home/git</code>  </p><p><code>chown -R git:git /home/git</code></p><p><code>ls-l</code>  //验证：查看文件多少个 并且可以查看权限</p><p><code>ls – l /home</code>   //验证：<br><img src="https://i.loli.net/2020/03/28/UnVASZMXf2oT5gc.png" alt=""></p><p><code>passwd git</code> //创建用户密码<br>再次输入密码，需要注意的是，系统设置输入密码都是不可见的，这里的密码很重要 </p><p><code>mkdir -p /var/www</code><br><code>cd /var/www</code><br><code>mkdir blog</code>              //这是服务器放置blog文件的地方<br><code>chown –R git:git /var/www/blog</code>   //修改文件权限</p></li><li><p><code>su git</code>   //进入git用户    </p><p> <code>cd</code>       //回到git主目录  </p><p> <code>pwd</code>     //检查：查看路径，检查是否出错。<img src="https://i.loli.net/2020/03/28/yiRvaQZs92NqJjc.png" alt=""> </p><p> <code>mkdir blog.git</code><br> <code>cd blog.git</code><br> <code>git init - -bare</code>     //初始化<strong>仓库</strong><br> <img src="https://i.loli.net/2020/03/28/ZdNqv1EX4BCUnzk.png" alt="仓库里面的文件.png"></p><p> <code>cd blog.git/hooks/</code> </p><p> <code>ls</code>      //查看文件   </p><p> <code>vi post-receive.</code>   //设置git的<strong>钩子</strong>脚本，这是非常重要的</p><pre><code> #!/bin/bash GIT_REPO=/home/git/blog.git   //定义一个变量GIT_REPO并指定所在位置 TMP_DIR_CLONE=/tmp/blog       //定义一个临时的文件并指定所在位置 PUBLIC_WWW=/var/www/blog      //最后发布的网站服务器根目录 rm -rf ${TMP_DIR_CLONE} git clone $GIT_REPO $TMP_DIR_CLONE rm -rf $PUBLIC_WWW/* cp -rf $TMP_DIR_CLONE/* $PUBLIC_WWW</code></pre><p> <em>大概作用:本地客户端有pushug更新,就会运行上面脚本.<br> 删除临时文件<br> 从GIT_REPO中pull一部分到TMP_DIR_CLONE中<br> 删除网站服务器根目录<br> 把临时文件中的内容拷贝到网站服务器根目录.</em></p><p> 保存退出 :wq   </p><p> <code>chmod +x post-receive</code>        //给文章加权限 </p><p> <code>cd</code>                          //到git主目录</p><p> <code>mkdir .ssh</code>    </p><p> <code>cd .ssh</code>   </p><p> <code>vi authorized_keys</code>      //将自己本地的公钥拷贝过来    再 :wq 保存退出  </p><p> <code>Exit</code>   //回到root用户</p></li></ul><h3 id="5-接下来是nginx的操作"><a href="#5-接下来是nginx的操作" class="headerlink" title="5. 接下来是nginx的操作"></a>5. 接下来是nginx的操作</h3><ul><li><p><code>vi /etc/nginx/sites-enabled/default</code>  //进入文件</p><p>  只需要将 html 改成 blog 即可</p><p>  <img src="https://i.loli.net/2020/03/28/EblmFaGWrsHQYwp.png" alt="修改后">  </p></li></ul><ul><li><code>/etc/init.d/nginx restart</code>    //重启 nginx<br><img src="https://i.loli.net/2020/03/28/grkbmdi52Fpf7uZ.png" alt="重启nginx成功"> </li></ul><blockquote><p>服务端就此完成啦！！！！！</p></blockquote><h2 id="最终验证"><a href="#最终验证" class="headerlink" title="最终验证"></a>最终验证</h2><p>在<strong>自己的电脑上自己的电脑上自己的电脑上</strong>   </p><p>cmd 或者git bash都行</p><ul><li><p>ssh -v git@server_ip    (服务器公网ip地址)<br>需要输入服务端 git 用户创建的密码<br><img src="https://i.loli.net/2020/03/28/v8nBHycr9dYK45l.png" alt=""></p><p>  最后提示        </p><p>  Welcome to Alibaba Cloud Elastic Compute Service !      </p><p>  说明登录成功了。</p></li></ul><ul><li><p>尝试写一篇文章并且发布到服务器上     </p><p>  <strong>cd 到自己的本地端的Hexo目录</strong></p><p>  <code>hexo new &quot;Hello My First Blog&quot;</code><br>  <code>hexo clean &amp;&amp; hexo generate --deploy</code><br>  //需要输入服务端 git 用户创建的密码，以后 deploy 都需要这个密码</p></li></ul><h2 id="博客美化"><a href="#博客美化" class="headerlink" title="博客美化"></a>博客美化</h2><p>完成部署后可以去Hexo主题下载自己喜欢的主题，美化博客。</p><p>现在去本地主机浏览器上输入域名或者公网IP，访问你的博客吧！</p><hr><p>参考链接：</p><ol><li><a href="http://golife.top/2020/03/28/chuang-jian-ssh-key-ji-cha-kan-ssh-key/" target="_blank" rel="noopener">创建SSH KEY及查看SSH KEY</a></li><li>Linux 相关指令学习</li><li><a href="https://github.com/blinkfox/hexo-theme-matery/blob/develop/README_CN.md" target="_blank" rel="noopener">hexo-theme-matery主题讲解</a></li><li><a href="http://leon.cmylife.xyz/" target="_blank" rel="noopener">参考博客 ：学习进化史</a></li><li><a href="https://m.youtube.com/watch?v=-M7BOQjCFZM&list=PLq9fAEr-k3Nx37LC5xRCnmmwTkXRI8V5A&index=1" target="_blank" rel="noopener">本文章所跟教程</a>  TIP：这个链接来源于youtube.你跟着视频一步一步的做在阿里云上是可以成功的。<blockquote><p>如果还有问题，请通过qq联系我！！！</p></blockquote></li></ol>]]></content>
+      
+      
+      <categories>
+          
+          <category> ECS </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Hexo </tag>
+            
+            <tag> blog </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>Hello World</title>
+      <link href="/2020/03/25/hello-world/"/>
+      <url>/2020/03/25/hello-world/</url>
+      
+        <content type="html"><![CDATA[<p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p><h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><pre class=" language-bash"><code class="language-bash">$ hexo new <span class="token string">"My New Post"</span></code></pre><p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="noopener">Writing</a></p><h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><pre class=" language-bash"><code class="language-bash">$ hexo server</code></pre><p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="noopener">Server</a></p><h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><pre class=" language-bash"><code class="language-bash">$ hexo generate</code></pre><p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="noopener">Generating</a></p><h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><pre class=" language-bash"><code class="language-bash">$ hexo deploy</code></pre><p>More info: <a href="https://hexo.io/docs/one-command-deployment.html" target="_blank" rel="noopener">Deployment</a></p>]]></content>
+      
+      
+      <categories>
+          
+          <category> blog </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Hexo </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+  
+  
+</search>
