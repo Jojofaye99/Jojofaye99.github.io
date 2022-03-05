@@ -1,6 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
+    <loc>https://jojofaye.gitee.io/2022/01/10/c-stl/</loc>
+    <lastmod>2022-03-05</lastmod>
+  </url>  <url>
     <loc>https://jojofaye.gitee.io/2021/03/28/wo-de-hexo-tang-keng-zhi-lu/</loc>
     <lastmod>2022-02-08</lastmod>
   </url>  <url>
@@ -23,9 +26,6 @@
     <lastmod>2022-02-08</lastmod>
   </url>  <url>
     <loc>https://jojofaye.gitee.io/2021/04/10/vim-shi-yong/</loc>
-    <lastmod>2022-02-08</lastmod>
-  </url>  <url>
-    <loc>https://jojofaye.gitee.io/2022/01/10/c-stl/</loc>
     <lastmod>2022-02-08</lastmod>
   </url>  <url>
     <loc>https://jojofaye.gitee.io/2020/03/25/hello-world/</loc>
