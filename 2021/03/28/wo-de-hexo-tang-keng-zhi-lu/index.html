@@ -5,7 +5,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="keywords" content="我的Hexo 趟坑之旅, 造梦空间">
-    <meta name="description" content="">
+    <meta name="description" content="从零搭建Hexo博客并部署阿里云服务器（无坑化教学）前言   前些天在阿里云买了个云主机，顺便买了个域名，就开始学着搭博客了，对比几个高大上的博客 （ Wordpress 、 z-blog） ，最终还是选择使用 Hexo 来作为自己的博客框">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -13,23 +13,45 @@
     <meta name="format-detection" content="telephone=no">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="referrer" content="no-referrer-when-downgrade">
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
     <title>我的Hexo 趟坑之旅 | 造梦空间</title>
-    <link rel="icon" type="image/png" href="/hfavicon.png">
-
-    <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
-    <link rel="stylesheet" type="text/css" href="/libs/materialize/materialize.min.css">
-    <link rel="stylesheet" type="text/css" href="/libs/aos/aos.css">
-    <link rel="stylesheet" type="text/css" href="/libs/animate/animate.min.css">
-    <link rel="stylesheet" type="text/css" href="/libs/lightGallery/css/lightgallery.min.css">
-    <link rel="stylesheet" type="text/css" href="/css/matery.css">
-    <link rel="stylesheet" type="text/css" href="/css/my.css">
-
-    <script src="/libs/jquery/jquery.min.js"></script>
+    <link rel="icon" type="image/png" href="/favicon.png">
     
-<meta name="generator" content="Hexo 4.2.0"><link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css"></head>
+
+
+    <!-- bg-cover style     -->
+
+
+
+<link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.min.css">
+<link rel="stylesheet" type="text/css" href="/libs/materialize/materialize.min.css">
+<link rel="stylesheet" type="text/css" href="/libs/aos/aos.css">
+<link rel="stylesheet" type="text/css" href="/libs/animate/animate.min.css">
+<link rel="stylesheet" type="text/css" href="/libs/lightGallery/css/lightgallery.min.css">
+<link rel="stylesheet" type="text/css" href="/css/matery.css">
+<link rel="stylesheet" type="text/css" href="/css/my.css">
+<link rel="stylesheet" type="text/css" href="/css/dark.css" media="none" onload="if(media!='all')media='all'">
+
+
+
+
+    <link rel="stylesheet" href="/libs/tocbot/tocbot.css">
+    <link rel="stylesheet" href="/css/post.css">
+
+
+
+
+    
+
+
+
+    <script src="/libs/jquery/jquery-3.6.0.min.js"></script>
+
+<meta name="generator" content="Hexo 7.3.0"><link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css">
+<link rel="stylesheet" href="/css/prism-line-numbers.css" type="text/css"></head>
 
 
 <body>
@@ -39,7 +61,7 @@
             <div class="brand-logo">
                 <a href="/" class="waves-effect waves-light">
                     
-                    <img src="/medias/hlogo.png" class="logo-img" alt="LOGO">
+                    <img src="/medias/logo.png" class="logo-img" alt="LOGO">
                     
                     <span class="logo-span">造梦空间</span>
                 </a>
@@ -131,13 +153,19 @@
       <i id="searchIcon" class="fas fa-search" title="搜索" style="zoom: 0.85;"></i>
     </a>
   </li>
+  <li>
+    <a href="javascript:;" class="waves-effect waves-light" onclick="switchNightMode()" title="深色/浅色模式" >
+      <i id="sum-moon-icon" class="fas fa-sun" style="zoom: 0.85;"></i>
+    </a>
+  </li>
 </ul>
+
 
 <div id="mobile-nav" class="side-nav sidenav">
 
     <div class="mobile-head bg-color">
         
-        <img src="/medias/hlogo.png" class="logo-img circle responsive-img">
+        <img src="/medias/logo.png" class="logo-img circle responsive-img">
         
         <div class="logo-name">造梦空间</div>
         <div class="logo-desc">
@@ -146,8 +174,6 @@
             
         </div>
     </div>
-
-    
 
     <ul class="menu-list mobile-menu-list">
         
@@ -232,6 +258,7 @@
     </ul>
 </div>
 
+
         </div>
 
         
@@ -261,100 +288,7 @@
 <main class="post-container content">
 
     
-    <link rel="stylesheet" href="/libs/tocbot/tocbot.css">
-<style>
-    #articleContent h1::before,
-    #articleContent h2::before,
-    #articleContent h3::before,
-    #articleContent h4::before,
-    #articleContent h5::before,
-    #articleContent h6::before {
-        display: block;
-        content: " ";
-        height: 100px;
-        margin-top: -100px;
-        visibility: hidden;
-    }
-
-    #articleContent :focus {
-        outline: none;
-    }
-
-    .toc-fixed {
-        position: fixed;
-        top: 64px;
-    }
-
-    .toc-widget {
-        width: 345px;
-        padding-left: 20px;
-    }
-
-    .toc-widget .toc-title {
-        margin: 35px 0 15px 0;
-        padding-left: 17px;
-        font-size: 1.5rem;
-        font-weight: bold;
-        line-height: 1.5rem;
-    }
-
-    .toc-widget ol {
-        padding: 0;
-        list-style: none;
-    }
-
-    #toc-content {
-        height: calc(100vh - 250px);
-        overflow: auto;
-    }
-
-    #toc-content ol {
-        padding-left: 10px;
-    }
-
-    #toc-content ol li {
-        padding-left: 10px;
-    }
-
-    #toc-content .toc-link:hover {
-        color: #42b983;
-        font-weight: 700;
-        text-decoration: underline;
-    }
-
-    #toc-content .toc-link::before {
-        background-color: transparent;
-        max-height: 25px;
-    }
-
-    #toc-content .is-active-link {
-        color: #42b983;
-    }
-
-    #toc-content .is-active-link::before {
-        background-color: #42b983;
-    }
-
-    #floating-toc-btn {
-        position: fixed;
-        right: 15px;
-        bottom: 76px;
-        padding-top: 15px;
-        margin-bottom: 0;
-        z-index: 998;
-    }
-
-    #floating-toc-btn .btn-floating {
-        width: 48px;
-        height: 48px;
-    }
-
-    #floating-toc-btn .btn-floating i {
-        line-height: 48px;
-        font-size: 1.4rem;
-    }
-</style>
-<div class="row">
+    <div class="row">
     <div id="main-content" class="col s12 m12 l9">
         <!-- 文章内容详情 -->
 <div id="artDetail">
@@ -416,9 +350,16 @@
 
                 
             </div>
-
         </div>
         <hr class="clearfix">
+
+        
+        <!-- 是否加载使用自带的 prismjs. -->
+        <link rel="stylesheet" href="/libs/prism/prism.min.css">
+        
+
+        
+
         <div class="card-content article-card-content">
             <div id="articleContent">
                 <h1 id="从零搭建Hexo博客并部署阿里云服务器（无坑化教学）"><a href="#从零搭建Hexo博客并部署阿里云服务器（无坑化教学）" class="headerlink" title="从零搭建Hexo博客并部署阿里云服务器（无坑化教学）"></a>从零搭建Hexo博客并部署阿里云服务器（无坑化教学）</h1><h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>   前些天在阿里云买了个云主机，顺便买了个域名，就开始学着搭博客了，对比几个高大上的博客 （ Wordpress 、 z-blog） ，最终还是选择使用 Hexo 来作为自己的博客框架。今天将自己搭博客过程中踩过的坑做一个输出，希望对有想法要做自己的博客的同学们有一些帮助。顺便借此博客来记录自己成长过程的所获所得。   </p>
@@ -447,19 +388,21 @@
 <p>没有买域名的，或者域名还在备案的，可以不执行此步骤，直接通过ip地址访问也是可以的。<br>这个操作能够是把你注册的域名解析到你服务器的ip上,注意如果是阿里云服务,则是解析到公网ip上.后面在服务器上有对ip的操作也是指的公网IP。打开域名控制台-&gt; 解析 -&gt; 添加记录 （添加A记录，记录值填公网ip即可）<br><img src="https://i.loli.net/2020/03/31/rSIOXRvCotnY1sL.png" alt="解析ip"></p>
 </blockquote>
 <h2 id="本地端的相关操作"><a href="#本地端的相关操作" class="headerlink" title="本地端的相关操作"></a>本地端的相关操作</h2><p>这个Hexo博客的搭建大部分是在本地端完成的。 </p>
-<h3 id="1-下载nodejs"><a href="#1-下载nodejs" class="headerlink" title="1. 下载nodejs"></a>1. 下载nodejs</h3><p>点击<a href="https://nodejs.org/en/download/" target="_blank" rel="noopener">官网</a>下载Node.js安装包及源码。</p>
-<h3 id="2-下载git工具"><a href="#2-下载git工具" class="headerlink" title="2.下载git工具"></a>2.下载git工具</h3><p>点击git<a href="http://msysgit.github.com/" target="_blank" rel="noopener">官网</a>下载</p>
+<h3 id="1-下载nodejs"><a href="#1-下载nodejs" class="headerlink" title="1. 下载nodejs"></a>1. 下载nodejs</h3><p>点击<a target="_blank" rel="noopener" href="https://nodejs.org/en/download/">官网</a>下载Node.js安装包及源码。</p>
+<h3 id="2-下载git工具"><a href="#2-下载git工具" class="headerlink" title="2.下载git工具"></a>2.下载git工具</h3><p>点击git<a target="_blank" rel="noopener" href="http://msysgit.github.com/">官网</a>下载</p>
 <blockquote>
 <p>nodejs 和 git 工具都下载好了之后 </p>
 </blockquote>
-<pre><code>node -v   
-npm -v            //检查版本</code></pre><h3 id="3-生成本地的公钥"><a href="#3-生成本地的公钥" class="headerlink" title="3.生成本地的公钥"></a>3.生成本地的公钥</h3><blockquote>
+<pre class="line-numbers language-none"><code class="language-none">node -v   
+npm -v            &#x2F;&#x2F;检查版本<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+
+<h3 id="3-生成本地的公钥"><a href="#3-生成本地的公钥" class="headerlink" title="3.生成本地的公钥"></a>3.生成本地的公钥</h3><blockquote>
 <p>如果你之前已经生成过公钥了，可以不进行这一步只需要把公钥提取出来即可。  </p>
 </blockquote>
 <p>在命令行（或Git Bash）输入以下命令， 回车三下： </p>
 <p><code>ssh-keygen -t rsa -C &quot;邮箱地址&quot;</code>  </p>
 <p>复制密钥文件内容（路径形如C:\Users\username.ssh\id_rsa.pub），粘贴保存，后面服务端会用到。这里的 <em>username</em> 是你电脑的名字</p>
-<p>如果这一步你有困难，具体操作请看<a href="http://golife.top/2020/03/28/chuang-jian-ssh-key-ji-cha-kan-ssh-key/" target="_blank" rel="noopener">这里</a>。</p>
+<p>如果这一步你有困难，具体操作请看<a target="_blank" rel="noopener" href="http://golife.top/2020/03/28/chuang-jian-ssh-key-ji-cha-kan-ssh-key/">这里</a>。</p>
 <h3 id="4-安装-Cnpm"><a href="#4-安装-Cnpm" class="headerlink" title="4. 安装 Cnpm"></a>4. 安装 Cnpm</h3><blockquote>
 <p>由于使用npm直接下载会有很多人遇到卡顿的问题(国外服务器)，所以我们要做的第一步工作是将npm换成淘宝的服务器。</p>
 </blockquote>
@@ -468,19 +411,22 @@ npm -v            //检查版本</code></pre><h3 id="3-生成本地的公钥"><a
 <li><p><code>cnpm install -g hexo-cli</code>    //Cnpm 的安装速度很快，后面也直接用 cnpm 在<strong>git bash</strong> 里面进行操作。</p>
 <ul>
 <li><p>选择创建的blog文件<br> 我这里是选择在了F盘</p>
-<pre><code> cd G:
- cd Blog
- hexo init</code></pre><p> 再安装 Hexo的插件<br> <code>npm install hexo-deployer-git --save</code><br> 执行完成后：</p>
-<pre><code> hexo clean
- hexo g
- hexo s</code></pre><p> 我们可以在本地端看我们的博客啦<br> 打开浏览器访问 <a href="http://localhost:4000" target="_blank" rel="noopener">http://localhost:4000</a></p>
+ <pre class="line-numbers language-none"><code class="language-none">cd G:
+cd Blog
+hexo init<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+<p> 再安装 Hexo的插件<br> <code>npm install hexo-deployer-git --save</code><br> 执行完成后：</p>
+ <pre class="line-numbers language-none"><code class="language-none">hexo clean
+hexo g
+hexo s<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+<p> 我们可以在本地端看我们的博客啦<br> 打开浏览器访问 <a target="_blank" rel="noopener" href="http://localhost:4000">http://localhost:4000</a></p>
 </li>
 <li><p>配置 _config.yml 文件<br>  在刚才生成hexo的目录下，找到_config.yml，打开它。<br>  找到deploy 做如下配置</p>
-<pre><code>  deploy:
-  type: git
-  repo: git@这里改为服务器公网IP:/home/git/blog.git       
-  branch: master                           
-  message:</code></pre><p>  保存退出</p>
+  <pre class="line-numbers language-none"><code class="language-none">deploy:
+type: git
+repo: git@这里改为服务器公网IP:&#x2F;home&#x2F;git&#x2F;blog.git       
+branch: master                           
+message:<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>  保存退出</p>
 </li>
 </ul>
 </li>
@@ -489,11 +435,15 @@ npm -v            //检查版本</code></pre><h3 id="3-生成本地的公钥"><a
 <p>方式有很多中，这里我说其中一种安装方法，并把nodejs更新到最新版）可以执行如下指令:     </p>
 </blockquote>
 <p><code>sudo apt install nodejs</code>    //从存储库安装Nodejs<br><code>sudo apt install npm</code>     //需要额外安装npm<br><code>node -v&#39; &#39;npm -v</code>         //检查 node npm版本，结果发现 是8.x  3.x 版本<br>在Ubuntu 18.04 下升级Nodejs 至最新版本</p>
-<pre><code>$ curl -sL https://deb.nodesource.com/setup_10.x -o nodesource_setup.sh
+<pre class="line-numbers language-none"><code class="language-none">$ curl -sL https:&#x2F;&#x2F;deb.nodesource.com&#x2F;setup_10.x -o nodesource_setup.sh
 $ sudo bash nodesource_setup.sh
-$ sudo apt install nodejs   //从源代码编译 升级 </code></pre><p>最后检查 版本</p>
-<pre><code>node -v
-npm - v</code></pre><p>此时发现 node 和npm都安装好啦，并且是最新版    </p>
+$ sudo apt install nodejs   &#x2F;&#x2F;从源代码编译 升级 <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+
+
+<p>最后检查 版本</p>
+<pre class="line-numbers language-none"><code class="language-none">node -v
+npm - v<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+<p>此时发现 node 和npm都安装好啦，并且是最新版    </p>
 <h3 id="2-安装-git"><a href="#2-安装-git" class="headerlink" title="2. 安装 git"></a>2. 安装 git</h3><pre><code>`apt-get install git`</code></pre><h3 id="3-安装nginx"><a href="#3-安装nginx" class="headerlink" title="3. 安装nginx"></a>3. 安装nginx</h3><p>nginx的安装是非常简单的   </p>
 <p><code>apt install nginx</code>     </p>
 <p><code>/etc/init.d/nginx restart</code>   //重启nginx   </p>
@@ -523,15 +473,16 @@ npm - v</code></pre><p>此时发现 node 和npm都安装好啦，并且是最新
 <p> <code>cd blog.git/hooks/</code> </p>
 <p> <code>ls</code>      //查看文件   </p>
 <p> <code>vi post-receive.</code>   //设置git的<strong>钩子</strong>脚本，这是非常重要的</p>
-<pre><code> #!/bin/bash
+ <pre class="line-numbers language-none"><code class="language-none">#!&#x2F;bin&#x2F;bash
 
- GIT_REPO=/home/git/blog.git   //定义一个变量GIT_REPO并指定所在位置
- TMP_DIR_CLONE=/tmp/blog       //定义一个临时的文件并指定所在位置
- PUBLIC_WWW=/var/www/blog      //最后发布的网站服务器根目录
- rm -rf ${TMP_DIR_CLONE}
- git clone $GIT_REPO $TMP_DIR_CLONE
- rm -rf $PUBLIC_WWW/*
- cp -rf $TMP_DIR_CLONE/* $PUBLIC_WWW</code></pre><p> <em>大概作用:本地客户端有pushug更新,就会运行上面脚本.<br> 删除临时文件<br> 从GIT_REPO中pull一部分到TMP_DIR_CLONE中<br> 删除网站服务器根目录<br> 把临时文件中的内容拷贝到网站服务器根目录.</em></p>
+GIT_REPO&#x3D;&#x2F;home&#x2F;git&#x2F;blog.git   &#x2F;&#x2F;定义一个变量GIT_REPO并指定所在位置
+TMP_DIR_CLONE&#x3D;&#x2F;tmp&#x2F;blog       &#x2F;&#x2F;定义一个临时的文件并指定所在位置
+PUBLIC_WWW&#x3D;&#x2F;var&#x2F;www&#x2F;blog      &#x2F;&#x2F;最后发布的网站服务器根目录
+rm -rf $&#123;TMP_DIR_CLONE&#125;
+git clone $GIT_REPO $TMP_DIR_CLONE
+rm -rf $PUBLIC_WWW&#x2F;*
+cp -rf $TMP_DIR_CLONE&#x2F;* $PUBLIC_WWW<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p> <em>大概作用:本地客户端有pushug更新,就会运行上面脚本.<br> 删除临时文件<br> 从GIT_REPO中pull一部分到TMP_DIR_CLONE中<br> 删除网站服务器根目录<br> 把临时文件中的内容拷贝到网站服务器根目录.</em></p>
 <p> 保存退出 :wq   </p>
 <p> <code>chmod +x post-receive</code>        //给文章加权限 </p>
 <p> <code>cd</code>                          //到git主目录</p>
@@ -573,16 +524,17 @@ npm - v</code></pre><p>此时发现 node 和npm都安装好啦，并且是最新
 <hr>
 <p>参考链接：</p>
 <ol>
-<li><a href="http://golife.top/2020/03/28/chuang-jian-ssh-key-ji-cha-kan-ssh-key/" target="_blank" rel="noopener">创建SSH KEY及查看SSH KEY</a></li>
+<li><a target="_blank" rel="noopener" href="http://golife.top/2020/03/28/chuang-jian-ssh-key-ji-cha-kan-ssh-key/">创建SSH KEY及查看SSH KEY</a></li>
 <li>Linux 基础命令</li>
-<li><a href="https://github.com/blinkfox/hexo-theme-matery/blob/develop/README_CN.md" target="_blank" rel="noopener">hexo-theme-matery主题讲解</a></li>
-<li><a href="http://leon.cmylife.xyz/" target="_blank" rel="noopener">参考博客 ：学习进化史</a></li>
-<li><a href="https://m.youtube.com/watch?v=-M7BOQjCFZM&list=PLq9fAEr-k3Nx37LC5xRCnmmwTkXRI8V5A&index=1" target="_blank" rel="noopener">本文章所跟教程</a>  TIP：这个链接来源于youtube.你跟着视频一步一步的做在阿里云上是可以成功的。<blockquote>
+<li><a target="_blank" rel="noopener" href="https://github.com/blinkfox/hexo-theme-matery/blob/develop/README_CN.md">hexo-theme-matery主题讲解</a></li>
+<li><a target="_blank" rel="noopener" href="http://leon.cmylife.xyz/">参考博客 ：学习进化史</a></li>
+<li><a target="_blank" rel="noopener" href="https://m.youtube.com/watch?v=-M7BOQjCFZM&list=PLq9fAEr-k3Nx37LC5xRCnmmwTkXRI8V5A&index=1">本文章所跟教程</a>  TIP：这个链接来源于youtube.你跟着视频一步一步的做在阿里云上是可以成功的。<blockquote>
 <p>如果还有问题，请通过qq联系我！！！</p>
 </blockquote>
 </li>
 </ol>
 
+                
             </div>
             <hr/>
 
@@ -597,7 +549,7 @@ npm - v</code></pre><p>此时发现 node 和npm都安装好啦，并且是最新
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="https://jojofaye.gitee.io" rel="external nofollow noreferrer">John Faye</a>
+                    <a href="/about" rel="external nofollow noreferrer">John Faye</a>
                 </span>
             </div>
             <div class="reprint__type">
@@ -607,7 +559,7 @@ npm - v</code></pre><p>此时发现 node 和npm都安装好啦，并且是最新
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="https://jojofaye.gitee.io/2021/03/28/wo-de-hexo-tang-keng-zhi-lu/">https://jojofaye.gitee.io/2021/03/28/wo-de-hexo-tang-keng-zhi-lu/</a>
+                    <a href="http://jojofaye99.github.io/2021/03/28/wo-de-hexo-tang-keng-zhi-lu/">http://jojofaye99.github.io/2021/03/28/wo-de-hexo-tang-keng-zhi-lu/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -620,7 +572,7 @@ npm - v</code></pre><p>此时发现 node 和npm都安装好啦，并且是最新
                     本博客所有文章除特別声明外，均采用
                     <a href="https://creativecommons.org/licenses/by/4.0/deed.zh" rel="external nofollow noreferrer" target="_blank">CC BY 4.0</a>
                     许可协议。转载请注明来源
-                    <a href="https://jojofaye.gitee.io" target="_blank">John Faye</a>
+                    <a href="/about" target="_blank">John Faye</a>
                     !
                 </span>
             </div>
@@ -658,11 +610,10 @@ npm - v</code></pre><p>此时发现 node 和npm都安装好啦，并且是最新
                 </div>
                 <div class="post_share" style="zoom: 80%; width: fit-content; display: inline-block; float: right; margin: -0.15rem 0;">
                     <link rel="stylesheet" type="text/css" href="/libs/share/css/share.min.css">
-
 <div id="article-share">
+
     
-    
-    <div class="social-share" data-sites="facebook,google,qq,qzone,wechat,weibo" data-wechat-qrcode-helper="<p>微信扫一扫即可分享！</p>"></div>
+    <div class="social-share" data-sites="twitter,facebook,google,qq,qzone,wechat,weibo,douban,linkedin" data-wechat-qrcode-helper="<p>微信扫一扫即可分享！</p>"></div>
     <script src="/libs/share/js/social-share.min.js"></script>
     
 
@@ -673,133 +624,14 @@ npm - v</code></pre><p>此时发现 node 和npm都安装好啦，并且是最新
                 </div>
             </div>
             
-                <style>
-    #reward {
-        margin: 40px 0;
-        text-align: center;
-    }
-
-    #reward .reward-link {
-        font-size: 1.4rem;
-        line-height: 38px;
-    }
-
-    #reward .btn-floating:hover {
-        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2), 0 5px 15px rgba(0, 0, 0, 0.2);
-    }
-
-    #rewardModal {
-        width: 320px;
-        height: 350px;
-    }
-
-    #rewardModal .reward-title {
-        margin: 15px auto;
-        padding-bottom: 5px;
-    }
-
-    #rewardModal .modal-content {
-        padding: 10px;
-    }
-
-    #rewardModal .close {
-        position: absolute;
-        right: 15px;
-        top: 15px;
-        color: rgba(0, 0, 0, 0.5);
-        font-size: 1.3rem;
-        line-height: 20px;
-        cursor: pointer;
-    }
-
-    #rewardModal .close:hover {
-        color: #ef5350;
-        transform: scale(1.3);
-        -moz-transform:scale(1.3);
-        -webkit-transform:scale(1.3);
-        -o-transform:scale(1.3);
-    }
-
-    #rewardModal .reward-tabs {
-        margin: 0 auto;
-        width: 210px;
-    }
-
-    .reward-tabs .tabs {
-        height: 38px;
-        margin: 10px auto;
-        padding-left: 0;
-    }
-
-    .reward-content ul {
-        padding-left: 0 !important;
-    }
-
-    .reward-tabs .tabs .tab {
-        height: 38px;
-        line-height: 38px;
-    }
-
-    .reward-tabs .tab a {
-        color: #fff;
-        background-color: #ccc;
-    }
-
-    .reward-tabs .tab a:hover {
-        background-color: #ccc;
-        color: #fff;
-    }
-
-    .reward-tabs .wechat-tab .active {
-        color: #fff !important;
-        background-color: #22AB38 !important;
-    }
-
-    .reward-tabs .alipay-tab .active {
-        color: #fff !important;
-        background-color: #019FE8 !important;
-    }
-
-    .reward-tabs .reward-img {
-        width: 210px;
-        height: 210px;
-    }
-</style>
-
-<div id="reward">
-    <a href="#rewardModal" class="reward-link modal-trigger btn-floating btn-medium waves-effect waves-light red">赏</a>
-
-    <!-- Modal Structure -->
-    <div id="rewardModal" class="modal">
-        <div class="modal-content">
-            <a class="close modal-close"><i class="fas fa-times"></i></a>
-            <h4 class="reward-title">你的赏识是我前进的动力</h4>
-            <div class="reward-content">
-                <div class="reward-tabs">
-                    <ul class="tabs row">
-                        <li class="tab col s6 alipay-tab waves-effect waves-light"><a href="#alipay">支付宝</a></li>
-                        <li class="tab col s6 wechat-tab waves-effect waves-light"><a href="#wechat">微 信</a></li>
-                    </ul>
-                    <div id="alipay">
-                        <img src="/medias/reward/alipay.jpg" class="reward-img" alt="支付宝打赏二维码">
-                    </div>
-                    <div id="wechat">
-                        <img src="/medias/reward/wechat.jpg" class="reward-img" alt="微信打赏二维码">
-                    </div>
-                </div>
-            </div>
         </div>
     </div>
-</div>
 
-<script>
-    $(function () {
-        $('.tabs').tabs();
-    });
-</script>
-            
-        </div>
-    </div>
+    
+
+    
+
+    
 
     
 
@@ -832,7 +664,7 @@ npm - v</code></pre><p>此时发现 node 和npm都安装好啦，并且是最新
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            前言前些天用阿里云的云服务器 、 Nginx 的环境和 域名 挂载了一个快速简洁的博客框架 Hexo 。但是却发现整个域名都用于 Hexo 博客的搭载，这并不能发挥域名的最大价值，于是最近总想着怎么让 nginx 绑定我多个域名，从而搭载我
+                            
                         
                     </div>
                     <div class="publish-info">
@@ -866,45 +698,50 @@ npm - v</code></pre><p>此时发现 node 和npm都安装好啦，并且是最新
         
         <div class="article col s12 m6" data-aos="fade-up">
             <div class="article-badge right-badge text-color">
-                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
+                本篇&nbsp;<i class="far fa-dot-circle"></i>
             </div>
             <div class="card">
-                <a href="/2020/03/25/hello-world/">
+                <a href="/2021/03/28/wo-de-hexo-tang-keng-zhi-lu/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/12.jpg" class="responsive-img" alt="Hello World">
+                        <img src="/medias/featureimages/11.jpg" class="responsive-img" alt="我的Hexo 趟坑之旅">
                         
-                        <span class="card-title">Hello World</span>
+                        <span class="card-title">我的Hexo 趟坑之旅</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hex
+                            
                         
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2020-03-25
+                                <i class="far fa-clock fa-fw icon-date"></i>2021-03-28
                             </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/blog/" class="post-category">
-                                    blog
+                            <a href="/categories/ECS/" class="post-category">
+                                    ECS
                                 </a>
                             
                             
                         </span>
                     </div>
                 </div>
+
                 
                 <div class="card-action article-tags">
                     
                     <a href="/tags/Hexo/">
                         <span class="chip bg-color">Hexo</span>
+                    </a>
+                    
+                    <a href="/tags/blog/">
+                        <span class="chip bg-color">blog</span>
                     </a>
                     
                 </div>
@@ -925,7 +762,7 @@ npm - v</code></pre><p>此时发现 node 和npm都安装好啦，并且是最新
 
         var selection = window.getSelection();
         // if the selection is short let's not annoy our users.
-        if (('' + selection).length < Number.parseInt('60')) {
+        if (('' + selection).length < Number.parseInt('50')) {
             return;
         }
 
@@ -939,7 +776,7 @@ npm - v</code></pre><p>此时发现 node 和npm都安装好啦，并且是最新
 
         // we need a <pre> tag workaround.
         // otherwise the text inside "pre" loses all the line breaks!
-        if (selection.getRangeAt(0).commonAncestorContainer.nodeName === 'PRE') {
+        if (selection.getRangeAt(0).commonAncestorContainer.nodeName === 'PRE' || selection.getRangeAt(0).commonAncestorContainer.nodeName === 'CODE') {
             newdiv.innerHTML = "<pre>" + newdiv.innerHTML + "</pre>";
         }
 
@@ -959,6 +796,11 @@ npm - v</code></pre><p>此时发现 node 和npm都安装好啦，并且是最新
 <!-- 代码块功能依赖 -->
 <script type="text/javascript" src="/libs/codeBlock/codeBlockFuction.js"></script>
 
+
+  <!-- 是否加载使用自带的 prismjs. -->
+  <script type="text/javascript" src="/libs/prism/prism.min.js"></script>
+
+
 <!-- 代码语言 -->
 
 <script type="text/javascript" src="/libs/codeBlock/codeLang.js"></script>
@@ -974,16 +816,10 @@ npm - v</code></pre><p>此时发现 node 和npm都安装好啦，并且是最新
 <script type="text/javascript" src="/libs/codeBlock/codeShrink.js"></script>
 
 
-<!-- 代码块折行 -->
-
-<style type="text/css">
-code[class*="language-"], pre[class*="language-"] { white-space: pre !important; }
-</style>
-
 
     </div>
     <div id="toc-aside" class="expanded col l3 hide-on-med-and-down">
-        <div class="toc-widget">
+        <div class="toc-widget card" style="background-color: white;">
             <div class="toc-title"><i class="far fa-list-alt"></i>&nbsp;&nbsp;目录</div>
             <div id="toc-content"></div>
         </div>
@@ -1007,20 +843,7 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
             contentSelector: '#articleContent',
             headingsOffset: -($(window).height() * 0.4 - 45),
             collapseDepth: Number('0'),
-            headingSelector: 'h2, h3, h4，h5, h6, h7'
-        });
-
-        // modify the toc link href to support Chinese.
-        let i = 0;
-        let tocHeading = 'toc-heading-';
-        $('#toc-content a').each(function () {
-            $(this).attr('href', '#' + tocHeading + (++i));
-        });
-
-        // modify the heading title id to support Chinese.
-        i = 0;
-        $('#articleContent').children('h2, h3, h4，h5, h6, h7').each(function () {
-            $(this).attr('id', tocHeading + (++i));
+            headingSelector: 'h2, h3, h4'
         });
 
         // Set scroll toc fixed.
@@ -1081,31 +904,90 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
 
 
 
+
     <footer class="page-footer bg-color">
     
-    <div class="container row center-align" style="margin-bottom: 0px !important;">
+        <link rel="stylesheet" href="/libs/aplayer/APlayer.min.css">
+<style>
+    .aplayer .aplayer-lrc p {
+        
+        display: none;
+        
+        font-size: 12px;
+        font-weight: 700;
+        line-height: 16px !important;
+    }
+
+    .aplayer .aplayer-lrc p.aplayer-lrc-current {
+        
+        display: none;
+        
+        font-size: 15px;
+        color: #42b983;
+    }
+
+    
+    .aplayer.aplayer-fixed.aplayer-narrow .aplayer-body {
+        left: -66px !important;
+    }
+
+    .aplayer.aplayer-fixed.aplayer-narrow .aplayer-body:hover {
+        left: 0px !important;
+    }
+
+    
+</style>
+<div class="">
+    
+    <div class="row">
+        <meting-js class="col l8 offset-l2 m10 offset-m1 s12"
+                   server="netease"
+                   type="playlist"
+                   id="503838841"
+                   fixed='true'
+                   autoplay='false'
+                   theme='#42b983'
+                   loop='all'
+                   order='random'
+                   preload='auto'
+                   volume='0.7'
+                   list-folded='true'
+        >
+        </meting-js>
+    </div>
+</div>
+
+<script src="/libs/aplayer/APlayer.min.js"></script>
+<script src="/libs/aplayer/Meting.min.js"></script>
+
+    
+
+    <div class="container row center-align"
+         style="margin-bottom: 0px !important;">
         <div class="col s12 m8 l8 copy-right">
             Copyright&nbsp;&copy;
-            <span id="year">2020</span>
-            <a href="https://jojofaye.gitee.io" target="_blank">John Faye</a>
+            
+                <span id="year">2019-2025</span>
+            
+            <a href="/about" target="_blank">John Faye</a>
             |&nbsp;Powered by&nbsp;<a href="https://hexo.io/" target="_blank">Hexo</a>
             |&nbsp;Theme&nbsp;<a href="https://github.com/blinkfox/hexo-theme-matery" target="_blank">Matery</a>
-            <br>
             
-            &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">11.3k</span>&nbsp;字
+            <br>
             
             
             
             
             
             <br>
+
+            <!-- 运行天数提醒. -->
             
             <br>
             
         </div>
         <div class="col s12 m4 l4 social-link ">
-    <a href="https://github.com/Jojofaye99" class="tooltipped" target="_blank" data-tooltip="访问我的GitHub" data-position="top" data-delay="50">
+    <a href="https://github.com/jojofaye99" class="tooltipped" target="_blank" data-tooltip="访问我的GitHub" data-position="top" data-delay="50">
         <i class="fab fa-github"></i>
     </a>
 
@@ -1150,12 +1032,122 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
     </div>
 </div>
 
-<script src="/js/search.js"></script>
 <script type="text/javascript">
 $(function () {
-    searchFunc("/" + "search.xml", 'searchInput', 'searchResult');
+    var searchFunc = function (path, search_id, content_id) {
+        'use strict';
+        $.ajax({
+            url: path,
+            dataType: "xml",
+            success: function (xmlResponse) {
+                // get the contents from search data
+                var datas = $("entry", xmlResponse).map(function () {
+                    return {
+                        title: $("title", this).text(),
+                        content: $("content", this).text(),
+                        url: $("url", this).text()
+                    };
+                }).get();
+                var $input = document.getElementById(search_id);
+                var $resultContent = document.getElementById(content_id);
+                $input.addEventListener('input', function () {
+                    var str = '<ul class=\"search-result-list\">';
+                    var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
+                    $resultContent.innerHTML = "";
+                    if (this.value.trim().length <= 0) {
+                        return;
+                    }
+                    // perform local searching
+                    datas.forEach(function (data) {
+                        var isMatch = true;
+                        var data_title = data.title.trim().toLowerCase();
+                        var data_content = data.content.trim().replace(/<[^>]+>/g, "").toLowerCase();
+                        var data_url = data.url;
+                        data_url = data_url.indexOf('/') === 0 ? data.url : '/' + data_url;
+                        var index_title = -1;
+                        var index_content = -1;
+                        var first_occur = -1;
+                        // only match artiles with not empty titles and contents
+                        if (data_title !== '' && data_content !== '') {
+                            keywords.forEach(function (keyword, i) {
+                                index_title = data_title.indexOf(keyword);
+                                index_content = data_content.indexOf(keyword);
+                                if (index_title < 0 && index_content < 0) {
+                                    isMatch = false;
+                                } else {
+                                    if (index_content < 0) {
+                                        index_content = 0;
+                                    }
+                                    if (i === 0) {
+                                        first_occur = index_content;
+                                    }
+                                }
+                            });
+                        }
+                        // show search results
+                        if (isMatch) {
+                            str += "<li><a href='" + data_url + "' class='search-result-title'>" + data_title + "</a>";
+                            var content = data.content.trim().replace(/<[^>]+>/g, "");
+                            if (first_occur >= 0) {
+                                // cut out 100 characters
+                                var start = first_occur - 20;
+                                var end = first_occur + 80;
+                                if (start < 0) {
+                                    start = 0;
+                                }
+                                if (start === 0) {
+                                    end = 100;
+                                }
+                                if (end > content.length) {
+                                    end = content.length;
+                                }
+                                var match_content = content.substr(start, end);
+                                // highlight all keywords
+                                keywords.forEach(function (keyword) {
+                                    var regS = new RegExp(keyword, "gi");
+                                    match_content = match_content.replace(regS, "<em class=\"search-keyword\">" + keyword + "</em>");
+                                });
+
+                                str += "<p class=\"search-result\">" + match_content + "...</p>"
+                            }
+                            str += "</li>";
+                        }
+                    });
+                    str += "</ul>";
+                    $resultContent.innerHTML = str;
+                });
+            }
+        });
+    };
+
+    searchFunc('/search.xml', 'searchInput', 'searchResult');
 });
 </script>
+
+    <!-- 白天和黑夜主题 -->
+<div class="stars-con">
+    <div id="stars"></div>
+    <div id="stars2"></div>
+    <div id="stars3"></div>  
+</div>
+
+<script>
+    function switchNightMode() {
+        $('<div class="Cuteen_DarkSky"><div class="Cuteen_DarkPlanet"></div></div>').appendTo($('body')),
+        setTimeout(function () {
+            $('body').hasClass('DarkMode') 
+            ? ($('body').removeClass('DarkMode'), localStorage.setItem('isDark', '0'), $('#sum-moon-icon').removeClass("fa-sun").addClass('fa-moon')) 
+            : ($('body').addClass('DarkMode'), localStorage.setItem('isDark', '1'), $('#sum-moon-icon').addClass("fa-sun").removeClass('fa-moon')),
+            
+            setTimeout(function () {
+            $('.Cuteen_DarkSky').fadeOut(1e3, function () {
+                $(this).remove()
+            })
+            }, 2e3)
+        })
+    }
+</script>
+
     <!-- 回到顶部按钮 -->
 <div id="backTop" class="top-scroll">
     <a class="btn-floating btn-large waves-effect waves-light" href="#!">
@@ -1170,6 +1162,24 @@ $(function () {
     <script src="/libs/scrollprogress/scrollProgress.min.js"></script>
     <script src="/libs/lightGallery/js/lightgallery-all.min.js"></script>
     <script src="/js/matery.js"></script>
+
+    
+
+    
+    
+    
+
+    <!-- 雪花特效 -->
+    
+
+    <!-- 鼠标星星特效 -->
+    
+
+     
+        <script src="https://ssl.captcha.qq.com/TCaptcha.js"></script>
+        <script src="/libs/others/TencentCaptcha.js"></script>
+        <button id="TencentCaptcha" data-appid="xxxxxxxxxx" data-cbfn="callback" type="button" hidden></button>
+    
 
     <!-- Baidu Analytics -->
 
@@ -1198,6 +1208,8 @@ $(function () {
 
     
 
+    <!--腾讯兔小巢-->
+    
     
 
     
@@ -1205,7 +1217,7 @@ $(function () {
     
     <script type="text/javascript" src="/libs/background/ribbon-dynamic.js" async="async"></script>
     
-    
+
     
     <script src="/libs/instantpage/instantpage.js" type="module"></script>
     
