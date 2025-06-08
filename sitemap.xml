@@ -92,15 +92,6 @@
   </url>
   
   <url>
-    <loc>https://jojofaye99.github.io/2021/03/30/hexo-zhi-ding-zi-yu-ming-he-bao-ta-mian-ban-de-bu-shu/</loc>
-    
-    <lastmod>2022-02-08</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
     <loc>https://jojofaye99.github.io/2021/08/31/python-zhi-yagmail-mo-kuai/</loc>
     
     <lastmod>2022-02-08</lastmod>
@@ -111,6 +102,15 @@
   
   <url>
     <loc>https://jojofaye99.github.io/2021/04/10/chuang-jian-ssh-key-ji-cha-kan-ssh-key/</loc>
+    
+    <lastmod>2022-02-08</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://jojofaye99.github.io/2021/03/30/hexo-zhi-ding-zi-yu-ming-he-bao-ta-mian-ban-de-bu-shu/</loc>
     
     <lastmod>2022-02-08</lastmod>
     
@@ -188,6 +188,13 @@
   </url>
   
   <url>
+    <loc>https://jojofaye99.github.io/tags/ssh/</loc>
+    <lastmod>2025-06-08</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
     <loc>https://jojofaye99.github.io/tags/%E7%BC%96%E8%BE%91%E5%99%A8/</loc>
     <lastmod>2025-06-08</lastmod>
     <changefreq>weekly</changefreq>
@@ -196,13 +203,6 @@
   
   <url>
     <loc>https://jojofaye99.github.io/tags/blog/</loc>
-    <lastmod>2025-06-08</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://jojofaye99.github.io/tags/ssh/</loc>
     <lastmod>2025-06-08</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>

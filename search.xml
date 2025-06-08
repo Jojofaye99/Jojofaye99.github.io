@@ -131,31 +131,6 @@
     
     
     <entry>
-      <title>Vim使用方法</title>
-      <link href="/2021/04/10/vim-shi-yong/"/>
-      <url>/2021/04/10/vim-shi-yong/</url>
-      
-        <content type="html"><![CDATA[<hr><p>正在更新ing….</p>]]></content>
-      
-      
-      <categories>
-          
-          <category> Linux </category>
-          
-      </categories>
-      
-      
-        <tags>
-            
-            <tag> 编辑器 </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    
-    
-    <entry>
       <title>创建SSH KEY及查看SSH KEY</title>
       <link href="/2021/04/10/chuang-jian-ssh-key-ji-cha-kan-ssh-key/"/>
       <url>/2021/04/10/chuang-jian-ssh-key-ji-cha-kan-ssh-key/</url>
@@ -173,6 +148,31 @@
         <tags>
             
             <tag> ssh </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>Vim使用方法</title>
+      <link href="/2021/04/10/vim-shi-yong/"/>
+      <url>/2021/04/10/vim-shi-yong/</url>
+      
+        <content type="html"><![CDATA[<hr><p>正在更新ing….</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> Linux </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 编辑器 </tag>
             
         </tags>
       
