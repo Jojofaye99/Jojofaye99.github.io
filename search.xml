@@ -131,31 +131,6 @@
     
     
     <entry>
-      <title>创建SSH KEY及查看SSH KEY</title>
-      <link href="/2021/04/10/chuang-jian-ssh-key-ji-cha-kan-ssh-key/"/>
-      <url>/2021/04/10/chuang-jian-ssh-key-ji-cha-kan-ssh-key/</url>
-      
-        <content type="html"><![CDATA[<blockquote><p> 只适用于Mac和windows下的Git Bash操作界面。</p></blockquote><h2 id="检查本地是否有SSH-Key存在"><a href="#检查本地是否有SSH-Key存在" class="headerlink" title="检查本地是否有SSH Key存在"></a>检查本地是否有SSH Key存在</h2><p><code>ssh-keygen -t rsa -C &quot;邮箱地址&quot;</code>  //执行成功后将会返回Generating public/private rsa key pair. <strong>直接按回车，冒号可以不用管</strong><br>这里的 <em>username</em> 是你电脑的名字</p><ul><li><p>如果正常运行的话，会出现</p><p>  Enter passphrase (empty for no passphrase):</p><p>  然后我们直接回车</p></li><li><p>有的时候我们可能会出现</p><p>  /Users/your username/.ssh/id_rsa already exists.</p><p>  Overwrite (y/n)?  y</p><p>  这说明你已经设置了存储地址，我们输入“y”覆盖</p><p>  回车</p></li></ul><h2 id="生成新的ssh"><a href="#生成新的ssh" class="headerlink" title="生成新的ssh"></a>生成新的ssh</h2><p>  上面的任意两种情况之后，会出现</p><pre><code>Enter same passphrase again: </code></pre><p>再次<strong>回车</strong>，这时候你会看见：</p><pre><code>Your identification has been saved in /Users/username/.ssh/id_rsa.Your public key has been saved in /Users/username/.ssh/id_rsa.pub.The key fingerprint is:16:27:ac:a5:76:28:2d:36:63:1b:56:4d:eb:df:a6:48 your_email@example.comThe key&apos;s randomart image is:+--[ RSA 2048]----+    *(心形的图案)*</code></pre><p>这说明SSH key就已经生成了。文件目录就是：/Users/username/.ssh/id_rsa</p><h2 id="查看ssh"><a href="#查看ssh" class="headerlink" title="查看ssh"></a>查看ssh</h2><p><code>cat c/User/username/.ssh/id_rsa.pub</code>   //<strong>这里的username 是你电脑的名字。</strong></p><p>接下来将会看到公钥ssh-rsa AAAAB3NzaC1yc2。。。。。。。。。</p><p>后面的内容我省略了<br>(说明：ssh-rsa 后面的内容这就是你的SSH keys，复制ssh keys的时候要<em>全部复制</em>下来)</p>]]></content>
-      
-      
-      <categories>
-          
-          <category> ECS </category>
-          
-      </categories>
-      
-      
-        <tags>
-            
-            <tag> ssh </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    
-    
-    <entry>
       <title>Vim使用方法</title>
       <link href="/2021/04/10/vim-shi-yong/"/>
       <url>/2021/04/10/vim-shi-yong/</url>
@@ -173,6 +148,31 @@
         <tags>
             
             <tag> 编辑器 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>创建SSH KEY及查看SSH KEY</title>
+      <link href="/2021/04/10/chuang-jian-ssh-key-ji-cha-kan-ssh-key/"/>
+      <url>/2021/04/10/chuang-jian-ssh-key-ji-cha-kan-ssh-key/</url>
+      
+        <content type="html"><![CDATA[<blockquote><p> 只适用于Mac和windows下的Git Bash操作界面。</p></blockquote><h2 id="检查本地是否有SSH-Key存在"><a href="#检查本地是否有SSH-Key存在" class="headerlink" title="检查本地是否有SSH Key存在"></a>检查本地是否有SSH Key存在</h2><p><code>ssh-keygen -t rsa -C &quot;邮箱地址&quot;</code>  //执行成功后将会返回Generating public/private rsa key pair. <strong>直接按回车，冒号可以不用管</strong><br>这里的 <em>username</em> 是你电脑的名字</p><ul><li><p>如果正常运行的话，会出现</p><p>  Enter passphrase (empty for no passphrase):</p><p>  然后我们直接回车</p></li><li><p>有的时候我们可能会出现</p><p>  /Users/your username/.ssh/id_rsa already exists.</p><p>  Overwrite (y/n)?  y</p><p>  这说明你已经设置了存储地址，我们输入“y”覆盖</p><p>  回车</p></li></ul><h2 id="生成新的ssh"><a href="#生成新的ssh" class="headerlink" title="生成新的ssh"></a>生成新的ssh</h2><p>  上面的任意两种情况之后，会出现</p><pre><code>Enter same passphrase again: </code></pre><p>再次<strong>回车</strong>，这时候你会看见：</p><pre><code>Your identification has been saved in /Users/username/.ssh/id_rsa.Your public key has been saved in /Users/username/.ssh/id_rsa.pub.The key fingerprint is:16:27:ac:a5:76:28:2d:36:63:1b:56:4d:eb:df:a6:48 your_email@example.comThe key&apos;s randomart image is:+--[ RSA 2048]----+    *(心形的图案)*</code></pre><p>这说明SSH key就已经生成了。文件目录就是：/Users/username/.ssh/id_rsa</p><h2 id="查看ssh"><a href="#查看ssh" class="headerlink" title="查看ssh"></a>查看ssh</h2><p><code>cat c/User/username/.ssh/id_rsa.pub</code>   //<strong>这里的username 是你电脑的名字。</strong></p><p>接下来将会看到公钥ssh-rsa AAAAB3NzaC1yc2。。。。。。。。。</p><p>后面的内容我省略了<br>(说明：ssh-rsa 后面的内容这就是你的SSH keys，复制ssh keys的时候要<em>全部复制</em>下来)</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> ECS </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> ssh </tag>
             
         </tags>
       
