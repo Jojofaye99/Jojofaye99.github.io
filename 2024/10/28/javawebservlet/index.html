@@ -1,0 +1,1497 @@
+<!DOCTYPE HTML>
+<html lang="zh-CN">
+
+
+<head>
+    <meta charset="utf-8">
+    <meta name="keywords" content="Servlet, 造梦空间">
+    <meta name="description" content="1 Servlet1.1 UML 图Servlet 是接口，我们常使用的 HttpServlet 是一个实现类，支持 Http 协议。创建我们自己的 Servlet 类继承 HttpServlet 时，必须重写 doPost 和 doGet">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta name="renderer" content="webkit|ie-stand|ie-comp">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="referrer" content="no-referrer-when-downgrade">
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+
+
+    <title>Servlet | 造梦空间</title>
+    <link rel="icon" type="image/png" href="/favicon.png">
+    
+
+
+    <!-- bg-cover style     -->
+
+
+
+<link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.min.css">
+<link rel="stylesheet" type="text/css" href="/libs/materialize/materialize.min.css">
+<link rel="stylesheet" type="text/css" href="/libs/aos/aos.css">
+<link rel="stylesheet" type="text/css" href="/libs/animate/animate.min.css">
+<link rel="stylesheet" type="text/css" href="/libs/lightGallery/css/lightgallery.min.css">
+<link rel="stylesheet" type="text/css" href="/css/matery.css">
+<link rel="stylesheet" type="text/css" href="/css/my.css">
+<link rel="stylesheet" type="text/css" href="/css/dark.css" media="none" onload="if(media!='all')media='all'">
+
+
+
+
+    <link rel="stylesheet" href="/libs/tocbot/tocbot.css">
+    <link rel="stylesheet" href="/css/post.css">
+
+
+
+
+    
+
+
+
+    <script src="/libs/jquery/jquery-3.6.0.min.js"></script>
+
+<meta name="generator" content="Hexo 7.3.0"><link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css">
+<link rel="stylesheet" href="/css/prism-line-numbers.css" type="text/css"></head>
+
+
+<body>
+    <header class="navbar-fixed">
+    <nav id="headNav" class="bg-color nav-transparent">
+        <div id="navContainer" class="nav-wrapper container">
+            <div class="brand-logo">
+                <a href="/" class="waves-effect waves-light">
+                    
+                    <img src="/medias/logo.png" class="logo-img" alt="LOGO">
+                    
+                    <span class="logo-span">造梦空间</span>
+                </a>
+            </div>
+            
+
+<a href="#" data-target="mobile-nav" class="sidenav-trigger button-collapse"><i class="fas fa-bars"></i></a>
+<ul class="right nav-menu">
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/" class="waves-effect waves-light">
+      
+      <i class="fas fa-home" style="zoom: 0.6;"></i>
+      
+      <span>首页</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/tags" class="waves-effect waves-light">
+      
+      <i class="fas fa-tags" style="zoom: 0.6;"></i>
+      
+      <span>标签</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/categories" class="waves-effect waves-light">
+      
+      <i class="fas fa-bookmark" style="zoom: 0.6;"></i>
+      
+      <span>分类</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/archives" class="waves-effect waves-light">
+      
+      <i class="fas fa-archive" style="zoom: 0.6;"></i>
+      
+      <span>归档</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/about" class="waves-effect waves-light">
+      
+      <i class="fas fa-user-circle" style="zoom: 0.6;"></i>
+      
+      <span>关于</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/contact" class="waves-effect waves-light">
+      
+      <i class="fas fa-comments" style="zoom: 0.6;"></i>
+      
+      <span>留言板</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/friends" class="waves-effect waves-light">
+      
+      <i class="fas fa-address-book" style="zoom: 0.6;"></i>
+      
+      <span>友情链接</span>
+    </a>
+    
+  </li>
+  
+  <li>
+    <a href="#searchModal" class="modal-trigger waves-effect waves-light">
+      <i id="searchIcon" class="fas fa-search" title="搜索" style="zoom: 0.85;"></i>
+    </a>
+  </li>
+  <li>
+    <a href="javascript:;" class="waves-effect waves-light" onclick="switchNightMode()" title="深色/浅色模式" >
+      <i id="sum-moon-icon" class="fas fa-sun" style="zoom: 0.85;"></i>
+    </a>
+  </li>
+</ul>
+
+
+<div id="mobile-nav" class="side-nav sidenav">
+
+    <div class="mobile-head bg-color">
+        
+        <img src="/medias/logo.png" class="logo-img circle responsive-img">
+        
+        <div class="logo-name">造梦空间</div>
+        <div class="logo-desc">
+            
+            Never really desperate, only the lost of the soul.
+            
+        </div>
+    </div>
+
+    <ul class="menu-list mobile-menu-list">
+        
+        <li class="m-nav-item">
+	  
+		<a href="/" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-home"></i>
+			
+			首页
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/tags" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-tags"></i>
+			
+			标签
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/categories" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-bookmark"></i>
+			
+			分类
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/archives" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-archive"></i>
+			
+			归档
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/about" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-user-circle"></i>
+			
+			关于
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/contact" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-comments"></i>
+			
+			留言板
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/friends" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-address-book"></i>
+			
+			友情链接
+		</a>
+          
+        </li>
+        
+        
+    </ul>
+</div>
+
+
+        </div>
+
+        
+    </nav>
+
+</header>
+
+    
+
+
+
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/3.jpg')">
+    <div class="container" style="right: 0px;left: 0px;">
+        <div class="row">
+            <div class="col s12 m12 l12">
+                <div class="brand">
+                    <h1 class="description center-align post-title">Servlet</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+<main class="post-container content">
+
+    
+    <div class="row">
+    <div id="main-content" class="col s12 m12 l9">
+        <!-- 文章内容详情 -->
+<div id="artDetail">
+    <div class="card">
+        <div class="card-content article-info">
+            <div class="row tag-cate">
+                <div class="col s7">
+                    
+                    <div class="article-tag">
+                        
+                            <a href="/tags/Note/">
+                                <span class="chip bg-color">Note</span>
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+                <div class="col s5 right-align">
+                    
+                    <div class="post-cate">
+                        <i class="fas fa-bookmark fa-fw icon-category"></i>
+                        
+                            <a href="/categories/Java/" class="post-category">
+                                Java
+                            </a>
+                        
+                            <a href="/categories/Java/Web/" class="post-category">
+                                Web
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+            </div>
+
+            <div class="post-info">
+                
+                <div class="post-date info-break-policy">
+                    <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
+                    2024-10-28
+                </div>
+                
+
+                
+
+                
+                <div class="info-break-policy">
+                    <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
+                    3.2k
+                </div>
+                
+
+                
+                <div class="info-break-policy">
+                    <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
+                    14 分
+                </div>
+                
+
+                
+            </div>
+        </div>
+        <hr class="clearfix">
+
+        
+        <!-- 是否加载使用自带的 prismjs. -->
+        <link rel="stylesheet" href="/libs/prism/prism.min.css">
+        
+
+        
+
+        <div class="card-content article-card-content">
+            <div id="articleContent">
+                <h2 id="1-Servlet"><a href="#1-Servlet" class="headerlink" title="1 Servlet"></a>1 Servlet</h2><h3 id="1-1-UML-图"><a href="#1-1-UML-图" class="headerlink" title="1.1 UML 图"></a>1.1 UML 图</h3><p>Servlet 是接口，我们常使用的 HttpServlet 是一个实现类，支持 Http 协议。创建我们自己的 Servlet 类继承 HttpServlet 时，必须重写 doPost 和 doGet 两个方法中的一个。</p>
+<p><img src="https://cdn.jsdelivr.net/gh/ReaJason/blog_imgs/JavaWebServlet_img/HttpServletUML.png" alt="HttpServletUML"></p>
+<h3 id="1-2-Servlet-生命周期"><a href="#1-2-Servlet-生命周期" class="headerlink" title="1.2 Servlet 生命周期"></a>1.2 Servlet 生命周期</h3><ol>
+<li>Web 容器加载我们创建的 Servlet 类 class 到内存中</li>
+<li>当第一次请求时先调用构造器构造一个 servlet 实例，Web 容器中一个 Servlet 类只有一个实例</li>
+<li>第一次构造了一个 Servlet 实例后，调用 init 方法进行初始化，只会调用一次</li>
+<li>service 方法处理请求参数和响应，每个请求都会在单个线程中执行</li>
+<li>Web 容器停止或实例被回收，会调用 destroy 进行资源回收操作，只会调用一次</li>
+</ol>
+<p>servlet 初始化参数配置中 load-on-startup 可以指定当前 Servlet 类在 Web 容器启动时而不是等到第一个请求到来时就构造 Servlet 实例并执行 init 方法。</p>
+<h3 id="1-3-搭建-Servlet-程序"><a href="#1-3-搭建-Servlet-程序" class="headerlink" title="1.3 搭建 Servlet 程序"></a>1.3 搭建 Servlet 程序</h3><h4 id="1-3-1-目录结构"><a href="#1-3-1-目录结构" class="headerlink" title="1.3.1 目录结构"></a>1.3.1 目录结构</h4><pre class="line-numbers language-none"><code class="language-none">\apache-tomcat-9.0.54\webapps\
+D:.
+├─docs
+├─examples
+├─host-manager
+├─ROOT
+│
+└─servlet
+    │
+    ├─src
+    │  └─top
+    │      └─reajason
+    │              HelloServlet.java
+    └─WEB-INF
+        │  web.xml
+        │
+        ├─classes
+        │  └─top
+        │      └─reajason
+        │              HelloServlet.class
+        └─lib<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<ol>
+<li>在 tomacat 主目录中 webapps 下新建一个 servlet 目录，作为 web 项目</li>
+<li>在 src 下编写 Java 代码</li>
+<li>WEB-INF 中 web.xml 配置当前 web 项目</li>
+<li>WEB-INF 中 classes 用来接收 Java 代码生成的 class 文件</li>
+<li>WEB-INF 中 lib 用来放第三方库</li>
+</ol>
+<h4 id="1-3-2-代码编写"><a href="#1-3-2-代码编写" class="headerlink" title="1.3.2 代码编写"></a>1.3.2 代码编写</h4><p>.\src\top\reajason\HelloServlet.java</p>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java">package top.reajason;
+
+import java.io.*;
+import javax.servlet.*;
+import javax.servlet.http.*;
+
+public class HelloServlet extends HttpServlet &#123;
+    
+    @Override
+    public void doGet(HttpServletRequest request, HttpServletResponse response)
+    throws IOException, ServletException
+    &#123;
+        response.setContentType(&quot;text&#x2F;html;charset&#x3D;UTF-8&quot;);
+        PrintWriter out &#x3D; response.getWriter();
+        out.println(&quot;&lt;h1&gt;Hello Servlet&lt;&#x2F;h1&gt;&quot;);
+
+    &#125;
+
+    @Override
+    public void doPost(HttpServletRequest request, HttpServletResponse response)
+    throws IOException, ServletException
+    &#123;
+        doGet(request, response);
+    &#125;
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>.\WEB-INF\web.xml</p>
+<pre class="line-numbers language-markup" data-language="markup"><code class="language-markup"><span class="token prolog">&lt;?xml version="1.0" encoding="UTF-8"?></span>
+<span class="token doctype"><span class="token punctuation">&lt;!</span><span class="token doctype-tag">DOCTYPE</span> <span class="token name">web-app</span>
+    <span class="token name">PUBLIC</span> <span class="token string">"-//Sun Microsystems, Inc.//DTD Web Application 2.3//EN"</span>
+    <span class="token string">"http://java.sun.com/dtd/web-app_2_3.dtd"</span><span class="token punctuation">></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>web-app</span><span class="token punctuation">></span></span>
+      <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>servlet</span><span class="token punctuation">></span></span>
+         <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>servlet-name</span><span class="token punctuation">></span></span>hello<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>servlet-name</span><span class="token punctuation">></span></span>
+         <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>servlet-class</span><span class="token punctuation">></span></span>top.reajason.HelloServlet<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>servlet-class</span><span class="token punctuation">></span></span>
+      <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>servlet</span><span class="token punctuation">></span></span>
+      <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>servlet-mapping</span><span class="token punctuation">></span></span>
+         <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>servlet-name</span><span class="token punctuation">></span></span>hello<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>servlet-name</span><span class="token punctuation">></span></span>
+         <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>url-pattern</span><span class="token punctuation">></span></span>/hello<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>url-pattern</span><span class="token punctuation">></span></span>
+      <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>servlet-mapping</span><span class="token punctuation">></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>web-app</span><span class="token punctuation">></span></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h4 id="1-3-3-编译运行"><a href="#1-3-3-编译运行" class="headerlink" title="1.3.3 编译运行"></a>1.3.3 编译运行</h4><p>在 servlet 目录下打开终端运行如下命令：<code>apache-tomcat-9.0.54\webapps\servlet</code></p>
+<ul>
+<li>-d：指定编译后的 class 文件到 .\WEB-INF\classes\ 下</li>
+<li>-classpath：指定类路径</li>
+</ul>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">javac -encoding utf-8 -d .\WEB-INF\classes\ -classpath &quot;..\..\lib\servlet-api.jar;.;.\WEB-INF\classes\&quot; .\src\top\reajason\*.java<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<p>进入 tomcat 主目录的 bin 下面运行 startup.bat，开启 tomcat 服务</p>
+<p>浏览器输入：<code>http://localhost:8080/servlet/hello</code></p>
+<h2 id="2-请求与响应"><a href="#2-请求与响应" class="headerlink" title="2 请求与响应"></a>2 请求与响应</h2><p>Servlet 绝大多数都在 service 方法中响应处理请求，HttpServlet 重写了 Servlet 接口的 service 方法以请求方式分成了 doGet、doPost、doHead……，当请求方式是哪一种就走哪一个方法。方法的参数类型也变成了 HttpServletRequest 和 HttpServletResponse。</p>
+<h3 id="2-1-请求"><a href="#2-1-请求" class="headerlink" title="2.1 请求"></a>2.1 请求</h3><h4 id="2-1-1-UML-图"><a href="#2-1-1-UML-图" class="headerlink" title="2.1.1 UML 图"></a>2.1.1 UML 图</h4><p>HttpServletRequest 实现了 ServletRequest 接口，并定义了更多关于 Http 的方法。</p>
+<p><img src="https://cdn.jsdelivr.net/gh/ReaJason/blog_imgs/JavaWebServlet_img/HttpServletRequestUML.png" alt="HttpServletRequestUML"></p>
+<h4 id="2-1-2-常用方法"><a href="#2-1-2-常用方法" class="headerlink" title="2.1.2 常用方法"></a>2.1.2 常用方法</h4><p>获取请求参数：</p>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java">&#x2F;&#x2F; 获取请求方法
+String getMethod();
+&#x2F;&#x2F; 获取指定 name 的请求的值，第二个方法返回数组，比如前端使用多选框带过来的值
+String getParameter(String name);
+String[] getParameterValues(String name);
+&#x2F;&#x2F; 获取请求参数名称列表
+Enumeration&lt;String&gt; getParameterNames();<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>获取请求头：</p>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java">&#x2F;&#x2F; 获取指定 name 的请求头值
+String getHeader(String name);
+&#x2F;&#x2F; 获取指定 name 的请求头值，返回枚举集合，例如 accept-encoding 就可能有很多值
+Enumeration&lt;String&gt; getHeaders(String name);
+&#x2F;&#x2F; 返回 int 值，例如 Content-Length 返回一个整数
+int getIntHeader(String name);
+&#x2F;&#x2F; 获取所有请求头
+Enumeration&lt;String&gt; getHeaderNames();<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>会话相关：</p>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java">&#x2F;&#x2F; 获取请求 cookie
+Cookie[] getCookies();
+&#x2F;&#x2F; 获取 session 对象
+HttpSession getSession();
+HttpSession getSession(boolean b);<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>获取请求输入流：</p>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java">&#x2F;&#x2F; 获取请求字节输入流，可获取用户上传的文件
+ServletInputStream getInputStream();
+
+&#x2F;&#x2F; 获取请求字符缓冲流
+BufferedReader getReader();<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>获取地址相关：</p>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java">&#x2F;&#x2F; 获取客户端地址，Servlet 编写于服务端，因此对于服务端 remote 就是指的客户端
+String getRemoteAddr();
+String getRemoteHost();
+int getRemotePort();
+
+&#x2F;&#x2F; 获取服务端
+String getServerName();
+int getServerPort();<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>请求转发：</p>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java">&#x2F;&#x2F; 获取请求转发对象
+RequestDispatcher getRequestDispatcher(String name);
+&#x2F;&#x2F; include() 请求转发之后，又回到当前 Servlet 类继续处理
+&#x2F;&#x2F; forward() 请求转发，直接将请求交给其他 Servlet 类处理，地址栏不发生变化，区别于重定向<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>属性相关：</p>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java">&#x2F;&#x2F; 设置属性，可以将自定义类实例设为属性值
+setAttribute(String name, Object obj);
+&#x2F;&#x2F; 获取属性
+Object getAttribute(String name);
+Enumeration&lt;String&gt; getAttributeNames();
+&#x2F;&#x2F; 删除属性
+void removeAttribute(String name);<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>其他：</p>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java">&#x2F;&#x2F; 获取单个文件
+Part getPart(String name);
+&#x2F;&#x2F; 获取多个文件
+Collection&lt;Part&gt; getParts();
+&#x2F;&#x2F; 获取 ServletContext
+ServletContext getServletContext();
+&#x2F;&#x2F; ......<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h3 id="2-2-响应"><a href="#2-2-响应" class="headerlink" title="2.2 响应"></a>2.2 响应</h3><h4 id="2-2-1-UML-图"><a href="#2-2-1-UML-图" class="headerlink" title="2.2.1 UML 图"></a>2.2.1 UML 图</h4><p>HttpServletResponse 实现了 ServletResponse 接口，并定义了更多关于 Http 的方法。</p>
+<p><img src="https://cdn.jsdelivr.net/gh/ReaJason/blog_imgs/JavaWebServlet_img/HttpServletResponse.png" alt="HttpServletResponse"></p>
+<h4 id="2-2-2-常用方法"><a href="#2-2-2-常用方法" class="headerlink" title="2.2.2 常用方法"></a>2.2.2 常用方法</h4><p>设置响应头：</p>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java">&#x2F;&#x2F; 设置响应头
+void setHeader(String head, String value);
+void setIntHeader(String head, int value);
+&#x2F;&#x2F; 设置响应状态，200，404...
+void setStatus(int);
+&#x2F;&#x2F; 设置响应类型，常见的有：text&#x2F;html、image&#x2F;jpeg、application&#x2F;pdf...
+void setContentType();<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>获取输出流：</p>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java">&#x2F;&#x2F; 获取字符输出流
+PrintWriter getWriter();
+&#x2F;&#x2F; 获取字节输出流
+ServletOutputStream getOutputStream();<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>重定向：</p>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java">void sendRedirect(String url);<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<h2 id="3-ServletConfig"><a href="#3-ServletConfig" class="headerlink" title="3 ServletConfig"></a>3 ServletConfig</h2><p>每一个 Servlet 类都有一个 ServletConfig，不能共享。Web 容器启动后 Servlet 类初始化后 ServletConfig 中的值就不变了。</p>
+<p>使用方法：</p>
+<p>在 web.xml 中配置 ServletConfig 初始化参数，在 servlet 标签中使用 init-param 标签</p>
+<pre class="line-numbers language-markup" data-language="markup"><code class="language-markup"><span class="token prolog">&lt;?xml version="1.0" encoding="UTF-8"?></span>
+<span class="token doctype"><span class="token punctuation">&lt;!</span><span class="token doctype-tag">DOCTYPE</span> <span class="token name">web-app</span>
+    <span class="token name">PUBLIC</span> <span class="token string">"-//Sun Microsystems, Inc.//DTD Web Application 2.3//EN"</span>
+    <span class="token string">"http://java.sun.com/dtd/web-app_2_3.dtd"</span><span class="token punctuation">></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>web-app</span><span class="token punctuation">></span></span>
+      <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>servlet</span><span class="token punctuation">></span></span>
+         <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>servlet-name</span><span class="token punctuation">></span></span>rq<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>servlet-name</span><span class="token punctuation">></span></span>
+         <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>servlet-class</span><span class="token punctuation">></span></span>top.reajason.HelloServlet<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>servlet-class</span><span class="token punctuation">></span></span>
+         <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>init-param</span><span class="token punctuation">></span></span>
+            <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>param-name</span><span class="token punctuation">></span></span>username<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>param-name</span><span class="token punctuation">></span></span>
+            <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>param-value</span><span class="token punctuation">></span></span>ReaJason<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>param-value</span><span class="token punctuation">></span></span>
+         <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>init-param</span><span class="token punctuation">></span></span>
+          <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>init-param</span><span class="token punctuation">></span></span>
+            <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>param-name</span><span class="token punctuation">></span></span>gender<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>param-name</span><span class="token punctuation">></span></span>
+            <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>param-value</span><span class="token punctuation">></span></span>male<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>param-value</span><span class="token punctuation">></span></span>
+         <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>init-param</span><span class="token punctuation">></span></span>
+      <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>servlet</span><span class="token punctuation">></span></span>
+      <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>servlet-mapping</span><span class="token punctuation">></span></span>
+         <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>servlet-name</span><span class="token punctuation">></span></span>hello<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>servlet-name</span><span class="token punctuation">></span></span>
+         <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>url-pattern</span><span class="token punctuation">></span></span>/hello<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>url-pattern</span><span class="token punctuation">></span></span>
+      <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>servlet-mapping</span><span class="token punctuation">></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>web-app</span><span class="token punctuation">></span></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>在 Servlet 类中获取：</p>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java">getServletConfig().getInitParameter(&quot;username&quot;);
+getServletConfig().getInitParameter(&quot;gender&quot;);<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+
+<h2 id="4-ServletContext"><a href="#4-ServletContext" class="headerlink" title="4 ServletContext"></a>4 ServletContext</h2><p>每一个 Web 应用有一个 ServletContext（每个 JVM 有一个 ServletContext，分布式应用时会有不同的），该应用类所有 Servlet 类都可以访问</p>
+<p>初始化参数使用方法：</p>
+<p>在 web.xml 中配置 ServletContext 初始化参数，使用 context-param 标签</p>
+<pre class="line-numbers language-markup" data-language="markup"><code class="language-markup"><span class="token prolog">&lt;?xml version="1.0" encoding="UTF-8"?></span>
+<span class="token doctype"><span class="token punctuation">&lt;!</span><span class="token doctype-tag">DOCTYPE</span> <span class="token name">web-app</span>
+    <span class="token name">PUBLIC</span> <span class="token string">"-//Sun Microsystems, Inc.//DTD Web Application 2.3//EN"</span>
+    <span class="token string">"http://java.sun.com/dtd/web-app_2_3.dtd"</span><span class="token punctuation">></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>web-app</span><span class="token punctuation">></span></span>
+
+   <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>context-param</span><span class="token punctuation">></span></span>
+      <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>param-name</span><span class="token punctuation">></span></span>username<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>param-name</span><span class="token punctuation">></span></span>
+      <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>param-value</span><span class="token punctuation">></span></span>ReaJason<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>param-value</span><span class="token punctuation">></span></span>
+   <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>context-param</span><span class="token punctuation">></span></span>
+
+      <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>servlet</span><span class="token punctuation">></span></span>
+         <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>servlet-name</span><span class="token punctuation">></span></span>rq<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>servlet-name</span><span class="token punctuation">></span></span>
+         <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>servlet-class</span><span class="token punctuation">></span></span>top.reajason.HelloServlet<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>servlet-class</span><span class="token punctuation">></span></span>
+         <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>init-param</span><span class="token punctuation">></span></span>
+            <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>param-name</span><span class="token punctuation">></span></span>username<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>param-name</span><span class="token punctuation">></span></span>
+            <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>param-value</span><span class="token punctuation">></span></span>ReaJason<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>param-value</span><span class="token punctuation">></span></span>
+         <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>init-param</span><span class="token punctuation">></span></span>
+      <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>servlet</span><span class="token punctuation">></span></span>
+      <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>servlet-mapping</span><span class="token punctuation">></span></span>
+         <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>servlet-name</span><span class="token punctuation">></span></span>rq<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>servlet-name</span><span class="token punctuation">></span></span>
+         <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>url-pattern</span><span class="token punctuation">></span></span>/rq<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>url-pattern</span><span class="token punctuation">></span></span>
+      <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>servlet-mapping</span><span class="token punctuation">></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>web-app</span><span class="token punctuation">></span></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>在 Servlet 类中调用获取参数</p>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java">getServletContext().getInitParameter(&quot;username&quot;);<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<p>ServletContext 也有属性相关的方法，设置之后可以 Web 应用全局访问，用于数据共享，可配合 ServletContextListener 监听器在创建时初始化属性。</p>
+<h2 id="5-HttpSession"><a href="#5-HttpSession" class="headerlink" title="5 HttpSession"></a>5 HttpSession</h2><p>HttpSession 对象在与一个特定客户的整个会话期间都存在，对于会话期间客户做的所有请求，从中得到的所有信息都可以用 HttpSession 对象保存。</p>
+<p>会话死亡的三种情况：</p>
+<ol>
+<li>超时</li>
+<li>调用 invalidate() 方法</li>
+<li>应用结束</li>
+</ol>
+<p>在分布式应用中 ServletContext、ServletConfig 每个 VM 都会有一个备份，但是 HttpSession 只会有一个，相同的 HttpSession 不会出现在两个 VM 中。Web 容器会操作 HttpSession 对象在多个 VM 中进行移动完成请求，这个过程中 HttpSessionAttributeListener 监听器发挥作用。</p>
+<h3 id="5-1-获取-HttpSession-对象"><a href="#5-1-获取-HttpSession-对象" class="headerlink" title="5.1 获取 HttpSession 对象"></a>5.1 获取 HttpSession 对象</h3><pre class="line-numbers language-java" data-language="java"><code class="language-java">&#x2F;&#x2F; 从请求中获取会话对象，没有则创建，有则直接拿
+request.getSession();
+&#x2F;&#x2F; 从请求中获取会话对象，没有则返回 null，有则直接拿
+request.getSession(false);
+&#x2F;&#x2F; 每次获取都是新的
+request.getSession(true);<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h3 id="5-2-HttpSession-常用方法"><a href="#5-2-HttpSession-常用方法" class="headerlink" title="5.2 HttpSession 常用方法"></a>5.2 HttpSession 常用方法</h3><pre class="line-numbers language-java" data-language="java"><code class="language-java">&#x2F;&#x2F; 判断当前 HttpSession 是否是新创建的
+boolean isNew();
+&#x2F;&#x2F; 获取创建时间
+long getCreationTime();
+&#x2F;&#x2F; 获取最近一次获取时间
+long getLastAccessedTime();
+&#x2F;&#x2F; 设置用户请求最大间隔时间，超过时间未请求会话撤销（秒）
+void setMaxInactiveInterval(int seconds);
+&#x2F;&#x2F; 获取用户请求最大间隔时间（秒）
+int getMaxInactiveInterval();
+&#x2F;&#x2F; 结束会话
+coid invalidate();<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>属性相关：</p>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java">&#x2F;&#x2F; 设置属性
+void setAttribute(String name, Object obj);
+&#x2F;&#x2F; 获取属性
+Object getAttribute(String name);
+Enumeration&lt;String&gt; getAttributeNames();
+&#x2F;&#x2F; 删除属性
+void removeAttribute(String name);<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>当客户端不支持 Cookie 时使用 URL 重写的方法</p>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java">&#x2F;&#x2F; encodeURL 会将 session 里面的属性拼接在 URL 后当作请求参数
+response.encodeURL(&quot;&#x2F;login&quot;);
+response.sendRedirect(response.encodeRedirectURL(&quot;&#x2F;login&quot;));<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+
+<h3 id="5-3-Cookie"><a href="#5-3-Cookie" class="headerlink" title="5.3 Cookie"></a>5.3 Cookie</h3><p>向响应中添加 Cookie 的步骤</p>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java">&#x2F;&#x2F; 1、创建一个新的 Cookie 对象
+Cookie cookie &#x3D; new Cookie(&quot;username&quot;, &quot;ReaJason&quot;);
+&#x2F;&#x2F; 2、设置 cookie 的存活时间（秒）
+cookie.setMaxAge(30*60);
+&#x2F;&#x2F; 3、添加到响应中
+response.addCookie(cookie);<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>从请求中获取特定 cookie 的步骤</p>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java">&#x2F;&#x2F; 1、获取 cookie 数组
+Cookie[] cookies &#x3D; request.getCookies();
+&#x2F;&#x2F; 2、遍历获取
+for(int i &#x3D; 0; i &lt; cookies.length; i++)&#123;
+    Cookie cookie &#x3D; cookie[i];
+    if(&quot;username&quot;.equals(cookie.getName()))&#123;
+        out.println(cookie.getValue());
+        break;
+    &#125;
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h2 id="6-监听器"><a href="#6-监听器" class="headerlink" title="6 监听器"></a>6 监听器</h2><h3 id="6-1-ServletContextListener"><a href="#6-1-ServletContextListener" class="headerlink" title="6.1 ServletContextListener"></a>6.1 ServletContextListener</h3><p>ServletContext 监听器，监听 ServletContext 初始化时和销毁时执行对应方法</p>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java">public interface ServletContextListener extends EventListener &#123;
+    default public void contextInitialized(ServletContextEvent sce) &#123;&#125;
+    default public void contextDestroyed(ServletContextEvent sce) &#123;&#125;
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>使用方法：</p>
+<ol>
+<li><p>编写自定义类实现 ServletContextListener，并实现两个方法</p>
+</li>
+<li><p>在 web.xml 中注册监听器</p>
+<pre class="line-numbers language-markup" data-language="markup"><code class="language-markup"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>web-app</span><span class="token punctuation">></span></span>
+
+   <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>listener</span><span class="token punctuation">></span></span>
+      <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>listener-class</span><span class="token punctuation">></span></span>top.reajason.listener.MyServletContextListener<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>listener-class</span><span class="token punctuation">></span></span>
+   <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>listener</span><span class="token punctuation">></span></span>
+
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>web-app</span><span class="token punctuation">></span></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></li>
+</ol>
+<h3 id="6-2-ServletContextAttributeListener"><a href="#6-2-ServletContextAttributeListener" class="headerlink" title="6.2 ServletContextAttributeListener"></a>6.2 ServletContextAttributeListener</h3><p>ServletContext 属性监听器，监听 ServletContext 添加、删除、修改属性时调用对应方法</p>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java">public interface ServletContextAttributeListener extends EventListener &#123;
+    default public void attributeAdded(ServletContextAttributeEvent event) &#123;&#125;
+    default public void attributeRemoved(ServletContextAttributeEvent event) &#123;&#125;
+    default public void attributeReplaced(ServletContextAttributeEvent event) &#123;&#125;
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>使用方法同 ServletContextListener</p>
+<h3 id="6-3-ServletRequestListener"><a href="#6-3-ServletRequestListener" class="headerlink" title="6.3 ServletRequestListener"></a>6.3 ServletRequestListener</h3><p>ServletRequest 监听器，监听请求初始化和销毁的时候调用对应方法，比如记录请求日志</p>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java">public interface ServletRequestListener extends EventListener &#123;
+    default public void requestDestroyed(ServletRequestEvent sre) &#123;&#125;
+    default public void requestInitialized(ServletRequestEvent sre) &#123;&#125;
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>使用方法同 ServletContextListener</p>
+<h3 id="6-4-ServletRequestAttributeListener"><a href="#6-4-ServletRequestAttributeListener" class="headerlink" title="6.4 ServletRequestAttributeListener"></a>6.4 ServletRequestAttributeListener</h3><p>ServletRequest 属性监听器，监听 ServletRequest 添加、删除、修改属性时调用对应方法</p>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java">public interface ServletRequestAttributeListener extends EventListener &#123;
+    default public void attributeAdded(ServletRequestAttributeEvent srae) &#123;&#125;
+    default public void attributeRemoved(ServletRequestAttributeEvent srae) &#123;&#125;
+    default public void attributeReplaced(ServletRequestAttributeEvent srae) &#123;&#125;
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>使用方法同 ServletContextListener</p>
+<h3 id="6-5-HttpSessionListener"><a href="#6-5-HttpSessionListener" class="headerlink" title="6.5 HttpSessionListener"></a>6.5 HttpSessionListener</h3><p>HttpSession 监听器，监听 HttpSession 创建和销毁时调用对应方法</p>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java">public interface HttpSessionListener extends EventListener &#123;
+    default public void sessionCreated(HttpSessionEvent se) &#123;&#125;
+    default public void sessionDestroyed(HttpSessionEvent se) &#123;&#125;
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>使用方法同 ServletContextListener</p>
+<h3 id="6-6-HttpSessionBindingListener"><a href="#6-6-HttpSessionBindingListener" class="headerlink" title="6.6 HttpSessionBindingListener"></a>6.6 HttpSessionBindingListener</h3><p>HttpSession 绑定监听器，监听一个自定类与 HttpSession 绑定状态调用对应方法</p>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java">public interface HttpSessionBindingListener extends EventListener &#123;
+    default public void valueBound(HttpSessionBindingEvent event) &#123;&#125;
+    default public void valueUnbound(HttpSessionBindingEvent event) &#123;&#125;
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>使用方法，在属性类中实现 HttpSessionBindingListener 接口中对应方法，无需在 web.xml 中注册。</p>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java">import javax.servlet.http.*;
+
+public class Dog implements HttpSessionBindingListener&#123;
+    ...;
+    public void valueBound(HttpSessionBindingEvent event)&#123;
+        &#x2F;&#x2F; 当前类实例添加到会话时会触发当前方法
+    &#125;
+    public void valueUnbound(HttpSessionBindingEvent event)&#123;
+        &#x2F;&#x2F; 当前类实例从会话中移除时会触发当前方法
+    &#125;
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h3 id="6-7-HttpSessionAttributeListener"><a href="#6-7-HttpSessionAttributeListener" class="headerlink" title="6.7 HttpSessionAttributeListener"></a>6.7 HttpSessionAttributeListener</h3><p>HttpSession 属性监听器，监听 HttpSession 添加、删除、修改属性时调用对应方法</p>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java">public interface HttpSessionAttributeListener extends EventListener &#123;
+    default public void attributeAdded(HttpSessionBindingEvent event) &#123;&#125;
+    default public void attributeRemoved(HttpSessionBindingEvent event) &#123;&#125;
+    default public void attributeReplaced(HttpSessionBindingEvent event) &#123;&#125;
+
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>使用方法同 ServletContextListener</p>
+<h3 id="6-8-HttpSessionActivationListener"><a href="#6-8-HttpSessionActivationListener" class="headerlink" title="6.8 HttpSessionActivationListener"></a>6.8 HttpSessionActivationListener</h3><p>HttpSession 迁移监听器，监听绑定在 HttpSession 的自定义类从一个 JVM 迁移时调用对应方法。</p>
+<p>HttpSession 迁移时只会迁移 Serialization 属性，因此非 Serializable 属性可以通过该监听器解决。</p>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java">public interface HttpSessionActivationListener extends EventListener &#123; 
+    default public void sessionWillPassivate(HttpSessionEvent se) &#123;&#125;
+    default public void sessionDidActivate(HttpSessionEvent se) &#123;&#125;
+&#125; <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>使用方法：</p>
+<ol>
+<li>在自定义类中实现当前监听器接口</li>
+<li>在 web.xml 注册当前监听器</li>
+</ol>
+<h2 id="7-过滤器"><a href="#7-过滤器" class="headerlink" title="7 过滤器"></a>7 过滤器</h2><p>FileChain 过滤器链，使得在拦截一个请求时可以经过多个过滤器进行操作。</p>
+<p>可以使用包装类进行请求和响应的定制操作：</p>
+<ul>
+<li>ServletRequestWrapper</li>
+<li>HttpServletRequestWrapper</li>
+<li>ServletRequestWrapper</li>
+<li>HtpServletResponseWrapper</li>
+</ul>
+<p>定义过滤器：</p>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java">package top.reajason;
+
+import java.io.*;
+import javax.servlet.*;
+import javax.servlet.http.*;
+
+public class MyFilter implements Filter&#123;
+
+    private FilterConfig fc;
+
+    public void init(FilterConfig config) throws ServletException&#123;
+        this.fc &#x3D; config;
+    &#125;
+
+    public void doFilter(ServletRequest req, ServletResponse resp, FilterChain chain)
+        throws ServletException, IOException&#123;
+            HttpServletRequest httpReq &#x3D; (HttpServletRequest)req;
+            fc.getServletContext().log(&quot;进入过滤器了&quot;);
+            chain.doFilter(req, resp);
+    &#125;
+
+    public void destroy()&#123;&#125;
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>web.xml 配置过滤器解析：</p>
+<pre class="line-numbers language-markup" data-language="markup"><code class="language-markup"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>filter</span><span class="token punctuation">></span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>filter-name</span><span class="token punctuation">></span></span>LRequest<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>filter-name</span><span class="token punctuation">></span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>filter-class</span><span class="token punctuation">></span></span>top.reajason.MyFilter<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>filter-class</span><span class="token punctuation">></span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>init-param</span><span class="token punctuation">></span></span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>param-name</span><span class="token punctuation">></span></span>LogFileName<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>param-name</span><span class="token punctuation">></span></span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>param-value</span><span class="token punctuation">></span></span>UserLog.txt<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>param-value</span><span class="token punctuation">></span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>init-param</span><span class="token punctuation">></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>filter</span><span class="token punctuation">></span></span>
+
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>filter-mapping</span><span class="token punctuation">></span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>filter-name</span><span class="token punctuation">></span></span>LRequest<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>filter-name</span><span class="token punctuation">></span></span>
+    <span class="token comment">&lt;!-- &lt;url-pattern>/hello&lt;/url-pattern> --></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>servlet-name</span><span class="token punctuation">></span></span>hello<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>servlet-name</span><span class="token punctuation">></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>filter-mapping</span><span class="token punctuation">></span></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+                
+            </div>
+            <hr/>
+
+            
+
+    <div class="reprint" id="reprint-statement">
+        
+            <div class="reprint__author">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-user">
+                        文章作者:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="/about" rel="external nofollow noreferrer">John Faye</a>
+                </span>
+            </div>
+            <div class="reprint__type">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-link">
+                        文章链接:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="https://jojofaye99.github.io/2024/10/28/javawebservlet/">https://jojofaye99.github.io/2024/10/28/javawebservlet/</a>
+                </span>
+            </div>
+            <div class="reprint__notice">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-copyright">
+                        版权声明:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    本博客所有文章除特別声明外，均采用
+                    <a href="https://creativecommons.org/licenses/by/4.0/deed.zh" rel="external nofollow noreferrer" target="_blank">CC BY 4.0</a>
+                    许可协议。转载请注明来源
+                    <a href="/about" target="_blank">John Faye</a>
+                    !
+                </span>
+            </div>
+        
+    </div>
+
+    <script async defer>
+      document.addEventListener("copy", function (e) {
+        let toastHTML = '<span>复制成功，请遵循本文的转载规则</span><button class="btn-flat toast-action" onclick="navToReprintStatement()" style="font-size: smaller">查看</a>';
+        M.toast({html: toastHTML})
+      });
+
+      function navToReprintStatement() {
+        $("html, body").animate({scrollTop: $("#reprint-statement").offset().top - 80}, 800);
+      }
+    </script>
+
+
+
+            <div class="tag_share" style="display: block;">
+                <div class="post-meta__tag-list" style="display: inline-block;">
+                    
+                        <div class="article-tag">
+                            
+                                <a href="/tags/Note/">
+                                    <span class="chip bg-color">Note</span>
+                                </a>
+                            
+                        </div>
+                    
+                </div>
+                <div class="post_share" style="zoom: 80%; width: fit-content; display: inline-block; float: right; margin: -0.15rem 0;">
+                    <link rel="stylesheet" type="text/css" href="/libs/share/css/share.min.css">
+<div id="article-share">
+
+    
+    <div class="social-share" data-sites="twitter,facebook,google,qq,qzone,wechat,weibo,douban,linkedin" data-wechat-qrcode-helper="<p>微信扫一扫即可分享！</p>"></div>
+    <script src="/libs/share/js/social-share.min.js"></script>
+    
+
+    
+
+</div>
+
+                </div>
+            </div>
+            
+        </div>
+    </div>
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+<article id="prenext-posts" class="prev-next articles">
+    <div class="row article-row">
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge left-badge text-color">
+                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+            <div class="card">
+                <a href="/2024/11/29/javaspring/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/17.jpg" class="responsive-img" alt="Spring Learning">
+                        
+                        <span class="card-title">Spring Learning</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            
+                        
+                    </div>
+                    <div class="publish-info">
+                        <span class="publish-date">
+                            <i class="far fa-clock fa-fw icon-date"></i>2024-11-29
+                        </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/Reading/" class="post-category">
+                                    Reading
+                                </a>
+                            
+                            <a href="/categories/Reading/Java/" class="post-category">
+                                    Java
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/Note/">
+                        <span class="chip bg-color">Note</span>
+                    </a>
+                    
+                    <a href="/tags/Spring/">
+                        <span class="chip bg-color">Spring</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
+            </div>
+            <div class="card">
+                <a href="/2024/03/11/designpattern/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/8.jpg" class="responsive-img" alt="设计模式的艺术一书的阅读笔记">
+                        
+                        <span class="card-title">设计模式的艺术一书的阅读笔记</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2024-03-11
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/Reading/" class="post-category">
+                                    Reading
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/Notes/">
+                        <span class="chip bg-color">Notes</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+    </div>
+</article>
+
+</div>
+
+
+<script>
+    $('#articleContent').on('copy', function (e) {
+        // IE8 or earlier browser is 'undefined'
+        if (typeof window.getSelection === 'undefined') return;
+
+        var selection = window.getSelection();
+        // if the selection is short let's not annoy our users.
+        if (('' + selection).length < Number.parseInt('50')) {
+            return;
+        }
+
+        // create a div outside of the visible area and fill it with the selected text.
+        var bodyElement = document.getElementsByTagName('body')[0];
+        var newdiv = document.createElement('div');
+        newdiv.style.position = 'absolute';
+        newdiv.style.left = '-99999px';
+        bodyElement.appendChild(newdiv);
+        newdiv.appendChild(selection.getRangeAt(0).cloneContents());
+
+        // we need a <pre> tag workaround.
+        // otherwise the text inside "pre" loses all the line breaks!
+        if (selection.getRangeAt(0).commonAncestorContainer.nodeName === 'PRE' || selection.getRangeAt(0).commonAncestorContainer.nodeName === 'CODE') {
+            newdiv.innerHTML = "<pre>" + newdiv.innerHTML + "</pre>";
+        }
+
+        var url = document.location.href;
+        newdiv.innerHTML += '<br />'
+            + '来源: 造梦空间<br />'
+            + '文章作者: John Faye<br />'
+            + '文章链接: <a href="' + url + '">' + url + '</a><br />'
+            + '本文章著作权归作者所有，任何形式的转载都请注明出处。';
+
+        selection.selectAllChildren(newdiv);
+        window.setTimeout(function () {bodyElement.removeChild(newdiv);}, 200);
+    });
+</script>
+
+
+<!-- 代码块功能依赖 -->
+<script type="text/javascript" src="/libs/codeBlock/codeBlockFuction.js"></script>
+
+
+  <!-- 是否加载使用自带的 prismjs. -->
+  <script type="text/javascript" src="/libs/prism/prism.min.js"></script>
+
+
+<!-- 代码语言 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeLang.js"></script>
+
+
+<!-- 代码块复制 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeCopy.js"></script>
+
+
+<!-- 代码块收缩 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeShrink.js"></script>
+
+
+
+    </div>
+    <div id="toc-aside" class="expanded col l3 hide-on-med-and-down">
+        <div class="toc-widget card" style="background-color: white;">
+            <div class="toc-title"><i class="far fa-list-alt"></i>&nbsp;&nbsp;目录</div>
+            <div id="toc-content"></div>
+        </div>
+    </div>
+</div>
+
+<!-- TOC 悬浮按钮. -->
+
+<div id="floating-toc-btn" class="hide-on-med-and-down">
+    <a class="btn-floating btn-large bg-color">
+        <i class="fas fa-list-ul"></i>
+    </a>
+</div>
+
+
+<script src="/libs/tocbot/tocbot.min.js"></script>
+<script>
+    $(function () {
+        tocbot.init({
+            tocSelector: '#toc-content',
+            contentSelector: '#articleContent',
+            headingsOffset: -($(window).height() * 0.4 - 45),
+            collapseDepth: Number('0'),
+            headingSelector: 'h2, h3, h4'
+        });
+
+        // Set scroll toc fixed.
+        let tocHeight = parseInt($(window).height() * 0.4 - 64);
+        let $tocWidget = $('.toc-widget');
+        $(window).scroll(function () {
+            let scroll = $(window).scrollTop();
+            /* add post toc fixed. */
+            if (scroll > tocHeight) {
+                $tocWidget.addClass('toc-fixed');
+            } else {
+                $tocWidget.removeClass('toc-fixed');
+            }
+        });
+
+        
+        /* 修复文章卡片 div 的宽度. */
+        let fixPostCardWidth = function (srcId, targetId) {
+            let srcDiv = $('#' + srcId);
+            if (srcDiv.length === 0) {
+                return;
+            }
+
+            let w = srcDiv.width();
+            if (w >= 450) {
+                w = w + 21;
+            } else if (w >= 350 && w < 450) {
+                w = w + 18;
+            } else if (w >= 300 && w < 350) {
+                w = w + 16;
+            } else {
+                w = w + 14;
+            }
+            $('#' + targetId).width(w);
+        };
+
+        // 切换TOC目录展开收缩的相关操作.
+        const expandedClass = 'expanded';
+        let $tocAside = $('#toc-aside');
+        let $mainContent = $('#main-content');
+        $('#floating-toc-btn .btn-floating').click(function () {
+            if ($tocAside.hasClass(expandedClass)) {
+                $tocAside.removeClass(expandedClass).hide();
+                $mainContent.removeClass('l9');
+            } else {
+                $tocAside.addClass(expandedClass).show();
+                $mainContent.addClass('l9');
+            }
+            fixPostCardWidth('artDetail', 'prenext-posts');
+        });
+        
+    });
+</script>
+
+    
+
+</main>
+
+
+
+
+    <footer class="page-footer bg-color">
+    
+        <link rel="stylesheet" href="/libs/aplayer/APlayer.min.css">
+<style>
+    .aplayer .aplayer-lrc p {
+        
+        display: none;
+        
+        font-size: 12px;
+        font-weight: 700;
+        line-height: 16px !important;
+    }
+
+    .aplayer .aplayer-lrc p.aplayer-lrc-current {
+        
+        display: none;
+        
+        font-size: 15px;
+        color: #42b983;
+    }
+
+    
+    .aplayer.aplayer-fixed.aplayer-narrow .aplayer-body {
+        left: -66px !important;
+    }
+
+    .aplayer.aplayer-fixed.aplayer-narrow .aplayer-body:hover {
+        left: 0px !important;
+    }
+
+    
+</style>
+<div class="">
+    
+    <div class="row">
+        <meting-js class="col l8 offset-l2 m10 offset-m1 s12"
+                   server="netease"
+                   type="playlist"
+                   id="503838841"
+                   fixed='true'
+                   autoplay='false'
+                   theme='#42b983'
+                   loop='all'
+                   order='random'
+                   preload='auto'
+                   volume='0.7'
+                   list-folded='true'
+        >
+        </meting-js>
+    </div>
+</div>
+
+<script src="/libs/aplayer/APlayer.min.js"></script>
+<script src="/libs/aplayer/Meting.min.js"></script>
+
+    
+
+    <div class="container row center-align"
+         style="margin-bottom: 0px !important;">
+        <div class="col s12 m8 l8 copy-right">
+            Copyright&nbsp;&copy;
+            
+                <span id="year">2021-2025</span>
+            
+            <a href="/about" target="_blank">John Faye</a>
+            |&nbsp;Powered by&nbsp;<a href="https://hexo.io/" target="_blank">Hexo</a>
+            |&nbsp;Theme&nbsp;<a href="https://github.com/blinkfox/hexo-theme-matery" target="_blank">Matery</a>
+            
+            <br>
+            
+            
+            
+            
+            
+            <br>
+
+            <!-- 运行天数提醒. -->
+            
+            <br>
+            
+        </div>
+        <div class="col s12 m4 l4 social-link ">
+    <a href="https://github.com/jojofaye99" class="tooltipped" target="_blank" data-tooltip="访问我的GitHub" data-position="top" data-delay="50">
+        <i class="fab fa-github"></i>
+    </a>
+
+
+
+    <a href="mailto:1358282083@qq.com" class="tooltipped" target="_blank" data-tooltip="邮件联系我" data-position="top" data-delay="50">
+        <i class="fas fa-envelope-open"></i>
+    </a>
+
+
+
+
+
+
+
+    <a href="tencent://AddContact/?fromId=50&fromSubId=1&subcmd=all&uin=1358282083" class="tooltipped" target="_blank" data-tooltip="QQ联系我: 1358282083" data-position="top" data-delay="50">
+        <i class="fab fa-qq"></i>
+    </a>
+
+
+
+
+
+
+
+</div>
+    </div>
+</footer>
+
+<div class="progress-bar"></div>
+
+
+    <!-- 搜索遮罩框 -->
+<div id="searchModal" class="modal">
+    <div class="modal-content">
+        <div class="search-header">
+            <span class="title"><i class="fas fa-search"></i>&nbsp;&nbsp;搜索</span>
+            <input type="search" id="searchInput" name="s" placeholder="请输入搜索的关键字"
+                   class="search-input">
+        </div>
+        <div id="searchResult"></div>
+    </div>
+</div>
+
+<script type="text/javascript">
+$(function () {
+    var searchFunc = function (path, search_id, content_id) {
+        'use strict';
+        $.ajax({
+            url: path,
+            dataType: "xml",
+            success: function (xmlResponse) {
+                // get the contents from search data
+                var datas = $("entry", xmlResponse).map(function () {
+                    return {
+                        title: $("title", this).text(),
+                        content: $("content", this).text(),
+                        url: $("url", this).text()
+                    };
+                }).get();
+                var $input = document.getElementById(search_id);
+                var $resultContent = document.getElementById(content_id);
+                $input.addEventListener('input', function () {
+                    var str = '<ul class=\"search-result-list\">';
+                    var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
+                    $resultContent.innerHTML = "";
+                    if (this.value.trim().length <= 0) {
+                        return;
+                    }
+                    // perform local searching
+                    datas.forEach(function (data) {
+                        var isMatch = true;
+                        var data_title = data.title.trim().toLowerCase();
+                        var data_content = data.content.trim().replace(/<[^>]+>/g, "").toLowerCase();
+                        var data_url = data.url;
+                        data_url = data_url.indexOf('/') === 0 ? data.url : '/' + data_url;
+                        var index_title = -1;
+                        var index_content = -1;
+                        var first_occur = -1;
+                        // only match artiles with not empty titles and contents
+                        if (data_title !== '' && data_content !== '') {
+                            keywords.forEach(function (keyword, i) {
+                                index_title = data_title.indexOf(keyword);
+                                index_content = data_content.indexOf(keyword);
+                                if (index_title < 0 && index_content < 0) {
+                                    isMatch = false;
+                                } else {
+                                    if (index_content < 0) {
+                                        index_content = 0;
+                                    }
+                                    if (i === 0) {
+                                        first_occur = index_content;
+                                    }
+                                }
+                            });
+                        }
+                        // show search results
+                        if (isMatch) {
+                            str += "<li><a href='" + data_url + "' class='search-result-title'>" + data_title + "</a>";
+                            var content = data.content.trim().replace(/<[^>]+>/g, "");
+                            if (first_occur >= 0) {
+                                // cut out 100 characters
+                                var start = first_occur - 20;
+                                var end = first_occur + 80;
+                                if (start < 0) {
+                                    start = 0;
+                                }
+                                if (start === 0) {
+                                    end = 100;
+                                }
+                                if (end > content.length) {
+                                    end = content.length;
+                                }
+                                var match_content = content.substr(start, end);
+                                // highlight all keywords
+                                keywords.forEach(function (keyword) {
+                                    var regS = new RegExp(keyword, "gi");
+                                    match_content = match_content.replace(regS, "<em class=\"search-keyword\">" + keyword + "</em>");
+                                });
+
+                                str += "<p class=\"search-result\">" + match_content + "...</p>"
+                            }
+                            str += "</li>";
+                        }
+                    });
+                    str += "</ul>";
+                    $resultContent.innerHTML = str;
+                });
+            }
+        });
+    };
+
+    searchFunc('/search.xml', 'searchInput', 'searchResult');
+});
+</script>
+
+    <!-- 白天和黑夜主题 -->
+<div class="stars-con">
+    <div id="stars"></div>
+    <div id="stars2"></div>
+    <div id="stars3"></div>  
+</div>
+
+<script>
+    function switchNightMode() {
+        $('<div class="Cuteen_DarkSky"><div class="Cuteen_DarkPlanet"></div></div>').appendTo($('body')),
+        setTimeout(function () {
+            $('body').hasClass('DarkMode') 
+            ? ($('body').removeClass('DarkMode'), localStorage.setItem('isDark', '0'), $('#sum-moon-icon').removeClass("fa-sun").addClass('fa-moon')) 
+            : ($('body').addClass('DarkMode'), localStorage.setItem('isDark', '1'), $('#sum-moon-icon').addClass("fa-sun").removeClass('fa-moon')),
+            
+            setTimeout(function () {
+            $('.Cuteen_DarkSky').fadeOut(1e3, function () {
+                $(this).remove()
+            })
+            }, 2e3)
+        })
+    }
+</script>
+
+    <!-- 回到顶部按钮 -->
+<div id="backTop" class="top-scroll">
+    <a class="btn-floating btn-large waves-effect waves-light" href="#!">
+        <i class="fas fa-arrow-up"></i>
+    </a>
+</div>
+
+
+    <script src="/libs/materialize/materialize.min.js"></script>
+    <script src="/libs/masonry/masonry.pkgd.min.js"></script>
+    <script src="/libs/aos/aos.js"></script>
+    <script src="/libs/scrollprogress/scrollProgress.min.js"></script>
+    <script src="/libs/lightGallery/js/lightgallery-all.min.js"></script>
+    <script src="/js/matery.js"></script>
+
+    
+
+    
+    
+    
+
+    <!-- 雪花特效 -->
+    
+
+    <!-- 鼠标星星特效 -->
+    
+
+     
+        <script src="https://ssl.captcha.qq.com/TCaptcha.js"></script>
+        <script src="/libs/others/TencentCaptcha.js"></script>
+        <button id="TencentCaptcha" data-appid="xxxxxxxxxx" data-cbfn="callback" type="button" hidden></button>
+    
+
+    <!-- Baidu Analytics -->
+
+    <!-- Baidu Push -->
+
+<script>
+    (function () {
+        var bp = document.createElement('script');
+        var curProtocol = window.location.protocol.split(':')[0];
+        if (curProtocol === 'https') {
+            bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+        } else {
+            bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+        }
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(bp, s);
+    })();
+</script>
+
+    
+    <script src="/libs/others/clicklove.js" async="async"></script>
+    
+    
+
+    
+
+    
+
+    <!--腾讯兔小巢-->
+    
+    
+
+    
+
+    
+    <script type="text/javascript" src="/libs/background/ribbon-dynamic.js" async="async"></script>
+    
+
+    
+    <script src="/libs/instantpage/instantpage.js" type="module"></script>
+    
+
+</body>
+
+</html>

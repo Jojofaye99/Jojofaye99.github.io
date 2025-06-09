@@ -1,0 +1,3506 @@
+<!DOCTYPE HTML>
+<html lang="zh-CN">
+
+
+<head>
+    <meta charset="utf-8">
+    <meta name="keywords" content="CoreJava Volume Ⅰ, 造梦空间">
+    <meta name="description" content="1 Java 程序设计概述Java 的 11 个关键字：
+
+简单性
+面向对象
+分布式
+健壮性
+安全性
+体系结构中立
+可移植性
+解释性
+高性能
+多线程
+动态性
+
+2 Java 环境安装术语：
+
+Java Develepment Kit（JDK">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta name="renderer" content="webkit|ie-stand|ie-comp">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="referrer" content="no-referrer-when-downgrade">
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+
+
+    <title>CoreJava Volume Ⅰ | 造梦空间</title>
+    <link rel="icon" type="image/png" href="/favicon.png">
+    
+
+
+    <!-- bg-cover style     -->
+
+
+
+<link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.min.css">
+<link rel="stylesheet" type="text/css" href="/libs/materialize/materialize.min.css">
+<link rel="stylesheet" type="text/css" href="/libs/aos/aos.css">
+<link rel="stylesheet" type="text/css" href="/libs/animate/animate.min.css">
+<link rel="stylesheet" type="text/css" href="/libs/lightGallery/css/lightgallery.min.css">
+<link rel="stylesheet" type="text/css" href="/css/matery.css">
+<link rel="stylesheet" type="text/css" href="/css/my.css">
+<link rel="stylesheet" type="text/css" href="/css/dark.css" media="none" onload="if(media!='all')media='all'">
+
+
+
+
+    <link rel="stylesheet" href="/libs/tocbot/tocbot.css">
+    <link rel="stylesheet" href="/css/post.css">
+
+
+
+
+    
+
+
+
+    <script src="/libs/jquery/jquery-3.6.0.min.js"></script>
+
+<meta name="generator" content="Hexo 7.3.0"><link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css">
+<link rel="stylesheet" href="/css/prism-line-numbers.css" type="text/css"></head>
+
+
+<body>
+    <header class="navbar-fixed">
+    <nav id="headNav" class="bg-color nav-transparent">
+        <div id="navContainer" class="nav-wrapper container">
+            <div class="brand-logo">
+                <a href="/" class="waves-effect waves-light">
+                    
+                    <img src="/medias/logo.png" class="logo-img" alt="LOGO">
+                    
+                    <span class="logo-span">造梦空间</span>
+                </a>
+            </div>
+            
+
+<a href="#" data-target="mobile-nav" class="sidenav-trigger button-collapse"><i class="fas fa-bars"></i></a>
+<ul class="right nav-menu">
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/" class="waves-effect waves-light">
+      
+      <i class="fas fa-home" style="zoom: 0.6;"></i>
+      
+      <span>首页</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/tags" class="waves-effect waves-light">
+      
+      <i class="fas fa-tags" style="zoom: 0.6;"></i>
+      
+      <span>标签</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/categories" class="waves-effect waves-light">
+      
+      <i class="fas fa-bookmark" style="zoom: 0.6;"></i>
+      
+      <span>分类</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/archives" class="waves-effect waves-light">
+      
+      <i class="fas fa-archive" style="zoom: 0.6;"></i>
+      
+      <span>归档</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/about" class="waves-effect waves-light">
+      
+      <i class="fas fa-user-circle" style="zoom: 0.6;"></i>
+      
+      <span>关于</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/contact" class="waves-effect waves-light">
+      
+      <i class="fas fa-comments" style="zoom: 0.6;"></i>
+      
+      <span>留言板</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/friends" class="waves-effect waves-light">
+      
+      <i class="fas fa-address-book" style="zoom: 0.6;"></i>
+      
+      <span>友情链接</span>
+    </a>
+    
+  </li>
+  
+  <li>
+    <a href="#searchModal" class="modal-trigger waves-effect waves-light">
+      <i id="searchIcon" class="fas fa-search" title="搜索" style="zoom: 0.85;"></i>
+    </a>
+  </li>
+  <li>
+    <a href="javascript:;" class="waves-effect waves-light" onclick="switchNightMode()" title="深色/浅色模式" >
+      <i id="sum-moon-icon" class="fas fa-sun" style="zoom: 0.85;"></i>
+    </a>
+  </li>
+</ul>
+
+
+<div id="mobile-nav" class="side-nav sidenav">
+
+    <div class="mobile-head bg-color">
+        
+        <img src="/medias/logo.png" class="logo-img circle responsive-img">
+        
+        <div class="logo-name">造梦空间</div>
+        <div class="logo-desc">
+            
+            Never really desperate, only the lost of the soul.
+            
+        </div>
+    </div>
+
+    <ul class="menu-list mobile-menu-list">
+        
+        <li class="m-nav-item">
+	  
+		<a href="/" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-home"></i>
+			
+			首页
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/tags" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-tags"></i>
+			
+			标签
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/categories" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-bookmark"></i>
+			
+			分类
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/archives" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-archive"></i>
+			
+			归档
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/about" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-user-circle"></i>
+			
+			关于
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/contact" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-comments"></i>
+			
+			留言板
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/friends" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-address-book"></i>
+			
+			友情链接
+		</a>
+          
+        </li>
+        
+        
+    </ul>
+</div>
+
+
+        </div>
+
+        
+    </nav>
+
+</header>
+
+    
+
+
+
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/1.jpg')">
+    <div class="container" style="right: 0px;left: 0px;">
+        <div class="row">
+            <div class="col s12 m12 l12">
+                <div class="brand">
+                    <h1 class="description center-align post-title">CoreJava Volume Ⅰ</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+<main class="post-container content">
+
+    
+    <div class="row">
+    <div id="main-content" class="col s12 m12 l9">
+        <!-- 文章内容详情 -->
+<div id="artDetail">
+    <div class="card">
+        <div class="card-content article-info">
+            <div class="row tag-cate">
+                <div class="col s7">
+                    
+                    <div class="article-tag">
+                        
+                            <a href="/tags/Note/">
+                                <span class="chip bg-color">Note</span>
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+                <div class="col s5 right-align">
+                    
+                    <div class="post-cate">
+                        <i class="fas fa-bookmark fa-fw icon-category"></i>
+                        
+                            <a href="/categories/Java/" class="post-category">
+                                Java
+                            </a>
+                        
+                            <a href="/categories/Java/Reading/" class="post-category">
+                                Reading
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+            </div>
+
+            <div class="post-info">
+                
+                <div class="post-date info-break-policy">
+                    <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
+                    2024-02-08
+                </div>
+                
+
+                
+
+                
+                <div class="info-break-policy">
+                    <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
+                    19.2k
+                </div>
+                
+
+                
+                <div class="info-break-policy">
+                    <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
+                    84 分
+                </div>
+                
+
+                
+            </div>
+        </div>
+        <hr class="clearfix">
+
+        
+        <!-- 是否加载使用自带的 prismjs. -->
+        <link rel="stylesheet" href="/libs/prism/prism.min.css">
+        
+
+        
+
+        <div class="card-content article-card-content">
+            <div id="articleContent">
+                <h2 id="1-Java-程序设计概述"><a href="#1-Java-程序设计概述" class="headerlink" title="1 Java 程序设计概述"></a>1 Java 程序设计概述</h2><p>Java 的 11 个关键字：</p>
+<ol>
+<li>简单性</li>
+<li>面向对象</li>
+<li>分布式</li>
+<li>健壮性</li>
+<li>安全性</li>
+<li>体系结构中立</li>
+<li>可移植性</li>
+<li>解释性</li>
+<li>高性能</li>
+<li>多线程</li>
+<li>动态性</li>
+</ol>
+<h2 id="2-Java-环境安装"><a href="#2-Java-环境安装" class="headerlink" title="2 Java 环境安装"></a>2 Java 环境安装</h2><p>术语：</p>
+<ul>
+<li>Java Develepment Kit（JDK）：编写 Java 程序的程序员使用的软件</li>
+<li>Java Runtime Environment（JRE）：运行 Java 程序的用户使用的软件</li>
+<li>Standard Edition（SE）：用于桌面或简单服务器应用的 Java 平台</li>
+<li>Enterprise Edition（EE）：用于复杂服务器应用的 Java 平台</li>
+<li>Micro Edition（ME）：用于手机和其他小型设备的 Java 平台</li>
+<li>OpenJDK：Java SE 的开源实现</li>
+</ul>
+<blockquote>
+<p><a target="_blank" rel="noopener" href="https://www.oracle.com/java/technologies/downloads/#java8">Java Downloads | Oracle</a></p>
+</blockquote>
+<h3 id="2-1-Windows"><a href="#2-1-Windows" class="headerlink" title="2.1 Windows"></a>2.1 Windows</h3><ol>
+<li>安装包下载并安装（需要账号），<a target="_blank" rel="noopener" href="https://www.oracle.com/java/technologies/downloads/#java8-windows">jdk-8u301-windows-x64.exe</a></li>
+<li>配置 JAVA_HOME 系统变量，变量值为 <code>C:\env\jdk1.8</code>(JDK安装目录)</li>
+<li>配置 PATH 系统变量，添加 <code>%JAVA_HOME%\bin</code>、<code>%JAVA_HOME%\jre\bin</code></li>
+<li>测试是否配置完成，<code>java -version</code>、<code>javac -version</code></li>
+</ol>
+<h3 id="2-2-Linux"><a href="#2-2-Linux" class="headerlink" title="2.2 Linux"></a>2.2 Linux</h3><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"># (CentOS7)
+# 1、下载安装包并上传到 Linux，jdk-8u301-linux-x64.tar.gz
+
+# 2、解压在 opt 目录下
+sudo tar zxf jdk-8u301-linux-x64.tar.gz -C &#x2F;opt
+
+# 3、配置全局变量
+vim &#x2F;etc&#x2F;profile
+
+# 3.1 最后添加三项
+export JAVA_HOME&#x3D;&#x2F;opt&#x2F;jdk1.8.0_301
+export PATH&#x3D;$JAVA_HOME&#x2F;bin:$PATH
+export PATH&#x3D;$JAVA_HOME&#x2F;jre&#x2F;bin:$PATH
+
+# 4、激活配置
+source &#x2F;etc&#x2F;profile
+
+# 5、测试
+java -version
+javac -version<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h3 id="2-3-HelloWorld"><a href="#2-3-HelloWorld" class="headerlink" title="2.3 HelloWorld"></a>2.3 HelloWorld</h3><p>1、创建文件 HelloWorld.java 文件（严格区分大小写）</p>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java">public class HelloWorld&#123;
+    public static void main(String[] args)&#123;
+        System.out.println(&quot;Hello World, Java 8!&quot;);
+    &#125;    
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>2、使用 javac 编译 Java 文件，<code>javac HelloWorld.java</code></p>
+<p>3、执行（没有任何后缀，直接就是 HelloWorld），<code>java HelloWorld</code></p>
+<h2 id="3-Java-基础程序设计"><a href="#3-Java-基础程序设计" class="headerlink" title="3 Java 基础程序设计"></a>3 Java 基础程序设计</h2><h3 id="3-1-注释"><a href="#3-1-注释" class="headerlink" title="3.1 注释"></a>3.1 注释</h3><ol>
+<li>单行注释：<code>// 开始到本行结尾</code></li>
+<li>多行注释：<code>/* 开始，以 */ 结束</code></li>
+<li>文档注释：<code>/** 开始，以 */ 结束</code></li>
+</ol>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java">&#x2F;**
+ * 这是一个文档注释
+ * @filename CommentsTest.java
+ * @version 1.01 2021-10-18
+ * @author ReaJason
+ *&#x2F;
+public class CommentsTest&#123;
+    &#x2F;* 每个 Java 程序都必须有一个 main 方法，声明如下*&#x2F;
+    public static void main(String[] args)&#123;
+        &#x2F;&#x2F; 这是一个单行注释，下面是打印一句话
+        System.out.println(&quot;We will not use &#39;Hello, World!&#39;&quot;);
+    &#125;
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h3 id="3-2-数据类型"><a href="#3-2-数据类型" class="headerlink" title="3.2 数据类型"></a>3.2 数据类型</h3><h4 id="3-2-1-整型"><a href="#3-2-1-整型" class="headerlink" title="3.2.1 整型"></a>3.2.1 整型</h4><table>
+<thead>
+<tr>
+<th>类型</th>
+<th>存储需求</th>
+<th>取值范围</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>int</td>
+<td>4 字节</td>
+<td>-2^31 ~ 2^31-1</td>
+</tr>
+<tr>
+<td>short</td>
+<td>2 字节</td>
+<td>-2^7 ~ 2^7-1</td>
+</tr>
+<tr>
+<td>long</td>
+<td>8 字节</td>
+<td>-2^63 ~ 2^63-1</td>
+</tr>
+<tr>
+<td>byte</td>
+<td>1 字节</td>
+<td>-128 ~ 127</td>
+</tr>
+</tbody></table>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java">&#x2F;&#x2F; 长整型有 l 或 L 后缀
+long a &#x3D; 4000000000L;
+
+&#x2F;&#x2F; 十六进制有 0x 或 0X 前缀
+int b &#x3D; 0xa1f;
+
+&#x2F;&#x2F; 八进制有 0 前缀，不建议使用
+int c &#x3D; 0173;
+
+&#x2F;&#x2F; 二进制有 0b 或 0B 前缀，java7 开始
+int d &#x3D; 0b1001;
+
+&#x2F;&#x2F; Java7 开始数字字面量可以加_，使之易读，编译器会去除这些下划线
+int e &#x3D; 0b1111_0100_0010_0100_0000;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h4 id="3-2-2-浮点型"><a href="#3-2-2-浮点型" class="headerlink" title="3.2.2 浮点型"></a>3.2.2 浮点型</h4><table>
+<thead>
+<tr>
+<th>类型</th>
+<th>存储需求</th>
+<th>取值范围</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>float</td>
+<td>4 字节</td>
+<td></td>
+</tr>
+<tr>
+<td>double</td>
+<td>8 字节</td>
+<td></td>
+</tr>
+</tbody></table>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java">&#x2F;&#x2F; float 类型必须添加 f 或 F 后缀
+float a &#x3D; 1010.101010f;
+
+&#x2F;&#x2F; double 类型可添加 d 或 D 后缀，小数默认为 double 类型
+double b &#x3D; 10.101010231;
+
+&#x2F;&#x2F; 使用十六进制表示浮点数，指数采用十进制，尾数采用十六进制，指数的基数为 2
+&#x2F;&#x2F; 0.125 &#x3D; 0x1.0p-3
+double c &#x3D; 0x1.0p-3;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<ul>
+<li>正无穷大，Double.POSITIVE_INFINITY</li>
+<li>负无穷大，Double.NEGATIVE_INFINITY</li>
+<li>NaN，Double.NaN</li>
+</ul>
+<blockquote>
+<p> 浮点数不适合用于无法接受舍入误差的金融计算，应该使用 BigDecimal 类</p>
+</blockquote>
+<h4 id="3-2-3-char-类型"><a href="#3-2-3-char-类型" class="headerlink" title="3.2.3 char 类型"></a>3.2.3 char 类型</h4><p>char 类型的字面量值需要用单引号括起来。char 类型的值也可以表示为十六进制值。</p>
+<table>
+<thead>
+<tr>
+<th>转义序列</th>
+<th>名称</th>
+<th>Unicode 值</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>\b</td>
+<td>退格</td>
+<td>\u0008</td>
+</tr>
+<tr>
+<td>\t</td>
+<td>制表</td>
+<td>\u0009</td>
+</tr>
+<tr>
+<td>\n</td>
+<td>换行</td>
+<td>\u00a</td>
+</tr>
+<tr>
+<td>\r</td>
+<td>回车</td>
+<td>\u00d</td>
+</tr>
+<tr>
+<td>\“</td>
+<td>双引号</td>
+<td>\u0022</td>
+</tr>
+<tr>
+<td>\‘</td>
+<td>单引号</td>
+<td>\u0027</td>
+</tr>
+<tr>
+<td>\\</td>
+<td>反斜杠</td>
+<td>\u005c</td>
+</tr>
+</tbody></table>
+<p>Unicode 转义序列会在解析代码之前处理，例如 <code>// \u00A0 is a newline</code>，由于 <code>\u00A0</code> 会替换成一个换行符，因此会产生语法错误</p>
+<p>char 类型描述了 UTF-16 编码中的一个代码单元，占 2 个字节</p>
+<p>不建议使用 char 类型，除非需要处理 UTF-16 代码单元</p>
+<h4 id="3-2-4-boolean-类型"><a href="#3-2-4-boolean-类型" class="headerlink" title="3.2.4 boolean 类型"></a>3.2.4 boolean 类型</h4><p>boolean 类型有两个值：false 和 true。整型值和布尔值不能相互转换</p>
+<h3 id="3-3-变量"><a href="#3-3-变量" class="headerlink" title="3.3 变量"></a>3.3 变量</h3><p>声明变量为，变量类型+变量名，例如 <code>int a;</code>。变量名不能以数字开头的，由数字、字母、_、$组成。大小写敏感，长度没有限制。</p>
+<ul>
+<li>尽管 $ 是合法的命名字符，但不要个人使用，它只用在 Java 编译器或其它工具生成的名字中</li>
+<li>不能使用 Java 保留字作为变量名</li>
+</ul>
+<h4 id="3-3-1-变量初始化"><a href="#3-3-1-变量初始化" class="headerlink" title="3.3.1 变量初始化"></a>3.3.1 变量初始化</h4><p>声明变量后，必须使用赋值语句进行显式初始化，例如 <code>int a = 10;</code>，千万不要使用未初始化的变量。变量的声明尽可能靠近变量第一次使用的地方。</p>
+<p>Java 10 开始如果变量能推断出类型可以使用 var 来声明变量。</p>
+<h4 id="3-3-2-常量"><a href="#3-3-2-常量" class="headerlink" title="3.3.2 常量"></a>3.3.2 常量</h4><p>使用 final 指定常量，常量只能被赋值一次，无法修改，static final 指定类常量。</p>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java">public class Constants&#123;
+    &#x2F;&#x2F; 这是一个类常量，可以通过 Constants.COUNT 访问
+    public static final double COUNT &#x3D; 10;
+
+    public static void main(String[] args)&#123;
+        final double PI &#x3D; 3.14;
+		System.out.println(PI + Constants.COUNT);
+		System.out.println(PI + COUNT);
+        &#x2F;&#x2F; 两个都输出 13.14
+    &#125;
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h3 id="3-4-运算符"><a href="#3-4-运算符" class="headerlink" title="3.4 运算符"></a>3.4 运算符</h3><p>算术运算符 +、-、*、&#x2F;、% 表示加、减、乘、除、求余（取模）运算</p>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java">&#x2F;&#x2F; 当两个整数参与 &#x2F; 运算为整数除法
+int a &#x3D; 10 &#x2F; 3;
+
+&#x2F;&#x2F; 有小数才为浮点除法
+int b &#x3D; 10 &#x2F; 3.0;
+
+&#x2F;&#x2F; 整数除 0 产生异常，浮点数除 0 会的都无穷大或 NaN 结果<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h4 id="3-4-1-数学函数"><a href="#3-4-1-数学函数" class="headerlink" title="3.4.1 数学函数"></a>3.4.1 数学函数</h4><pre class="line-numbers language-java" data-language="java"><code class="language-java">public class MathTest&#123;
+    public static void main(String[] args)&#123;
+        &#x2F;&#x2F; 平方根
+        double a  &#x3D; Math.sqrt(4);
+		&#x2F;&#x2F; 幂运算
+        double b &#x3D; Math.pow(2, 2);
+		&#x2F;&#x2F; 整数取余，返回 0 ~ 11 内的数
+        int c &#x3D; Math.floorMod(13, 12);
+		&#x2F;&#x2F; 近似常量值
+        System.out.println(Math.PI);
+        
+        System.out.println(a);
+        System.out.println(b);
+        System.out.println(c);
+	
+    &#125;
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h4 id="3-4-2-数值类型转换"><a href="#3-4-2-数值类型转换" class="headerlink" title="3.4.2 数值类型转换"></a>3.4.2 数值类型转换</h4><p>int，long 转为 float 以及 long 转 double 会有精度损失。</p>
+<p>二元运算中，两个操作数有一个 double，另一个也转 double；否则，有一个 float，另一个转 float；否则，有一个 long，另一个转 long；否则两个都转为 int。</p>
+<h4 id="3-4-3-强制类型转换"><a href="#3-4-3-强制类型转换" class="headerlink" title="3.4.3 强制类型转换"></a>3.4.3 强制类型转换</h4><p>强制类型转换的语法格式是在圆括号中给出想要转换的目标类型，后面紧跟待转换的变量名。</p>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java">&#x2F;&#x2F; double 转 int，会有精度损失
+double a &#x3D; 9.997;
+int b &#x3D; (int)a;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+
+<h4 id="3-4-4-赋值运算符"><a href="#3-4-4-赋值运算符" class="headerlink" title="3.4.4 赋值运算符"></a>3.4.4 赋值运算符</h4><pre class="line-numbers language-java" data-language="java"><code class="language-java">&#x2F;&#x2F; 算术运算符与赋值运算符结合使用,+&#x3D;、-&#x3D;、&#x2F;&#x3D;、*&#x3D;、%&#x3D;
+int x +&#x3D; 4;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+
+<h4 id="3-4-5-自增自减运算符"><a href="#3-4-5-自增自减运算符" class="headerlink" title="3.4.5 自增自减运算符"></a>3.4.5 自增自减运算符</h4><pre class="line-numbers language-java" data-language="java"><code class="language-java">&#x2F;&#x2F; 自增,++n、n++
+int m &#x3D; 7;
+int n &#x3D; 7;
+int a &#x3D; 2 * ++m; &#x2F;&#x2F; 16
+int b &#x3D; 2 * n++; &#x2F;&#x2F; 14
+
+
+&#x2F;&#x2F; 自减,--n、n--<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h4 id="3-4-6-关系运算符"><a href="#3-4-6-关系运算符" class="headerlink" title="3.4.6 关系运算符"></a>3.4.6 关系运算符</h4><p>&#x3D;&#x3D;、!&#x3D;、&lt;、&lt;&#x3D;、&gt;&#x3D;、&amp;&amp;（短路与）、||（短路或）</p>
+<ul>
+<li><code>expression1 &amp;&amp; expression2</code>，如果第一个表达式会 false，就不会再管第二个表达式</li>
+<li><code>expression1 || expression2</code>，如果第一个表达式会 true，就不会再管第二个表达式</li>
+</ul>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java">public class OperatorTest&#123;
+   public static void main(String[] args)&#123;
+       int a &#x3D; 10;
+       int b &#x3D; 11;
+       if(a &gt; 10 &amp;&amp; (b+&#x3D;1) &gt; 12)&#123;
+       &#125;
+       System.out.println(a); &#x2F;&#x2F; 10
+       System.out.println(b); &#x2F;&#x2F; 11
+       if((a+&#x3D;1) &gt; 11 || (b+&#x3D;1) &gt; 11)&#123;
+       &#125;
+       System.out.println(a); &#x2F;&#x2F; 11
+       System.out.println(b); &#x2F;&#x2F; 12
+   &#125;
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h4 id="3-4-7-位运算"><a href="#3-4-7-位运算" class="headerlink" title="3.4.7 位运算"></a>3.4.7 位运算</h4><p>&amp;（and）、|（or）、^（xor）、~（not），这些运算符按位模式处理。&amp; 和 | 也能返回布尔值，不采用短路方式求值。</p>
+<p>&gt;&gt;（逻辑右移，除 2），&lt;&lt;（逻辑左移，乘 2），&gt;&gt;&gt;（算术右移，符号位填充高位），不存在 &lt;&lt;&lt; 运算符。</p>
+<h4 id="3-4-8-运算符级别"><a href="#3-4-8-运算符级别" class="headerlink" title="3.4.8 运算符级别"></a>3.4.8 运算符级别</h4><table>
+<thead>
+<tr>
+<th>运算符</th>
+<th>结合性</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>[]、()</td>
+<td>左 -&gt; 右</td>
+</tr>
+<tr>
+<td>!、~、++、–、+（一元运算）、-（一元运算）、()（强制类型转换）、new</td>
+<td>右 -&gt; 左</td>
+</tr>
+<tr>
+<td>*、&#x2F;、%</td>
+<td>左 -&gt; 右</td>
+</tr>
+<tr>
+<td>+、-</td>
+<td>左 -&gt; 右</td>
+</tr>
+<tr>
+<td>&lt;&lt;、&gt;&gt;、&gt;&gt;&gt;</td>
+<td>左 -&gt; 右</td>
+</tr>
+<tr>
+<td>&lt;、&lt;&#x3D;、&gt;、&gt;&#x3D;、instanceof</td>
+<td>左 -&gt; 右</td>
+</tr>
+<tr>
+<td>&#x3D;&#x3D;、!&#x3D;</td>
+<td>左 -&gt; 右</td>
+</tr>
+<tr>
+<td>&amp;</td>
+<td>左 -&gt; 右</td>
+</tr>
+<tr>
+<td>^</td>
+<td>左 -&gt; 右</td>
+</tr>
+<tr>
+<td>|</td>
+<td>左 -&gt; 右</td>
+</tr>
+<tr>
+<td>&amp;&amp;</td>
+<td>左 -&gt; 右</td>
+</tr>
+<tr>
+<td>||</td>
+<td>左 -&gt; 右</td>
+</tr>
+<tr>
+<td>?:</td>
+<td>右 -&gt; 左</td>
+</tr>
+<tr>
+<td>&#x3D;、+&#x3D;、-&#x3D;、*&#x3D;、&#x2F;&#x3D;、%&#x3D;、&amp;&#x3D;、|&#x3D;、^&#x3D;、&lt;&lt;&#x3D;、&gt;&gt;&#x3D;、&gt;&gt;&gt;&#x3D;</td>
+<td>右 -&gt; 左</td>
+</tr>
+</tbody></table>
+<h4 id="3-4-9-枚举类型"><a href="#3-4-9-枚举类型" class="headerlink" title="3.4.9 枚举类型"></a>3.4.9 枚举类型</h4><pre class="line-numbers language-java" data-language="java"><code class="language-java">enum Size&#123; SMALL, MEDIUM, LARGE&#125;;
+
+Size s &#x3D; Size.SMALL;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+
+<h3 id="3-5-字符串"><a href="#3-5-字符串" class="headerlink" title="3.5 字符串"></a>3.5 字符串</h3><p>字符串从概念上来说即是 Unicode 字符序列，使用双引号括起来，字符串都是 String 类的一个实例。字符串不可变，无法修改。</p>
+<p>不可修改的优点就是编译器可以让字符串共享，存在一个字符串池，如果字符串相同则直接引用。</p>
+<p>实际上只有字符串字面量是共享的，而 + 或 substring 等操作产生的字符串不共享。</p>
+<h4 id="3-5-1-子串"><a href="#3-5-1-子串" class="headerlink" title="3.5.1 子串"></a>3.5.1 子串</h4><pre class="line-numbers language-java" data-language="java"><code class="language-java">&#x2F;&#x2F; String substring(int beginIndex) 截取 [beginIndex, arr.length - 1]
+&#x2F;&#x2F; String substring(int beginIndex, int endIndex) 截取 [beginIndex, endIndex)
+String s &#x3D; &quot;Hello&quot;;
+
+String sub &#x3D; s.substring(1, 3); &#x2F;&#x2F; &quot;el&quot;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h4 id="3-5-2-拼接"><a href="#3-5-2-拼接" class="headerlink" title="3.5.2 拼接"></a>3.5.2 拼接</h4><pre class="line-numbers language-java" data-language="java"><code class="language-java">&#x2F;&#x2F; +
+String s1 &#x3D; &quot;Hello&quot; + &quot;,World!&quot;;
+String s2 &#x3D; &quot;Hello&quot; + &quot;123&quot;;
+
+&#x2F;&#x2F; String join()
+String all &#x3D; String.join(&quot;&#x2F;&quot;, &quot;S&quot;, &quot;L&quot;,&quot;M&quot;);<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h4 id="3-5-3-检测相等"><a href="#3-5-3-检测相等" class="headerlink" title="3.5.3 检测相等"></a>3.5.3 检测相等</h4><blockquote>
+<p>千万不要使用 &#x3D;&#x3D; 运算符比较字符串是否相等，这个运算符是比较两个字符串的地址是否相等</p>
+</blockquote>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java">&#x2F;&#x2F; equals()
+
+&#x2F;&#x2F; equalsIgnoreCase() 忽略大小写
+
+&#x2F;&#x2F; 只有字符串常量是共享的，+ 或 substring 等操作产生的结果都不是共享的<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h4 id="3-5-4-空串与-Null"><a href="#3-5-4-空串与-Null" class="headerlink" title="3.5.4 空串与 Null"></a>3.5.4 空串与 Null</h4><pre class="line-numbers language-java" data-language="java"><code class="language-java">&#x2F;&#x2F; 空串即长度为 0 的字符串
+
+&#x2F;&#x2F; String 是类对象，引用类型，可以赋值为 null，表示没有和任何对象关联
+&#x2F;&#x2F; 判断字符串不为空且不为空串，需要先判断 null
+if(str !&#x3D; null &amp;&amp; str.length() !&#x3D; 0)<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h4 id="3-5-5-码点与代码单元"><a href="#3-5-5-码点与代码单元" class="headerlink" title="3.5.5 码点与代码单元"></a>3.5.5 码点与代码单元</h4><pre class="line-numbers language-java" data-language="java"><code class="language-java">&#x2F;&#x2F; length() 获取的是字符串的代码单元长度
+
+&#x2F;&#x2F; charAt(int index) 获取 index 位置的代码单元
+
+&#x2F;&#x2F; 码点即 Unicode 码点，有些 Unicode 码点需要两个代码单元表示
+&#x2F;&#x2F; codePointAt(int index) 获取 index 位置的码点
+&#x2F;&#x2F; 遍历字符串打印码点
+int[] codePoints &#x3D; str.codePoints.toArray();<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h4 id="3-5-6-String-API"><a href="#3-5-6-String-API" class="headerlink" title="3.5.6 String API"></a>3.5.6 String API</h4><pre class="line-numbers language-java" data-language="java"><code class="language-java">&#x2F;&#x2F; String 位于 java.lang.String
+&#x2F;*
+1、返回给定位置的代码单元
+char charAt() 
+2、返回从给定位置开始的码点
+int codePointAt(int index)
+3、返回从 startIndex 代码点开始，位移 cpCount 后的码点索引
+int offsetByCodePoints(int startIndex, int cpCount) 
+4、按照字段顺序，比较，字符串位于 other 之前返回负数，相等返回 0，之后返回正数
+int compareTo(String other)
+5、将字符串的码点作为一个流返回，toArray 放入数组中
+IntStream codePoints()
+6、用数组中从 offset 开始的 count 个码点构造新字符串
+new String(int[] codePoints, int offset, int count)
+7、字符串相等返回 true
+boolean equals(Object other)
+8、忽略大小写比较，相等返回 true
+boolean euqlasIgnoreCase(String other)
+9、以 prefix 为前缀返回 true
+boolean startsWith(String prefix)
+10、以 suffix 为后缀返回 true
+boolean endsWith(String suffix)
+11、返回字符串 str 或 代码点 cp 匹配的第一个字串开始，这个位置从 0 或 fromIndex 计算，如果原字符串不存在 str 返回 -1
+int indexOf(String str)
+int indexOf(String str, int fromIndex)
+int indexOf(int cp)
+int indexOf(int cp, int fromIndex)
+12、返回字符串长度
+int length()
+13、返回 [startIndex, endIndex) 的代码点数量
+int codePointCount(int startIndex, int endIndex)
+14、返回新字符串，newString 代替原字符串中的所有 oldString
+String replace(CharSquence oldString, CharSequence newString)
+15、返回新字符串，范围为 [beginIndex, endIndex)
+String substring(int beginIndex)
+String substring(int beginIndex, int endIndex)
+16、返回新字符串，全转小写
+String toLowerCase()
+17、返回新字符串，全转大写
+String toUpperCase()
+18、返回新字符串，删除原字符串前后的空格
+String trim()
+19、返回新字符串，使用 delimiter 连接所有元素
+String join(CharSequence delimiter, CharSequence... elements)
+*&#x2F;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h4 id="3-5-7-构建字符串"><a href="#3-5-7-构建字符串" class="headerlink" title="3.5.7 构建字符串"></a>3.5.7 构建字符串</h4><p>每次连接字符串都是构建一个新的 String 对象，可以使用 StringBuilder 高效创建字符串。StringBuffer 有线程同步机制，但效率低，StringBuilder 线程不安全，效率高。</p>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java">public class StringBuilderTest&#123;
+    public static void main(String[] args)&#123;
+        StringBuilder builder &#x3D; new StringBuilder();
+        builder.append(&quot;welcome&quot;);
+        builder.append(&quot; new&quot;);
+        builder.append(&quot; world&quot;);
+        builder.append(&quot;, CoreJava&quot;);
+
+        builder.delete(8, 11);
+        builder.insert(7, &quot; to the&quot;);
+
+        System.out.println(builder.length());
+        String completedString &#x3D; builder.toString();
+        System.out.println(completedString);
+    &#125;
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h3 id="3-6-输入输出"><a href="#3-6-输入输出" class="headerlink" title="3.6 输入输出"></a>3.6 输入输出</h3><h4 id="3-6-1-读取输入"><a href="#3-6-1-读取输入" class="headerlink" title="3.6.1 读取输入"></a>3.6.1 读取输入</h4><p>使用 Scanner 类完成键盘读取输入。</p>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java">&#x2F;*
+1、用给定的输入流创建一个 Scanner 对象
+Scanner(InputStream in)
+2、读取输入的下一行内容
+String nextLine()
+3、读取输入的下一个单词（空格为分隔符）
+String next()
+4、读取并转换下一个表示整数或浮点数的字符序列
+double nextDouble()
+5、检测输入中是否还有其他单词
+boolean hasNext()
+6、检测是否还有表示整数或浮点数的下一个字符序列
+boolean hasNextDouble()
+*&#x2F;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<pre class="line-numbers language-java" data-language="java"><code class="language-java">import java.util.*;
+
+public class InputTest&#123;
+		public static void main(String[] args)&#123;
+        Scanner in &#x3D; new Scanner(System.in);
+						
+				System.out.print(&quot;What&#39;s your name?&quot;);
+				String name &#x3D; in.nextLine();
+
+				System.out.print(&quot;How old are you?&quot;);
+				int age &#x3D; in.nextInt();
+
+				System.out.print(&quot;How much are your salary every month?&quot;);
+				double salary &#x3D; in.nextDouble();
+
+				System.out.println(&quot;Hello，&quot; + name + &quot;.Next year, you&#39;ll be &quot; + (age+1) + &quot;.And if you don&#39;t take any money, you&#39;ll save &quot;+ (salary * 12));
+    &#125;
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h4 id="3-6-2-格式化输出"><a href="#3-6-2-格式化输出" class="headerlink" title="3.6.2 格式化输出"></a>3.6.2 格式化输出</h4><p>使用 printf 进行格式化输出，也可以使用 String.format()。转换符表如下：</p>
+<table>
+<thead>
+<tr>
+<th>转换符</th>
+<th>类型</th>
+<th>举例</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>d</td>
+<td>十进制整数</td>
+<td>159</td>
+</tr>
+<tr>
+<td>x</td>
+<td>十六进制整数</td>
+<td>9f</td>
+</tr>
+<tr>
+<td>o</td>
+<td>八进制整数</td>
+<td>237</td>
+</tr>
+<tr>
+<td>e</td>
+<td>定点浮点数</td>
+<td>15.9</td>
+</tr>
+<tr>
+<td>g</td>
+<td>通用浮点数</td>
+<td>–</td>
+</tr>
+<tr>
+<td>a</td>
+<td>十六进制浮点数</td>
+<td>0x1.fccdp3</td>
+</tr>
+<tr>
+<td>s</td>
+<td>字符串</td>
+<td>Hello</td>
+</tr>
+<tr>
+<td>c</td>
+<td>字符</td>
+<td>H</td>
+</tr>
+<tr>
+<td>b</td>
+<td>布尔</td>
+<td>True</td>
+</tr>
+<tr>
+<td>h</td>
+<td>散列码</td>
+<td>42628b2</td>
+</tr>
+<tr>
+<td>tx、Tx</td>
+<td>日期时间（T 强制大写）</td>
+<td>已经过时的</td>
+</tr>
+<tr>
+<td>%</td>
+<td>百分号</td>
+<td>%</td>
+</tr>
+<tr>
+<td>n</td>
+<td>与平台有关的行分隔符</td>
+<td>–</td>
+</tr>
+</tbody></table>
+<h3 id="3-7-控制流程"><a href="#3-7-控制流程" class="headerlink" title="3.7 控制流程"></a>3.7 控制流程</h3><p>Java 没有 goto 语句，但是 break 语句可以带标签，达到从内存循环跳出的目的。</p>
+<h4 id="3-7-1-块作用域"><a href="#3-7-1-块作用域" class="headerlink" title="3.7.1 块作用域"></a>3.7.1 块作用域</h4><p>一个块中可以嵌套另一个块，但是不能在嵌套的两个块中声明同名的变量。</p>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java">public class BlockTest&#123;
+    public static void main(String[] args)&#123;
+        int n &#x3D; 1;
+        &#123;
+            int k &#x3D; 1;
+            int n &#x3D; 2; &#x2F;&#x2F; 错误: 已在方法 main(String[])中定义了变量 n
+        &#125;
+		System.out.println(n);
+    &#125;
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h4 id="3-7-2-条件语句"><a href="#3-7-2-条件语句" class="headerlink" title="3.7.2 条件语句"></a>3.7.2 条件语句</h4><pre class="line-numbers language-java" data-language="java"><code class="language-java">&#x2F;&#x2F; 条件语句格式
+if(condition) statement;
+
+&#x2F;&#x2F; 执行多条使用块语句
+if(condition)&#123;
+    statement1;
+    statement2;
+    ...
+&#125;
+
+&#x2F;&#x2F; if-else，else 和 离他最近的 if 结合在一起
+if(condition) statement1 else statement2;
+
+&#x2F;&#x2F; if-else 执行多条语句
+if(condition)&#123;
+    statemen1;
+    statemen2;
+&#125;else&#123;
+    statement3;
+    statement4;
+&#125;
+
+&#x2F;&#x2F; if-else if-else
+if(condition1)&#123;
+    statement1;
+&#125;else if(condition2)&#123;
+    statement2;
+&#125;else&#123;
+    statement3;
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<pre class="line-numbers language-java" data-language="java"><code class="language-java">import java.util.*;
+
+public class IfTest&#123;
+    public static void main(String[] args)&#123;
+        Scanner in &#x3D; new Scanner(System.in);
+        System.out.println(&quot;How much are your salary?&quot;);
+        double salary &#x3D; in.nextDouble();
+        double target &#x3D; 4000;
+        String performance &#x3D; &quot;&quot;;
+        if(salary &gt;&#x3D; 2 * target)&#123;
+            performance &#x3D; &quot;Excellent&quot;;
+        &#125;else if(salary &gt;&#x3D; 1.5 * target)&#123;
+            performance &#x3D; &quot;Fine&quot;;
+        &#125;else if(salary &gt;&#x3D; target)&#123;
+            performance &#x3D; &quot;Satisfactory&quot;;
+        &#125;
+        else&#123;
+            System.out.println(&quot;You&#39;re fired&quot;);
+        &#125;
+        System.out.println(performance + &quot;~&quot;);
+    &#125;
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h4 id="3-7-3-循环语句"><a href="#3-7-3-循环语句" class="headerlink" title="3.7.3 循环语句"></a>3.7.3 循环语句</h4><pre class="line-numbers language-java" data-language="java"><code class="language-java">&#x2F;&#x2F; while 循环一般格式
+while(condition) statement;
+
+&#x2F;&#x2F; do&#x2F;while 循环
+do statement while(condition);<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h4 id="3-7-4-for-循环"><a href="#3-7-4-for-循环" class="headerlink" title="3.7.4 for 循环"></a>3.7.4 for 循环</h4><ul>
+<li>for 语句第一部分是计数器初始化，第二部分是循环条件，第三部分是如何更新计数器</li>
+<li>for 语句内部定义的变量外部无法使用，每个独立的 for 语句可以定义同名变量</li>
+</ul>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java">public class ForTest&#123;
+    public static void main(String[] args)&#123;
+        for(int i &#x3D; 1; i &lt;&#x3D; 10; i++)&#123;
+            System.out.print(i + &quot; &quot;);
+        &#125;
+        System.out.println();
+
+        for(int i &#x3D; 0; i &lt; 10; i++)&#123;
+            System.out.print(i + &quot; &quot;);
+        &#125;
+    &#125;
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h4 id="3-7-5-switch-语句"><a href="#3-7-5-switch-语句" class="headerlink" title="3.7.5 switch 语句"></a>3.7.5 switch 语句</h4><p>switch 语句从选择项匹配的 case 标签处开始执行直到遇到 break 语句或执行到 switch 语句结尾处。如果没有匹配的而有 default 语句，就执行 default 子句。如果某个 case 分支没有 break 语句，就有可能继续执行下一个 case 分支。</p>
+<p>case 标签可以是：</p>
+<ul>
+<li>类型为 char、byte、short、int 的常量表达式</li>
+<li>枚举常量</li>
+<li>字符串字面量（Java SE 7 开始）</li>
+</ul>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java">public class SwitchTest&#123;
+    public static void main(String[] args)&#123;
+        Scanner in &#x3D; new Scanner(System.in);
+        System.out.println(&quot;请输入你想使用的功能：（1,2）&quot;);
+        String choice &#x3D; in.next();
+        switch(choice)&#123;
+            case &quot;1&quot;:
+                System.out.println(&quot;你选择了 1 功能，什么也没发生&quot;);
+                break;
+            case &quot;2&quot;:
+                System.out.println(&quot;你选择了 2 功能，什么也没发生&quot;);
+                break;
+            default:
+                System.out.println(&quot;没有该功能...&quot;);
+        &#125;
+    &#125;
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h4 id="3-7-6-中断控制语句"><a href="#3-7-6-中断控制语句" class="headerlink" title="3.7.6 中断控制语句"></a>3.7.6 中断控制语句</h4><ul>
+<li>break：跳出当前循环</li>
+<li>break tag：跳出循环，从内到外，跳出语句块，到 tag 位置</li>
+<li>continue：跳出当前循环，继续下一次循环</li>
+</ul>
+<h3 id="3-8-大数值"><a href="#3-8-大数值" class="headerlink" title="3.8 大数值"></a>3.8 大数值</h3><p>java.math 包中有 BigInteger 和 BigDecimal。这两个类可以处理包含任意长度数字序列的数值。BigInteger 实现任意精度的整数运算，BigDecimal 实现任意精度的浮点运算。</p>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java">import java.math.*;
+
+public class BigTest&#123;
+    public static void main(String[] args)&#123;
+        BigInteger a &#x3D; BigInteger.valueOf(100);
+        BigInteger b &#x3D; BigInteger.valueOf(200);
+		&#x2F;&#x2F; 加
+        System.out.println(a.add(b));
+        &#x2F;&#x2F; 减
+        System.out.println(a.subtract(b));
+        &#x2F;&#x2F; 乘
+        System.out.println(a.multiply(b));
+        &#x2F;&#x2F; 除
+        System.out.println(a.divide(b));
+        &#x2F;&#x2F; 取余
+        System.out.println(a.mod(b));
+        &#x2F;&#x2F; 比较
+        System.out.println(a.compareTo(b));
+    &#125;
+&#125;
+
+&#x2F;&#x2F; BigDecimal 中 divide 需要指定舍入方式，RoundingMode.HALF_UP 即四舍五入<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h3 id="3-9-数组"><a href="#3-9-数组" class="headerlink" title="3.9 数组"></a>3.9 数组</h3><p>数组是一种数据结构，用来存储同一类型值的集合。通过整型下标可以访问数组的每一个值。声明数组时，需要指出数组类型和数组变量的名字，<code>int[] a 或 int a[]</code>，初始化使用 new 运算符，<code>int[] a = new int[10]</code>，其中 10 表示数组长度，不要求是常量，数组一但初始化长度就不能再修改大小。</p>
+<ul>
+<li>创建数字数组时，所有元素都初始化 0</li>
+<li>创建 boolean 数组时，元素都初始化为 false</li>
+<li>创建对象数组，元素都初始化为 null，表示还未存放对象</li>
+</ul>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java">&#x2F;*
+创建一个长度为 10 的数组，可访问的范围为 0 ~ 9，索引 0 开始
+arr.length 可以获取数组的元素个数
+*&#x2F;
+public class IntArrayTest&#123;
+    public static void main(String[] args)&#123;
+        int[] arr &#x3D; new int[10];
+        &#x2F;&#x2F; 也可以创建并赋予初始值
+        &#x2F;&#x2F; int[] arr &#x3D; new int[] &#123;1, 4, 9, 16&#125;
+        &#x2F;&#x2F; int[] arr &#x3D; &#123;1, 4, 9, 16&#125;
+        
+        &#x2F;&#x2F; 初始化数组
+        for(int i &#x3D; 0; i &lt; arr.length; i++)&#123;
+            arr[i] &#x3D; i * i;
+        &#125;
+        
+        &#x2F;&#x2F; arr[i] 通过索引取值，并打印出来
+        for(int i &#x3D; 0; i &lt; arr.length; i++)&#123;
+            System.out.print(arr[i] + &quot; &quot;);
+        &#125;
+    &#125;
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h4 id="3-9-1-数组遍历"><a href="#3-9-1-数组遍历" class="headerlink" title="3.9.1 数组遍历"></a>3.9.1 数组遍历</h4><pre class="line-numbers language-java" data-language="java"><code class="language-java">import java.util.*;
+
+public class IntArrayTest&#123;
+    public static void main(String[] args)&#123;
+        int[] arr &#x3D; &#123;1, 2, 3, 4, 5, 6, 7&#125;;
+
+        &#x2F;&#x2F; 常规 for 循环
+        for(int i &#x3D; 0; i &lt; arr.length; i++)&#123;
+            System.out.print(arr[i] + &quot; &quot;);
+        &#125;
+        &#x2F;&#x2F; 增强 for 循环
+        for(int a: arr)&#123;
+            System.out.print(a + &quot; &quot;);
+        &#125;
+        &#x2F;&#x2F; Arrays.toString()
+        System.out.println(Arrays.toString(arr));
+    &#125;
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h4 id="3-9-2-数组拷贝"><a href="#3-9-2-数组拷贝" class="headerlink" title="3.9.2 数组拷贝"></a>3.9.2 数组拷贝</h4><ul>
+<li><code>int[] a = new int[10]; int[] b = a;</code> b 和 a 引用的是一个同一个数组</li>
+<li>如果需要所有值拷贝到新数组则需要使用 Arrays.copyOf() 方法</li>
+</ul>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java">import java.util.*;
+
+public class IntArrayTest&#123;
+    public static void main(String[] args)&#123;
+        int[] arr &#x3D; &#123;1, 2, 3, 4, 5, 6, 7&#125;;
+        int[] arr1 &#x3D; arr;
+        &#x2F;&#x2F; 两个打印为一个地址，即指向同一个数组引用，浅拷贝
+        System.out.println(arr);
+        System.out.println(arr1);
+        arr1[0] &#x3D; 100;
+        &#x2F;&#x2F; 修改 arr1 即修改 arr
+        System.out.println(Arrays.toString(arr));
+        System.out.println(Arrays.toString(arr1));
+		
+        &#x2F;&#x2F; 第二个参数为新数组的长度，大于原数组就默认初始化，小于就裁剪原数组
+        int[] arr2 &#x3D; Arrays.copyOf(arr, 2 * arr.length);
+        int[] arr3 &#x3D; Arrays.copyOf(arr, 3);
+        System.out.println(Arrays.toString(arr2));
+        System.out.println(Arrays.toString(arr3));
+        System.out.println(arr2);
+        System.out.println(arr);
+        arr2[0] &#x3D; 100;
+        &#x2F;&#x2F; 两个数组没有指向一个数组，因此单个修改不印象原数组，深拷贝
+        System.out.println(Arrays.toString(arr));
+        System.out.println(Arrays.toString(arr2));
+
+    &#125;
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h4 id="3-9-3-命令行参数"><a href="#3-9-3-命令行参数" class="headerlink" title="3.9.3 命令行参数"></a>3.9.3 命令行参数</h4><pre class="line-numbers language-java" data-language="java"><code class="language-java">public class ArgsTest&#123;
+    public static void main(String[] args)&#123;
+        for(int i &#x3D; 0; i &lt; args.length; i++)&#123;
+            System.out.println(&quot;args[&quot; + i + &quot;]: &quot; + args[i]);
+        &#125;
+    &#125;
+&#125;
+
+&#x2F;*
+$ java ArgsTest -h hello -a -b
+args[0]: -h
+args[1]: hello
+args[2]: -a
+args[3]: -b
+*&#x2F;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h4 id="3-9-4-数组排序"><a href="#3-9-4-数组排序" class="headerlink" title="3.9.4 数组排序"></a>3.9.4 数组排序</h4><p>可以使用 Arrays.sort()，对数组进行排序</p>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java">&#x2F;* Arrays 中的常用方法
+1、返回数组字符串
+static String toString(type[] a)
+2、拷贝数组，length 大于 a.length 则初始化，小于则只截取 length 长度。[start, end)
+static type copeOf(type[] a, int length)
+static type copeOfRange(type[] a, int start, int end).
+3、使用优化的快速排序对数组进行排序
+static void sort(type[] a)
+4、二分查找，原数组必须有序,查找成功返回对应下标，查找失败返回负数 r,-r-1 则是查找元素可插入的位置
+static int binarySearch(type[] a, type v)
+static int binarySearch(type[] a, int start, int end, type v)
+5、填充数组
+static void fill(type[] a, type v)
+6、如果两个数组大小相同，下标相同的元素也相等，就返回 true
+static boolean equals(type[] a, type[] b)
+*&#x2F;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h4 id="3-9-6-多维数组"><a href="#3-9-6-多维数组" class="headerlink" title="3.9.6 多维数组"></a>3.9.6 多维数组</h4><pre class="line-numbers language-java" data-language="java"><code class="language-java">&#x2F;&#x2F; 声明二维数组
+double[][] a;
+
+&#x2F;&#x2F; 初始化
+double[][] a &#x3D; nwe double[10][10];
+
+double[][] a &#x3D; &#123;
+    &#123;1, 2, 3&#125;,
+    &#123;4, 5, 6&#125;,
+    &#123;7, 8, 9&#125;
+&#125;
+
+&#x2F;&#x2F; 遍历二维数组
+import java.util.*;
+
+public class MultiArrayTest&#123;
+    public static void main(String[] args)&#123;
+        int[][] a &#x3D; &#123;
+            &#123;1, 2, 3&#125;,
+            &#123;4, 5, 6&#125;,
+            &#123;7, 8, 9&#125;
+        &#125;;
+
+        for(int i &#x3D; 0; i &lt; a.length; i++)&#123;
+            for(int j &#x3D; 0; j &lt; a[i].length; j++)&#123;
+                System.out.print(a[i][j] + &quot; &quot;);
+            &#125;
+            System.out.println();
+        &#125;
+
+        for(int[] nums: a)&#123;
+            for(int num: nums)&#123;
+                System.out.print(num + &quot; &quot;);
+            &#125;
+            System.out.println();
+        &#125;
+
+        System.out.println(Arrays.deepToString(a));
+
+    &#125;
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h4 id="3-9-7-不规则数组"><a href="#3-9-7-不规则数组" class="headerlink" title="3.9.7 不规则数组"></a>3.9.7 不规则数组</h4><p>Java 实际上没有多维数组，只有一维数组。多维数组其实是“数组的数组”，a[i] 处存放的数组的引用，因此可以方便的构造“不规则”数组，即数组的每一行有不同的长度。</p>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java">import java.util.*;
+
+public class IrregularArrayTest&#123;
+    public static void main(String[] args)&#123;
+        int[][] arr &#x3D; new int[5][];
+        for(int i &#x3D; 0; i &lt; arr.length; i++)&#123;
+            arr[i] &#x3D; new int[i + 1];
+        &#125;
+
+        for(int[] nums: arr)&#123;
+            for(int num: nums)&#123;
+                System.out.print(num + &quot; &quot;);
+            &#125;
+            System.out.println();
+        &#125;
+    &#125;
+&#125;
+&#x2F;*
+0 
+0 0 
+0 0 0 
+0 0 0 0 
+0 0 0 0 0
+*&#x2F;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h2 id="4-对象与类"><a href="#4-对象与类" class="headerlink" title="4 对象与类"></a>4 对象与类</h2><h3 id="4-1-OOP-概述"><a href="#4-1-OOP-概述" class="headerlink" title="4.1 OOP 概述"></a>4.1 OOP 概述</h3><h4 id="4-1-1-类"><a href="#4-1-1-类" class="headerlink" title="4.1.1 类"></a>4.1.1 类</h4><p>类是构造对象的模板或蓝图，由类构造对象的过程成为创建类的实例。</p>
+<p>封装是将数据和行为组合在一个包中，并对对象的使用者隐藏了数据的实现方式。对象中的数据称为实例域，操纵数据的过程称为方法。封装的关键在于绝不能让类中的方法直接访问其他类的实例域。</p>
+<p>继承是扩展一个已有的类，并且新类具有所扩展类的全部属性和方法，并且新类可以提供新类的新方法和数据域。Java 中所有类都继承 Object。</p>
+<h4 id="4-1-2-对象"><a href="#4-1-2-对象" class="headerlink" title="4.1.2 对象"></a>4.1.2 对象</h4><ul>
+<li>对象的行为 —— 可以对对象应用哪些方法？</li>
+<li>对象的状态 —— 当调用方法时，对象如何响应？</li>
+<li>对象标识 —— 如何区分具有相同行为与状态的不同对象</li>
+</ul>
+<p>每个对象都保存着描述当前特征的信息。对象的状态必须通过调用方法实现（如果不是通过方法调用能改变对象的状态，封装则被破坏了）。作为类的实例，每个类的标识永远不同。</p>
+<h4 id="4-1-3-识别类"><a href="#4-1-3-识别类" class="headerlink" title="4.1.3 识别类"></a>4.1.3 识别类</h4><p>识别类的简单规则时分析问题的过程中寻找名词，而方法对应着动词。在创建类的时候，哪些是名词和动词是重要的完全取决于个人的开发经验。</p>
+<h4 id="4-1-4-类之间的关系"><a href="#4-1-4-类之间的关系" class="headerlink" title="4.1.4 类之间的关系"></a>4.1.4 类之间的关系</h4><ul>
+<li>依赖（uses-a）：一个类的方法操纵另一个类的对象。应该尽可能将相互依赖的类减至最小</li>
+<li>聚合（has-a）：类 A 的对象包含类 B 的对象，比如 Order 对象包含 Item 类</li>
+<li>继承（is-a）：类 A 扩展 类 B，则类 A 不但包含从类 B 继承的方法，还会拥有一些额外的功能</li>
+</ul>
+<p>通常使用 UML（Unified Modeling Language）统一建模语言绘制类图，描述类之间的关系。</p>
+<h3 id="4-2-预定义类"><a href="#4-2-预定义类" class="headerlink" title="4.2 预定义类"></a>4.2 预定义类</h3><h4 id="4-2-1-对象与对象变量"><a href="#4-2-1-对象与对象变量" class="headerlink" title="4.2.1 对象与对象变量"></a>4.2.1 对象与对象变量</h4><p>使用对象之前，必须构造对象并指定其初始状态。通过构造器构造实例，构造器是一个特殊方法，用来构造并初始化对象。</p>
+<p>构造器的名字应该与类名相同，构造对象需要在构造器前加上 new 操作符。构造的对象可以赋给变量对此使用，声明一个类变量时如果没有初始化对象则无法调用方法。</p>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java">&#x2F;&#x2F; new 出来一个 Date 对象
+new Date();
+
+&#x2F;&#x2F; 调用方法
+new Date().toString();
+
+&#x2F;&#x2F; 赋给一个变量多次使用
+Date date &#x3D; new Date();
+
+&#x2F;&#x2F; 声明 Date 对象变量
+Date date;
+date.toString(); &#x2F;&#x2F; error date 变量没有引用对象，无法调用方法
+
+&#x2F;&#x2F; 对象变量仅仅是引用一个对象，对象变量可以设为 null，表示没有引用任何对象
+date &#x3D; null;
+&#x2F;&#x2F; 局部变量不会自动初始化为 null，必须调用 new 或手动设置为 null 进行初始化<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h4 id="4-2-2-LocalDate-类"><a href="#4-2-2-LocalDate-类" class="headerlink" title="4.2.2 LocalDate 类"></a>4.2.2 LocalDate 类</h4><p>LocalDate 类采用熟悉的日历表示法。</p>
+<ul>
+<li>更改器方法，调用该方法对象状态会发生改变</li>
+<li>访问器方法，只访问对象而不修改对象的方法</li>
+</ul>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java">&#x2F;* LocalDate 
+1、构造一个表示当前日期的对象
+static LocalTime now()
+2、构造一个给定日期的对象
+static LocalTime of(int year, int month, int day)
+3、获取日期的年月日
+int getYear()
+int getMonthValue()
+int getDayOfMonth()
+4、获取当前星期几，使用 getValue 的到 1 ~ 7 的数字
+DayOfWeek getDayOfWeek()
+5、日期加减
+LocalDate plusDays(int n)
+LocalDate minusDays(int n)
+*&#x2F;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<pre class="line-numbers language-java" data-language="java"><code class="language-java">import java.time.*;
+
+public class CalendarTest&#123;
+    public static void main(String[] args)&#123;
+        LocalDate date &#x3D; LocalDate.now();
+        int month &#x3D; date.getMonthValue();
+        int day &#x3D; date.getDayOfMonth();
+
+        date &#x3D; date.minusDays(day - 1);
+        DayOfWeek weekday &#x3D; date.getDayOfWeek();
+        int value &#x3D; weekday.getValue();
+
+        System.out.println(&quot;Mon Tue Wed Thu Fri Sat Sun&quot;);
+        for(int i &#x3D; 1; i &lt; value; i++)&#123;
+            System.out.print(&quot;    &quot;);
+        &#125;
+        while(date.getMonthValue() &#x3D;&#x3D; month)&#123;
+            System.out.printf(&quot;%3d&quot;, date.getDayOfMonth());
+            if(date.getDayOfMonth() &#x3D;&#x3D; day)&#123;
+                System.out.print(&quot;*&quot;);
+            &#125;else&#123;
+                System.out.print(&quot; &quot;);
+            &#125;
+            date &#x3D; date.plusDays(1);
+            if(date.getDayOfWeek().getValue() &#x3D;&#x3D; 1)&#123;
+                System.out.println();
+            &#125;
+        &#125;
+        if(date.getDayOfWeek().getValue() !&#x3D; 1)&#123;
+            System.out.println();
+        &#125;
+    &#125;
+&#125;
+&#x2F;*
+$ java CalendarTest      
+Mon Tue Wed Thu Fri Sat Sun
+                  1   2   3 
+  4   5   6   7   8   9  10 
+ 11  12  13  14  15  16  17 
+ 18  19* 20  21  22  23  24 
+ 25  26  27  28  29  30  31 
+*&#x2F;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h3 id="4-3-自定义类"><a href="#4-3-自定义类" class="headerlink" title="4.3 自定义类"></a>4.3 自定义类</h3><h4 id="4-3-1-Employee-类"><a href="#4-3-1-Employee-类" class="headerlink" title="4.3.1 Employee 类"></a>4.3.1 Employee 类</h4><pre class="line-numbers language-java" data-language="java"><code class="language-java">import java.time.*;
+
+public class Employee&#123;
+    private String name;
+    private double salary;
+    private LocalDate hireDay;
+
+    public Employee()&#123;
+    &#125;
+
+    public Employee(String n, double s, int year, int month, int day)&#123;
+        name &#x3D; n;
+        salary &#x3D; s;
+        hireDay &#x3D; LocalDate.of(year, month, day);
+    &#125;
+
+    public String getName()&#123;
+        return name;
+    &#125;
+
+    public double getSalary()&#123;
+        return salary;
+    &#125;
+
+    public LocalDate getHireDay()&#123;
+        return hireDay;
+    &#125;
+
+    public void raiseSalary(double byPercent)&#123;
+        double raise &#x3D; salary * byPercent &#x2F; 100;
+        salary +&#x3D; raise;
+    &#125;
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>类的所有方法都标记为 public，意味着任何类的任何方法都能调用这个方法。</p>
+<p>三个实例域都用 private 修饰，意味着只有 Employee 自身能访问这些实例域，其他类方法不能。强烈建议实例域标记为 private。</p>
+<h4 id="4-3-2-构造器"><a href="#4-3-2-构造器" class="headerlink" title="4.3.2 构造器"></a>4.3.2 构造器</h4><p>构造器总是伴随着 new 操作符被调用，而不能对一个已经存在的对象调用构造器到达重新设置实例域的目的。</p>
+<ul>
+<li>构造器与类同名</li>
+<li>每个类可以有一个以上的构造器</li>
+<li>构造器可以有 0 个、1 个或多个参数</li>
+<li>构造器没有返回值</li>
+<li>构造器总是伴随着 new 操作符一起调用</li>
+<li>类默认会有一个无参数构造器方法，当定义了有参数的构造器方法，默认的无参构造器就无了，需要显式定义</li>
+</ul>
+<h4 id="4-3-3-隐式参数和显式参数"><a href="#4-3-3-隐式参数和显式参数" class="headerlink" title="4.3.3 隐式参数和显式参数"></a>4.3.3 隐式参数和显式参数</h4><p>在每一个方法中，关键字 this 代表隐式参数，代表当前对象</p>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java">public void raiseSalary(double byPercent)&#123;
+    double raise &#x3D; this.salary * byPercent &#x2F; 100;
+    this.salary +&#x3D; raise;
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h4 id="4-3-4-封装的优点"><a href="#4-3-4-封装的优点" class="headerlink" title="4.3.4 封装的优点"></a>4.3.4 封装的优点</h4><p>实例域进行私有化，提供域访问器和域更改器方法有两个优点，一除了类的方法之外，不会影响其他代码。二更改器方法能执行错误检查。不要返回引用可变的对象的访问器方法，如果需要可变对象引用应该克隆。</p>
+<p>不要编写返回可变对象引用的访问器方法。若需要返回一个可变对象的引用，应将其克隆返回。</p>
+<h4 id="4-3-5-私有方法"><a href="#4-3-5-私有方法" class="headerlink" title="4.3.5 私有方法"></a>4.3.5 私有方法</h4><p>将方法的修饰为 private，外部则无法调用，类的辅助方法通常不需要在外部调用声明为私有方法</p>
+<h4 id="4-3-6-final-实例域"><a href="#4-3-6-final-实例域" class="headerlink" title="4.3.6 final 实例域"></a>4.3.6 final 实例域</h4><p>将实例域定义为 final，构建对象时必须初始化这样的域，且后面的操作无法修改该域。</p>
+<h3 id="4-4-静态域和静态方法"><a href="#4-4-静态域和静态方法" class="headerlink" title="4.4 静态域和静态方法"></a>4.4 静态域和静态方法</h3><h4 id="4-4-1-静态域"><a href="#4-4-1-静态域" class="headerlink" title="4.4.1 静态域"></a>4.4.1 静态域</h4><p>如果实例域定义为 static，那么每个类只有一个这样的域，每个对象的所有实例域都有自己的一份拷贝。它属于类，不属于任何对象。</p>
+<h4 id="4-4-2-静态常量"><a href="#4-4-2-静态常量" class="headerlink" title="4.4.2 静态常量"></a>4.4.2 静态常量</h4><p>static final 修饰，例如 Math.PI，System.out。</p>
+<h4 id="4-4-3-静态方法"><a href="#4-4-3-静态方法" class="headerlink" title="4.4.3 静态方法"></a>4.4.3 静态方法</h4><p>静态方法是一种不能向对象实施操作的方法。建议使用类名调用静态方法不造成混淆。以下两种情况使用静态方法。</p>
+<ul>
+<li>一个方法不需要访问对象状态，其所需参数都是以通过显式参数提供</li>
+<li>一个方法只需要访问类的静态域</li>
+</ul>
+<h4 id="4-4-4-工厂方法"><a href="#4-4-4-工厂方法" class="headerlink" title="4.4.4 工厂方法"></a>4.4.4 工厂方法</h4><p>静态工厂方法，用于构造不同的对象。</p>
+<h4 id="4-4-5-main-方法"><a href="#4-4-5-main-方法" class="headerlink" title="4.4.5 main 方法"></a>4.4.5 main 方法</h4><p>main 方法不对任何对象进行操作，静态 main 方法将执行并创建程序所需要的对象。main 可用来做单元测试。</p>
+<h3 id="4-5-方法参数"><a href="#4-5-方法参数" class="headerlink" title="4.5 方法参数"></a>4.5 方法参数</h3><p>Java 中，总是采用按值调用。方法得到的是所有参数的拷贝。</p>
+<ul>
+<li>一个方法不能修改一个基本数据类型的参数</li>
+<li>一个方法可以改变一个对象参数的状态</li>
+<li>一个方法不能让对象参数引用一个新的对象</li>
+</ul>
+<h3 id="4-6-对象构造"><a href="#4-6-对象构造" class="headerlink" title="4.6 对象构造"></a>4.6 对象构造</h3><h4 id="4-6-1-重载"><a href="#4-6-1-重载" class="headerlink" title="4.6.1 重载"></a>4.6.1 重载</h4><p>多个方法，相同的名字、不同的参数，便产生了重载。要完整的描述一个方法，需要指定方法名和参数类型，返回类型不是其中的一部分，因此不能有两个名字相同、参数类型相同但返回类型不同的方法。</p>
+<h4 id="4-6-2-默认域初始化"><a href="#4-6-2-默认域初始化" class="headerlink" title="4.6.2 默认域初始化"></a>4.6.2 默认域初始化</h4><p>如果构造器中没有给实例域初始化，则自动初始化：数值为 0、布尔为 false、对象引用为 null。</p>
+<h4 id="4-6-3-显式域初始化"><a href="#4-6-3-显式域初始化" class="headerlink" title="4.6.3 显式域初始化"></a>4.6.3 显式域初始化</h4><p>在实例域定义时就给其赋一个值</p>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java">class Employee&#123;
+    private String name &#x3D; &quot;&quot;;
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+
+<h4 id="4-6-4-this-使用"><a href="#4-6-4-this-使用" class="headerlink" title="4.6.4 this 使用"></a>4.6.4 this 使用</h4><pre class="line-numbers language-java" data-language="java"><code class="language-java">&#x2F;&#x2F; 参数名与实例域相同
+public Employee(String name, double salary)&#123;
+    this.name &#x3D; name;
+    this.salary &#x3D; salary;
+&#125;
+
+&#x2F;&#x2F; 调用另一个构造器
+public Employee(double salary)&#123;
+    this(&quot;Employee #&quot; + nextId, salary);
+    nextId++;
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h4 id="4-6-5-初始化块"><a href="#4-6-5-初始化块" class="headerlink" title="4.6.5 初始化块"></a>4.6.5 初始化块</h4><p>首先执行初始化块，然后再运行构造器。</p>
+<p>静态初始化块，在类第一次加载的时候，会进行静态域的初始化。</p>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java">class Employee&#123;
+    private static int nextId;
+
+    private int id;
+    private String name &#x3D; &quot;&quot;;
+    private double salary;
+
+    static&#123;
+        System.out.println(&quot;静态初始化代码块&quot;);
+        nextId &#x3D; new Random().nextInt(10000);
+    &#125;
+
+    &#123;
+        System.out.println(&quot;初始化代码块&quot;);
+        id &#x3D; nextId;
+        nextId++;
+    &#125;
+
+    public Employee(String name, double salary)&#123;
+        System.out.println(name + &quot;两个参数的构造方法&quot;);
+        this.name &#x3D; name;
+        this.salary &#x3D; salary;
+    &#125;
+
+    public Employee(double salary)&#123;
+        this(&quot;Employee #&quot; + nextId, salary);
+    &#125;
+
+    public Employee()&#123;&#125;
+
+    public String getName()&#123;
+        return name;
+    &#125;
+
+    public double getSalary()&#123;
+        return salary;
+    &#125;
+
+    public int getId()&#123;
+        return id;
+    &#125;
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h3 id="4-7-包"><a href="#4-7-包" class="headerlink" title="4.7 包"></a>4.7 包</h3><h4 id="4-7-1-类的导入"><a href="#4-7-1-类的导入" class="headerlink" title="4.7.1 类的导入"></a>4.7.1 类的导入</h4><pre class="line-numbers language-java" data-language="java"><code class="language-java">&#x2F;&#x2F; import
+import java.util.*;
+
+&#x2F;&#x2F; 只能使用 * 导入 一个包，不能 *.*
+
+
+&#x2F;&#x2F; 命名冲突的问题，可以导入实际使用的确定包
+import java.util.*;
+import java.sql.*;
+import java.util.Date;
+
+&#x2F;&#x2F; 也可以使用完全包名
+new java.util.Date();<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h4 id="4-7-2-静态导入"><a href="#4-7-2-静态导入" class="headerlink" title="4.7.2 静态导入"></a>4.7.2 静态导入</h4><p>导入静态方法和静态字段</p>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java">import static java.lang.Math.*;
+
+public class StaticImportTest&#123;
+    public static void main(String[] args)&#123;
+        int a &#x3D; 10;
+        System.out.println(pow(a, 2));
+    &#125;
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h4 id="4-7-3-组织类"><a href="#4-7-3-组织类" class="headerlink" title="4.7.3 组织类"></a>4.7.3 组织类</h4><p> 类文件开头，写上 <code>package 包名;</code></p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">javac top&#x2F;reajason&#x2F;PayrollApp.java
+java top.reajason.PayrollApp<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+
+<h3 id="4-8-类路径"><a href="#4-8-类路径" class="headerlink" title="4.8 类路径"></a>4.8 类路径</h3><p>unix：<code>/home/user/classdir:.:/home/user/archives/archive.jar</code></p>
+<p>windows：<code>c:\classdir;.;c:\archives\archive.jar</code></p>
+<p>类路径所列出的目录和归档文件是搜寻类的起始点，默认类路径包含 . (当前目录)。</p>
+<p>Java 6 开始可在 JAR 文件目录指定通配符，例如（archives 中所有 JAR 文件都包含到类路径中）：</p>
+<p>windows：<code>c:\classdir;.;c:\archives\*</code></p>
+<p>java.lang 包被默认导入。</p>
+<h4 id="4-8-1-设置类路径"><a href="#4-8-1-设置类路径" class="headerlink" title="4.8.1 设置类路径"></a>4.8.1 设置类路径</h4><p><code>java -classpath /home/user/classdir:.:/home/user/archives/archive.jar MyApp</code></p>
+<p>不要将 CLASSPATH 设置成全局变量。</p>
+<h3 id="4-9-文档注释"><a href="#4-9-文档注释" class="headerlink" title="4.9 文档注释"></a>4.9 文档注释</h3><p>javadoc 能将源文件生成一个 HTML 文档。</p>
+<p>javadoc 将在以下中抽取信息：</p>
+<ul>
+<li>包</li>
+<li>公有类与接口</li>
+<li>公有的和受保护的构造器及方法</li>
+<li>共有的和受保护的域</li>
+</ul>
+<h4 id="4-9-1-类注释"><a href="#4-9-1-类注释" class="headerlink" title="4.9.1 类注释"></a>4.9.1 类注释</h4><p>类注释必须放在 import 语句之后，类定义之前。</p>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java">&#x2F;**
+ * 类注释
+ *&#x2F;
+public class Card&#123;
+    
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h4 id="4-9-2-方法注释"><a href="#4-9-2-方法注释" class="headerlink" title="4.9.2 方法注释"></a>4.9.2 方法注释</h4><p>每一个方法注释必须放在所描述的方法之前。</p>
+<ul>
+<li>@param 变量描述，可占据多行，一个方法的所有 @param 标记必须放在一起</li>
+<li>@return 描述，可占据多行</li>
+<li>@throws 类描述，表示方法可能抛出的异常</li>
+</ul>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java">&#x2F;**
+ * 增加雇工的工资
+ * @param byPercent 为 10 则是增长 10%
+ * @return 返回增加后的工资
+ *&#x2F;
+public double raiseSalary(double byPercent)&#123;
+    double raise &#x3D; salary * byPercent &#x2F; 100;
+    salary +&#x3D; raise;
+    return raise;
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h4 id="4-9-3-域注释"><a href="#4-9-3-域注释" class="headerlink" title="4.9.3 域注释"></a>4.9.3 域注释</h4><p>只建立文档需要对公共域（通常指静态常量）</p>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java">&#x2F;**
+ * 利率
+ *&#x2F;
+public static final int RATES &#x3D; 5;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h4 id="4-9-4-通用注释"><a href="#4-9-4-通用注释" class="headerlink" title="4.9.4 通用注释"></a>4.9.4 通用注释</h4><ul>
+<li>@author 姓名：可以使用多个</li>
+<li>@version 文本：版本描述</li>
+<li>@since 文本：引入特性的描述</li>
+<li>@deprecated 文本：不再使用的注释，并给出建议</li>
+<li>@see 引用：可以添加多个，但必须放在一起</li>
+</ul>
+<h4 id="4-9-6-包与概述注释"><a href="#4-9-6-包与概述注释" class="headerlink" title="4.9.6 包与概述注释"></a>4.9.6 包与概述注释</h4><p>包注释的两种方式（在包目录添加一个单独的文件）：</p>
+<ol>
+<li>提供一个 package.html。在标记 &lt;body&gt;&lt;&#x2F;body&gt; 之间的所有文本都会抽取出来。</li>
+<li>提供一个 package-info.java 文件。文件开头即写文档注释后面是 package 语句。</li>
+</ol>
+<p>概述：</p>
+<p>创建一个名为 overview.html 文件，这个文件位于所有源文件的父目录中。标记 &lt;body&gt;&lt;&#x2F;body&gt; 之间的所有文本都会抽取出来。</p>
+<h4 id="4-9-7-注释抽取"><a href="#4-9-7-注释抽取" class="headerlink" title="4.9.7 注释抽取"></a>4.9.7 注释抽取</h4><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">javadoc -d docDirectory nameOfPackage
+
+javadoc -d docDirectory nameOfPackage1 nameOfPackage2
+
+javadoc -d docDirectory *.java<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h3 id="4-10-类设计技巧"><a href="#4-10-类设计技巧" class="headerlink" title="4.10 类设计技巧"></a>4.10 类设计技巧</h3><ol>
+<li>一定要保证数据私有</li>
+<li>一定要对数据初始化，手动初始化</li>
+<li>不要在类中使用过多的基本类型</li>
+<li>不是所有的域都需要独立的域访问器和域更改器</li>
+<li>将职责过多的类进行分解</li>
+<li>类名和方法名能够体现它们的职责</li>
+<li>优先使用不可变的类</li>
+</ol>
+<h2 id="5-继承"><a href="#5-继承" class="headerlink" title="5 继承"></a>5 继承</h2><h3 id="5-1-类、超类和子类"><a href="#5-1-类、超类和子类" class="headerlink" title="5.1 类、超类和子类"></a>5.1 类、超类和子类</h3><h4 id="5-1-1-定义子类"><a href="#5-1-1-定义子类" class="headerlink" title="5.1.1 定义子类"></a>5.1.1 定义子类</h4><p>关键字 extends 表示继承，超类和子类是 Java 程序员最常用的两个术语。子类比超类拥有更多的功能。将通用方法放在超类中，而将特殊扩展方法放在子类中。</p>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java">public class Manager extends Employee&#123;
+    
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+
+<h4 id="5-1-2-覆盖方法"><a href="#5-1-2-覆盖方法" class="headerlink" title="5.1.2 覆盖方法"></a>5.1.2 覆盖方法</h4><p>子类可覆盖超类的方法（同名，同参数），子类不能直接访问超类的私有域，可通过 super 关键字调用父类的方法。super 不是一个对象的引用，只是指示编译器调用超类方法的特殊关键字。</p>
+<h4 id="5-1-3-子类构造器"><a href="#5-1-3-子类构造器" class="headerlink" title="5.1.3 子类构造器"></a>5.1.3 子类构造器</h4><p>使用 super 调用超类构造器的语句必须放在子类构造器的第一条语句，如果超类没有不带参数的构造器，子类又没有显示调用超类的其他构造器，编译器则会报错。</p>
+<p>一个对象变量可以指示多个实际类型的现象被称为多态，在运行时能够自动地选择调用哪个方法的现象称为动态绑定。</p>
+<h4 id="5-1-4-继承层次"><a href="#5-1-4-继承层次" class="headerlink" title="5.1.4 继承层次"></a>5.1.4 继承层次</h4><p>由一个公共超类派生出来的所有类的集合称为继承层次，在继承层次中，某个特定类到其祖先的路径称为该类的继承链。Java 不支持多继承。</p>
+<h4 id="5-1-5-多态"><a href="#5-1-5-多态" class="headerlink" title="5.1.5 多态"></a>5.1.5 多态</h4><p>继承关系 is-a 的另一表述是置换法则，程序中出现超类对象的任何地方都可以用子类对象置换。Java 中，对象变量是多态的。子类数组的引用可以转换成超类数组的引用，而无需强制类型转换。</p>
+<p>如果方法或构造器由 private 或 static 或 final 修饰，那么编译器能准确知道调用哪个方法，这种调用方式称为静态绑定。由于动态绑定的机制，运行时，调用方法先查询当前类对象的方法，然后查询所继承超类的方法。</p>
+<h4 id="5-1-6-final-类和方法"><a href="#5-1-6-final-类和方法" class="headerlink" title="5.1.6 final 类和方法"></a>5.1.6 final 类和方法</h4><p>用 final 修饰的类无法被继承，用 final 修饰的方法，子类无法覆盖。声明为 final 的主要目的是确保它们在子类中不会改变语义。</p>
+<h4 id="5-1-7-强制类型转换"><a href="#5-1-7-强制类型转换" class="headerlink" title="5.1.7 强制类型转换"></a>5.1.7 强制类型转换</h4><ul>
+<li>只能在继承层次内进行类型转换</li>
+<li>在将超类转换成子类之前，应该使用 instanceof 进行检查</li>
+</ul>
+<p>一般情况下应该尽量少用类型转换和 instanceof 运算符</p>
+<h4 id="5-1-8-抽象类"><a href="#5-1-8-抽象类" class="headerlink" title="5.1.8 抽象类"></a>5.1.8 抽象类</h4><p>使用关键字 abstract 声明一个抽象类和抽象方法。为了程序的清晰度，包含一个或多个抽象方法的类本身必须被声明为抽象的。除了抽象方法外，抽象类还可以包含字段和具体方法。</p>
+<ul>
+<li>类即使不含抽象方法，也能声明为抽象类</li>
+<li>抽象类不能实例化</li>
+<li>可定义抽象类的对象变量指向非抽象子类的对象</li>
+</ul>
+<p>扩展抽象类的两种选择：</p>
+<ul>
+<li>子类中任由部分抽象方法，即子类仍为抽象类</li>
+<li>子类定义全部的抽象方法，子类不再是抽象类</li>
+</ul>
+<h4 id="5-1-9-受保护访问"><a href="#5-1-9-受保护访问" class="headerlink" title="5.1.9 受保护访问"></a>5.1.9 受保护访问</h4><p>超类中的某些方法允许被子类访问，或允许子类的方法访问超类的某个域，可以将方法或域声明为 protected。</p>
+<ul>
+<li>private —— 仅对本类可见</li>
+<li>public —— 对所有类可见</li>
+<li>protected —— 对本包和所有子类可见</li>
+<li>默认 —— 对本包可见</li>
+</ul>
+<h3 id="5-2-Object"><a href="#5-2-Object" class="headerlink" title="5.2 Object"></a>5.2 Object</h3><p>Object 是 Java 中所有类的超类。</p>
+<h4 id="5-2-1-equals-方法"><a href="#5-2-1-equals-方法" class="headerlink" title="5.2.1 equals 方法"></a>5.2.1 equals 方法</h4><p>equals 方法是用于检测一个对象是否等于另一个对象。</p>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java">&#x2F;&#x2F; Objects.equals(a, b), a，b 都为 null 返回 true，某一个为 null 返回 false
+public class Employee&#123;
+    ...
+    public boolean equals(Object otherObject)&#123;
+        if(this &#x3D;&#x3D; otherObject)&#123;
+            return true;
+        &#125;
+        
+        if(otherObject &#x3D;&#x3D; null)&#123;
+            return false;
+        &#125;
+        
+        if(getClass() !&#x3D; otherObject.getClass())&#123;
+            return false;
+        &#125;
+        
+        Employee other &#x3D; (Employee)otherObject;
+        return Objects.euqals(name, other.name).
+            &amp;&amp; salary &#x3D;&#x3D; other.salary
+            &amp;&amp; Objects.equals(hireDay, other.hireDay);
+    &#125;
+    
+&#125;
+
+public class Manager extends Employee&#123;
+    ...
+    public boolean equals(Object otherObject)&#123;
+        &#x2F;&#x2F; 子类先调用超类的 equals 方法检测
+        if(!super.equals(otherObject))&#123;
+            return false;
+        &#125;
+        Manager other &#x3D; (Manager)otherObject;
+        return bonus &#x3D;&#x3D; other.bonus;
+    &#125;
+&#125;
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>Java 语言规范要求 equals 方法具有以下的特性：</p>
+<ol>
+<li>自反性：对于任意非空引用 x，x.equals(x) 返回 true</li>
+<li>对称性：对于任何引用 x、y，y.equals(x) 返回 true，x.equals(y) 也要返回 true</li>
+<li>传递性：对于任何引用 x、y、z，x.equals(y) 返回 true，y.equals(z) 返回 true，那么 x.equals(z) 也要返回 true</li>
+<li>一致性：</li>
+<li>对于任意非空引用 x, x.equals(null) 返回 false</li>
+</ol>
+<p>编写一个完美的 equals 方法的建议：</p>
+<ol>
+<li><p>显式参数命名为 otherObject</p>
+</li>
+<li><p>检测 this 与 otherObject 是否引用同一个对象</p>
+<p><code>if(this == otherObject) return true;</code></p>
+</li>
+<li><p>检测 otherObject 是否为 null</p>
+<p><code>if(otherObject == null) return false;</code></p>
+</li>
+<li><p>比较 this 与 otherObject 是否是同一个类</p>
+<ul>
+<li><p>如果 equals 的语义在每个子类都有改变，使用 getClass 检测</p>
+<p><code>if(getClass() != otherObject.getClass() return false;</code></p>
+</li>
+<li><p>如果所有子类都使用统一的语义，就是用 instanceof 检测</p>
+<p><code>if(!(otherObject instanceof ClassName)) return false;</code></p>
+</li>
+</ul>
+</li>
+<li><p>将 otherObject 转换为相应的类类型变量</p>
+<p><code>ClassName other = (ClassName)otherObject;</code></p>
+</li>
+<li><p>将所需要比较的域进行比较，基础类型使用 &#x3D;&#x3D;，对象引用使用 Objects.equals()</p>
+<p><code>return field1 == other.field1 &amp;&amp; Objects.equals(field2, other.field2) &amp;&amp; ...;</code></p>
+</li>
+</ol>
+<p>子类如果重新定义 equals 方法，就要先调用 super.equals(OtherObject) 检测</p>
+<h4 id="5-2-2-hashCode-方法"><a href="#5-2-2-hashCode-方法" class="headerlink" title="5.2.2 hashCode 方法"></a>5.2.2 hashCode 方法</h4><p>散列码是由对象导出的一个整型值。如果重新定义了 equals 方法，就必须重新定义 hashCode 方法，以便将对象插入到散列表中。</p>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java">&#x2F;&#x2F; Objects.hash(Object... objects) 返回由提供对象的散列码组合而得到的散列码
+&#x2F;&#x2F; Objects.hashCode(Object a) 如果 a 为 null 返回 0，否则返回 a.hashCode()<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+
+<h4 id="5-2-3-toString-方法"><a href="#5-2-3-toString-方法" class="headerlink" title="5.2.3 toString 方法"></a>5.2.3 toString 方法</h4><p>它用于返回对象值的字符串。只要对象与一个字符串通过操作符 + 连接起来，Java 编译器就自动调用 toString 方法。Object 类定义的 toString 方法，用来打印对象所属的类名和散列码。</p>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java">package equals;
+
+import java.time.*;
+import java.util.Objects;
+
+public class Employee&#123;
+    private String name;
+    private double salary;
+    private LocalDate hireDay;
+
+    public Employee(String name, double salary, int year, int month, int day)&#123;
+        this.name &#x3D; name;
+        this.salary &#x3D; salary;
+        hireDay &#x3D; LocalDate.of(year, month, day);
+    &#125;
+
+    public String getName()&#123;
+        return name;
+    &#125;
+
+    public double getSalary()&#123;
+        return salary;
+    &#125;
+
+    public LocalDate getHireDya()&#123;
+        return hireDay;
+    &#125;
+
+    public void raiseSalary(double byPercent)&#123;
+        double raise &#x3D; salary * byPercent &#x2F; 100;
+        salary +&#x3D; raise;
+    &#125;
+
+    public boolean equals(Object otherObject)&#123;
+        if(this &#x3D;&#x3D; otherObject)&#123;
+            return true;
+        &#125;
+
+        if(otherObject &#x3D;&#x3D; null)&#123;
+            return false;
+        &#125;
+
+        if(getClass() !&#x3D; otherObject.getClass())&#123;
+            return false;
+        &#125;
+
+        Employee other &#x3D; (Employee)otherObject;
+
+        return Objects.equals(name, other.name) &amp;&amp; salary &#x3D;&#x3D; other.salary
+            &amp;&amp; Objects.equals(hireDay, other.hireDay);
+    &#125;
+
+    public int hashCode()&#123;
+        return Objects.hash(name, salary, hireDay);
+    &#125;
+
+    public String toString()&#123;
+        return getClass().getName() + &quot;[name&#x3D;&quot; + name + &quot;,salary&#x3D;&quot; + salary
+            + &quot;,hireDay&#x3D;&quot; + hireDay + &quot;]&quot;;
+    &#125;
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<pre class="line-numbers language-java" data-language="java"><code class="language-java">package equals;
+
+public class Manager extends Employee&#123;
+    private double bonus;
+
+    public Manager(String name, double salary, int year, int month, int day)&#123;
+        super(name, salary, year, month, day);
+        bonus &#x3D; 0;
+    &#125;
+
+    public double getSalary()&#123;
+        double baseSalary &#x3D; super.getSalary();
+        return baseSalary + bonus;
+    &#125;
+
+    public void setBonus(double bonus)&#123;
+        this.bonus &#x3D; bonus;
+    &#125;
+
+    public boolean equals(Object otherObject)&#123;
+        if(!(super.equals(otherObject)))&#123;
+            return false;
+        &#125;
+        Manager other &#x3D; (Manager)otherObject;
+        return bonus &#x3D;&#x3D; other.bonus;
+    &#125;
+
+    public int hashCode()&#123;
+        return super.hashCode() + 17 * Double.hashCode(bonus);
+    &#125;
+
+    public String toString()&#123;
+        return super.toString() + &quot;[bonus&#x3D;&quot; + bonus + &quot;]&quot;;
+    &#125;
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h3 id="5-3-泛型数组列表"><a href="#5-3-泛型数组列表" class="headerlink" title="5.3 泛型数组列表"></a>5.3 泛型数组列表</h3><p>ArrayList 是一个采用类型参数的泛型类，为了指定数组列表中保存的类型需要使用一对尖括号将类名括起来加在后面，例如 <code>ArrayList&lt;Employee&gt;</code>。ArrayList 是一个动态扩容数组。</p>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java">&#x2F;*
+1、构造一个空数组列表
+ArrayList&lt;E&gt;()
+2、用指定容量构造一个空数组列表
+ArrayList&lt;E&gt;(int initialCapacity)
+3、在数组列表尾端添加一个元素，永远返回 true
+boolean add(E obj)
+4、返回存储在数组列表中当前元素数量
+int size()
+5、将数组列表的存储容量削减到当前尺寸
+void trimToSize()
+6、设置指定位置的元素值
+void set(int index, E obj)
+7、获取指定位置的元素值
+E get(int index)
+8、指定位置插入元素，后面的元素向后移
+void add(int index, E obj)
+9、删除指定位置元素并返回，后面的元素向前移
+E remove(int index)
+*&#x2F;
+import java.util.*;
+
+public class ArrayListTest&#123;
+    public static void main(String[] args)&#123;
+        ArrayList&lt;Employee&gt; staff &#x3D; new ArrayList&lt;&gt;();
+
+        staff.add(new Employee(&quot;Carl&quot;, 75000, 1987, 12, 15));
+        staff.add(new Employee(&quot;Harry&quot;, 50000, 1987, 12, 15));
+        staff.add(new Employee(&quot;Tony&quot;, 40000, 1990, 3, 15));
+
+        for(Employee e : staff)&#123;
+            System.out.println(e);
+        &#125;
+    &#125;
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h3 id="5-4-对象包装器"><a href="#5-4-对象包装器" class="headerlink" title="5.4 对象包装器"></a>5.4 对象包装器</h3><p>对象包装器是不可变的，一旦创建就无法改变其中的值，而且对象包装类是 final，不允许有子类。Integer 类对应的基本类型是 int，尖括号中的类型参数不允许是基本类型。</p>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java">ArrayList&lt;Integer&gt; list &#x3D; new ArrayList&lt;&gt;();
+
+&#x2F;&#x2F; 编译器会自动翻译为 list.add(Integer.valueOf(3))，称为自动装箱
+list.add(3);
+
+&#x2F;&#x2F; 编译器会自动翻译为 list.get(i).intValue()，称为自动拆箱
+int n &#x3D; list.get(i)<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>自动装箱规范要求 boolean、byte、char &lt;&#x3D; 127，介于 -128 ~ 127 之间的 short 和 int 被包装到固定的对象中（常量池？）。</p>
+<p>装箱和拆箱是编译器要做的事情，而不是虚拟机。</p>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java">&#x2F;* Integer 常用 API，其他包装类也实现了相应的方法
+1、以 int 类型返回 Integer 对象的值
+int intValue()
+2、返回数值类型的字符串，默认十进制，也可指定进制
+static String toString(int i)
+static String toString(int i, int radix)
+3、返回字符串 s 的整型数值
+static int parseInt(String s)
+static int parseInt(String s, int radix)
+4、将 s 表示的整型数值进行初始化乘一个新的 Integer 对象
+static Integer valueOf(String s)
+static Integer valueOf(String s, int radix)
+*&#x2F;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h3 id="5-5-可变数量参数"><a href="#5-5-可变数量参数" class="headerlink" title="5.5 可变数量参数"></a>5.5 可变数量参数</h3><p><code>Object... 与 Object[] 完全一样 </code>，因此 main 方法可以改写为<code>public static void main(String... args)</code></p>
+<h3 id="5-6-枚举类"><a href="#5-6-枚举类" class="headerlink" title="5.6 枚举类"></a>5.6 枚举类</h3><p>在比较枚举类型的值时，永远不需要调用 equals，直接使用 &#x3D;&#x3D; 即可。枚举类型中可以添加构造器、方法和域。</p>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java">&#x2F;*
+1、返回指定名字、给定类的枚举常量
+static Enum valueOf(Class enumClass, String name)
+2、返回枚举常量名
+String toString()
+3、返回枚举常量在 enum 声明中的位置，从 0 开始
+int ordinal()
+4、如果枚举常量在 other 之前，返回负值，相等返回 0，之后返回正值
+int caompareTo(E other)
+*&#x2F;
+public class EnumTest&#123;
+    public static void main(String... args)&#123;
+        Size size &#x3D; Enum.valueOf(Size.class, &quot;SMALL&quot;);
+        System.out.println(size);
+        System.out.println(size.getAbbreviation());
+        System.out.println(size &#x3D;&#x3D; Size.SMALL);
+    &#125;
+&#125;
+
+enum Size&#123;
+    SMALL(&quot;S&quot;), MEDIUM(&quot;M&quot;), LARGE(&quot;L&quot;);
+
+    private Size(String abbreviation)&#123;
+        this.abbreviation &#x3D; abbreviation;
+    &#125;
+
+    public String getAbbreviation()&#123;
+        return abbreviation;
+    &#125;
+
+    private String abbreviation;
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h3 id="5-7-反射"><a href="#5-7-反射" class="headerlink" title="5.7 反射"></a>5.7 反射</h3><p>能够分析类能力的程序称为反射，反射机制可以用来：</p>
+<ul>
+<li>在运行时分析类的能力</li>
+<li>在运行时查看对象</li>
+<li>实现通用数组操作代码</li>
+<li>利用 Method 对象</li>
+</ul>
+<h4 id="5-7-1-Class-类"><a href="#5-7-1-Class-类" class="headerlink" title="5.7.1 Class 类"></a>5.7.1 Class 类</h4><p>在运行期间，Java 运行时系统始终为所有对象维护一个称为运行时的类型标识，保存这个这些信息的类被称为 CLass。</p>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java">import java.util.*;
+
+public class ClassTest&#123;
+    public static void main(String[] args) throws Exception&#123;
+        
+        Integer i &#x3D; 10;
+        &#x2F;&#x2F; getClass()
+        Class cl1 &#x3D; i.getClass();
+        String className &#x3D; &quot;java.lang.Integer&quot;;
+        &#x2F;&#x2F; Class.forName()
+        Class cl2 &#x3D; Class.forName(className);
+        &#x2F;&#x2F; 类.class
+        Class cl3 &#x3D; Integer.class;
+
+        System.out.println(cl1);
+        System.out.println(cl2);
+        System.out.println(cl3);
+
+    &#125;
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h4 id="5-7-2-分析类的能力"><a href="#5-7-2-分析类的能力" class="headerlink" title="5.7.2 分析类的能力"></a>5.7.2 分析类的能力</h4><p>java.lang.relect 包中有三个类 Field、Method 和 Constructor 分别用于描述类的字段、方法和构造器。</p>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java">&#x2F;* Class
+1、获取类的 Field 对象数组
+Field[] getFields() &#x2F;&#x2F; 获取这个类或其超类的公共字段
+Field getField(String name)
+Field[] getDeclareFields() &#x2F;&#x2F; 获取这个类的全部字段
+Field getDeclareField(String name)
+2、获取类的 Method 对象数组
+Method[] getMethods()
+Method[] getDeclareMethods()
+3、获取类包名
+String getPackageName()
+4、获取数组类型
+Class getComponentType()
+*&#x2F;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<pre class="line-numbers language-java" data-language="java"><code class="language-java">&#x2F;* Field\Method\Constructor
+1、返回当前对象所在的 Class 对象
+Class getDelcaringClass()
+2、返回修饰符
+int getModifiers()
+String getModifiers().toString()
+3、返回名字
+String getName()
+4、获取方法参数
+Class[] getParameterTypes()
+5、获取 Method 对象返回值类型
+Class getReturnType()
+*&#x2F;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>访问私有字段、方法、构造器时，需要设置 setAccessible 为 true。</p>
+<h4 id="5-7-3-反射使用"><a href="#5-7-3-反射使用" class="headerlink" title="5.7.3 反射使用"></a>5.7.3 反射使用</h4><pre class="line-numbers language-java" data-language="java"><code class="language-java">&#x2F;&#x2F; 1、通过 forName 获取 Class 对象
+Class clazz &#x3D; Class.forName(&quot;top.reajason.test.Student&quot;);
+
+&#x2F;&#x2F; 获取公共无参构造 getDeclaredConstructor() 能获取到私有的
+Constructor constructor1 &#x3D; clazz.getConstructor();
+System.out.println(constructor1);
+
+&#x2F;&#x2F; 获取公共有参构造 getDeclaredConstructors() 能获取到私有的
+Constructor constructor2 &#x3D; clazz.getConstructor(String.class, int.class);
+System.out.println(constructor2);
+
+&#x2F;&#x2F; 获取所有公共构造方法的数组(无法获取私有的) getDeclaredConstructors() 能获取到私有的
+Constructor[] constructors &#x3D; clazz.getConstructors();
+for (Constructor constructor : constructors) &#123;
+    System.out.println(constructor);
+&#125;
+
+&#x2F;&#x2F; 创建 Student 实例
+Student s1 &#x3D; (Student) constructor1.newInstance();
+Student s2 &#x3D; (Student) constructor2.newInstance(&quot;你好&quot;, 13);
+System.out.println(s2); &#x2F;&#x2F; Student&#123;name&#x3D;&#39;你好&#39;, age&#x3D;13&#125;
+
+&#x2F;&#x2F; 使用私有化需要取消访问检查（暴力反射）
+constructor.setAccessible(true);<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<pre class="line-numbers language-java" data-language="java"><code class="language-java">&#x2F;*
+Field[] getFields()  获取所有公共成员变量对象的数组
+Field[] getDeclaredFields(); 获取所有成员变量对象的数组
+Field getField(String name); 获取单个公共的成员变量对象
+Field getDeclaredField(String name); 获取单个成员变量对象
+int getModifuers(); 获取修饰符值
+getType(); 属性的类型
+*&#x2F;
+
+&#x2F;&#x2F; void set(Object obj, Object value) 给指定对象的成员变量赋值
+
+&#x2F;&#x2F; Object get(Object obj) 获取指定对象的 Field 的值
+
+Class clazz &#x3D; Class.forName(&quot;top.reajason.test.Student&quot;);
+Constructor constructor &#x3D; clazz.getConstructor(String.class, int.class);
+Student s1 &#x3D; (Student) constructor.newInstance(&quot;xiaobai&quot;, 23);
+Field name &#x3D; clazz.getDeclaredField(&quot;name&quot;);
+name.setAccessible(true);
+System.out.println(name.get(s1)); &#x2F;&#x2F; xiaobai
+name.set(s1, &quot;nitama&quot;);
+System.out.println(name.get(s1)); &#x2F;&#x2F; nitama
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<pre class="line-numbers language-java" data-language="java"><code class="language-java">&#x2F;*
+Method[] getMethods() 获取所有公共成员方法对象的数组，包括继承的
+Method[] hetDeclaredMethods() 获取所有成员方法对象的数组，不包含继承的
+Method getMethod(String name, Class&lt;?&gt;...parameterTypes)  获取单个公共成员方法对象
+Method hetDeclaredMethod(String name, Class&lt;?&gt;...parameterTypes) 获取单个成员方法对象
+getName(); 获取方法名称
+getModifiers(); 获取修饰符值
+getReturnType(); 获取返回类型
+getParameterTypes(); 获取参数类型数组
+*&#x2F;
+
+&#x2F;&#x2F; Object invoke(Object obj, Object...args) 调用方法
+
+Class clazz &#x3D; Class.forName(&quot;top.reajason.test.Student&quot;);
+Student s1 &#x3D; (Student) clazz.getConstructor(String.class, int.class).newInstance(&quot;xioabai&quot;, 13);
+Method method &#x3D; clazz.getMethod(&quot;getAge&quot;);
+Object result &#x3D; method.invoke(s1);
+System.out.println(result); &#x2F;&#x2F; 13<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h3 id="5-8-继承技巧"><a href="#5-8-继承技巧" class="headerlink" title="5.8 继承技巧"></a>5.8 继承技巧</h3><ol>
+<li>将公共操作和域放在超类</li>
+<li>不要使用受保护的域</li>
+<li>使用继承实现 is-a 关系</li>
+<li>除非所有继承的方法都有意义，否则不要使用继承</li>
+<li>在覆盖方法时，不要改变预期的行为</li>
+<li>使用多态而非类型信息</li>
+<li>不要过多的使用反射</li>
+</ol>
+<h2 id="6-接口、lambda-表达式、内部类"><a href="#6-接口、lambda-表达式、内部类" class="headerlink" title="6 接口、lambda 表达式、内部类"></a>6 接口、lambda 表达式、内部类</h2><h3 id="6-1-接口"><a href="#6-1-接口" class="headerlink" title="6.1 接口"></a>6.1 接口</h3><h4 id="6-1-1-接口概念"><a href="#6-1-1-接口概念" class="headerlink" title="6.1.1 接口概念"></a>6.1.1 接口概念</h4><p>接口不是类，而是对类的一组需求的描述。接口的所有方法默认是 public 而无需指定。接口中不能有实例域，Java SE8 之前不能在接口中实现方法。</p>
+<p>类实现一个接口的两个步骤：</p>
+<ul>
+<li>让类声明为实现给定的接口，使用 implements</li>
+<li>对接口中的所有方法进行定义，实现接口时必须声明为 public</li>
+</ul>
+<h4 id="6-1-2-接口的特性"><a href="#6-1-2-接口的特性" class="headerlink" title="6.1.2 接口的特性"></a>6.1.2 接口的特性</h4><p>接口不是类，不能使用 new 实例化一个接口，但是可以声明接口变量，指向实现了接口的类对象，也可以使用 instanceof 检测一个对象是否实现了某个接口，接口可以扩展接口，接口中不能包含实例域或静态方法，但是可以包含常量 public static final，一个类只能拥有一个超类，但是可以实现多个接口。</p>
+<p>Java SE 8 中，允许接口中增加静态方法，通常放在伴随类中</p>
+<p>可以使用 default 声明默认方法，提供默认实现，主要用来接口演化升级，默认方法冲突的两种情况：</p>
+<ol>
+<li>一个类实现了多个接口，并且多个接口有共同方法，此时需要类自己实现这个方法，解决冲突</li>
+<li>一个类继承的超类和实现的接口中有重名方法，类优先原则，会自动忽略接口的方法。</li>
+</ol>
+<h3 id="6-2-接口示例"><a href="#6-2-接口示例" class="headerlink" title="6.2 接口示例"></a>6.2 接口示例</h3><h4 id="6-2-1-Comparator-接口"><a href="#6-2-1-Comparator-接口" class="headerlink" title="6.2.1 Comparator 接口"></a>6.2.1 Comparator 接口</h4><p>对一个对象数组进行排序的前提是这个对象必须是 Comparable 接口的类的实例。Arrays.sort 方法有两个版本一个是传入单个数组，一个是数组加一个比较器，比较器就是实现了 Comparator 接口的类的实例。</p>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java">import java.util.*;
+
+public class CompareStringTest&#123;
+    public static void main(String[] args)&#123;
+        String[] friends &#x3D; &#123;&quot;Peter&quot;, &quot;Paul&quot;, &quot;Mary&quot;, &quot;ReaJason&quot;, &quot;Silly&quot;&#125;;
+
+        &#x2F;&#x2F; 使用 String 类实现了 Comparable 接口的 compareTo 方法进行比较（按照字典顺序）
+        Arrays.sort(friends);
+        &#x2F;&#x2F; ASCII 先后顺序
+        System.out.println(Arrays.toString(friends));
+
+        &#x2F;&#x2F; 自定义比较器，进行排序
+        Arrays.sort(friends, new LengthComparator());
+        &#x2F;&#x2F; 根据字符串的长度
+        System.out.println(Arrays.toString(friends));
+
+    &#125;
+&#125;
+
+
+class LengthComparator implements Comparator&lt;String&gt;&#123;
+    public int compare(String first, String second)&#123;
+        return first.length() - second.length();
+    &#125;
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h4 id="6-2-2-Cloneable-接口"><a href="#6-2-2-Cloneable-接口" class="headerlink" title="6.2.2 Cloneable 接口"></a>6.2.2 Cloneable 接口</h4><p>Cloneable 接口是 Java 提供的一组标记接口之一，Object 的 clone 方法是 protected，因此支只支持子类调用 clone 方法克隆它自己的对象，必须重新定义为 clone 为 public 才能允许所有方法克隆对象。</p>
+<ul>
+<li>实现 Clonable 接口</li>
+<li>重新定义 clone 方法，并指定 public 访问修饰符</li>
+</ul>
+<p>深拷贝需要拷贝可变实例域</p>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java">public class Employee implements Cloneable&#123;
+    private String name;
+    private double salary;
+    private Date hireDay;
+
+    ...
+
+    public Employee clone() throws CloneNotSupportedException&#123;
+        Employee cloned &#x3D; (Employee)super.clone();
+
+        cloned.hireDay &#x3D; (Date)hireDay.clone();
+
+        return cloned;
+    &#125;
+&#125;
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h3 id="6-3-lambda-表达式"><a href="#6-3-lambda-表达式" class="headerlink" title="6.3 lambda 表达式"></a>6.3 lambda 表达式</h3><p>lambda 表达式是一个可传递的代码块，之后可以执行一次或多次。</p>
+<h4 id="6-3-1-lambda-表达式语法"><a href="#6-3-1-lambda-表达式语法" class="headerlink" title="6.3.1 lambda 表达式语法"></a>6.3.1 lambda 表达式语法</h4><pre class="line-numbers language-java" data-language="java"><code class="language-java">&#x2F;&#x2F; 声明参数类型，返回一行代码的执行结果
+(String first, String second) -&gt; 
+    first.length() - second.length()
+
+&#x2F;&#x2F; 声明参数类型，代码块，返回结果，每一个分支都必须返回结果
+(String first, String second) -&gt; &#123;
+    if(first.length() &lt; second.length())&#123;
+        return -1;
+    &#125;else if(first.length() &gt; second.length())&#123;
+        return 1;
+    &#125;else&#123;
+        return 0;
+    &#125;
+&#125;
+
+&#x2F;&#x2F; 无参数
+() -&gt; &#123;
+    for(int i &#x3D; 0; i &lt; 10; i++)&#123;
+        System.out.println(i);
+    &#125;
+&#125;;
+
+&#x2F;&#x2F; 如果参数类型可推导则省略，如果只有单个参数且类型可推导，可省略括号<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h4 id="6-3-2-函数式接口"><a href="#6-3-2-函数式接口" class="headerlink" title="6.3.2 函数式接口"></a>6.3.2 函数式接口</h4><p>对于只有一个抽象方法的接口，需要这种接口的对象时，就可以提供一个 lambda 表达式，这种接口称为函数式接口。</p>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java">&#x2F;&#x2F; Comparator 就是一个函数式接口
+Arrays.sort(words, (first, second) -&gt; &#123;
+    first.length() - second.length()
+&#125;);
+
+&#x2F;&#x2F; java.util.function 中有许多函数式接口
+list.removeIf(e -&gt; e&#x3D;&#x3D;null);<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h4 id="6-3-3-方法引用"><a href="#6-3-3-方法引用" class="headerlink" title="6.3.3 方法引用"></a>6.3.3 方法引用</h4><ul>
+<li>object::instanceMethod</li>
+<li>Class::staticMethod</li>
+<li>Class::instanceMethod</li>
+</ul>
+<p><code>System.out::println</code> 等价于 <code>x -&gt; System.out.println(x)</code></p>
+<p><code>String::compareToIgnoreCase</code> 等价于 <code>(x, y) -&gt; x.compareToIgnoreCase(y)</code></p>
+<p>this\super：this::equals、super::greet</p>
+<p>构造器引用：Person::new、Person[]::new</p>
+<h4 id="6-3-6-变量作用域"><a href="#6-3-6-变量作用域" class="headerlink" title="6.3.6 变量作用域"></a>6.3.6 变量作用域</h4><p>lambda 表达式看可以捕获外围作用域中的变量，且是最终变量（final，初始化之后不会再赋给新值），不过只能引用而不能修改。</p>
+<h4 id="6-3-7-Comparator"><a href="#6-3-7-Comparator" class="headerlink" title="6.3.7 Comparator"></a>6.3.7 Comparator</h4><p>Comparator 接口中包含了静态方法创建比较器，camparing 方法即是一个键提取器函数。p242</p>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java">&#x2F;&#x2F; 比较名字
+Arrays.sort(people, Comparator.comparing(Person::getName));
+
+&#x2F;&#x2F; 比较姓再比较名
+Arrays.sort(people, Comparator.comparing(Person::getLastName).thenComparing(Person::getFirstName());
+
+&#x2F;&#x2F; 比较名字长度
+Arrays.sort(people, Comparator.compringInt(p -&gt; p.getName().length()));
+
+&#x2F;&#x2F; null 默认比较器
+Arrays.sort(people, compring(Person::getMiddleName(), nullFirst(naturalOrder()));<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h3 id="6-4-内部类"><a href="#6-4-内部类" class="headerlink" title="6.4 内部类"></a>6.4 内部类</h3><p>内部类是定义在另一个类中的类</p>
+<ul>
+<li>内部类方法可以访问该类定义所在的作用域中的数据</li>
+<li>内部类可以对同一个包中的其他类隐藏起来</li>
+<li>当想要定义一个回调函数且不想编写大量代码就可以使用匿名内部类</li>
+</ul>
+<p>内部类中声明的所有静态域必须是 final，内部类不能有 static 方法（可以有但是不要写）</p>
+<h4 id="6-4-1-内部类的特殊语法"><a href="#6-4-1-内部类的特殊语法" class="headerlink" title="6.4.1 内部类的特殊语法"></a>6.4.1 内部类的特殊语法</h4><p>OuterClass.this 表示外围类的引用</p>
+<p>OuterClass.InnerClass 在外围类作用于之外，引用内部类</p>
+<h4 id="6-4-2-局部内部类"><a href="#6-4-2-局部内部类" class="headerlink" title="6.4.2 局部内部类"></a>6.4.2 局部内部类</h4><p>在方法中定义局部内部类，局部内部类不能用 public 或 private 修饰，它的作用域被限定在这个局部内部类所在的块中。局部内部类访问局部变量必须是 final。</p>
+<h4 id="6-4-3-匿名内部类"><a href="#6-4-3-匿名内部类" class="headerlink" title="6.4.3 匿名内部类"></a>6.4.3 匿名内部类</h4><p>没有名字的内部类，如果构造参数的小括号跟一个大括号，正在定义的就是匿名内部类</p>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java">&#x2F;&#x2F; 通用语法格式
+new SuperType(construction parameters)&#123;
+	inner class methods and data
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h4 id="6-4-4-静态内部类"><a href="#6-4-4-静态内部类" class="headerlink" title="6.4.4 静态内部类"></a>6.4.4 静态内部类</h4><p>静态内部类不能访问外围类对象数据，静态内部类可以有静态域和方法，内部类不需要访问外围类对象的时候应该使用静态内部类。</p>
+<h3 id="6-5-代理"><a href="#6-5-代理" class="headerlink" title="6.5 代理"></a>6.5 代理</h3><p>利用代理可以在运行时创建一个实现了一组给定接口的新类。</p>
+<h2 id="7-异常、断言、日志"><a href="#7-异常、断言、日志" class="headerlink" title="7 异常、断言、日志"></a>7 异常、断言、日志</h2><h3 id="7-1-处理错误"><a href="#7-1-处理错误" class="headerlink" title="7.1 处理错误"></a>7.1 处理错误</h3><h4 id="7-1-1-异常分类"><a href="#7-1-1-异常分类" class="headerlink" title="7.1.1 异常分类"></a>7.1.1 异常分类</h4><p>所有异常都是由 Throwable 继承而来，又分为 Error 和 Exception。Error 描述了 Java 运行时系统的内部错误和资源耗尽错误。Exception 中分为 RuntimeException 和 其他异常 两个分支。Java 语言规范将派生于 Error 类或 RuntimeException 类的所有异常称为非受查异常，所有其他的异常称为受查异常。编译器将核查是否为所有的受查异常提供了异常处理器。</p>
+<h4 id="7-1-2-声明受查异常"><a href="#7-1-2-声明受查异常" class="headerlink" title="7.1.2 声明受查异常"></a>7.1.2 声明受查异常</h4><p>下面四个情况应该抛出异常：</p>
+<ol>
+<li>调用一个抛出受查异常的方法</li>
+<li>程序运行过程中发现错误，使用 throw 抛出</li>
+<li>程序出现错误</li>
+<li>Java 虚拟机和运行库出现的内部错误</li>
+</ol>
+<p>一个方法有可能抛出多个受查异常类型，就需要在方法的首部使用 throws 列出所有的异常类，不应该声明从 RuntimeException 继承的非受查异常。</p>
+<p>子类方法中应该比超类方法抛出更特定的异常，或者根本不抛出异常。如果超类没有抛出受查异常，子类也不能抛出受查异常。</p>
+<h4 id="7-1-3-创建异常类"><a href="#7-1-3-创建异常类" class="headerlink" title="7.1.3 创建异常类"></a>7.1.3 创建异常类</h4><ul>
+<li>继承一个异常类</li>
+<li>编写一个构造器方法和一个带有详细描述信息的构造器</li>
+</ul>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java">class FileFormatException extends IOException&#123;
+    public FileFormatException()&#123;&#125;
+    public FileFormatException(String msg)&#123;
+        super(msg);
+    &#125;
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h3 id="7-2-捕获异常"><a href="#7-2-捕获异常" class="headerlink" title="7.2 捕获异常"></a>7.2 捕获异常</h3><pre class="line-numbers language-java" data-language="java"><code class="language-java">&#x2F;&#x2F; try&#x2F;catch 语句
+try&#123;
+    code
+&#125;catch(ExceptionType e)&#123;
+    handler for this type
+&#125;
+
+&#x2F;&#x2F; 捕获多个异常
+try&#123;
+    code
+&#125;catch(ExceptionType1 e)&#123;
+    handler for this type
+&#125;catch(ExceptionType2 e)&#123;
+    handler for this type
+&#125;
+
+try&#123;
+    code
+&#125;catch(ExceptionType1 | ExceptionType2 e)&#123;
+    handler for this type
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h4 id="7-2-1-再次抛出异常"><a href="#7-2-1-再次抛出异常" class="headerlink" title="7.2.1 再次抛出异常"></a>7.2.1 再次抛出异常</h4><pre class="line-numbers language-java" data-language="java"><code class="language-java">catch(SQLException e)&#123;
+	Throwable se &#x3D; new ServletException(&quot;database error&quot;);
+    se.iniiCase(e);
+    throw se;
+&#125;
+
+&#x2F;&#x2F; 获取原始的 e 错误
+Throwable e &#x3D; se.getCause()<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h4 id="7-2-2-finally"><a href="#7-2-2-finally" class="headerlink" title="7.2.2 finally"></a>7.2.2 finally</h4><p>try 语句可以只有 finall 子句而没有 catch 语句， finnal 语句无论是否遇到异常都会执行，通常用于资源关闭。当 try 和 finally 中有 return 语句时，会走 finally 子句。</p>
+<p>强烈建议使用 try&#x2F;catch 和 try&#x2F;finally 语句块</p>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java">try&#123;
+    try&#123;
+
+    &#125;finally&#123;
+
+    &#125;
+&#125;catch()&#123;
+
+&#125;
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h4 id="7-2-3-try-with-resource"><a href="#7-2-3-try-with-resource" class="headerlink" title="7.2.3 try-with-resource"></a>7.2.3 try-with-resource</h4><pre class="line-numbers language-java" data-language="java"><code class="language-java">&#x2F;&#x2F; 最简形式
+try(Resource res &#x3D; ...)&#123;
+    
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h4 id="7-2-4-Throwable"><a href="#7-2-4-Throwable" class="headerlink" title="7.2.4 Throwable"></a>7.2.4 Throwable</h4><pre class="line-numbers language-java" data-language="java"><code class="language-java">&#x2F;*
+1、将这个对象设置为原因
+Throwable initCause(Throwable cause)
+2、获取产生这个异常的原因的异常对象
+Throwable getCause()
+3、获取构造这个对象时待用堆栈的跟踪
+StackTraceElement[] getStackTrace()
+4、为一个增加抑制异常
+void addSuppressed(Throwable t)
+5、获取异常的所有抑制异常
+Throwable[] getSuppressed()
+*&#x2F;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h3 id="7-3-使用异常机制技巧"><a href="#7-3-使用异常机制技巧" class="headerlink" title="7.3 使用异常机制技巧"></a>7.3 使用异常机制技巧</h3><ol>
+<li>异常处理不能代替简单的测试</li>
+<li>不要过分细化异常</li>
+<li>利用异常层次结构</li>
+<li>不要压制异常</li>
+<li>检查错误时，苛刻要比放任更好</li>
+<li>不要羞于传递异常</li>
+</ol>
+<h3 id="7-4-断言"><a href="#7-4-断言" class="headerlink" title="7.4 断言"></a>7.4 断言</h3><p>确信某个属性符合要求，并且代码的执行依赖这个属性，语法为 <code>assert 条件</code>和 <code>assert 条件 : 表达式</code>，表达式的目的时产生一个消息字符串。默认情况下，断言是被禁用的。</p>
+<ul>
+<li>开启断言，-enableassertions 或 -ea</li>
+<li>关闭断言，-disablesssertions 或 -da</li>
+</ul>
+<p>断言只用于开发和测试阶段。</p>
+<h3 id="7-5-日志"><a href="#7-5-日志" class="headerlink" title="7.5 日志"></a>7.5 日志</h3><h4 id="7-5-1-日志对象"><a href="#7-5-1-日志对象" class="headerlink" title="7.5.1 日志对象"></a>7.5.1 日志对象</h4><pre class="line-numbers language-java" data-language="java"><code class="language-java">&#x2F;&#x2F; 全局日志记录器
+Logger.getGlobal().info(&quot;&quot;);
+
+&#x2F;&#x2F; getLogger 创建或获取记录器，声明为静态变量是防止被垃圾回收
+private static final Logger myLogger &#x3D; Logger.getLogger(&quot;top.reajason.corejava&quot;)<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>与包名类似，日志记录器名也具有层次结构，子记录器会继承父记录器的级别。7 个日志记录器级别如下：</p>
+<ul>
+<li>SEVERE</li>
+<li>WARNING</li>
+<li>INFO</li>
+<li>CONFIG</li>
+<li>FINE</li>
+<li>FINER</li>
+<li>FINEST</li>
+</ul>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java">&#x2F;&#x2F; 设置日志级别,Level.ALL 开启所有级别，Level.OFF 关闭所有级别
+logger.setLevel(Level.FINE);
+
+&#x2F;&#x2F; 记录日志
+logger.waring(message);
+logger.info(message);
+logger.log(Level.FINE, message);<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h4 id="7-5-2-日志管理器配置"><a href="#7-5-2-日志管理器配置" class="headerlink" title="7.5.2 日志管理器配置"></a>7.5.2 日志管理器配置</h4><p>默认情况下，配置位于：<code>jre/lib/logging.prperties</code></p>
+<h4 id="7-5-3-处理器"><a href="#7-5-3-处理器" class="headerlink" title="7.5.3 处理器"></a>7.5.3 处理器</h4><p>默认是 ConsoleHandler 控制台处理器</p>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java">&#x2F;&#x2F; 添加文件的处理器，还有其他处理器例如 StreamHandler
+FileHandler handler &#x3D; new FileHnadler();
+logger.addHandler(handler);<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+
+<p>自定义处理器需要扩展 Handler 类，并实现 publish、flush 和 close 方法。</p>
+<h4 id="7-5-4-过滤器"><a href="#7-5-4-过滤器" class="headerlink" title="7.5.4 过滤器"></a>7.5.4 过滤器</h4><p>同一时刻只能有一个过滤器，通过实现 Fileter 接口并定义 isLoggable 方法自定义过滤器，使用 setFilter 方法添加过滤器。</p>
+<h4 id="7-5-5-格式化器"><a href="#7-5-5-格式化器" class="headerlink" title="7.5.5 格式化器"></a>7.5.5 格式化器</h4><p>扩展 Formatter 类并实现 format 方法，进行格式化，使用 setFormatter 方法加入到处理器中。</p>
+<h3 id="7-6-调试技巧"><a href="#7-6-调试技巧" class="headerlink" title="7.6 调试技巧"></a>7.6 调试技巧</h3><ol>
+<li>打印或记录任意变量值</li>
+<li>类中加入 main 方法进行单元测试</li>
+<li>使用 JUnit 进行测试</li>
+<li>日志代理</li>
+<li>利用 Throwable 类提供的 printStackTrace 方法，打印堆栈情况，并重新抛出异常。</li>
+<li>堆栈轨迹显示在 System.err 上，将错误信息保存在文件中</li>
+<li>查看类的加载过程，使用 -verbose 启动虚拟机</li>
+<li>-Xlint 告诉编译器对普遍容易出现的代码问题进行检查</li>
+<li>jconsole processID 可以监控和管理程序</li>
+<li>jmap 可以获得堆的转储</li>
+<li>-Xprof 标志运行虚拟机，就会将进场被调用的方法的剖析信息发送到 System.out 中</li>
+</ol>
+<h2 id="8-泛型程序设计"><a href="#8-泛型程序设计" class="headerlink" title="8 泛型程序设计"></a>8 泛型程序设计</h2><p>泛型程序设计意味着编写的代码可以被很多类型的对象所重用。泛型提供了类型参数，使程序具有更好的可读性和安全性。</p>
+<h3 id="8-1-定义简单泛型类"><a href="#8-1-定义简单泛型类" class="headerlink" title="8.1 定义简单泛型类"></a>8.1 定义简单泛型类</h3><p>泛型类就是具有一个或多个类型变量的类。</p>
+<p>Java 中，E 表示集合的元素类型；K 和 V 分别表示表的关键字和值的类型；T（U 或 S）表示 “任意类型”。</p>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java">public class Pair&lt;T&gt;&#123;
+    private T first;
+    private T second;
+
+    public Pair()&#123;
+        first &#x3D; null;
+        second &#x3D; null;
+    &#125;
+
+    public Pair(T first, T second)&#123;
+        this.first &#x3D; first;
+        this.second &#x3D; second;
+    &#125;
+
+    public T getFirst()&#123;
+        return first;
+    &#125;
+
+    public T getSecond()&#123;
+        return second;
+    &#125;
+
+    public void setFirst(T value)&#123;
+        first &#x3D; value;
+    &#125;
+
+    public void setSecond(T value)&#123;
+        second &#x3D; value;
+    &#125;
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>类定义中的类型变量指定方法的返回类型以及域和局部变量的类型，可用具体的类型替换类型变量就可以实例化泛型类型。</p>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java">Pair&lt;String&gt;;
+
+&#x2F;* 将 String 替换类型变量 T 得到 Piar 类
+Pair&lt;String&gt;()
+pair&lt;String&gt;(String, String)
+String getFirst()
+String getSecond()
+void setFirst(String)
+void setSecond(String)
+*&#x2F;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h3 id="8-2-泛型方法"><a href="#8-2-泛型方法" class="headerlink" title="8.2 泛型方法"></a>8.2 泛型方法</h3><p>类型变量放在修饰符之后，返回值类型前，泛型方法可定义在普通类也可定义在泛型类中。</p>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java">class ArrayAlg&#123;
+    public static &lt;T&gt; T getMiddle(T... a)&#123;
+        return a[a.length &#x2F; 2];
+    &#125;
+&#125;
+
+&#x2F;&#x2F; 调用时方法名前的尖括号放入具体类型
+ArrayAlg.&lt;String&gt;getMiddle(&quot;John&quot;, &quot;Q&quot;, &quot;Public&quot;);
+
+&#x2F;&#x2F; 也可省略，后面的参数 String 足以推出 T 是 String
+ArrayAlg.getMiddle(&quot;John&quot;, &quot;Q&quot;, &quot;Public&quot;);<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h3 id="8-3-类型变量的限定"><a href="#8-3-类型变量的限定" class="headerlink" title="8.3 类型变量的限定"></a>8.3 类型变量的限定</h3><p><code>&lt;T extends BoundingType&gt;</code> 表示 T 应该是绑定类型的子类型，T 和绑定类型可以是类也可以是接口。一个类型变量或通配符可有多个限定，使用 &amp; 分隔，限定中至多一个类，且类要放在第一个。</p>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java">class ArrayAlg&#123;
+    public static &lt;T extends Comparable&gt; Pair&lt;T&gt; minmax(T[] a)&#123;
+        ...
+        return new Pair&lt;&gt;(a[0], a[a.length - 1]);
+    &#125;
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h3 id="8-4-泛型代码与虚拟机"><a href="#8-4-泛型代码与虚拟机" class="headerlink" title="8.4 泛型代码与虚拟机"></a>8.4 泛型代码与虚拟机</h3><p>虚拟机没有泛型类型对象，所有对象都是普通类。</p>
+<h4 id="8-4-1-类型擦除"><a href="#8-4-1-类型擦除" class="headerlink" title="8.4.1 类型擦除"></a>8.4.1 类型擦除</h4><p>泛型类型都会自动提供一个相应的原始类型。原始类型的名字就是删去类型参数后的泛型类型名。擦除类型变量，并替换为限定类型（无限定类型，替换为 Object）。</p>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java">&#x2F;&#x2F; Pair&lt;T&gt; 会变成以下情况
+public class Pair&#123;
+    private Object first;
+    private Object second;
+
+    public Pair()&#123;
+        first &#x3D; null;
+        second &#x3D; null;
+    &#125;
+
+    public Pair(Object first, Object second)&#123;
+        this.first &#x3D; first;
+        this.second &#x3D; second;
+    &#125;
+
+    public Object getFirst()&#123;
+        return first;
+    &#125;
+
+    public Object getSecond()&#123;
+        return second;
+    &#125;
+
+    public void setFirst(Object value)&#123;
+        first &#x3D; value;
+    &#125;
+
+    public void setSecond(Object value)&#123;
+        second &#x3D; value;
+    &#125;
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h4 id="8-4-2-翻译泛型表达式"><a href="#8-4-2-翻译泛型表达式" class="headerlink" title="8.4.2 翻译泛型表达式"></a>8.4.2 翻译泛型表达式</h4><p>调用泛型方法或者存取泛型域时，编译器会自动插入强制类型转换。</p>
+<h4 id="8-4-3-翻译泛型方法"><a href="#8-4-3-翻译泛型方法" class="headerlink" title="8.4.3 翻译泛型方法"></a>8.4.3 翻译泛型方法</h4><p>子类继承泛型类并且子类重写泛型类中的泛型方法制定了确定类型，为了防止类型擦除与多态发生冲突，编译器会在子类生成一个桥方法，虚拟机运行时会调用子类桥方法。</p>
+<ul>
+<li>虚拟机没有泛型，只有普通的类和方法</li>
+<li>所有参数类型都用它们的限定类型替换</li>
+<li>桥方法被合成用来保持多态</li>
+<li>为保持类型安全，必要时插入强制类型转换</li>
+</ul>
+<h4 id="8-4-4-调用遗留代码"><a href="#8-4-4-调用遗留代码" class="headerlink" title="8.4.4 调用遗留代码"></a>8.4.4 调用遗留代码</h4><p>设计泛型类型时，主要目标是运行泛型代码和遗留代码互操作。</p>
+<p><code>@SuppressWarning(&quot;unchecked&quot;)</code> 可以抑制警告</p>
+<h3 id="8-5-约束和局限性"><a href="#8-5-约束和局限性" class="headerlink" title="8.5 约束和局限性"></a>8.5 约束和局限性</h3><h4 id="8-5-1-不能用基本类型实例化类型参数"><a href="#8-5-1-不能用基本类型实例化类型参数" class="headerlink" title="8.5.1 不能用基本类型实例化类型参数"></a>8.5.1 不能用基本类型实例化类型参数</h4><p>原因是类型擦除</p>
+<h4 id="8-5-2-运行时类型查询只适用于原始类型"><a href="#8-5-2-运行时类型查询只适用于原始类型" class="headerlink" title="8.5.2 运行时类型查询只适用于原始类型"></a>8.5.2 运行时类型查询只适用于原始类型</h4><p>虚拟机中的对象总是一个特定的非泛型方法，所以类型查询只产生原始类型。</p>
+<h4 id="8-5-3-不能创建参数化类型数组"><a href="#8-5-3-不能创建参数化类型数组" class="headerlink" title="8.5.3 不能创建参数化类型数组"></a>8.5.3 不能创建参数化类型数组</h4><p>类型擦除，会使 <code>Pair&lt;String&gt;[] table</code> 变成 <code>Pair[] table</code>，可以声明但是使用会有问题，会得到一个警告，可以使用注解抑制警告 <code>@SuppressWarning(&quot;unchecked&quot;)</code> 或 <code>@SafeVarargs</code></p>
+<h4 id="8-5-4-不能实例化类型变量"><a href="#8-5-4-不能实例化类型变量" class="headerlink" title="8.5.4 不能实例化类型变量"></a>8.5.4 不能实例化类型变量</h4><p>new T() 不能使用，因为类型擦除，T 变成 Object 了，可以使用构造器表达式解决。</p>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java">&#x2F;&#x2F; 使用 Supplier&lt;T&gt; 表示一个无参数且返回值时 T 的函数
+public static &lt;T&gt; Pair&lt;T&gt; makePair(Supplier&lt;T&gt; constr)&#123;
+    return new Pair&lt;&gt;(constr.get, constr.get());
+&#125;
+
+&#x2F;&#x2F; 调用
+Pair&lt;String&gt; p &#x3D; Pair.makePair(String::new);
+
+&#x2F;&#x2F; 使用反射
+public static &lt;T&gt; Pair&lt;T&gt; makePair(Class&lt;T&gt; cl)&#123;
+    try&#123;
+        return new Pair&lt;&gt;(cl.newInstance(), cl.newInstance());
+    &#125;catch(Exception e)&#123;
+        return null;
+    &#125;
+&#125;
+
+&#x2F;&#x2F; 调用
+Pair&lt;String&gt; p &#x3D; Pair.makePair(String.class);<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h4 id="8-5-5-不能构造泛型数组"><a href="#8-5-5-不能构造泛型数组" class="headerlink" title="8.5.5 不能构造泛型数组"></a>8.5.5 不能构造泛型数组</h4><h4 id="8-5-6-泛型类的静态上下文中类型变量无效"><a href="#8-5-6-泛型类的静态上下文中类型变量无效" class="headerlink" title="8.5.6 泛型类的静态上下文中类型变量无效"></a>8.5.6 泛型类的静态上下文中类型变量无效</h4><h4 id="8-5-7-不能抛出或捕获泛型类的实例"><a href="#8-5-7-不能抛出或捕获泛型类的实例" class="headerlink" title="8.5.7 不能抛出或捕获泛型类的实例"></a>8.5.7 不能抛出或捕获泛型类的实例</h4><h4 id="8-5-8-可以消除对受查异常的检查"><a href="#8-5-8-可以消除对受查异常的检查" class="headerlink" title="8.5.8 可以消除对受查异常的检查"></a>8.5.8 可以消除对受查异常的检查</h4><h4 id="8-5-9-注意擦除后的冲突"><a href="#8-5-9-注意擦除后的冲突" class="headerlink" title="8.5.9 注意擦除后的冲突"></a>8.5.9 注意擦除后的冲突</h4><h3 id="8-6-泛型类型的继承规则"><a href="#8-6-泛型类型的继承规则" class="headerlink" title="8.6 泛型类型的继承规则"></a>8.6 泛型类型的继承规则</h3><p><code>Pair&lt;Manager&gt;</code> 和 <code>Pair&lt;Employee&gt;</code> 没有任何关系。可以将参数化类型转换为原始类型，泛型类可以扩展或实现其他的泛型类。</p>
+<h3 id="8-7-通配符类型"><a href="#8-7-通配符类型" class="headerlink" title="8.7 通配符类型"></a>8.7 通配符类型</h3><p>通配符类型，允许类型参数变化。<code>Pair&lt;? extends Employee&gt;</code> 表示类型参数是 Employee 的子类。<code>Pair&lt;? super Manager&gt;</code> 表示类型参数是 Manager 的超类。</p>
+<p><code>?</code> 表示无限定通配符。</p>
+<h2 id="9-集合"><a href="#9-集合" class="headerlink" title="9 集合"></a>9 集合</h2><h3 id="9-1-集合框架"><a href="#9-1-集合框架" class="headerlink" title="9.1 集合框架"></a>9.1 集合框架</h3><p>集合接口与实现分离，集合有两个基本接口 Collection 和 Map。</p>
+<h4 id="9-1-1-Collection-接口"><a href="#9-1-1-Collection-接口" class="headerlink" title="9.1.1 Collection 接口"></a>9.1.1 Collection 接口</h4><pre class="line-numbers language-java" data-language="java"><code class="language-java">&#x2F;*
+Iterator&lt;E&gt; iterator()
+int Size()
+boolean isEmpty()
+boolean contains(Object obj)
+boolean containsAll(Collection&lt;?&gt; other)
+boolean add(Object element)
+boolean addAll(Collection&lt;? extends E&gt; other)
+boolean remove(Object obj)
+boolean removeAll(Collection&lt;?&gt; other)
+default boolean removeIf(Predicate&lt;? super E&gt; filter)
+void clear()
+boolean retainAll(Collection&lt;?&gt; other)
+Object[] toArray()
+&lt;T&gt; T[] toArray(T[] arrayToFill)
+*&#x2F;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h4 id="9-1-2-Iterator"><a href="#9-1-2-Iterator" class="headerlink" title="9.1.2 Iterator"></a>9.1.2 Iterator</h4><p>迭代器认为是位于两个元素之间，remove 只能删除上次访问的元素，不能连续调用两次</p>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java">&#x2F;*
+boolean hasNext()
+E next()
+void remove()
+*&#x2F;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h3 id="9-2-具体的集合"><a href="#9-2-具体的集合" class="headerlink" title="9.2 具体的集合"></a>9.2 具体的集合</h3><table>
+<thead>
+<tr>
+<th>集合类型</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>ArrayList</td>
+<td>一种可以动态增长和缩减的索引序列</td>
+</tr>
+<tr>
+<td>LinkedList</td>
+<td>一种可以在任何位置进行搞笑地插入和删除操作的有序序列</td>
+</tr>
+<tr>
+<td>ArrayDeque</td>
+<td>一种用循环数组实现的双端队列</td>
+</tr>
+<tr>
+<td>HashSet</td>
+<td>一种没有重复元素的无序集合</td>
+</tr>
+<tr>
+<td>TreeSet</td>
+<td>一种有序集</td>
+</tr>
+<tr>
+<td>EnumSet</td>
+<td>一种包含枚举类型的值</td>
+</tr>
+<tr>
+<td>LinkedHashSet</td>
+<td>一种可以记住元素插入次序的集</td>
+</tr>
+<tr>
+<td>PriorityQueue</td>
+<td>一种允许高效删除最小元素的集合</td>
+</tr>
+<tr>
+<td>HashMap</td>
+<td>一种存储键值关联的数据结构</td>
+</tr>
+<tr>
+<td>TreeMap</td>
+<td>一种键值有序排列的映射表</td>
+</tr>
+<tr>
+<td>EnumMap</td>
+<td>一种键值属于枚举类型的映射表</td>
+</tr>
+<tr>
+<td>LinkedHashMap</td>
+<td>一种可以记住键值项添加次序的映射表</td>
+</tr>
+<tr>
+<td>WeakHashMap</td>
+<td>一种其值无用武之地后可以被垃圾回收回收的映射表</td>
+</tr>
+<tr>
+<td>IdentityHashMap</td>
+<td>一种用 &#x3D;&#x3D; 而不是用 equals 比较键值的映射表</td>
+</tr>
+</tbody></table>
+<h4 id="9-2-1-链表"><a href="#9-2-1-链表" class="headerlink" title="9.2.1 链表"></a>9.2.1 链表</h4><p>插入和删除操作高效，ListIterator 继承于 Iterator 支持添加、修改值和反向遍历。Java 设计上不合理，不要使用 get 获取链表上的元素，每次都需要从头遍历，应该使用迭代器。LinkedList 继承于 List</p>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java">&#x2F;* List
+ListIterator&lt;E&gt; listIterator()
+ListIterator&lt;E&gt; listIterator(int index)
+void add(int i, E element)
+void addAll(int i, Collection&lt;? extends E&gt; elements)
+E remove(int i)
+E get(int i)
+E set(int i, E element)
+int indexOf(Object emelent)
+int lastIndexOf(Object element)
+*&#x2F;
+
+&#x2F;* ListIterator
+void add(E newElement)
+void set(E newElement)
+boolean hasPrevious()
+E previous()
+int nextiIndex()
+int previousIndex()
+*&#x2F;
+
+&#x2F;*
+LinkedList()
+LinkedList(Collection&lt;? extends E&gt; elements)
+void addFirst(E element)
+void addLast(E element)
+E getFirst()
+E getLast()
+E removeFirst()
+E removeLast()
+*&#x2F;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h4 id="9-2-2-数组链表"><a href="#9-2-2-数组链表" class="headerlink" title="9.2.2 数组链表"></a>9.2.2 数组链表</h4><p>ArrayList 继承于 List，可以随机遍历数组</p>
+<h4 id="9-2-3-散列集"><a href="#9-2-3-散列集" class="headerlink" title="9.2.3 散列集"></a>9.2.3 散列集</h4><p>HashSet 继承于 Set，没有重复元素的集合</p>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java">&#x2F;*
+HashSet()
+HashSet(Collection&lt;? extends E&gt; element)
+HashSet(int initialCapacity)
+HashSet(int initialCapacity, float loadFactor)
+*&#x2F;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h4 id="9-2-4-树集"><a href="#9-2-4-树集" class="headerlink" title="9.2.4 树集"></a>9.2.4 树集</h4><p>TreeSet 有序集合，排序使用的红黑树结构，要使用树集，元素必须实现 Comparable 接口，或构造集时提供 Comparator</p>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java">&#x2F;* TreeSet
+TreeSet()
+TreeSet(Comparator&lt;? super E&gt; comparator)
+TreeSet(Collection&lt;? extends E&gt; elements)
+TreeSet(SortedSet&lt;E&gt; s)
+*&#x2F;
+
+&#x2F;* SortedSet
+Comparator&lt;? super E&gt; comparator()
+E first()
+E last()
+*&#x2F;
+
+&#x2F;* NavigableSet
+E higher(E value)
+E lower(E value)
+E ceiling(E value)
+E floor(E value)
+E pollFirst()
+E pollLast()
+Iterator&lt;E&gt; descendingIterator()
+*&#x2F;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h4 id="9-2-5-队列"><a href="#9-2-5-队列" class="headerlink" title="9.2.5 队列"></a>9.2.5 队列</h4><p>双端队列，高效地在头部和尾部同时进行添加或删除元素，不支持在队列中间添加元素，ArrayDeque 和 LinkedList 有实现。</p>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java">&#x2F;* Queue 队列
+boolean add(E element)
+boolean offer(E element)
+E remove()
+E poll()
+E element()
+E peek()
+*&#x2F;
+
+&#x2F;* Deque 双端队列
+void addFirst(E element)
+void addLast(E element)
+boolean offerFirst(E element)
+boolean offerLast(E element)
+E removeFirst()
+E removeLast()
+E pollFirst()
+E pollLast()
+E getFirst()
+E getLast()
+E peekFirst()
+E peekLast()
+*&#x2F;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h4 id="9-2-6-优先级队列"><a href="#9-2-6-优先级队列" class="headerlink" title="9.2.6 优先级队列"></a>9.2.6 优先级队列</h4><p>堆结构，小根堆，大根堆</p>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java">&#x2F;*
+PriorityQueue()
+PriorityQueue(int initialCapcity)
+PriorityQueue(int initialCapcity, Comparator&lt;? super E&gt; c)
+*&#x2F;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h3 id="9-3-映射"><a href="#9-3-映射" class="headerlink" title="9.3 映射"></a>9.3 映射</h3><p>HashMap 和 TreeMap 都实现了 Map 接口。键必须是唯一的</p>
+<h4 id="9-3-1-基本映射操作"><a href="#9-3-1-基本映射操作" class="headerlink" title="9.3.1 基本映射操作"></a>9.3.1 基本映射操作</h4><pre class="line-numbers language-java" data-language="java"><code class="language-java">&#x2F;* Map
+V get(Object key)
+default V getOrDefault(Object key, V defaultValue)
+V put(K key, V value)
+void putAll(Map&lt;? extends K, ? extends V&gt; entries)
+boolean containsKey(Object key)
+boolean containsValue(Object value)
+default void forEach(BiConsumer&lt;? super K, ? super V&gt; action)
+*&#x2F;
+
+&#x2F;* HashMap
+HashMap()
+HashMap(int initialCapacity)
+HashMap(int initialCapacity, float loadFactor)
+*&#x2F;
+
+&#x2F;* TreeMap
+TreeMap()
+TreeMap(Comparator&lt;? super K&gt; c)
+TreeMap(Map&lt;? extends K, ? extends V&gt; entries)
+TreeMap(SortedMap&lt;? extends K, ? extends V&gt; entries)
+*&#x2F;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h4 id="9-3-2-更新映射项"><a href="#9-3-2-更新映射项" class="headerlink" title="9.3.2 更新映射项"></a>9.3.2 更新映射项</h4><pre class="line-numbers language-java" data-language="java"><code class="language-java">&#x2F;* Map
+default V merge(K key, V value, BitFunction&lt;? super V, ? super V,? extends V&gt; remappingFunction)
+default V compute(K key, BitFunction&lt;? super K, ? super V, ? extends V&gt; remappingFunction)
+*&#x2F;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h4 id="9-3-3-映射视图"><a href="#9-3-3-映射视图" class="headerlink" title="9.3.3 映射视图"></a>9.3.3 映射视图</h4><p>映射的视图（实现了 Collection 接口或某个子接口的对象）有三种：键集、值集合以及键值对集。</p>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java">Set&lt;K&gt; keySet();
+Collection&lt;V&gt; values();
+Set&lt;Map.Entry&lt;K,V&gt;&gt; entrySet();<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+
+<h4 id="9-3-4-弱散列映射"><a href="#9-3-4-弱散列映射" class="headerlink" title="9.3.4 弱散列映射"></a>9.3.4 弱散列映射</h4><p>WeakHashMap，当对键的唯一引用来自散列条目时，这一数据结构将与垃圾回收器协同删除键值对。使用弱引用保存键。</p>
+<h4 id="9-3-5-链接散列集与映射"><a href="#9-3-5-链接散列集与映射" class="headerlink" title="9.3.5 链接散列集与映射"></a>9.3.5 链接散列集与映射</h4><p>LinkedHashSet 和 LinkedHashMap 能记住插入元素的顺序。</p>
+<h4 id="9-3-6-枚举集与映射"><a href="#9-3-6-枚举集与映射" class="headerlink" title="9.3.6 枚举集与映射"></a>9.3.6 枚举集与映射</h4><p>EnumSet内部用位序列实现。EnumMap 是一个键类型为枚举类型的映射</p>
+<h4 id="9-3-7-标识散列映射"><a href="#9-3-7-标识散列映射" class="headerlink" title="9.3.7 标识散列映射"></a>9.3.7 标识散列映射</h4><p>IdentityHashMap 使用 &#x3D;&#x3D; 而不是 equals 比较两个对象</p>
+<h3 id="9-4-视图与包装类"><a href="#9-4-视图与包装类" class="headerlink" title="9.4 视图与包装类"></a>9.4 视图与包装类</h3><p>keySet 方法返回一个实现 Set 接口的类对象，这个类的方法对原映射进行操作，这种集合称为视图。</p>
+<h4 id="9-4-1-轻量集合包装器"><a href="#9-4-1-轻量集合包装器" class="headerlink" title="9.4.1 轻量集合包装器"></a>9.4.1 轻量集合包装器</h4><pre class="line-numbers language-java" data-language="java"><code class="language-java">&#x2F;* Arrays 返回数组列表视图
+List&lt;E&gt; asList(E... array)
+*&#x2F;
+
+&#x2F;* Collections，获取不可修改集合
+static &lt;E&gt; List&lt;E&gt; nCopies(int n, E value)
+static &lt;E&gt; Set&lt;E&gt; singleton(E value)
+static &lt;E&gt; List&lt;E&gt; singletonList(E value)
+*&#x2F;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h4 id="9-4-2-子范围"><a href="#9-4-2-子范围" class="headerlink" title="9.4.2 子范围"></a>9.4.2 子范围</h4><pre class="line-numbers language-java" data-language="java"><code class="language-java">&#x2F;* List
+subList(int firstIncluded, int firstExcluded)
+*&#x2F;
+
+&#x2F;*
+subSet()
+subMap()
+*&#x2F;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h4 id="9-4-3-不可修改的视图"><a href="#9-4-3-不可修改的视图" class="headerlink" title="9.4.3 不可修改的视图"></a>9.4.3 不可修改的视图</h4><p>Collections 有方法获取集合不可修改视图，如果尝试修改则抛出异常。</p>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java">&#x2F;*
+static &lt;E&gt; Collection unmodifiableCollection(Collection&lt;&gt;E c)
+......
+*&#x2F;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h4 id="9-4-4-同步视图"><a href="#9-4-4-同步视图" class="headerlink" title="9.4.4 同步视图"></a>9.4.4 同步视图</h4><p>使用视图机制确保常规集合的线程安全。</p>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java">&#x2F;*
+static &lt;E&gt; Collection&lt;E&gt; synchronizedCollection(Collection&lt;E&gt; c)
+......
+*&#x2F;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h4 id="9-4-5-受查视图"><a href="#9-4-5-受查视图" class="headerlink" title="9.4.5 受查视图"></a>9.4.5 受查视图</h4><p>受查视图可以探测到集合不能探测到的代码问题，受查视图受限于虚拟机可以运行的运行时检查</p>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java">&#x2F;*
+static &lt;E&gt; Collection&lt;E&gt; checkedCollection(Collection&lt;E&gt; c)
+......
+*&#x2F;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h3 id="9-5-算法"><a href="#9-5-算法" class="headerlink" title="9.5 算法"></a>9.5 算法</h3><h4 id="9-5-1-排序与混排"><a href="#9-5-1-排序与混排" class="headerlink" title="9.5.1 排序与混排"></a>9.5.1 排序与混排</h4><p>Arrays.sort()</p>
+<h4 id="9-5-2-二分查找"><a href="#9-5-2-二分查找" class="headerlink" title="9.5.2 二分查找"></a>9.5.2 二分查找</h4><p>Collections.binarySearch()</p>
+<h4 id="9-5-3-Collections-其他"><a href="#9-5-3-Collections-其他" class="headerlink" title="9.5.3 Collections 其他"></a>9.5.3 Collections 其他</h4><pre class="line-numbers language-java" data-language="java"><code class="language-java">&#x2F;* Collections
+T min(Collection&lt;T&gt; elements)
+T max(Collection&lt;T&gt; elements)
+void copy(List&lt;? super T&gt; to, List&lt;T&gt; from)
+void fill(List&lt;? super T&gt; l, T value)
+void swap(List&lt;?&gt; l, int i, int j)
+void reverse(List&lt;?&gt; l)
+旋转列表元素
+void rotate(List&lt;?&gt; l, int d)
+获取与 o 相同元素个数
+int frequency(Collection&lt;?&gt; c, Object o)
+两集合没有共同元素返回 true
+boolean disjoint(Collection&lt;?&gt; cl, Collection&lt;?&gt; c2)
+*&#x2F;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h4 id="9-5-4-集合与数组转换"><a href="#9-5-4-集合与数组转换" class="headerlink" title="9.5.4 集合与数组转换"></a>9.5.4 集合与数组转换</h4><p>数组转集合，Arrays.asList()</p>
+<p>集合转数组，list.toArray() 返回 Object[]，转为特定类型需要使用 list.toArray(new String[0]) 或 list.toArray(new String[list.size()]) 这种不会创建新数组</p>
+<h4 id="9-5-5-编写自己的算法"><a href="#9-5-5-编写自己的算法" class="headerlink" title="9.5.5 编写自己的算法"></a>9.5.5 编写自己的算法</h4><p>集合声明时应该尽可能使用接口而非具体的实现，返回集合的方法，可能还要返回接口，而不是返回类。</p>
+<h3 id="9-6-遗留的集合"><a href="#9-6-遗留的集合" class="headerlink" title="9.6 遗留的集合"></a>9.6 遗留的集合</h3><h4 id="9-6-1-Hashtable"><a href="#9-6-1-Hashtable" class="headerlink" title="9.6.1 Hashtable"></a>9.6.1 Hashtable</h4><p>Hashtable 与 HashMap 作用一样</p>
+<h4 id="9-6-2-枚举"><a href="#9-6-2-枚举" class="headerlink" title="9.6.2 枚举"></a>9.6.2 枚举</h4><p>hasMoreElements 和 nextElement 与迭代器的 hasNext 和 next 方法相似。</p>
+<h4 id="9-6-3-属性映射"><a href="#9-6-3-属性映射" class="headerlink" title="9.6.3 属性映射"></a>9.6.3 属性映射</h4><ul>
+<li>键值都是字符串</li>
+<li>表可以保存到文件，也可以从文件加载</li>
+<li>使用一个默认的辅助表</li>
+</ul>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java">&#x2F;* Properties
+Properties()
+Properties(Properties defaults)
+String getProperty(String key)
+String getProperty(String key, String defaultValue)
+从输入流中加载属性映射
+void load(InputStream in)
+将属性映射存储到输出流中
+void store(OutputStream out, String commentString)
+*&#x2F;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h4 id="9-6-4-栈"><a href="#9-6-4-栈" class="headerlink" title="9.6.4 栈"></a>9.6.4 栈</h4><pre class="line-numbers language-java" data-language="java"><code class="language-java">&#x2F;* Stack
+E push(E item)
+E pop()
+E peek()
+*&#x2F;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h4 id="9-6-5-位集"><a href="#9-6-5-位集" class="headerlink" title="9.6.5 位集"></a>9.6.5 位集</h4><p>BitSet 存放一个位序列，高效</p>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java">&#x2F;*
+BitSet(int initialCapacity)
+int length()
+boolean get(int bit)
+void set(int bit)
+void clear(int bit)
+void add(BitSet set)
+void or(BitSet set)
+void xor(BitSet set)
+void andNot(BitSet set)
+*&#x2F;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h2 id="13-部署-Java-应用程序"><a href="#13-部署-Java-应用程序" class="headerlink" title="13 部署 Java 应用程序"></a>13 部署 Java 应用程序</h2><h3 id="13-1-JAR-文件"><a href="#13-1-JAR-文件" class="headerlink" title="13.1 JAR 文件"></a>13.1 JAR 文件</h3><h4 id="13-1-1-创建-JAR-文件"><a href="#13-1-1-创建-JAR-文件" class="headerlink" title="13.1.1 创建 JAR 文件"></a>13.1.1 创建 JAR 文件</h4><p><code>jar cvf JARFileName File1 File2</code></p>
+<h4 id="13-1-2-清单文件"><a href="#13-1-2-清单文件" class="headerlink" title="13.1.2 清单文件"></a>13.1.2 清单文件</h4><p><code>jar cfm JARFileName MainifestFileName ...</code></p>
+<h4 id="13-1-3-可执行-JAR"><a href="#13-1-3-可执行-JAR" class="headerlink" title="13.1.3 可执行 JAR"></a>13.1.3 可执行 JAR</h4><p>使用 e 指定程序入口，或在清单中国指定</p>
+<p><code>jar cvfe MyProgram.jar com.mycompany.mypkg.MainAppClass ...</code></p>
+<p>启动 jar：<code>jar -jar MyProgram.jar</code></p>
+<h4 id="13-1-4-资源"><a href="#13-1-4-资源" class="headerlink" title="13.1.4 资源"></a>13.1.4 资源</h4><p>文件的自动装载是利用资源加载特性完成的。</p>
+<h4 id="13-1-5-密封"><a href="#13-1-5-密封" class="headerlink" title="13.1.5 密封"></a>13.1.5 密封</h4><p>在清单中加入 <code>Sealed: true</code> 则指定密封</p>
+<h3 id="13-2-应用首选项的存储"><a href="#13-2-应用首选项的存储" class="headerlink" title="13.2 应用首选项的存储"></a>13.2 应用首选项的存储</h3><h4 id="13-2-1-属性映射"><a href="#13-2-1-属性映射" class="headerlink" title="13.2.1 属性映射"></a>13.2.1 属性映射</h4><p>使用 properties 存储属性，获取主目录：<code>System.getProperties(&quot;user.home&quot;)</code></p>
+<h4 id="13-2-2-首选项-API"><a href="#13-2-2-首选项-API" class="headerlink" title="13.2.2 首选项 API"></a>13.2.2 首选项 API</h4><p>Preferences</p>
+
+                
+            </div>
+            <hr/>
+
+            
+
+    <div class="reprint" id="reprint-statement">
+        
+            <div class="reprint__author">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-user">
+                        文章作者:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="/about" rel="external nofollow noreferrer">John Faye</a>
+                </span>
+            </div>
+            <div class="reprint__type">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-link">
+                        文章链接:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="https://jojofaye99.github.io/2024/02/08/corejava/">https://jojofaye99.github.io/2024/02/08/corejava/</a>
+                </span>
+            </div>
+            <div class="reprint__notice">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-copyright">
+                        版权声明:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    本博客所有文章除特別声明外，均采用
+                    <a href="https://creativecommons.org/licenses/by/4.0/deed.zh" rel="external nofollow noreferrer" target="_blank">CC BY 4.0</a>
+                    许可协议。转载请注明来源
+                    <a href="/about" target="_blank">John Faye</a>
+                    !
+                </span>
+            </div>
+        
+    </div>
+
+    <script async defer>
+      document.addEventListener("copy", function (e) {
+        let toastHTML = '<span>复制成功，请遵循本文的转载规则</span><button class="btn-flat toast-action" onclick="navToReprintStatement()" style="font-size: smaller">查看</a>';
+        M.toast({html: toastHTML})
+      });
+
+      function navToReprintStatement() {
+        $("html, body").animate({scrollTop: $("#reprint-statement").offset().top - 80}, 800);
+      }
+    </script>
+
+
+
+            <div class="tag_share" style="display: block;">
+                <div class="post-meta__tag-list" style="display: inline-block;">
+                    
+                        <div class="article-tag">
+                            
+                                <a href="/tags/Note/">
+                                    <span class="chip bg-color">Note</span>
+                                </a>
+                            
+                        </div>
+                    
+                </div>
+                <div class="post_share" style="zoom: 80%; width: fit-content; display: inline-block; float: right; margin: -0.15rem 0;">
+                    <link rel="stylesheet" type="text/css" href="/libs/share/css/share.min.css">
+<div id="article-share">
+
+    
+    <div class="social-share" data-sites="twitter,facebook,google,qq,qzone,wechat,weibo,douban,linkedin" data-wechat-qrcode-helper="<p>微信扫一扫即可分享！</p>"></div>
+    <script src="/libs/share/js/social-share.min.js"></script>
+    
+
+    
+
+</div>
+
+                </div>
+            </div>
+            
+        </div>
+    </div>
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+<article id="prenext-posts" class="prev-next articles">
+    <div class="row article-row">
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge left-badge text-color">
+                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+            <div class="card">
+                <a href="/2024/03/11/designpattern/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/8.jpg" class="responsive-img" alt="设计模式的艺术一书的阅读笔记">
+                        
+                        <span class="card-title">设计模式的艺术一书的阅读笔记</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            
+                        
+                    </div>
+                    <div class="publish-info">
+                        <span class="publish-date">
+                            <i class="far fa-clock fa-fw icon-date"></i>2024-03-11
+                        </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/Reading/" class="post-category">
+                                    Reading
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/Notes/">
+                        <span class="chip bg-color">Notes</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
+            </div>
+            <div class="card">
+                <a href="/2024/01/10/cppstl/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/4.jpg" class="responsive-img" alt="C++ &amp; STL">
+                        
+                        <span class="card-title">C++ &amp; STL</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2024-01-10
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/Code/" class="post-category">
+                                    Code
+                                </a>
+                            
+                            <a href="/categories/Code/C/" class="post-category">
+                                    C++
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/STL/">
+                        <span class="chip bg-color">STL</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+    </div>
+</article>
+
+</div>
+
+
+<script>
+    $('#articleContent').on('copy', function (e) {
+        // IE8 or earlier browser is 'undefined'
+        if (typeof window.getSelection === 'undefined') return;
+
+        var selection = window.getSelection();
+        // if the selection is short let's not annoy our users.
+        if (('' + selection).length < Number.parseInt('50')) {
+            return;
+        }
+
+        // create a div outside of the visible area and fill it with the selected text.
+        var bodyElement = document.getElementsByTagName('body')[0];
+        var newdiv = document.createElement('div');
+        newdiv.style.position = 'absolute';
+        newdiv.style.left = '-99999px';
+        bodyElement.appendChild(newdiv);
+        newdiv.appendChild(selection.getRangeAt(0).cloneContents());
+
+        // we need a <pre> tag workaround.
+        // otherwise the text inside "pre" loses all the line breaks!
+        if (selection.getRangeAt(0).commonAncestorContainer.nodeName === 'PRE' || selection.getRangeAt(0).commonAncestorContainer.nodeName === 'CODE') {
+            newdiv.innerHTML = "<pre>" + newdiv.innerHTML + "</pre>";
+        }
+
+        var url = document.location.href;
+        newdiv.innerHTML += '<br />'
+            + '来源: 造梦空间<br />'
+            + '文章作者: John Faye<br />'
+            + '文章链接: <a href="' + url + '">' + url + '</a><br />'
+            + '本文章著作权归作者所有，任何形式的转载都请注明出处。';
+
+        selection.selectAllChildren(newdiv);
+        window.setTimeout(function () {bodyElement.removeChild(newdiv);}, 200);
+    });
+</script>
+
+
+<!-- 代码块功能依赖 -->
+<script type="text/javascript" src="/libs/codeBlock/codeBlockFuction.js"></script>
+
+
+  <!-- 是否加载使用自带的 prismjs. -->
+  <script type="text/javascript" src="/libs/prism/prism.min.js"></script>
+
+
+<!-- 代码语言 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeLang.js"></script>
+
+
+<!-- 代码块复制 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeCopy.js"></script>
+
+
+<!-- 代码块收缩 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeShrink.js"></script>
+
+
+
+    </div>
+    <div id="toc-aside" class="expanded col l3 hide-on-med-and-down">
+        <div class="toc-widget card" style="background-color: white;">
+            <div class="toc-title"><i class="far fa-list-alt"></i>&nbsp;&nbsp;目录</div>
+            <div id="toc-content"></div>
+        </div>
+    </div>
+</div>
+
+<!-- TOC 悬浮按钮. -->
+
+<div id="floating-toc-btn" class="hide-on-med-and-down">
+    <a class="btn-floating btn-large bg-color">
+        <i class="fas fa-list-ul"></i>
+    </a>
+</div>
+
+
+<script src="/libs/tocbot/tocbot.min.js"></script>
+<script>
+    $(function () {
+        tocbot.init({
+            tocSelector: '#toc-content',
+            contentSelector: '#articleContent',
+            headingsOffset: -($(window).height() * 0.4 - 45),
+            collapseDepth: Number('0'),
+            headingSelector: 'h2, h3, h4'
+        });
+
+        // Set scroll toc fixed.
+        let tocHeight = parseInt($(window).height() * 0.4 - 64);
+        let $tocWidget = $('.toc-widget');
+        $(window).scroll(function () {
+            let scroll = $(window).scrollTop();
+            /* add post toc fixed. */
+            if (scroll > tocHeight) {
+                $tocWidget.addClass('toc-fixed');
+            } else {
+                $tocWidget.removeClass('toc-fixed');
+            }
+        });
+
+        
+        /* 修复文章卡片 div 的宽度. */
+        let fixPostCardWidth = function (srcId, targetId) {
+            let srcDiv = $('#' + srcId);
+            if (srcDiv.length === 0) {
+                return;
+            }
+
+            let w = srcDiv.width();
+            if (w >= 450) {
+                w = w + 21;
+            } else if (w >= 350 && w < 450) {
+                w = w + 18;
+            } else if (w >= 300 && w < 350) {
+                w = w + 16;
+            } else {
+                w = w + 14;
+            }
+            $('#' + targetId).width(w);
+        };
+
+        // 切换TOC目录展开收缩的相关操作.
+        const expandedClass = 'expanded';
+        let $tocAside = $('#toc-aside');
+        let $mainContent = $('#main-content');
+        $('#floating-toc-btn .btn-floating').click(function () {
+            if ($tocAside.hasClass(expandedClass)) {
+                $tocAside.removeClass(expandedClass).hide();
+                $mainContent.removeClass('l9');
+            } else {
+                $tocAside.addClass(expandedClass).show();
+                $mainContent.addClass('l9');
+            }
+            fixPostCardWidth('artDetail', 'prenext-posts');
+        });
+        
+    });
+</script>
+
+    
+
+</main>
+
+
+
+
+    <footer class="page-footer bg-color">
+    
+        <link rel="stylesheet" href="/libs/aplayer/APlayer.min.css">
+<style>
+    .aplayer .aplayer-lrc p {
+        
+        display: none;
+        
+        font-size: 12px;
+        font-weight: 700;
+        line-height: 16px !important;
+    }
+
+    .aplayer .aplayer-lrc p.aplayer-lrc-current {
+        
+        display: none;
+        
+        font-size: 15px;
+        color: #42b983;
+    }
+
+    
+    .aplayer.aplayer-fixed.aplayer-narrow .aplayer-body {
+        left: -66px !important;
+    }
+
+    .aplayer.aplayer-fixed.aplayer-narrow .aplayer-body:hover {
+        left: 0px !important;
+    }
+
+    
+</style>
+<div class="">
+    
+    <div class="row">
+        <meting-js class="col l8 offset-l2 m10 offset-m1 s12"
+                   server="netease"
+                   type="playlist"
+                   id="503838841"
+                   fixed='true'
+                   autoplay='false'
+                   theme='#42b983'
+                   loop='all'
+                   order='random'
+                   preload='auto'
+                   volume='0.7'
+                   list-folded='true'
+        >
+        </meting-js>
+    </div>
+</div>
+
+<script src="/libs/aplayer/APlayer.min.js"></script>
+<script src="/libs/aplayer/Meting.min.js"></script>
+
+    
+
+    <div class="container row center-align"
+         style="margin-bottom: 0px !important;">
+        <div class="col s12 m8 l8 copy-right">
+            Copyright&nbsp;&copy;
+            
+                <span id="year">2021-2025</span>
+            
+            <a href="/about" target="_blank">John Faye</a>
+            |&nbsp;Powered by&nbsp;<a href="https://hexo.io/" target="_blank">Hexo</a>
+            |&nbsp;Theme&nbsp;<a href="https://github.com/blinkfox/hexo-theme-matery" target="_blank">Matery</a>
+            
+            <br>
+            
+            
+            
+            
+            
+            <br>
+
+            <!-- 运行天数提醒. -->
+            
+            <br>
+            
+        </div>
+        <div class="col s12 m4 l4 social-link ">
+    <a href="https://github.com/jojofaye99" class="tooltipped" target="_blank" data-tooltip="访问我的GitHub" data-position="top" data-delay="50">
+        <i class="fab fa-github"></i>
+    </a>
+
+
+
+    <a href="mailto:1358282083@qq.com" class="tooltipped" target="_blank" data-tooltip="邮件联系我" data-position="top" data-delay="50">
+        <i class="fas fa-envelope-open"></i>
+    </a>
+
+
+
+
+
+
+
+    <a href="tencent://AddContact/?fromId=50&fromSubId=1&subcmd=all&uin=1358282083" class="tooltipped" target="_blank" data-tooltip="QQ联系我: 1358282083" data-position="top" data-delay="50">
+        <i class="fab fa-qq"></i>
+    </a>
+
+
+
+
+
+
+
+</div>
+    </div>
+</footer>
+
+<div class="progress-bar"></div>
+
+
+    <!-- 搜索遮罩框 -->
+<div id="searchModal" class="modal">
+    <div class="modal-content">
+        <div class="search-header">
+            <span class="title"><i class="fas fa-search"></i>&nbsp;&nbsp;搜索</span>
+            <input type="search" id="searchInput" name="s" placeholder="请输入搜索的关键字"
+                   class="search-input">
+        </div>
+        <div id="searchResult"></div>
+    </div>
+</div>
+
+<script type="text/javascript">
+$(function () {
+    var searchFunc = function (path, search_id, content_id) {
+        'use strict';
+        $.ajax({
+            url: path,
+            dataType: "xml",
+            success: function (xmlResponse) {
+                // get the contents from search data
+                var datas = $("entry", xmlResponse).map(function () {
+                    return {
+                        title: $("title", this).text(),
+                        content: $("content", this).text(),
+                        url: $("url", this).text()
+                    };
+                }).get();
+                var $input = document.getElementById(search_id);
+                var $resultContent = document.getElementById(content_id);
+                $input.addEventListener('input', function () {
+                    var str = '<ul class=\"search-result-list\">';
+                    var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
+                    $resultContent.innerHTML = "";
+                    if (this.value.trim().length <= 0) {
+                        return;
+                    }
+                    // perform local searching
+                    datas.forEach(function (data) {
+                        var isMatch = true;
+                        var data_title = data.title.trim().toLowerCase();
+                        var data_content = data.content.trim().replace(/<[^>]+>/g, "").toLowerCase();
+                        var data_url = data.url;
+                        data_url = data_url.indexOf('/') === 0 ? data.url : '/' + data_url;
+                        var index_title = -1;
+                        var index_content = -1;
+                        var first_occur = -1;
+                        // only match artiles with not empty titles and contents
+                        if (data_title !== '' && data_content !== '') {
+                            keywords.forEach(function (keyword, i) {
+                                index_title = data_title.indexOf(keyword);
+                                index_content = data_content.indexOf(keyword);
+                                if (index_title < 0 && index_content < 0) {
+                                    isMatch = false;
+                                } else {
+                                    if (index_content < 0) {
+                                        index_content = 0;
+                                    }
+                                    if (i === 0) {
+                                        first_occur = index_content;
+                                    }
+                                }
+                            });
+                        }
+                        // show search results
+                        if (isMatch) {
+                            str += "<li><a href='" + data_url + "' class='search-result-title'>" + data_title + "</a>";
+                            var content = data.content.trim().replace(/<[^>]+>/g, "");
+                            if (first_occur >= 0) {
+                                // cut out 100 characters
+                                var start = first_occur - 20;
+                                var end = first_occur + 80;
+                                if (start < 0) {
+                                    start = 0;
+                                }
+                                if (start === 0) {
+                                    end = 100;
+                                }
+                                if (end > content.length) {
+                                    end = content.length;
+                                }
+                                var match_content = content.substr(start, end);
+                                // highlight all keywords
+                                keywords.forEach(function (keyword) {
+                                    var regS = new RegExp(keyword, "gi");
+                                    match_content = match_content.replace(regS, "<em class=\"search-keyword\">" + keyword + "</em>");
+                                });
+
+                                str += "<p class=\"search-result\">" + match_content + "...</p>"
+                            }
+                            str += "</li>";
+                        }
+                    });
+                    str += "</ul>";
+                    $resultContent.innerHTML = str;
+                });
+            }
+        });
+    };
+
+    searchFunc('/search.xml', 'searchInput', 'searchResult');
+});
+</script>
+
+    <!-- 白天和黑夜主题 -->
+<div class="stars-con">
+    <div id="stars"></div>
+    <div id="stars2"></div>
+    <div id="stars3"></div>  
+</div>
+
+<script>
+    function switchNightMode() {
+        $('<div class="Cuteen_DarkSky"><div class="Cuteen_DarkPlanet"></div></div>').appendTo($('body')),
+        setTimeout(function () {
+            $('body').hasClass('DarkMode') 
+            ? ($('body').removeClass('DarkMode'), localStorage.setItem('isDark', '0'), $('#sum-moon-icon').removeClass("fa-sun").addClass('fa-moon')) 
+            : ($('body').addClass('DarkMode'), localStorage.setItem('isDark', '1'), $('#sum-moon-icon').addClass("fa-sun").removeClass('fa-moon')),
+            
+            setTimeout(function () {
+            $('.Cuteen_DarkSky').fadeOut(1e3, function () {
+                $(this).remove()
+            })
+            }, 2e3)
+        })
+    }
+</script>
+
+    <!-- 回到顶部按钮 -->
+<div id="backTop" class="top-scroll">
+    <a class="btn-floating btn-large waves-effect waves-light" href="#!">
+        <i class="fas fa-arrow-up"></i>
+    </a>
+</div>
+
+
+    <script src="/libs/materialize/materialize.min.js"></script>
+    <script src="/libs/masonry/masonry.pkgd.min.js"></script>
+    <script src="/libs/aos/aos.js"></script>
+    <script src="/libs/scrollprogress/scrollProgress.min.js"></script>
+    <script src="/libs/lightGallery/js/lightgallery-all.min.js"></script>
+    <script src="/js/matery.js"></script>
+
+    
+
+    
+    
+    
+
+    <!-- 雪花特效 -->
+    
+
+    <!-- 鼠标星星特效 -->
+    
+
+     
+        <script src="https://ssl.captcha.qq.com/TCaptcha.js"></script>
+        <script src="/libs/others/TencentCaptcha.js"></script>
+        <button id="TencentCaptcha" data-appid="xxxxxxxxxx" data-cbfn="callback" type="button" hidden></button>
+    
+
+    <!-- Baidu Analytics -->
+
+    <!-- Baidu Push -->
+
+<script>
+    (function () {
+        var bp = document.createElement('script');
+        var curProtocol = window.location.protocol.split(':')[0];
+        if (curProtocol === 'https') {
+            bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+        } else {
+            bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+        }
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(bp, s);
+    })();
+</script>
+
+    
+    <script src="/libs/others/clicklove.js" async="async"></script>
+    
+    
+
+    
+
+    
+
+    <!--腾讯兔小巢-->
+    
+    
+
+    
+
+    
+    <script type="text/javascript" src="/libs/background/ribbon-dynamic.js" async="async"></script>
+    
+
+    
+    <script src="/libs/instantpage/instantpage.js" type="module"></script>
+    
+
+</body>
+
+</html>

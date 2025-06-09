@@ -1,0 +1,2533 @@
+<!DOCTYPE HTML>
+<html lang="zh-CN">
+
+
+<head>
+    <meta charset="utf-8">
+    <meta name="keywords" content="Python语法学习, 造梦空间">
+    <meta name="description" content="学习环境
+Python 3.7.9
+PyCharm Professional Edition 2020.3.2
+JetBrains 2020.3 通杀补丁（学习用，有能力请支持正版）
+ 黑马程序员 python 5.0
+
+Python 基础">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta name="renderer" content="webkit|ie-stand|ie-comp">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="referrer" content="no-referrer-when-downgrade">
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+
+
+    <title>Python语法学习 | 造梦空间</title>
+    <link rel="icon" type="image/png" href="/favicon.png">
+    
+
+
+    <!-- bg-cover style     -->
+
+
+
+<link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.min.css">
+<link rel="stylesheet" type="text/css" href="/libs/materialize/materialize.min.css">
+<link rel="stylesheet" type="text/css" href="/libs/aos/aos.css">
+<link rel="stylesheet" type="text/css" href="/libs/animate/animate.min.css">
+<link rel="stylesheet" type="text/css" href="/libs/lightGallery/css/lightgallery.min.css">
+<link rel="stylesheet" type="text/css" href="/css/matery.css">
+<link rel="stylesheet" type="text/css" href="/css/my.css">
+<link rel="stylesheet" type="text/css" href="/css/dark.css" media="none" onload="if(media!='all')media='all'">
+
+
+
+
+    <link rel="stylesheet" href="/libs/tocbot/tocbot.css">
+    <link rel="stylesheet" href="/css/post.css">
+
+
+
+
+    
+
+
+
+    <script src="/libs/jquery/jquery-3.6.0.min.js"></script>
+
+<meta name="generator" content="Hexo 7.3.0"><link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css">
+<link rel="stylesheet" href="/css/prism-line-numbers.css" type="text/css"></head>
+
+
+<body>
+    <header class="navbar-fixed">
+    <nav id="headNav" class="bg-color nav-transparent">
+        <div id="navContainer" class="nav-wrapper container">
+            <div class="brand-logo">
+                <a href="/" class="waves-effect waves-light">
+                    
+                    <img src="/medias/logo.png" class="logo-img" alt="LOGO">
+                    
+                    <span class="logo-span">造梦空间</span>
+                </a>
+            </div>
+            
+
+<a href="#" data-target="mobile-nav" class="sidenav-trigger button-collapse"><i class="fas fa-bars"></i></a>
+<ul class="right nav-menu">
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/" class="waves-effect waves-light">
+      
+      <i class="fas fa-home" style="zoom: 0.6;"></i>
+      
+      <span>首页</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/tags" class="waves-effect waves-light">
+      
+      <i class="fas fa-tags" style="zoom: 0.6;"></i>
+      
+      <span>标签</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/categories" class="waves-effect waves-light">
+      
+      <i class="fas fa-bookmark" style="zoom: 0.6;"></i>
+      
+      <span>分类</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/archives" class="waves-effect waves-light">
+      
+      <i class="fas fa-archive" style="zoom: 0.6;"></i>
+      
+      <span>归档</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/about" class="waves-effect waves-light">
+      
+      <i class="fas fa-user-circle" style="zoom: 0.6;"></i>
+      
+      <span>关于</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/contact" class="waves-effect waves-light">
+      
+      <i class="fas fa-comments" style="zoom: 0.6;"></i>
+      
+      <span>留言板</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/friends" class="waves-effect waves-light">
+      
+      <i class="fas fa-address-book" style="zoom: 0.6;"></i>
+      
+      <span>友情链接</span>
+    </a>
+    
+  </li>
+  
+  <li>
+    <a href="#searchModal" class="modal-trigger waves-effect waves-light">
+      <i id="searchIcon" class="fas fa-search" title="搜索" style="zoom: 0.85;"></i>
+    </a>
+  </li>
+  <li>
+    <a href="javascript:;" class="waves-effect waves-light" onclick="switchNightMode()" title="深色/浅色模式" >
+      <i id="sum-moon-icon" class="fas fa-sun" style="zoom: 0.85;"></i>
+    </a>
+  </li>
+</ul>
+
+
+<div id="mobile-nav" class="side-nav sidenav">
+
+    <div class="mobile-head bg-color">
+        
+        <img src="/medias/logo.png" class="logo-img circle responsive-img">
+        
+        <div class="logo-name">造梦空间</div>
+        <div class="logo-desc">
+            
+            Never really desperate, only the lost of the soul.
+            
+        </div>
+    </div>
+
+    <ul class="menu-list mobile-menu-list">
+        
+        <li class="m-nav-item">
+	  
+		<a href="/" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-home"></i>
+			
+			首页
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/tags" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-tags"></i>
+			
+			标签
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/categories" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-bookmark"></i>
+			
+			分类
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/archives" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-archive"></i>
+			
+			归档
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/about" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-user-circle"></i>
+			
+			关于
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/contact" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-comments"></i>
+			
+			留言板
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/friends" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-address-book"></i>
+			
+			友情链接
+		</a>
+          
+        </li>
+        
+        
+    </ul>
+</div>
+
+
+        </div>
+
+        
+    </nav>
+
+</header>
+
+    
+
+
+
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/2.jpg')">
+    <div class="container" style="right: 0px;left: 0px;">
+        <div class="row">
+            <div class="col s12 m12 l12">
+                <div class="brand">
+                    <h1 class="description center-align post-title">Python语法学习</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+<main class="post-container content">
+
+    
+    <div class="row">
+    <div id="main-content" class="col s12 m12 l9">
+        <!-- 文章内容详情 -->
+<div id="artDetail">
+    <div class="card">
+        <div class="card-content article-info">
+            <div class="row tag-cate">
+                <div class="col s7">
+                    
+                    <div class="article-tag">
+                        
+                            <a href="/tags/Note/">
+                                <span class="chip bg-color">Note</span>
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+                <div class="col s5 right-align">
+                    
+                    <div class="post-cate">
+                        <i class="fas fa-bookmark fa-fw icon-category"></i>
+                        
+                            <a href="/categories/Python/" class="post-category">
+                                Python
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+            </div>
+
+            <div class="post-info">
+                
+                <div class="post-date info-break-policy">
+                    <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
+                    2025-01-19
+                </div>
+                
+
+                
+
+                
+                <div class="info-break-policy">
+                    <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
+                    10.8k
+                </div>
+                
+
+                
+                <div class="info-break-policy">
+                    <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
+                    51 分
+                </div>
+                
+
+                
+            </div>
+        </div>
+        <hr class="clearfix">
+
+        
+        <!-- 是否加载使用自带的 prismjs. -->
+        <link rel="stylesheet" href="/libs/prism/prism.min.css">
+        
+
+        
+
+        <div class="card-content article-card-content">
+            <div id="articleContent">
+                <h2 id="学习环境"><a href="#学习环境" class="headerlink" title="学习环境"></a>学习环境</h2><ol>
+<li><a target="_blank" rel="noopener" href="https://www.python.org/downloads/release/python-379/">Python 3.7.9</a></li>
+<li><a target="_blank" rel="noopener" href="https://www.jetbrains.com/pycharm/download/other.html">PyCharm Professional Edition 2020.3.2</a></li>
+<li><a target="_blank" rel="noopener" href="https://www.ghpym.com/ideapatch.html">JetBrains 2020.3 通杀补丁（学习用，有能力请支持正版）</a></li>
+<li><a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1Mz4y1C7LV"> 黑马程序员 python 5.0</a></li>
+</ol>
+<h2 id="Python-基础语法"><a href="#Python-基础语法" class="headerlink" title="Python 基础语法"></a>Python 基础语法</h2><h3 id="注释"><a href="#注释" class="headerlink" title="注释"></a>注释</h3><pre class="line-numbers language-python" data-language="python"><code class="language-python"># 单行注释
+
+&quot;&quot;&quot;
+多行注释1
+多行注释2
+多行注释3
+&quot;&quot;&quot;
+&#39;&#39;&#39;
+多行注释1
+多行注释2
+多行注释3
+&#39;&#39;&#39;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h3 id="变量"><a href="#变量" class="headerlink" title="变量"></a>变量</h3><ul>
+<li>可改变的量为变量，指向内存的一块空间，当不使用时即会被回收</li>
+<li>变量名只能由数字、字母和下划线组成，不能用关键字，不能数字开头，建议不要用中文</li>
+<li>变量名尽量见名知意</li>
+<li>Python 中常量，一般通过全部大写字母来约定俗成</li>
+</ul>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python"># 查询关键字
+import keyword
+print(keyword.kwlist)
+
+# 变量的交换
+a &#x3D; 10
+b &#x3D; 19
+a, b &#x3D; b, a
+print(a)  # 19
+print(b)  # 10<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h3 id="布尔"><a href="#布尔" class="headerlink" title="布尔"></a>布尔</h3><ul>
+<li>True：除了 False 都是 True</li>
+<li>False：0、0.0、0j、’’、[]、()、set()、{}、None</li>
+</ul>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python"># bool()，强制将其他类型转为bool
+print(bool(10))  # True
+print(bool(0))  # False
+print(bool(0.0))  # False
+print(bool(&#39;0&#39;))  # True
+print(bool(&#39;&#39;))  # False
+print(bool(&#123;&#125;))  # False
+print(bool([]))  # False
+print(bool(set()))  # False
+print(bool(0j))  # False
+print(bool(None))  # False<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h3 id="数字"><a href="#数字" class="headerlink" title="数字"></a>数字</h3><ul>
+<li>int 整型，二进制，八进制，十进制，十六进制</li>
+<li>float 浮点型，小数</li>
+<li>conplex 复数，实部+虚部</li>
+</ul>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python"># type()，获取变量的类型
+# id()，获取变量内存地址
+
+a &#x3D; 0b11
+print(a, type(a))  # 3 &lt;class &#39;int&#39;&gt;
+b &#x3D; 0o11
+print(b, type(b))  # 9 &lt;class &#39;int&#39;&gt;
+c &#x3D; 0x11
+print(c, type(c))  # 17 &lt;class &#39;int&#39;&gt;
+d &#x3D; 1.1
+print(d, type(d))  # 1.1 &lt;class &#39;float&#39;&gt;
+e &#x3D; 2e2
+print(e, type(e))  # 200.0 &lt;class &#39;float&#39;&gt;
+f &#x3D; 1 + 2j
+print(f, type(f))  # (1+2j) &lt;class &#39;complex&#39;&gt;
+g &#x3D; complex(2, 3)
+print(g, type(g))  # (2+3j) &lt;class &#39;complex&#39;&gt;
+h &#x3D; True
+print(h, type(h))  # True &lt;class &#39;bool&#39;&gt;
+i &#x3D; False
+print(i, type(i))  # False &lt;class &#39;bool&#39;&gt;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h4 id="类型转换"><a href="#类型转换" class="headerlink" title="类型转换"></a>类型转换</h4><pre class="line-numbers language-python" data-language="python"><code class="language-python"># int()，强制将int、float、bool、纯数字字符串转为int
+print(int(10))  # 10
+print(int(10.66))  # 10
+print(int(True))  # 1
+print(int(False))  # 0
+print(int(&#39;12345678&#39;))  # 12345678
+
+# float()，强制将int、float、bool、纯数字字符串转为float
+print(float(10))  # 10.0
+print(float(10.66))  # 10.66
+print(float(True))  # 1.0
+print(float(False))  # 0.0
+print(float(&#39;12345678&#39;))  # 12345678.0
+
+# complex()，强制将int、float、bool、纯数字字符串、complex转为complex
+print(complex(10))  # (10+0j)
+print(complex(10.66))  # (10.66+0j)
+print(complex(True))  # (1+0j)
+print(complex(False))  # 0j
+print(complex(&#39;12345678&#39;))  # (12345678+0j)
+print(complex(1+2j))  # (1+2j)
+
+# 当两个不同类型的数据进行运算的时候，低精度默认向高精度转换
+# bool -&gt; int -&gt; float -&gt; complex
+# 不要用小数作比较，存在精度损耗<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h4 id="进制转换"><a href="#进制转换" class="headerlink" title="进制转换"></a>进制转换</h4><pre class="line-numbers language-python" data-language="python"><code class="language-python"># 2 -&gt; 10
+a &#x3D; 0b11
+print(int(a))  # 3
+
+# 8 -&gt; 10
+b &#x3D; 0o11
+print(int(b))  # 9
+
+# 16 -&gt; 10
+c &#x3D; 0x11
+print(int(c))  # 17
+
+# 10 -&gt; 2
+d &#x3D; 3
+print(bin(d))  # 0b11
+
+# 10 -&gt; 8
+print(oct(d))  # 0o3
+
+# 10 -&gt; 16
+print(hex(d))  # 0x3<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h3 id="运算符"><a href="#运算符" class="headerlink" title="运算符"></a>运算符</h3><h4 id="算术运算符"><a href="#算术运算符" class="headerlink" title="算术运算符"></a>算术运算符</h4><pre class="line-numbers language-python" data-language="python"><code class="language-python"># +、-、*、&#x2F;、&#x2F;&#x2F;、%、**
+# &#x2F; 永远返回浮点数类型
+# &#x2F;&#x2F; 直接舍弃小数部分
+# % 求余数，** 乘方
+# 混合运算优先级顺序，() 高于 ** 高于 *,&#x2F;,&#x2F;&#x2F;,% 高于 +,-
+
+print(5 + 2)  # 7
+print(5.0 + 2)  # 7.0
+print(5 - 2)  # 3
+print(5 * 2)  # 10
+print(5 &#x2F; 2)  # 2.5
+print(4 &#x2F; 2)  # 2.0
+print(5 &#x2F;&#x2F; 2)  # 2
+print(5 % 2)  # 1
+print(5 ** 2)  # 25<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h4 id="赋值运算符"><a href="#赋值运算符" class="headerlink" title="赋值运算符"></a>赋值运算符</h4><pre class="line-numbers language-python" data-language="python"><code class="language-python"># &#x3D;，将等号右侧的结果赋值给等号左边得到变量
+# 单变量赋值
+num &#x3D; 1
+print(num)  # 1
+
+# 多变量赋值
+a, b, c &#x3D; 1, 1.1, &quot;hello&quot;
+print(a)  # 1
+print(b)  # 1.1
+print(c)  # hello
+
+# 多变量赋相同值
+a &#x3D; b &#x3D; 100
+print(a)  # 100
+print(b)  # 100
+
+# 变量交换值
+a &#x3D; 10
+b &#x3D; 20
+a, b &#x3D; b, a
+print(a)  # 20
+print(b)  # 10
+
+# +&#x3D;，c +&#x3D; a 等价于 c &#x3D; c + a
+# -&#x3D;，c -&#x3D; a 等价于 c &#x3D; c - a
+# *&#x3D;，c *&#x3D; a 等价于 c &#x3D; c * a
+# &#x2F;&#x3D;，c &#x2F;&#x3D; a 等价于 c &#x3D; c &#x2F; a
+# &#x2F;&#x2F;&#x3D;，c &#x2F;&#x2F;&#x3D; a 等价于 c &#x3D; c &#x2F;&#x2F; a
+# %&#x3D;，c %&#x3D; a 等价于 c &#x3D; c % a
+# **&#x3D;，c **&#x3D; a 等价于 c &#x3D; c ** a
+
+# 注意：先计算右侧结果，在进行复合赋值运算
+a &#x3D; 10
+a *&#x3D; 1 + 2
+print(a)  # 30<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h4 id="比较运算符"><a href="#比较运算符" class="headerlink" title="比较运算符"></a>比较运算符</h4><pre class="line-numbers language-python" data-language="python"><code class="language-python"># &#x3D;&#x3D;，判断相等，如果两侧操作数结果相等，则为 True，反之为 False
+# !&#x3D;，不等于，如果两侧操作数不相等，则为 True，反之为 False
+# &gt;，如果运算符左侧操作数结果大于右侧操作数结果，则为 True，反之为 False
+# &lt;，如果运算符左侧操作数结果小于右侧操作数结果，则为 True，反之为 False
+# &gt;&#x3D;，如果运算符左侧操作数结果大于等于右侧操作数结果，则为 True，反之为 False
+# &lt;&#x3D;，如果运算符左侧操作数结果小于等于右侧操作数结果，则为 True，反之为 False
+
+print(1 &#x3D;&#x3D; 1)  # True
+print(2 !&#x3D; 1)  # True
+print(3 &gt; 2)  # True
+print(2 &lt; 3)  # True
+print(3 &gt;&#x3D; 2)  # True
+print(2 &lt;&#x3D; 3)  # True<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h4 id="逻辑运算符"><a href="#逻辑运算符" class="headerlink" title="逻辑运算符"></a>逻辑运算符</h4><pre class="line-numbers language-python" data-language="python"><code class="language-python"># and，与，都真才真，若前一个表达式为假则不会再继续运算后面的表达式，因此建议假可能性大的放前面，优化程序
+# or，或，一真则真，若钱一个表达式为真则不会再继续运算后面的表达式，因此建议真可能性大的放前面，优化程序
+# not，非，取反<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+
+<h3 id="流程控制"><a href="#流程控制" class="headerlink" title="流程控制"></a>流程控制</h3><h4 id="if语句"><a href="#if语句" class="headerlink" title="if语句"></a>if语句</h4><pre class="line-numbers language-python" data-language="python"><code class="language-python"># if判断
+if 条件1：
+    条件1成立的代码
+    ......
+elif 条件2:
+    条件2成立的代码
+    ......
+else:
+    条件都不成立执行的代码
+    ......
+
+# 打印成绩等地，A
+num &#x3D; 100
+if num &gt; 90:
+    print(&#39;A&#39;)
+elif num &gt; 60:
+    print(&#39;B&#39;)
+else:
+    print(&#39;C&#39;)<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h4 id="三目运算符"><a href="#三目运算符" class="headerlink" title="三目运算符"></a>三目运算符</h4><pre class="line-numbers language-python" data-language="python"><code class="language-python"># 条件成立执行的表达式 if 条件 else 条件不成立执行的表达式
+a &#x3D; 10 if 5 &gt; 3 else 5
+print(a)  # 10<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+
+<h4 id="while语句"><a href="#while语句" class="headerlink" title="while语句"></a>while语句</h4><pre class="line-numbers language-python" data-language="python"><code class="language-python"># 单 while 循环
+while 条件：
+    条件成立执行代码1
+    条件成立执行代码2
+    ......
+
+# 循环打印 5 次，hello world
+n &#x3D; 1
+while n &lt;&#x3D; 5:
+    print(&#39;hello world&#39;)
+    n +&#x3D; 1
+“”“
+hello world
+hello world
+hello world
+hello world
+hello world
+”“”
+
+# while else，else 为循环执行之后执行的代码
+n &#x3D; 1
+while n &lt;&#x3D; 5:
+    print(&#39;hello world&#39;)
+    n +&#x3D; 1
+else:
+    print(&#39;loop done&#39;)
+“”“
+hello world
+hello world
+hello world
+hello world
+hello world
+loop done
+”“”<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h4 id="break语句"><a href="#break语句" class="headerlink" title="break语句"></a>break语句</h4><pre class="line-numbers language-python" data-language="python"><code class="language-python"># 跳出循环<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<h4 id="continue语句"><a href="#continue语句" class="headerlink" title="continue语句"></a>continue语句</h4><pre class="line-numbers language-python" data-language="python"><code class="language-python"># 跳过此次循环，转而执行下一次循环<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<h4 id="for语句"><a href="#for语句" class="headerlink" title="for语句"></a>for语句</h4><pre class="line-numbers language-python" data-language="python"><code class="language-python"># 单 for 循环
+for 临时变量 in 序列：
+    重复执行代码1
+    重复执行代码2
+    ......
+
+# for 循环打印 hello world
+for word in &quot;hello world&quot;:
+    print(word)
+&quot;&quot;&quot;
+h
+e
+l
+l
+o
+ 
+w
+o
+r
+l
+d
+&quot;&quot;&quot;
+# for else，else 为循环执行之后执行的代码
+for word in &quot;hello world&quot;:
+    print(word)
+else:
+    print(&quot;loop done&quot;)
+&quot;&quot;&quot;
+h
+e
+l
+l
+o
+ 
+w
+o
+r
+l
+d
+loop done
+&quot;&quot;&quot;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h3 id="字符串"><a href="#字符串" class="headerlink" title="字符串"></a>字符串</h3><ul>
+<li>可用 <code>&quot;....&quot;</code>、<code>&#39;...&#39;</code> 以及 <code>&quot;&quot;&quot;...&quot;&quot;&quot;</code> 来表示字符串</li>
+<li>字符串可用 <code>/</code>来转义特殊字符，字符串前加 <code>r</code>，即表示原始字符串</li>
+<li>不可变类型</li>
+</ul>
+<h4 id="索引"><a href="#索引" class="headerlink" title="索引"></a>索引</h4><pre class="line-numbers language-python" data-language="python"><code class="language-python"># 索引从0开始，有负索引，从-1开始，因为 -0 &#x3D; 0
+# 索引如果越界，会报错 IndexError
+word &#x3D; &#39;Python&#39;
+print(word[0])  # P
+print(word[-1])  # n
+print(word[5])  # n
+print(word[-6])  # P<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h4 id="切片"><a href="#切片" class="headerlink" title="切片"></a>切片</h4><pre class="line-numbers language-python" data-language="python"><code class="language-python"># 切片越界自动处理，并不会报错
+word &#x3D; &#39;Python&#39;
+print(word[0:2])  # Py
+print(word[::2])  # 设置步进为 2，Pto
+print(word[2:])  # thon
+print(word[:])  # Python
+print(word[3:])  # hon
+print(word[1:8])  # ython<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h4 id="格式化输出"><a href="#格式化输出" class="headerlink" title="格式化输出"></a>格式化输出</h4><pre class="line-numbers language-python" data-language="python"><code class="language-python"># format()
+# # 格式&#123;:[填充][对齐 &lt; &gt; &#x3D; ^][符号 + &#x3D; ][宽度][千位分隔符 , _][.保留位数][类型 b c d o x n...]&#125;
+print(&#39;&#123;&#125;、&#123;&#125;、&#123;&#125;&#39;.format(1, 2, 3))  # 1、2、3
+print(&#39;&#123;0&#125;、&#123;1&#125;、&#123;2&#125;&#39;.format(a, b, 3))  # 1、2、3
+print(&#39;&#123;2&#125;、&#123;1&#125;、&#123;0&#125;&#39;.format(1, b, c))  # 3、2、1
+print(&#39;&#123;x&#125;、&#123;y&#125;&#39;.format(x&#x3D;3, y&#x3D;2))  # 3、2
+print(&#39;&#123;0[0]&#125;、&#123;0[1]&#125;&#39;.format([1, 2]))  # 1、2
+
+
+# f-string 使用基本和 format() 格式相同
+# &#123;&#125;中不允许出现\，如需使用可创建临时变量
+word &#x3D; &#39;Python&#39;
+print(f&#39;I like &#123;word&#125;&#39;)  # I like Python
+print(f&#39;I like &#123;word!s&#125;&#39;)  # 调用str()  I like Python
+print(f&#39;I like &#123;word!a&#125;&#39;)  # 调用ascii()  I like &#39;Python&#39;
+print(f&#39;I like &#123;word!r&#125;&#39;)  # 调用repr()  I like &#39;Python&#39;
+print(f&#39;I like &#123;repr(word)&#125;&#39;)  # I like &#39;Python&#39;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h4 id="常用函数"><a href="#常用函数" class="headerlink" title="常用函数"></a>常用函数</h4><pre class="line-numbers language-python" data-language="python"><code class="language-python"># str()，强制转化成字符串
+print(str(1))  # &#39;1&#39;
+print(str(1.1))  # &#39;1.1&#39;
+print(str(True))  # &#39;True&#39;
+print(str([1, 2, 3]))  # &#39;[1, 2, 3]&#39;
+print(str(&#123;&quot;str&quot;: &quot;123&quot;&#125;))  # &quot;&#123;&#39;str&#39;: &#39;123&#39;&#125;&quot;
+
+# + 拼接字符串，* 复制多份
+str1 &#x3D; &quot;hello &quot;
+str2 &#x3D; &quot;python&quot;
+print(str1 + str2)  # hello python
+print(str1 * 3)  # hello hello hello 
+
+# repr()，不转移字符原型化输出字符串（pycharm 里面 run 会自动优化输出，使用命令行更直观）
+print(str(&#39;hello world&#39;))  # &#39;hello world&#39;
+print(repr(&#39;hello world&#39;))  # &quot;&#39;hello world&#39;&quot;
+
+# len()，查看字符串长度
+hello_str &#x3D; &quot;hello world i like python and c plus and everything hello my friend&quot;
+print(len(hello_str))  # 67
+
+# find(sub[, start[, end]])，检测 sub 子串是否包含在字符串 [start,end] 中，找到返回下标，没找到返回 -1
+# rfind()，从右边开始找
+print(hello_str.find(&quot;world&quot;))  # 6
+print(hello_str.find(&quot;worlds&quot;))  # -1
+print(hello_str.find(&quot;hello&quot;, 5, 100))  # 52
+
+# index(sub[, start[, end]])，检测 sub 子串是否包含在字符串 [start,end] 中，找到返回下标，没找到报错
+# rindex()，从右边开始找
+print(hello_str.index(&quot;world&quot;))  # 6
+print(hello_str.index(&quot;worlds&quot;))  # ValueError: substring not found
+print(hello_str.index(&quot;hello&quot;, 5, 100))  # 52
+
+# count()，返回子串出现的次数
+print(hello_str.count(&quot;hello&quot;))  # 2
+print(hello_str.count(&quot;i&quot;))  # 4
+
+# replace(old, new[, count])，返回字符串的副本，将 new 替代 old，并指定 count 次数
+new_str &#x3D; hello_str.replace(&quot;hello&quot;, &quot;fuck&quot;)
+print(hello_str)  # hello world i like python and c plus and everything hello my friend
+print(new_str)  # fuck world i like python and c plus and everything fuck my friend
+new_str &#x3D; hello_str.replace(&quot;hello&quot;, &quot;fuck&quot;， 1)
+print(new_str)  # fuck world i like python and c plus and everything hello my friend
+
+# split(sep&#x3D;None, maxsplit&#x3D;-1)，返回一个由字符串内单词组成的列表，使用 sep 作为分隔字符串，如果给出了 maxsplit，则最多进行 maxsplit 次拆分，默认以空字符串作为分隔符
+print(hello_str.split())  # [&#39;hello&#39;, &#39;world&#39;, &#39;i&#39;, &#39;like&#39;, &#39;python&#39;, &#39;and&#39;, &#39;c&#39;, &#39;plus&#39;, &#39;and&#39;, &#39;everything&#39;, &#39;hello&#39;, &#39;my&#39;, &#39;friend&#39;]
+print(hello_str.split(maxsplit&#x3D;1))  # [&#39;hello&#39;, &#39;world i like python and c plus and everything hello my friend&#39;]
+
+# strip([chars])，返回原字符串的副本，移除其中的前导和末尾字符，默认移除前后空白，可指定对应 chars
+# lstrip()，只删除左边，rstrip()，只删除右边
+hello_str &#x3D; &quot;   hello world  &quot;
+print(hello_str)  # &#39;   hello world  &#39;
+print(hello_str.strip())  # &#39;hello world&#39;
+
+# join(iterable)，返回一个由 iterable 中的字符串拼接而成的字符串
+str_list &#x3D; [&quot;my&quot;, &quot;name&quot;, &quot;is&quot;, &quot;ReaJason&quot;]
+print(&quot; &quot;.join(str_list))  # my name is ReaJason
+str_dict &#x3D; &#123;&quot;name&quot;: &quot;ReaJason&quot;, &quot;age&quot;: 18&#125;
+print(&quot; &quot;.join(str_dict))  # name age
+
+# capitalize()，返回原字符串的副本，其首个字符大写，其余为小写
+print(&quot;hello world&quot;.capitalize())  # Hello world
+
+# lower()，返回原字符串的副本，其所有区分大小写的字符均转换为小写
+# islower()，判断字符串是否全为小写
+print(&quot;HELLO WORLD&quot;.lower())  # hello world
+print(&quot;HELLO WORLD&quot;.islower())  # False
+print(&quot;hello world&quot;.islower())  # True
+
+# title()，返回原字符串的标题版本，其中每个单词第一个字母为大写，其余字母为小写
+print(&quot;hello world&quot;.title())  # Hello World
+
+# upper()，返回原字符串的副本，其中所有区分大小写的字符均转换为大写
+# isupper()，判断字符串是否全为大写
+print(&quot;hello world&quot;.upper())  # HELLO WORLD
+print(&quot;hello world&quot;.isupper())  # False
+print(&quot;HELLO WORLD&quot;.isupper())  # True
+
+# ljust(width[, fillchar])，返回长度为 width 的靠左对齐字符串，使用指定的 fillchar 填充空位
+print(&quot;hello world&quot;.ljust(20))  # &#39;hello world         &#39;
+print(&quot;hello world&quot;.ljust(20, &quot;-&quot;))  # &#39;hello world---------&#39;
+
+# rjust(width[, fillchar])，返回长度为 width 的靠右对齐字符串，使用指定的 fillchar 填充空位
+print(&quot;hello world&quot;.rjust(20))  # &#39;         hello world&#39;
+print(&quot;hello world&quot;.rjust(20, &quot;-&quot;))  # &#39;---------hello world&#39;
+
+# center(width[, fillchar])，返回长度为 width 的居中对齐字符串，使用指定的 fillchar 填充空位
+print(&quot;hello world&quot;.center(20))  # &#39;    hello world     &#39;
+print(&quot;hello world&quot;.center(20, &quot;-&quot;))  # &#39;----hello world-----&#39;
+
+# startswith(prefix[, start[, end]])，如果字符串以指定的 prefix 开始则返回 True，否则返回 False
+print(&quot;hello world&quot;.startswith(&quot;hello&quot;))  # True
+print(&quot;hello world&quot;.startswith(&quot;h&quot;))  # True
+print(&quot;hello world&quot;.startswith(&quot;world&quot;))  # False
+
+# endswith(suffix[, start[, end]])，如果字符串以指定的 suffix 结束返回 True，否则返回 False
+print(&quot;hello world&quot;.endswith(&quot;world&quot;))  # True
+print(&quot;hello world&quot;.endswith(&quot;d&quot;))  # True
+print(&quot;hello world&quot;.endswith(&quot;hello&quot;))  # False
+
+# isalpha(),如果字符串中的所有字符都是字母，并且至少有一个字符，返回 True ，否则返回 False
+print(&quot;hello world&quot;.isalpha())  # False
+
+# isdigit()，如果字符串中的所有字符都是数字，并且至少有一个字符，返回 True ，否则返回 False
+print(&quot;1234&quot;.isdigit())  # True
+
+# isalnum()，如果字符串中的所有字符都是字母或数字且至少有一个字符，则返回 True ， 否则返回 False
+print(&quot;1234&quot;.isalnum())  # True
+print(&quot;hello world&quot;.isalnum())  # False
+print(&quot;hello1world&quot;.isalnum())  # True
+
+# isspace()，如果字符串中只有空白字符且至少有一个字符则返回 True ，否则返回 False
+print(&quot;   &quot;.isspace())  # True<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h3 id="列表"><a href="#列表" class="headerlink" title="列表"></a>列表</h3><ul>
+<li>用 <code>[]</code> 组合复合类型（不限定只能一种类型）</li>
+<li>使用方括号，其中的项以逗号分隔: <code>[a]</code>, <code>[a, b, c]</code></li>
+<li>使用一对方括号来表示空列表: <code>[]</code></li>
+<li>可变数据类型，可获取，可修改，有序</li>
+</ul>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python">list1 &#x3D; [1, &#39;Python&#39;, 13.14, True, 1+1j, [1, 2, 3], &#39;ReaJason&#39;]<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<h4 id="索引-1"><a href="#索引-1" class="headerlink" title="索引"></a>索引</h4><pre class="line-numbers language-python" data-language="python"><code class="language-python">print(list1[0])  # 1
+print(list1[-7])  # 1
+print(list1[-1])  # ReaJason
+print(list1[6])  # ReaJason
+print(list1[5][1])  # 2
+list1[5][1] &#x3D; 250
+print(list1)  # [1, &#39;Python&#39;, 13.14, True, (1+1j), [1, 250, 3], &#39;ReaJason&#39;]
+
+# 修改指定索引数据
+list1[0] &#x3D; 10
+print(list1)  # [10, &#39;Python&#39;, 13.14, True, (1+1j), [1, 2, 3], &#39;ReaJason&#39;]<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h4 id="切片-1"><a href="#切片-1" class="headerlink" title="切片"></a>切片</h4><pre class="line-numbers language-python" data-language="python"><code class="language-python">print(list1[0:2])  # [1, &#39;Python&#39;]
+print(list1[0:5:2])  # [1, 13.14, (1+1j)]
+print(list1[::-1])  # [&#39;ReaJason&#39;, [1, 2, 3], (1+1j), True, 13.14, &#39;Python&#39;, 1]<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+
+<h4 id="遍历"><a href="#遍历" class="headerlink" title="遍历"></a>遍历</h4><pre class="line-numbers language-python" data-language="python"><code class="language-python"># for 遍历列表
+list1 &#x3D; [1, &#39;Python&#39;, 13.14, True, 1+1j, [1, 2, 3], &#39;ReaJason&#39;]
+for i in list1:
+    print(i)
+
+&quot;&quot;&quot;
+1
+Python
+13.14
+True
+(1+1j)
+[1, 2, 3]
+ReaJason
+&quot;&quot;&quot;
+
+# enumarate()，返回索引和值的元组
+list1 &#x3D; [1, &#39;Python&#39;, 13.14, True, 1+1j, [1, 2, 3], &#39;ReaJason&#39;]
+for index, value in enumerate(list1):
+    print(f&quot;&#123;index&#125;：&#123;value&#125;&quot;)
+&quot;&quot;&quot;
+0：1
+1：Python
+2：13.14
+3：True
+4：(1+1j)
+5：[1, 2, 3]
+6：ReaJason
+&quot;&quot;&quot;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h4 id="常用函数-1"><a href="#常用函数-1" class="headerlink" title="常用函数"></a>常用函数</h4><pre class="line-numbers language-python" data-language="python"><code class="language-python"># list()，强制转换成列表
+print(list(&#39;12345678&#39;))  # [&#39;1&#39;, &#39;2&#39;, &#39;3&#39;, &#39;4&#39;, &#39;5&#39;, &#39;6&#39;, &#39;7&#39;, &#39;8&#39;]
+
+# + 拼接列表，* 复制元素多份
+list1 &#x3D; [1, 2, 3]
+list2 &#x3D; [&quot;hello&quot;, &quot;python&quot;,]
+print(list1 + list2)  # [1, 2, 3, &#39;hello&#39;, &#39;python&#39;]
+print(list2 * 2)  # [&#39;hello&#39;, &#39;python&#39;, &#39;hello&#39;, &#39;python&#39;]
+
+# len()，获取列表元素个数
+list2 &#x3D; [1, 2, 3, 4, 5, 1, 2]
+print(len(list2))  # 7
+
+# count(x)，返回元素 x 在列表中出现的次数
+print(list2.count(1))  # 2
+
+# reverse()，直接翻转原数组的所有元素
+list2.reverse()
+print(list2)  # [5, 4, 3, 2, 1]
+
+# sort(key&#x3D;None, reverse&#x3D;False)，对列表中的元素进行排序
+list2.sort()  # [1, 1, 2, 2, 3, 4, 5]
+print(list2)
+list2.sort(reverse&#x3D;True)
+print(list2)  # [5, 4, 3, 2, 2, 1, 1]
+
+# index(x[, start[, end]])，返回列表中第一个值为 x 的元素的索引，如果不存在会抛出 ValueError 异常
+name_list &#x3D; [&quot;ReaJason&quot;, &quot;Tom&quot;, &quot;Lucy&quot;, &quot;LiLy&quot;]
+print(name_list.index(&quot;Tom&quot;))  # 1
+print(name_list.index(&quot;Toms&quot;))  # ValueError: &#39;Toms&#39; is not in list
+
+# in，not in，判断元素是否在列表中，为通用方法，适用于字符串，字典，元组，集合
+print(&quot;ReaJason&quot; in name_list)  # True
+print(&quot;Dazzling&quot; in name_list)  # False
+print(&quot;ReaJason&quot; not in name_list)  # False
+print(&quot;Dazzling&quot; not in name_list)  # True
+
+# append(x)，在列表末尾添加元素x
+name_list.append(&quot;Jack&quot;)
+print(name_list)  # [&#39;ReaJason&#39;, &#39;Tom&#39;, &#39;Lucy&#39;, &#39;LiLy&#39;, &#39;Jack&#39;]
+
+# extend(iterable)，使用可迭代对象中的所有元素来扩展列表
+name_list.extend([1, 2, 3, 4, 5])
+print(name_list)  # [&#39;ReaJason&#39;, &#39;Tom&#39;, &#39;Lucy&#39;, &#39;LiLy&#39;, 1, 2, 3, 4, 5]
+
+# insert(i,x)，在指定i索引位置插入元素x、
+name_list.insert(1, &quot;Dazzling&quot;)
+print(name_list)  # [&#39;ReaJason&#39;, &#39;Dazzling&#39;, &#39;Tom&#39;, &#39;Lucy&#39;, &#39;LiLy&#39;]
+
+
+# del，删除目标元素或变量
+del name_list[0]
+print(name_list)  # [&#39;Tom&#39;, &#39;Lucy&#39;, &#39;LiLy&#39;]
+del name_list
+print(name_list)  # NameError: name &#39;name_list&#39; is not defined
+
+# pop()，pop(i)，删除列表最后一个元素，删除列表指定i索引位置的元素
+x &#x3D; name_list.pop()
+y &#x3D; name_list.pop(0)
+print(x)  # LiLy
+print(y)  # ReaJason
+print(name_list)  # [&#39;Tom&#39;, &#39;Lucy&#39;]
+
+# remove(x)，移除列表中从左到右第一个值为x的元素
+name_list.remove(&quot;Tom&quot;)
+print(name_list)  # [&#39;ReaJason&#39;, &#39;Lucy&#39;, &#39;LiLy&#39;]
+
+# clear()，清空列表
+name_list.clear()
+print(name_list)  # []
+
+# copy()，返回列表的一个浅拷贝
+name_list2 &#x3D; name_list.copy()
+name_list2.append(&quot;Dazzling&quot;)
+print(name_list)  # [&#39;ReaJason&#39;, &#39;Tom&#39;, &#39;Lucy&#39;, &#39;LiLy&#39;]
+print(name_list2)  # [&#39;ReaJason&#39;, &#39;Tom&#39;, &#39;Lucy&#39;, &#39;LiLy&#39;, &#39;Dazzling&#39;]<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h4 id="列表推导式"><a href="#列表推导式" class="headerlink" title="列表推导式"></a>列表推导式</h4><pre class="line-numbers language-python" data-language="python"><code class="language-python"># range(start, stop[, step])，range 构造器的参数必须为整数，用来生成序列
+print(list(range(10)))  # [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+print(list(range(10, 0, -1)))  # [10, 9, 8, 7, 6, 5, 4, 3, 2, 1]
+print(list(range(0)))  # []
+
+# 列表推导式，返回一个列表
+list1 &#x3D; [i for i in range(10)]
+print(list1)  # [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+print(list(range(10)))  # [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+
+# 带 if 的列表推导式，如果 i 为偶数，则选择
+list1 &#x3D; [i for i in range(10) if i%2 &#x3D;&#x3D; 0]
+print(list1)  # [0, 2, 4, 6, 8]
+
+# 多个 for 循环实现列表推导式，将多层次列表展开
+arr &#x3D; [[1, 2, 3], [4, 5, 6]]
+list1 &#x3D; [j for i in arr for j in i]
+print(list1)  # [1, 2, 3, 4, 5, 6]<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h3 id="元组"><a href="#元组" class="headerlink" title="元组"></a>元组</h3><ul>
+<li>用 <code>（）</code> 组合复合类型（不限定只能一种类型）</li>
+<li>使用一对圆括号来表示空元组: <code>()</code></li>
+<li>使用一个后缀的逗号来表示单元组: <code>a,</code> 或 <code>(a,)</code></li>
+<li>使用以逗号分隔的多个项: <code>a, b, c</code> or <code>(a, b, c)</code></li>
+<li>元素数据不可修改，有序</li>
+<li>索引切片和 list 一样</li>
+</ul>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python">tuple1 &#x3D; (1, &#39;Python&#39;, 13.14, True, 1 + 1j, [1, 2, 3], &#39;ReaJason&#39;)<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<h4 id="常用函数-2"><a href="#常用函数-2" class="headerlink" title="常用函数"></a>常用函数</h4><pre class="line-numbers language-python" data-language="python"><code class="language-python"># tuple()，强制转换成元组
+print(tuple(&#39;12345678&#39;))  # (&#39;1&#39;, &#39;2&#39;, &#39;3&#39;, &#39;4&#39;, &#39;5&#39;, &#39;6&#39;, &#39;7&#39;, &#39;8&#39;)
+
+# len()，获取列表元素个数
+print(len(tuple1))  # 7
+
+# count(x)，返回元素 x 在列表中出现的次数
+num_tuple &#x3D; (1, 1, 2, 3, 4, 5)
+print(num_tuple.count(1))  # 2
+print(num_tuple.count(2))  # 1
+
+# index(x[, start[, end]])，返回列表中第一个值为 x 的元素的索引，如果不存在会抛出 ValueError 异常
+print(num_tuple.index(1))  # 2
+print(num_tuple.index(6))  # ValueError: tuple.index(x): x not in tuple<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h3 id="字典"><a href="#字典" class="headerlink" title="字典"></a>字典</h3><ul>
+<li>符号为：<code>&#123;&#125;</code></li>
+<li>数据以键值对形式出现</li>
+<li>各个键值对之间用逗号隔开</li>
+<li>字典是无序的对象集合，使用键-值（key-value）存储，拥有极快的查询速度</li>
+<li>字典是可变类型，键（key）必须使用不可变类型</li>
+<li>同一个字典中，键（key）必须是唯一的</li>
+</ul>
+<h4 id="字典创建"><a href="#字典创建" class="headerlink" title="字典创建"></a>字典创建</h4><pre class="line-numbers language-python" data-language="python"><code class="language-python"># 使用 &#123;key1: value1, key1: value1&#125;的形式 创建字典
+dict1 &#x3D; &#123;&quot;name&quot;: &quot;ReaJason&quot;, &quot;age&quot;: 22, &quot;gender&quot;: &quot;female&quot;&#125;
+
+# 使用dict构造器创建
+dict2 &#x3D; dict(name&#x3D;&quot;ReaJason&quot;, age&#x3D;22, gender&#x3D;&quot;female&quot;)
+
+# 创建空字典
+dict3 &#x3D; &#123;&#125;
+dict4 &#x3D; dict()<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h4 id="增删改查"><a href="#增删改查" class="headerlink" title="增删改查"></a>增删改查</h4><pre class="line-numbers language-python" data-language="python"><code class="language-python">dict1 &#x3D; &#123;&quot;name&quot;: &quot;ReaJason&quot;, &quot;age&quot;: 22, &quot;gender&quot;: &quot;female&quot;&#125;
+
+# 增，d[key] &#x3D; value
+dict1[&#39;id&#39;] &#x3D; 10
+print(dict1)  # &#123;&#39;name&#39;: &#39;ReaJason&#39;, &#39;age&#39;: 22, &#39;gender&#39;: &#39;female&#39;, &#39;id&#39;: 10&#125;
+
+# 改，d[key] &#x3D; value
+dict1[&#39;age&#39;] &#x3D; 18
+print(dict1)  # &#123;&#39;name&#39;: &#39;ReaJason&#39;, &#39;age&#39;: 18, &#39;gender&#39;: &#39;female&#39;&#125;
+
+# 删，del d[val]，将 d[key] 从 d 中移除。 如果映射中不存在 key 则会引发 KeyError
+del dict1[&#39;name&#39;]
+print(dict1)  # &#123;&#39;age&#39;: 22, &#39;gender&#39;: &#39;female&#39;&#125;
+
+# clear()，移除字典中的所有元素
+dict1.clear()
+print(dict1)  # &#123;&#125;
+
+# 查，d[key]，返回 d 中以 key 为键的项。 如果映射中不存在 key 则会引发 KeyError
+print(dict1[&#39;name&#39;])  # ReaJason
+print(dict1[&#39;id&#39;])  # KeyError: &#39;id&#39;
+
+# get(key[, default])，如果 key 存在于字典中则返回 key 的值，否则返回 default。 如果 default 未给出则默认为 None，因而此方法绝不会引发 KeyError
+print(dict1.get(&#39;name&#39;))  # ReaJason
+print(dict1.get(&#39;id&#39;))  # None
+print(dict1.get(&#39;id&#39;, 1))  # 1<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h4 id="常用函数-3"><a href="#常用函数-3" class="headerlink" title="常用函数"></a>常用函数</h4><pre class="line-numbers language-python" data-language="python"><code class="language-python">dict1 &#x3D; &#123;&quot;name&quot;: &quot;ReaJason&quot;, &quot;age&quot;: 22, &quot;gender&quot;: &quot;female&quot;&#125;
+
+# len(d)，返回字典 d 中的项数
+print(len(dict1))  # 3
+
+# key in d，如果 d 中存在键 key 则返回 True，否则返回 False
+print(&quot;name&quot; in dict1)  # True
+
+# key not in d，如果 d 中不存在键 key 则返回 True，否则返回 False
+print(&quot;id&quot; not in dict1)  # True
+
+# keys()，返回由字典键组成的一个新视图，类似于字典所有键组成的列表
+print(dict1.keys())  # dict_keys([&#39;name&#39;, &#39;age&#39;, &#39;gender&#39;])
+
+# values()，返回由字典值组成的一个新视图，类似于字典所有值组成的列表
+print(dict1.values())  # dict_values([&#39;ReaJason&#39;, 22, &#39;female&#39;])
+
+# items()，返回由字典项 ((键, 值) 对) 组成的一个新视图
+print(dict1.items())  # dict_items([(&#39;name&#39;, &#39;ReaJason&#39;), (&#39;age&#39;, 22), (&#39;gender&#39;, &#39;female&#39;)])
+
+# 字典遍历，获取 key 和 value
+for key,value in dict1.items():
+    print(f&quot;&#123;key&#125;：&#123;value&#125;&quot;)
+&quot;&quot;&quot;
+name：ReaJason
+age：22
+gender：female
+&quot;&quot;&quot;
+
+# update([other])，使用来自 other 的键&#x2F;值对更新字典，覆盖原有的键，原地更新
+dict2 &#x3D; &#123;&quot;hobby&quot;: &quot;learning&quot;, &quot;id&quot;: 1&#125;
+dict1.update(dict2)
+print(dict1)  # &#123;&#39;name&#39;: &#39;ReaJason&#39;, &#39;age&#39;: 22, &#39;gender&#39;: &#39;female&#39;, &#39;hobby&#39;: &#39;learning&#39;, &#39;id&#39;: 1&#125;
+
+dict3 &#x3D; &#123;&quot;name&quot;: &quot;Dazzling&quot;, &quot;age&quot;: 18, &quot;gender&quot;: &quot;male&quot;&#125;
+dict1.update(dict3)
+print(dict1)  # &#123;&#39;name&#39;: &#39;Dazzling&#39;, &#39;age&#39;: 18, &#39;gender&#39;: &#39;male&#39;&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h4 id="字典推导式"><a href="#字典推导式" class="headerlink" title="字典推导式"></a>字典推导式</h4><pre class="line-numbers language-python" data-language="python"><code class="language-python"># 字典推导式用于快速生成字典，以及提取目标数据
+cookies &#x3D; &quot;anonymid&#x3D;jy0ui55o-u6f6zd; depovince&#x3D;GW; _r01_&#x3D;1;&quot;
+cookies &#x3D; &#123;cookie.split(&quot;&#x3D;&quot;)[0]:cookie.split(&quot;&#x3D;&quot;)[1] for cookie in cookies.split(&quot;; &quot;)&#125;
+print(cookies)  # &#123;&#39;anonymid&#39;: &#39;jy0ui55o-u6f6zd&#39;, &#39;depovince&#39;: &#39;GW&#39;, &#39;_r01_&#39;: &#39;1;&#39;&#125;
+
+# 其他用法同列表推导式<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h3 id="集合"><a href="#集合" class="headerlink" title="集合"></a>集合</h3><ul>
+<li>多个元素的无序组合，集合是无序的，不支持索引操作</li>
+<li>集合元素是唯一的，可用于去重</li>
+</ul>
+<h4 id="集合创建"><a href="#集合创建" class="headerlink" title="集合创建"></a>集合创建</h4><pre class="line-numbers language-python" data-language="python"><code class="language-python"># 使用 &#123;value1, value2&#125;
+set1 &#x3D; &#123;1, 2, 3, 1, 3, 4&#125;
+
+# 使用set()方法
+set2 &#x3D; set([1, 2, 3, 1, 3, 4])
+
+# 创建空集合
+set3 &#x3D; set()<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h4 id="增删改查-1"><a href="#增删改查-1" class="headerlink" title="增删改查"></a>增删改查</h4><pre class="line-numbers language-python" data-language="python"><code class="language-python">set1 &#x3D; &#123;10, 20&#125;
+
+# add(elem)，将元素 elem 添加到集合中
+set1.add(30)
+set1.add(10)
+print(set1)  # &#123;10, 20, 30&#125;
+
+# update(*others)，更新集合，添加来自 others 中的所有元素
+list1 &#x3D; [10, 20, 30, 40, 50]
+set1.update(list1)
+print(set1)  # &#123;40, 10, 50, 20, 30&#125;
+
+# remove(elem)，从集合中移除元素 elem。 如果 elem 不存在于集合中则会引发 KeyError
+set1.remove(10)
+print(set1)  # &#123;20&#125;
+set1.remove(10)  # KeyError: 10
+
+# discard(elem)，如果元素 elem 存在于集合中则将其移除
+set1.discard(10)
+print(set1)  # &#123;20&#125;
+set1.discard(10)
+
+# pop()，从集合中移除并返回任意一个元素。 如果集合为空则会引发 KeyError
+set1.pop()
+set1.pop()
+print(set1)  # set()
+set1.pop()  # KeyError: &#39;pop from an empty set&#39;
+
+# x in s，检测 x 是否为 s 中的成员
+print(10 in set1)  # True
+print(100 in set1)  # False
+
+# x not in s，检测 x 是否非 s 中的成员
+print(10 not in set1)  # False
+print(100 not in set1)  # True<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h3 id="函数"><a href="#函数" class="headerlink" title="函数"></a>函数</h3><ul>
+<li>将一段具有独立功能的代码块整合到一个整体并命名。在需要的地方调用，实现更高效的代码复用</li>
+<li>函数定义参数可有可无，返回值也一样，函数必须先定义后使用</li>
+<li>函数设计要尽量短小，嵌套层次不宜过深</li>
+<li>函数申明应该做到合理、简单、易于使用</li>
+<li>函数参数设计应考虑向下兼容</li>
+<li>一个函数只做一件事，尽量保证函数语句粒度的一致性</li>
+</ul>
+<h4 id="定义函数"><a href="#定义函数" class="headerlink" title="定义函数"></a>定义函数</h4><pre class="line-numbers language-python" data-language="python"><code class="language-python"># 使用 def 定义函数，return 返回需要返回的值（非必需）
+def 函数名(参数1（可选）, 参数2（可选）):
+    函数内代码
+    ......
+    return 返回值（可选）
+
+# 定义一个实现加法的函数
+def a_add_b(a, b):
+    return a + b
+
+
+result &#x3D; a_add_b(10, 90)
+print(result)  # 100<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h4 id="说明文档"><a href="#说明文档" class="headerlink" title="说明文档"></a>说明文档</h4><pre class="line-numbers language-python" data-language="python"><code class="language-python">def a_add_b(a, b):
+    &quot;&quot;&quot;
+    我是a_add_b的说明文档：一个实现加法的函数
+    :param a: 参数 1
+    :param b: 参数 2
+    :return: 返回值
+    &quot;&quot;&quot;
+    return a + b
+
+# help(函数名称)，查看函数的说明文档
+help(a_add_b)
+
+&quot;&quot;&quot;
+Help on function a_add_b in module __main__:
+
+a_add_b(a, b)
+    一个实现加法的函数
+    :param a: 参数 1
+    :param b: 参数 2
+    :return: 返回值
+&quot;&quot;&quot;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h4 id="变量作用域"><a href="#变量作用域" class="headerlink" title="变量作用域"></a>变量作用域</h4><ul>
+<li>局部变量，定义在函数内部，作用范围为该函数内</li>
+</ul>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python">def test():
+    a &#x3D; 100
+    print(a)
+
+test()  # 100
+print(a)  # NameError: name &#39;a&#39; is not defined<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<ul>
+<li>全局变量，定义在全局，当前 py 文件内都可访问到</li>
+</ul>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python">a &#x3D; 100
+
+def test():
+    print(a)
+
+test()  # 100
+print(a)  # 100<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<ul>
+<li>global()，可被用来表明特定变量生存于全局作用域并且应当在其中被重新绑定</li>
+</ul>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python">a &#x3D; 100
+
+print(f&quot;全局变量a：&#123;a&#125;&quot;)  # 全局变量a：100
+
+
+def test1():
+    a &#x3D; 200  # 局部变量，
+    print(f&quot;test1函数的a：&#123;a&#125;&quot;)
+
+
+def test2():
+    global a  # 修改全局变量
+    a &#x3D; 300
+    print(f&quot;test2函数的a：&#123;a&#125;&quot;)
+
+test1()  # test1函数的a：200
+test2()  # test2函数的a：300
+print(f&quot;全局变量a：&#123;a&#125;&quot;)  # 全局变量a：300<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<ul>
+<li>nonlocal()，表明特定变量生存于外层作用域中并且应当在其中被重新绑定</li>
+</ul>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python">def test():
+    a &#x3D; 200
+    
+    def test1():
+        print(f&quot;test1函数的a：&#123;a&#125;&quot;)
+        
+    def test2():
+        nonlocal a  # 修改局部变量
+        print(f&quot;test2函数的a：&#123;a&#125;&quot;)
+        a &#x3D; 100
+        print(f&quot;test1函数的a：&#123;a&#125;&quot;)
+    test1()
+    test2()
+
+test()
+&quot;&quot;&quot;
+test1函数的a：200
+test2函数的a：200
+test1函数的a：100
+&quot;&quot;&quot;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h4 id="函数参数"><a href="#函数参数" class="headerlink" title="函数参数"></a>函数参数</h4><ul>
+<li>位置参数</li>
+</ul>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python"># 位置参数与形参一一对应
+def user_info(name, age, gender):
+    print(f&quot;name：&#123;name&#125;，age：&#123;age&#125;，gender：&#123;gender&#125;&quot;)
+
+
+user_info(&quot;ReaJason&quot;, 18, &quot;female&quot;)  # name：ReaJason，age：18，gender：female
+user_info(18, &quot;female&quot;, &quot;ReaJason&quot;)  # name：18，age：female，gender：ReaJason<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<ul>
+<li>关键字参数</li>
+</ul>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python"># 当函数调用时既有位置参数也有关键字参数时，关键字参数必须写在最后
+def user_info(name, age, gender):
+    print(f&quot;name：&#123;name&#125;，age：&#123;age&#125;，gender：&#123;gender&#125;&quot;)
+
+
+user_info(name&#x3D;&quot;ReaJason&quot;, age&#x3D;18, gender&#x3D;&quot;female&quot;)  # name：ReaJason，age：18，gender：female
+user_info(age&#x3D;18, gender&#x3D;&quot;female&quot;, name&#x3D;&quot;ReaJason&quot;)  # name：ReaJason，age：18，gender：female
+user_info(&quot;ReaJason&quot;, 18, gender&#x3D;&quot;female&quot;)  # name：ReaJason，age：18，gender：female
+user_info(name&#x3D;&quot;ReaJason&quot;, age&#x3D;18, &quot;female&quot;)  # SyntaxError: positional argument follows keyword argument<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<ul>
+<li>默认参数</li>
+</ul>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python"># 所有位置参数必须在默认参数之前
+def user_info(name, age, gender&#x3D;&quot;female&quot;):
+    print(f&quot;name：&#123;name&#125;，age：&#123;age&#125;，gender：&#123;gender&#125;&quot;)
+
+
+user_info(&quot;ReaJason&quot;, 18)  # name：ReaJason，age：18，gender：female
+user_info(&quot;ReaJason&quot;, 18, &quot;male&quot;)  # name：ReaJason，age：18，gender：male<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<ul>
+<li>可变长参数</li>
+</ul>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python"># *args，传进去的所有参数都会被 args 变量收集，根据参数位置合并为一个元组
+def user_info(*args):
+    print(args)
+
+
+user_info(&quot;ReaJason&quot;, 18, &quot;female&quot;, [&quot;learning&quot;, &quot;gaming&quot;])
+# (&#39;ReaJason&#39;, 18, &#39;female&#39;, [&#39;learning&#39;, &#39;gaming&#39;])
+
+# **kwargs，传进去的所有参数都会被 kwargs 变量收集，将关键字参数做为 key 后面的值作为 value 合并为一个一个字典
+def user_info(**kwargs):
+    print(kwargs)
+
+
+user_info(name&#x3D;&quot;ReaJason&quot;, age&#x3D;18, gender&#x3D;&quot;female&quot;, hobby&#x3D;[&quot;learning&quot;, &quot;gaming&quot;])
+# &#123;&#39;name&#39;: &#39;ReaJason&#39;, &#39;age&#39;: 18, &#39;gender&#39;: &#39;female&#39;, &#39;hobby&#39;: [&#39;learning&#39;, &#39;gaming&#39;]&#125;
+
+# 当位置参数，默认参数，与可变长参数在同一个函数定义中，相对位置为 位置参数 &gt; 默认参数 &gt; 可变长参数<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h4 id="lambda函数"><a href="#lambda函数" class="headerlink" title="lambda函数"></a>lambda函数</h4><pre class="line-numbers language-python" data-language="python"><code class="language-python"># 定义匿名函数
+a_add_b &#x3D; lambda a, b: a+b
+print(a_add_b(10, 90))  # 100
+
+# 用于列表排序，选定 key
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h4 id="map函数"><a href="#map函数" class="headerlink" title="map函数"></a>map函数</h4><pre class="line-numbers language-python" data-language="python"><code class="language-python"># 求一个序列或者多个序列进行函数映射之后的值，列表推导得方式更好
+def func(x):
+    return x ** 2
+
+list1 &#x3D; [1, 2, 3, 4, 5]
+list2 &#x3D; [i ** 2 for i in list1]  # 推荐方式
+result1 &#x3D; map(func, list1)
+result2 &#x3D; map(lambda x: x ** 2, list1)
+print(result1)  # &lt;map object at 0x00000177FD39D848&gt;
+print(list(result1))  # [1, 4, 9, 16, 25]
+print(list(result2))  # [1, 4, 9, 16, 25]
+print(list2)  # [1, 4, 9, 16, 25]<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h4 id="reduce函数"><a href="#reduce函数" class="headerlink" title="reduce函数"></a>reduce函数</h4><pre class="line-numbers language-python" data-language="python"><code class="language-python"># 对一个序列进行压缩运算，得到一个值
+import functools  # import 导入模块
+
+list1 &#x3D; [1, 2, 3, 4, 5, 6]
+result &#x3D; functools.reduce(lambda x, y: x + y, list1)
+print(result)<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h4 id="filter函数"><a href="#filter函数" class="headerlink" title="filter函数"></a>filter函数</h4><pre class="line-numbers language-python" data-language="python"><code class="language-python"># 过滤掉序列中不符合函数条件的元素，列表推导得方式更好
+def func(x):
+    return x % 2 &#x3D;&#x3D; 0
+
+list1 &#x3D; [1, 2, 3, 4, 5, 6]
+list2 &#x3D; [i for i in list1 if i % 2 &#x3D;&#x3D; 0]  # 推荐方式
+result1 &#x3D; filter(func, list1)
+result2 &#x3D; filter(lambda x: x % 2 &#x3D;&#x3D; 0, list1)
+print(result1)  # &lt;filter object at 0x000001D589779048&gt;
+print(list(result1))  # [2, 4, 6]
+print(list(result2))  # [2, 4, 6]
+print(list2)  # [2, 4, 6]<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h3 id="文件操作"><a href="#文件操作" class="headerlink" title="文件操作"></a>文件操作</h3><h4 id="文件的读"><a href="#文件的读" class="headerlink" title="文件的读"></a>文件的读</h4><ul>
+<li>关于文件读四个模式</li>
+<li><code>r</code>，以只读的方式打开文件，未找到文件会报错，文件的指针将会放在文件的开头，这是默认模式，<code>r</code> 打开文本文件</li>
+<li><code>rb</code>，以二进制格式打开一个文件用于只读。文件指针放在文件的开头。这是默认模式，<code>rb</code> 打开非文本文件</li>
+<li><code>r+</code>，打开一个文件用于读写，准确来说是读并且追加。文件指针将会放在文件的开头</li>
+<li><code>rb+</code>，以二进制格式打开一个文件用于读写。文件指针将会放在文件的开头</li>
+</ul>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python"># f.read(size)，读取文件指定 size 大小字节的数据，每执行一次往后移动指定位数，如果未指定 size，则读取文件所有数据
+# text.txt 文本内容如下：
+&quot;&quot;&quot;
+hello world
+&quot;&quot;&quot;
+
+f &#x3D; open(&quot;text.txt&quot;, &quot;r&quot;)
+content &#x3D; f.read(5)
+print(content)  # hello
+content &#x3D; f.read(6)
+print(content)  #  world
+f.close()
+
+f &#x3D; open(&quot;text.txt&quot;, &quot;r&quot;)
+content &#x3D; f.read()
+print(content)  # hello world
+f.close()
+
+# f.readlines()，以列表的形式读取文件中的所有行
+# text.txt 文本内容如下：
+&quot;&quot;&quot;
+hello world
+hello python
+&quot;&quot;&quot;
+
+f &#x3D; open(&quot;text.txt&quot;, &quot;r&quot;)
+content &#x3D; f.readlines()
+print(content)  # [&#39;hello world\n&#39;, &#39;hello python&#39;]
+f.close()
+
+# f.readline()，从文件中读取一行，换行符（\n）留在字符串的末尾，中间空白行是 \n 
+# text.txt 文本内容如下：
+&quot;&quot;&quot;
+hello world
+
+hello python
+&quot;&quot;&quot;
+
+f &#x3D; open(&quot;text.txt&quot;, &quot;r&quot;)
+content &#x3D; f.readline()
+print(f&quot;第一行&#123;content!r&#125;&quot;)  # 第一行&#39;hello world\n&#39;
+content &#x3D; f.readline()
+print(f&quot;第二行&#123;content!r&#125;&quot;)  # 第二行&#39;\n&#39;
+content &#x3D; f.readline()
+print(f&quot;第三行&#123;content!r&#125;&quot;)  # 第三行&#39;hello python&#39;
+content &#x3D; f.readline()
+print(f&quot;第四行&#123;content!r&#125;&quot;)  # 第四行&#39;&#39;，此时文件一共三行，已读完，并不报错，输出空白字符
+f.close()<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h4 id="文件的写"><a href="#文件的写" class="headerlink" title="文件的写"></a>文件的写</h4><ul>
+<li>关于文件写四个模式</li>
+<li><code>w</code>，打开一个文件只用于写入。如果文件已存在则先清空后写入，如果没有文件则创建文件</li>
+<li><code>wb</code>，以二进制格式打开一个文件只用于写入。</li>
+<li><code>w+</code>，打开一个文件用于读写，巴拉巴拉</li>
+<li><code>wb+</code>，以二进制格式打开一个文件用于读写，巴拉巴拉</li>
+</ul>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python"># f.write(string) 会把 string 的内容写入到文件中，并返回写入的字符数
+f &#x3D; open(&quot;text1.txt&quot;, &quot;w&quot;)
+f.write(&quot;hello world&quot;)  # 将字符串写入文件中
+f.close()
+
+# text1.txt 文本内容：
+&quot;&quot;&quot;
+hello world
+&quot;&quot;&quot;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h4 id="文件的追加"><a href="#文件的追加" class="headerlink" title="文件的追加"></a>文件的追加</h4><ul>
+<li>关于文件写四个模式</li>
+<li><code>a</code>，打开一个文件用于追加。如果文件存在，新内容将写在文件已有内容之后。文件不存在则创建新文件进行写入。</li>
+<li><code>ab</code>，<code>a+</code>，<code>ab+</code></li>
+</ul>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python">f &#x3D; open(&quot;text2.txt&quot;, encoding&#x3D;&quot;utf-8&quot;, mode&#x3D;&quot;a&quot;)
+f.write(&quot;我是第一句&quot;)
+f.close()
+
+# text1.txt 文本内容：
+&quot;&quot;&quot;
+我是第一句
+&quot;&quot;&quot;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h4 id="其他函数"><a href="#其他函数" class="headerlink" title="其他函数"></a>其他函数</h4><pre class="line-numbers language-python" data-language="python"><code class="language-python"># f.tell() 返回一个整数，给出文件对象在文件中的当前位置，表示为二进制模式下时从文件开始的字节数，以及文本模式下的意义不明的数字
+# text.txt 文本内容：
+&quot;&quot;&quot;
+hello world
+&quot;&quot;&quot;
+f &#x3D; open(&quot;text.txt&quot;, &quot;r&quot;)
+print(f.tell())  # 0
+content &#x3D; f.read(5)
+print(content)  # hello
+print(f.tell())  # 5
+f.close()
+
+# f.seek(offset, whence)，通过向一个参考点添加 offset 来计算位置；参考点由 whence 参数指定。 whence 的 0 值表示从文件开头起算，1 表示使用当前文件位置，2 表示使用文件末尾作为参考点
+f &#x3D; open(&quot;text.txt&quot;, &quot;r&quot;)
+print(f.tell())  # 0
+f.seek(6)
+content &#x3D; f.read()
+print(content)  # world
+print(f.tell())  # 11
+f.close()<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h4 id="with"><a href="#with" class="headerlink" title="with"></a>with</h4><pre class="line-numbers language-python" data-language="python"><code class="language-python"># with open(filename, mode, encoding) as f，打开文件不再需要 f.close，with 会自动处理
+# 不设置读写模式，默认为 r 模式打开文件
+with open(&quot;text.txt&quot;, encoding&#x3D;&quot;utf-8&quot;) as result:
+    print(result.read())
+
+&quot;&quot;&quot;
+hello world
+
+hello python
+&quot;&quot;&quot;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h2 id="Python-类与对象"><a href="#Python-类与对象" class="headerlink" title="Python 类与对象"></a>Python 类与对象</h2><ol>
+<li>类是对一系列具有相同<strong>特征</strong>和<strong>行为</strong>的事物的统称，是一个抽象概念，特征即属性，行为即方法</li>
+<li>对象是类的一个实例，先有类，后有对象</li>
+<li>类名遵循大驼峰命名如：<code>HelloWorld</code></li>
+<li>属性和方法可以在类中指定也可以动态添加</li>
+<li>面向对象的三个特点：封装、继承、多态</li>
+</ol>
+<h3 id="类的定义"><a href="#类的定义" class="headerlink" title="类的定义"></a>类的定义</h3><pre class="line-numbers language-python" data-language="python"><code class="language-python">&quot;&quot;&quot;
+class 类名:
+    代码
+&quot;&quot;&quot;
+# self 指的是调用该函数的对象
+# 定义一个动物类，拥有 name 属性，eat 方法
+class Animal:
+    name &#x3D; None
+    
+    def eat(self):
+        print(f&quot;&#123;self.name&#125; 正在吃...&quot;)
+
+# 实例化一个动物：猫，获取属性通过 对象名.属性名
+cat &#x3D; Animal()  # 获得一个 Animal 的实例，拥有 name 属性，和 eat 方法
+cat.name &#x3D; &quot;猫&quot;  # 指定 cat 的 name 属性的值为猫
+print(cat.name)  # 获取 cat 的 name 属性的值 # 猫
+cat.eat()  # 调用 cat 的 eat 方法
+#  猫 正在吃...<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h3 id="魔法方法"><a href="#魔法方法" class="headerlink" title="魔法方法"></a>魔法方法</h3><h4 id="init-方法"><a href="#init-方法" class="headerlink" title="init 方法"></a>init 方法</h4><pre class="line-numbers language-python" data-language="python"><code class="language-python"># __init__ 为初始化方法
+class Animal:
+
+    def __init__(self, name):
+        self.name &#x3D; name
+
+    def eat(self):
+        print(f&quot;&#123;self.name&#125; 正在吃...&quot;)
+
+
+cat &#x3D; Animal(&quot;猫&quot;)  # 传入 name 参数，用于初始化一个猫的实例
+print(cat)  # &lt;__main__.Animal object at 0x0000028581CED688&gt;
+cat.eat()  # 猫 正在吃...<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h4 id="str-方法"><a href="#str-方法" class="headerlink" title="str 方法"></a>str 方法</h4><pre class="line-numbers language-python" data-language="python"><code class="language-python"># 当 print 对象的时候，默认打印的是对象的内存地址，定义 __str__ 方法，再次打印对象则输出的是 __str__ 方法的返回值
+class Animal:
+
+    def __init__(self, name):
+        self.name &#x3D; name
+    
+    def __str__(self):
+        return f&quot;这是一只&#123;self.name&#125;&quot;
+    
+    def eat(self):
+        print(f&quot;&#123;self.name&#125; 正在吃...&quot;)
+    
+    
+
+dog &#x3D; Animal(&quot;狗&quot;)  # 传入 name 参数，用于初始化一个狗的实例
+print(dog)  # 这是一只狗
+dog.eat()  # 狗 正在吃...<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h4 id="del-方法"><a href="#del-方法" class="headerlink" title="del 方法"></a>del 方法</h4><pre class="line-numbers language-python" data-language="python"><code class="language-python"># 当删除对象的时候，python 解释器会默认调用 __del__ 方法（析构方法）
+class Animal:
+    
+    def __init__(self, name):
+        self.name &#x3D; name
+    
+    def __str__(self):
+        return f&quot;这是一只&#123;self.name&#125;&quot;
+    
+    def eat(self):
+        print(f&quot;&#123;self.name&#125; 正在吃...&quot;)
+    
+    def __del__(self):
+        print(f&quot;&#123;self.name&#125; 死了&quot;)
+    
+
+dog &#x3D; Animal(&quot;狗&quot;)  # 传入 name 参数，用于初始化一个狗的实例
+print(dog)  # 这是一只狗
+dog.eat()  # 狗 正在吃...
+#  狗 死了  # 程序结束，对象删除，所以调用了__del__方法，系统收回内存<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h3 id="继承"><a href="#继承" class="headerlink" title="继承"></a>继承</h3><ol>
+<li>所有类默认继承 object 类 </li>
+<li>子类继承父类的所有属性和方法</li>
+<li>子类可以重写父类方法</li>
+<li>多继承，一个子类可以有多个父类</li>
+</ol>
+<h4 id="单继承"><a href="#单继承" class="headerlink" title="单继承"></a>单继承</h4><pre class="line-numbers language-python" data-language="python"><code class="language-python">class A:
+    def __init__(self):
+        self.num &#x3D; 1
+    
+    def print_num(self):
+        print(f&quot;我的数字是：&#123;self.num&#125;&quot;)
+
+
+class B(A):
+    pass  # pass用来代码占位，没有任何实际意义
+
+
+b &#x3D; B()  # 创建 B 类的一个实例对象
+print(b.num)  # 1 # 打印 b 实例的 num 属性的值，找不到去父类找
+b.print_num()  # 我的数字是：1 # 调用 b 实例的 print_num 方法，找不到去父类找<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h4 id="重写方法"><a href="#重写方法" class="headerlink" title="重写方法"></a>重写方法</h4><pre class="line-numbers language-python" data-language="python"><code class="language-python">class A:
+    def __init__(self):
+        self.num &#x3D; 1
+    
+    def print_num(self):
+        print(f&quot;A的数字是：&#123;self.num&#125;&quot;)
+
+
+class B(A):
+    def print_num(self):
+        print(f&quot;B的数字是：2&quot;)
+
+
+b &#x3D; B()
+b.print_num()  # B的数字是：2<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h4 id="多继承"><a href="#多继承" class="headerlink" title="多继承"></a>多继承</h4><pre class="line-numbers language-python" data-language="python"><code class="language-python">class A:
+    def __init__(self):
+        self.num &#x3D; 1
+    
+    def print_num(self):
+        print(f&quot;A的数字是：&#123;self.num&#125;&quot;)
+
+
+class B:
+    def __init__(self):
+        self.num &#x3D; 2
+    
+    def print_num(self):
+        print(f&quot;B的数字是：&#123;self.num&#125;&quot;)
+
+class C(B, A):
+    pass
+    
+
+
+c &#x3D; C()  # 创建 C 类的一个实例对象
+print(c.num)  # 2 # 打印 c 实例的 num 属性的值，找不到去父类找
+c.print_num()  # B的数字是：2 # 调用 c 实例的 print_num 方法，找不到去父类找
+
+# __mro__()方法获取继承顺序，即子类未找到属性或方法向上查找父类的顺序
+print(C.__mro__)  
+# (&lt;class &#39;__main__.C&#39;&gt;, &lt;class &#39;__main__.B&#39;&gt;, &lt;class &#39;__main__.A&#39;&gt;, &lt;class &#39;object&#39;&gt;)
+# 如打印顺序可知，C 找不到的话，找 B，再 A，最后 object类<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h4 id="多层继承"><a href="#多层继承" class="headerlink" title="多层继承"></a>多层继承</h4><pre class="line-numbers language-python" data-language="python"><code class="language-python">class A:
+    def __init__(self):
+        self.num &#x3D; 1
+    
+    def print_num(self):
+        print(f&quot;A的数字是：&#123;self.num&#125;&quot;)
+
+
+class B:
+    def __init__(self):
+        self.num &#x3D; 2
+    
+    def print_num(self):
+        print(f&quot;B的数字是：&#123;self.num&#125;&quot;)
+
+
+class C(B, A):
+    pass
+
+
+class D(C):
+    pass
+
+
+d &#x3D; D()
+d.print_num()  # B的数字是：2
+print(D.__mro__)
+# (&lt;class &#39;__main__.D&#39;&gt;, &lt;class &#39;__main__.C&#39;&gt;, &lt;class &#39;__main__.B&#39;&gt;, &lt;class &#39;__main__.A&#39;&gt;, &lt;class &#39;object&#39;&gt;)<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h4 id="super"><a href="#super" class="headerlink" title="super()"></a>super()</h4><pre class="line-numbers language-python" data-language="python"><code class="language-python"># 子类调用父类的方法
+class A:
+    def __init__(self):
+        self.num &#x3D; 1
+    
+    def print_num(self):
+        print(f&quot;A的数字是：&#123;self.num&#125;&quot;)
+
+
+class B(A):
+    def print_num(self):
+        super(B, self).print_num()  # A的数字是：1
+        print(f&quot;B的数字是：2&quot;)
+
+
+b &#x3D; B()
+b.print_num()  # B的数字是：2<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h4 id="私有属性"><a href="#私有属性" class="headerlink" title="私有属性"></a>私有属性</h4><pre class="line-numbers language-python" data-language="python"><code class="language-python"># 设置属性和方法，不继承给子类，在属性和方法名前加 __（双下划钱）
+class A:
+    def __init__(self):
+        self.num &#x3D; 1
+        self.__score &#x3D; 100
+    
+    def print_num(self):
+        print(f&quot;A的数字是：&#123;self.num&#125;&quot;)
+
+
+class B(A):
+    def __init__(self):
+        super(B, self).__init__()  # 继承A类的初始化方法
+    
+    def print_num(self):
+        print(f&quot;B的数字是：&#123;self.num&#125;&quot;)
+
+b &#x3D; B()
+print(b.num)  # 1
+print(b.__score)  # AttributeError: &#39;B&#39; object has no attribute &#39;__score&#39;
+
+
+# 修改私有属性，get，set
+class A:
+    def __init__(self):
+        self.num &#x3D; 1
+        self.__score &#x3D; 100
+    
+    def print_num(self):
+        print(f&quot;A的数字是：&#123;self.num&#125;&quot;)
+    
+    def get_score(self):
+        return self.__score
+    
+    def set_score(self, score):
+        self.__score &#x3D; score
+
+a &#x3D; A()
+# print(a.__score)
+print(a.get_score())  # 100
+a.set_score(1000)
+print(a.get_score())  # 1000<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h3 id="多态"><a href="#多态" class="headerlink" title="多态"></a>多态</h3><ol>
+<li>多态是指一类事物有多种形态</li>
+<li>子类重写父类方法，调用不同子类对象的相同父类方法，可以产生不同的执行结果</li>
+</ol>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python">class Animal:
+    
+    def work(self):
+        print(&quot;动物在叫，人坏掉&quot;)
+
+
+class Cat(Animal):
+    
+    def work(self):
+        print(&quot;猫在叫，人坏掉&quot;)
+    
+
+class Dog(Animal):
+    
+    def work(self):
+        print(&quot;狗在叫，人坏掉&quot;)
+
+
+class Person:
+    
+    def work_with_pet(self, cls):
+        cls.work()
+
+
+cat &#x3D; Cat()
+dog &#x3D; Dog()
+person &#x3D; Person()
+person.work_with_pet(cat)  # 猫在叫，人坏掉
+person.work_with_pet(dog)  # 狗在叫，人坏掉<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h3 id="类方法"><a href="#类方法" class="headerlink" title="类方法"></a>类方法</h3><ul>
+<li>当方法中需要使用类对象（如访问私有类属性等），定义类方法</li>
+<li>类方法一般和类属性配合使用</li>
+</ul>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python"># @classmethod，第一个参数必须是类对象，一般为 cls
+class Animal:
+    __name &#x3D; &quot;动物&quot;
+    
+    @classmethod
+    def get_name(cls):
+        return cls.__name
+
+
+a &#x3D; Animal()
+print(a.get_name())  # 动物<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h3 id="静态方法"><a href="#静态方法" class="headerlink" title="静态方法"></a>静态方法</h3><ul>
+<li>静态方法既不需要传递类对象也不需要传入实例对象</li>
+<li>静态方法也能够通过实例对象和类对象去访问</li>
+</ul>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python"># @staticmethod
+class Animal:
+    
+    @staticmethod
+    def eat():
+        print(&quot;吃就完事了&quot;)
+
+a &#x3D; Animal()
+a.eat()  # 吃就完事了<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h2 id="Python-错误和异常"><a href="#Python-错误和异常" class="headerlink" title="Python 错误和异常"></a>Python 错误和异常</h2><h3 id="语法错误"><a href="#语法错误" class="headerlink" title="语法错误"></a>语法错误</h3><p>语法错误又称解析错误，可能是你在学习Python 时最容易遇到的错误</p>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python"># 符号或者缩进语法错误等等<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<h3 id="异常"><a href="#异常" class="headerlink" title="异常"></a>异常</h3><p>即使语句或表达式在语法上是正确的，但在尝试执行时，它仍可能会引发错误。 在执行时检测到的错误被称为 异常，异常不一定会导致严重后果。</p>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python">try:
+    可能出现异常的代码
+except 异常类型:
+    出现异常之后执行的代码
+
+# r 模式打开文件，文件不存在会抛出异常
+try:
+    f &#x3D; open(&quot;text.txt&quot;, &quot;r&quot;)
+except:
+    f &#x3D; open(&quot;text.txt&quot;, &quot;w&quot;)<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h4 id="捕获指定异常"><a href="#捕获指定异常" class="headerlink" title="捕获指定异常"></a>捕获指定异常</h4><pre class="line-numbers language-python" data-language="python"><code class="language-python">try:
+    print(&quot;12345&quot;)
+    f &#x3D; open(&quot;123.txt&quot;, &quot;r&quot;)  # 只读模式打开，未找到文件，抛出异常
+    print(&quot;1111&quot;)  # 上面异常，下面代码将不再执行
+    print(num)    # 未定义 num，会抛出 NameError 异常错误信息
+except (NameError, IOError) as result: # 将错误信息赋值给result
+    print(&quot;产生错误了&quot;)
+    print(result)
+
+&quot;&quot;&quot;
+12345
+产生错误了
+[Errno 2] No such file or directory: &#39;123.txt&#39;
+&quot;&quot;&quot;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h4 id="捕获所有异常"><a href="#捕获所有异常" class="headerlink" title="捕获所有异常"></a>捕获所有异常</h4><pre class="line-numbers language-python" data-language="python"><code class="language-python">try:
+    print(&quot;12345&quot;)
+    f &#x3D; open(&quot;123.txt&quot;, &quot;r&quot;)
+    print(&quot;1111&quot;)
+    print(num)
+except Exception as result: # 将错误信息赋值给result
+    print(&quot;产生错误了&quot;)
+    print(result)
+
+&quot;&quot;&quot;
+12345
+产生错误了
+[Errno 2] No such file or directory: &#39;123.txt&#39;
+&quot;&quot;&quot;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h4 id="else-语句"><a href="#else-语句" class="headerlink" title="else 语句"></a>else 语句</h4><pre class="line-numbers language-python" data-language="python"><code class="language-python"># 没有异常发生执行的代码，用 else 语句<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<h4 id="finally-语句"><a href="#finally-语句" class="headerlink" title="finally 语句"></a>finally 语句</h4><pre class="line-numbers language-python" data-language="python"><code class="language-python"># 无论异常是否发生，一定都会执行的代码，用 finally 语句，常用于资源的清理<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<h4 id="自定义异常"><a href="#自定义异常" class="headerlink" title="自定义异常"></a>自定义异常</h4><pre class="line-numbers language-python" data-language="python"><code class="language-python">class PhoneNumError(Exception):
+    
+    def __init__(self, phone):
+        self.phone &#x3D; phone
+    
+    def __str__(self):
+        return f&quot;&#123;self.phone&#125;，手机位数错误，应为11位&quot;
+
+
+try:
+    phone_num &#x3D; &quot;1029321212&quot;
+    if len(phone_num) &lt; 11:
+        raise PhoneNumError(phone_num)
+except Exception as e:
+    print(e)  # 1029321212，手机位数错误，应为11位<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h2 id="Python-模块与包"><a href="#Python-模块与包" class="headerlink" title="Python 模块与包"></a>Python 模块与包</h2><h3 id="模块"><a href="#模块" class="headerlink" title="模块"></a>模块</h3><p>模块是一个包含Python定义和语句的文件。文件名就是模块名后跟文件后缀 <code>.py</code></p>
+<p>自定义模块名尽量不要与已有模块同名</p>
+<h4 id="模块的导入"><a href="#模块的导入" class="headerlink" title="模块的导入"></a>模块的导入</h4><pre class="line-numbers language-python" data-language="python"><code class="language-python">import 模块名
+import 模块名1,模块名2       # （不推荐）
+from 模块名 import 模块内函数
+from 模块名 import *        # （不推荐）
+import 模块名 as 别名
+from 模块名 import 模块内函数 as 别名<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h4 id="模块搜索顺序"><a href="#模块搜索顺序" class="headerlink" title="模块搜索顺序"></a>模块搜索顺序</h4><ol>
+<li>当前目录</li>
+<li>python 环境变量默认目录下</li>
+<li>python 默认路径</li>
+</ol>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python"># __all__，设置可导出的函数
+# 当导出模块后，只能使用__all__ 列表中的函数<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+
+<h3 id="包"><a href="#包" class="headerlink" title="包"></a>包</h3><p>包是一种通过用“带点号的模块名”来构造 Python 模块命名空间的方法，将有联系的模块组织到一个文件夹，且含有 <code>__init__</code> 文件</p>
+<h4 id="导入包"><a href="#导入包" class="headerlink" title="导入包"></a>导入包</h4><pre class="line-numbers language-python" data-language="python"><code class="language-python">import 包名.模块名
+from 包名 import 模块名
+# 必须在__init__文件中，添加__all__ &#x3D; []，控制允许导入的模块列表<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+
+
+                
+            </div>
+            <hr/>
+
+            
+
+    <div class="reprint" id="reprint-statement">
+        
+            <div class="reprint__author">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-user">
+                        文章作者:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="/about" rel="external nofollow noreferrer">John Faye</a>
+                </span>
+            </div>
+            <div class="reprint__type">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-link">
+                        文章链接:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="https://jojofaye99.github.io/2025/01/19/pythonlearning/">https://jojofaye99.github.io/2025/01/19/pythonlearning/</a>
+                </span>
+            </div>
+            <div class="reprint__notice">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-copyright">
+                        版权声明:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    本博客所有文章除特別声明外，均采用
+                    <a href="https://creativecommons.org/licenses/by/4.0/deed.zh" rel="external nofollow noreferrer" target="_blank">CC BY 4.0</a>
+                    许可协议。转载请注明来源
+                    <a href="/about" target="_blank">John Faye</a>
+                    !
+                </span>
+            </div>
+        
+    </div>
+
+    <script async defer>
+      document.addEventListener("copy", function (e) {
+        let toastHTML = '<span>复制成功，请遵循本文的转载规则</span><button class="btn-flat toast-action" onclick="navToReprintStatement()" style="font-size: smaller">查看</a>';
+        M.toast({html: toastHTML})
+      });
+
+      function navToReprintStatement() {
+        $("html, body").animate({scrollTop: $("#reprint-statement").offset().top - 80}, 800);
+      }
+    </script>
+
+
+
+            <div class="tag_share" style="display: block;">
+                <div class="post-meta__tag-list" style="display: inline-block;">
+                    
+                        <div class="article-tag">
+                            
+                                <a href="/tags/Note/">
+                                    <span class="chip bg-color">Note</span>
+                                </a>
+                            
+                        </div>
+                    
+                </div>
+                <div class="post_share" style="zoom: 80%; width: fit-content; display: inline-block; float: right; margin: -0.15rem 0;">
+                    <link rel="stylesheet" type="text/css" href="/libs/share/css/share.min.css">
+<div id="article-share">
+
+    
+    <div class="social-share" data-sites="twitter,facebook,google,qq,qzone,wechat,weibo,douban,linkedin" data-wechat-qrcode-helper="<p>微信扫一扫即可分享！</p>"></div>
+    <script src="/libs/share/js/social-share.min.js"></script>
+    
+
+    
+
+</div>
+
+                </div>
+            </div>
+            
+        </div>
+    </div>
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+<article id="prenext-posts" class="prev-next articles">
+    <div class="row article-row">
+        
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
+            <div class="article-badge left-badge text-color">
+                <i class="far fa-dot-circle"></i>&nbsp;本篇
+            </div>
+            <div class="card">
+                <a href="/2025/01/19/pythonlearning/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/2.jpg" class="responsive-img" alt="Python语法学习">
+                        
+                        <span class="card-title">Python语法学习</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2025-01-19
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/Python/" class="post-category">
+                                    Python
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/Note/">
+                        <span class="chip bg-color">Note</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
+            </div>
+            <div class="card">
+                <a href="/2024/12/14/javamybatis/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/5.jpg" class="responsive-img" alt="Mybatis">
+                        
+                        <span class="card-title">Mybatis</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2024-12-14
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/Java/" class="post-category">
+                                    Java
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/Mybatis/">
+                        <span class="chip bg-color">Mybatis</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+    </div>
+</article>
+
+</div>
+
+
+<script>
+    $('#articleContent').on('copy', function (e) {
+        // IE8 or earlier browser is 'undefined'
+        if (typeof window.getSelection === 'undefined') return;
+
+        var selection = window.getSelection();
+        // if the selection is short let's not annoy our users.
+        if (('' + selection).length < Number.parseInt('50')) {
+            return;
+        }
+
+        // create a div outside of the visible area and fill it with the selected text.
+        var bodyElement = document.getElementsByTagName('body')[0];
+        var newdiv = document.createElement('div');
+        newdiv.style.position = 'absolute';
+        newdiv.style.left = '-99999px';
+        bodyElement.appendChild(newdiv);
+        newdiv.appendChild(selection.getRangeAt(0).cloneContents());
+
+        // we need a <pre> tag workaround.
+        // otherwise the text inside "pre" loses all the line breaks!
+        if (selection.getRangeAt(0).commonAncestorContainer.nodeName === 'PRE' || selection.getRangeAt(0).commonAncestorContainer.nodeName === 'CODE') {
+            newdiv.innerHTML = "<pre>" + newdiv.innerHTML + "</pre>";
+        }
+
+        var url = document.location.href;
+        newdiv.innerHTML += '<br />'
+            + '来源: 造梦空间<br />'
+            + '文章作者: John Faye<br />'
+            + '文章链接: <a href="' + url + '">' + url + '</a><br />'
+            + '本文章著作权归作者所有，任何形式的转载都请注明出处。';
+
+        selection.selectAllChildren(newdiv);
+        window.setTimeout(function () {bodyElement.removeChild(newdiv);}, 200);
+    });
+</script>
+
+
+<!-- 代码块功能依赖 -->
+<script type="text/javascript" src="/libs/codeBlock/codeBlockFuction.js"></script>
+
+
+  <!-- 是否加载使用自带的 prismjs. -->
+  <script type="text/javascript" src="/libs/prism/prism.min.js"></script>
+
+
+<!-- 代码语言 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeLang.js"></script>
+
+
+<!-- 代码块复制 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeCopy.js"></script>
+
+
+<!-- 代码块收缩 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeShrink.js"></script>
+
+
+
+    </div>
+    <div id="toc-aside" class="expanded col l3 hide-on-med-and-down">
+        <div class="toc-widget card" style="background-color: white;">
+            <div class="toc-title"><i class="far fa-list-alt"></i>&nbsp;&nbsp;目录</div>
+            <div id="toc-content"></div>
+        </div>
+    </div>
+</div>
+
+<!-- TOC 悬浮按钮. -->
+
+<div id="floating-toc-btn" class="hide-on-med-and-down">
+    <a class="btn-floating btn-large bg-color">
+        <i class="fas fa-list-ul"></i>
+    </a>
+</div>
+
+
+<script src="/libs/tocbot/tocbot.min.js"></script>
+<script>
+    $(function () {
+        tocbot.init({
+            tocSelector: '#toc-content',
+            contentSelector: '#articleContent',
+            headingsOffset: -($(window).height() * 0.4 - 45),
+            collapseDepth: Number('0'),
+            headingSelector: 'h2, h3, h4'
+        });
+
+        // Set scroll toc fixed.
+        let tocHeight = parseInt($(window).height() * 0.4 - 64);
+        let $tocWidget = $('.toc-widget');
+        $(window).scroll(function () {
+            let scroll = $(window).scrollTop();
+            /* add post toc fixed. */
+            if (scroll > tocHeight) {
+                $tocWidget.addClass('toc-fixed');
+            } else {
+                $tocWidget.removeClass('toc-fixed');
+            }
+        });
+
+        
+        /* 修复文章卡片 div 的宽度. */
+        let fixPostCardWidth = function (srcId, targetId) {
+            let srcDiv = $('#' + srcId);
+            if (srcDiv.length === 0) {
+                return;
+            }
+
+            let w = srcDiv.width();
+            if (w >= 450) {
+                w = w + 21;
+            } else if (w >= 350 && w < 450) {
+                w = w + 18;
+            } else if (w >= 300 && w < 350) {
+                w = w + 16;
+            } else {
+                w = w + 14;
+            }
+            $('#' + targetId).width(w);
+        };
+
+        // 切换TOC目录展开收缩的相关操作.
+        const expandedClass = 'expanded';
+        let $tocAside = $('#toc-aside');
+        let $mainContent = $('#main-content');
+        $('#floating-toc-btn .btn-floating').click(function () {
+            if ($tocAside.hasClass(expandedClass)) {
+                $tocAside.removeClass(expandedClass).hide();
+                $mainContent.removeClass('l9');
+            } else {
+                $tocAside.addClass(expandedClass).show();
+                $mainContent.addClass('l9');
+            }
+            fixPostCardWidth('artDetail', 'prenext-posts');
+        });
+        
+    });
+</script>
+
+    
+
+</main>
+
+
+
+
+    <footer class="page-footer bg-color">
+    
+        <link rel="stylesheet" href="/libs/aplayer/APlayer.min.css">
+<style>
+    .aplayer .aplayer-lrc p {
+        
+        display: none;
+        
+        font-size: 12px;
+        font-weight: 700;
+        line-height: 16px !important;
+    }
+
+    .aplayer .aplayer-lrc p.aplayer-lrc-current {
+        
+        display: none;
+        
+        font-size: 15px;
+        color: #42b983;
+    }
+
+    
+    .aplayer.aplayer-fixed.aplayer-narrow .aplayer-body {
+        left: -66px !important;
+    }
+
+    .aplayer.aplayer-fixed.aplayer-narrow .aplayer-body:hover {
+        left: 0px !important;
+    }
+
+    
+</style>
+<div class="">
+    
+    <div class="row">
+        <meting-js class="col l8 offset-l2 m10 offset-m1 s12"
+                   server="netease"
+                   type="playlist"
+                   id="503838841"
+                   fixed='true'
+                   autoplay='false'
+                   theme='#42b983'
+                   loop='all'
+                   order='random'
+                   preload='auto'
+                   volume='0.7'
+                   list-folded='true'
+        >
+        </meting-js>
+    </div>
+</div>
+
+<script src="/libs/aplayer/APlayer.min.js"></script>
+<script src="/libs/aplayer/Meting.min.js"></script>
+
+    
+
+    <div class="container row center-align"
+         style="margin-bottom: 0px !important;">
+        <div class="col s12 m8 l8 copy-right">
+            Copyright&nbsp;&copy;
+            
+                <span id="year">2021-2025</span>
+            
+            <a href="/about" target="_blank">John Faye</a>
+            |&nbsp;Powered by&nbsp;<a href="https://hexo.io/" target="_blank">Hexo</a>
+            |&nbsp;Theme&nbsp;<a href="https://github.com/blinkfox/hexo-theme-matery" target="_blank">Matery</a>
+            
+            <br>
+            
+            
+            
+            
+            
+            <br>
+
+            <!-- 运行天数提醒. -->
+            
+            <br>
+            
+        </div>
+        <div class="col s12 m4 l4 social-link ">
+    <a href="https://github.com/jojofaye99" class="tooltipped" target="_blank" data-tooltip="访问我的GitHub" data-position="top" data-delay="50">
+        <i class="fab fa-github"></i>
+    </a>
+
+
+
+    <a href="mailto:1358282083@qq.com" class="tooltipped" target="_blank" data-tooltip="邮件联系我" data-position="top" data-delay="50">
+        <i class="fas fa-envelope-open"></i>
+    </a>
+
+
+
+
+
+
+
+    <a href="tencent://AddContact/?fromId=50&fromSubId=1&subcmd=all&uin=1358282083" class="tooltipped" target="_blank" data-tooltip="QQ联系我: 1358282083" data-position="top" data-delay="50">
+        <i class="fab fa-qq"></i>
+    </a>
+
+
+
+
+
+
+
+</div>
+    </div>
+</footer>
+
+<div class="progress-bar"></div>
+
+
+    <!-- 搜索遮罩框 -->
+<div id="searchModal" class="modal">
+    <div class="modal-content">
+        <div class="search-header">
+            <span class="title"><i class="fas fa-search"></i>&nbsp;&nbsp;搜索</span>
+            <input type="search" id="searchInput" name="s" placeholder="请输入搜索的关键字"
+                   class="search-input">
+        </div>
+        <div id="searchResult"></div>
+    </div>
+</div>
+
+<script type="text/javascript">
+$(function () {
+    var searchFunc = function (path, search_id, content_id) {
+        'use strict';
+        $.ajax({
+            url: path,
+            dataType: "xml",
+            success: function (xmlResponse) {
+                // get the contents from search data
+                var datas = $("entry", xmlResponse).map(function () {
+                    return {
+                        title: $("title", this).text(),
+                        content: $("content", this).text(),
+                        url: $("url", this).text()
+                    };
+                }).get();
+                var $input = document.getElementById(search_id);
+                var $resultContent = document.getElementById(content_id);
+                $input.addEventListener('input', function () {
+                    var str = '<ul class=\"search-result-list\">';
+                    var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
+                    $resultContent.innerHTML = "";
+                    if (this.value.trim().length <= 0) {
+                        return;
+                    }
+                    // perform local searching
+                    datas.forEach(function (data) {
+                        var isMatch = true;
+                        var data_title = data.title.trim().toLowerCase();
+                        var data_content = data.content.trim().replace(/<[^>]+>/g, "").toLowerCase();
+                        var data_url = data.url;
+                        data_url = data_url.indexOf('/') === 0 ? data.url : '/' + data_url;
+                        var index_title = -1;
+                        var index_content = -1;
+                        var first_occur = -1;
+                        // only match artiles with not empty titles and contents
+                        if (data_title !== '' && data_content !== '') {
+                            keywords.forEach(function (keyword, i) {
+                                index_title = data_title.indexOf(keyword);
+                                index_content = data_content.indexOf(keyword);
+                                if (index_title < 0 && index_content < 0) {
+                                    isMatch = false;
+                                } else {
+                                    if (index_content < 0) {
+                                        index_content = 0;
+                                    }
+                                    if (i === 0) {
+                                        first_occur = index_content;
+                                    }
+                                }
+                            });
+                        }
+                        // show search results
+                        if (isMatch) {
+                            str += "<li><a href='" + data_url + "' class='search-result-title'>" + data_title + "</a>";
+                            var content = data.content.trim().replace(/<[^>]+>/g, "");
+                            if (first_occur >= 0) {
+                                // cut out 100 characters
+                                var start = first_occur - 20;
+                                var end = first_occur + 80;
+                                if (start < 0) {
+                                    start = 0;
+                                }
+                                if (start === 0) {
+                                    end = 100;
+                                }
+                                if (end > content.length) {
+                                    end = content.length;
+                                }
+                                var match_content = content.substr(start, end);
+                                // highlight all keywords
+                                keywords.forEach(function (keyword) {
+                                    var regS = new RegExp(keyword, "gi");
+                                    match_content = match_content.replace(regS, "<em class=\"search-keyword\">" + keyword + "</em>");
+                                });
+
+                                str += "<p class=\"search-result\">" + match_content + "...</p>"
+                            }
+                            str += "</li>";
+                        }
+                    });
+                    str += "</ul>";
+                    $resultContent.innerHTML = str;
+                });
+            }
+        });
+    };
+
+    searchFunc('/search.xml', 'searchInput', 'searchResult');
+});
+</script>
+
+    <!-- 白天和黑夜主题 -->
+<div class="stars-con">
+    <div id="stars"></div>
+    <div id="stars2"></div>
+    <div id="stars3"></div>  
+</div>
+
+<script>
+    function switchNightMode() {
+        $('<div class="Cuteen_DarkSky"><div class="Cuteen_DarkPlanet"></div></div>').appendTo($('body')),
+        setTimeout(function () {
+            $('body').hasClass('DarkMode') 
+            ? ($('body').removeClass('DarkMode'), localStorage.setItem('isDark', '0'), $('#sum-moon-icon').removeClass("fa-sun").addClass('fa-moon')) 
+            : ($('body').addClass('DarkMode'), localStorage.setItem('isDark', '1'), $('#sum-moon-icon').addClass("fa-sun").removeClass('fa-moon')),
+            
+            setTimeout(function () {
+            $('.Cuteen_DarkSky').fadeOut(1e3, function () {
+                $(this).remove()
+            })
+            }, 2e3)
+        })
+    }
+</script>
+
+    <!-- 回到顶部按钮 -->
+<div id="backTop" class="top-scroll">
+    <a class="btn-floating btn-large waves-effect waves-light" href="#!">
+        <i class="fas fa-arrow-up"></i>
+    </a>
+</div>
+
+
+    <script src="/libs/materialize/materialize.min.js"></script>
+    <script src="/libs/masonry/masonry.pkgd.min.js"></script>
+    <script src="/libs/aos/aos.js"></script>
+    <script src="/libs/scrollprogress/scrollProgress.min.js"></script>
+    <script src="/libs/lightGallery/js/lightgallery-all.min.js"></script>
+    <script src="/js/matery.js"></script>
+
+    
+
+    
+    
+    
+
+    <!-- 雪花特效 -->
+    
+
+    <!-- 鼠标星星特效 -->
+    
+
+     
+        <script src="https://ssl.captcha.qq.com/TCaptcha.js"></script>
+        <script src="/libs/others/TencentCaptcha.js"></script>
+        <button id="TencentCaptcha" data-appid="xxxxxxxxxx" data-cbfn="callback" type="button" hidden></button>
+    
+
+    <!-- Baidu Analytics -->
+
+    <!-- Baidu Push -->
+
+<script>
+    (function () {
+        var bp = document.createElement('script');
+        var curProtocol = window.location.protocol.split(':')[0];
+        if (curProtocol === 'https') {
+            bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+        } else {
+            bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+        }
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(bp, s);
+    })();
+</script>
+
+    
+    <script src="/libs/others/clicklove.js" async="async"></script>
+    
+    
+
+    
+
+    
+
+    <!--腾讯兔小巢-->
+    
+    
+
+    
+
+    
+    <script type="text/javascript" src="/libs/background/ribbon-dynamic.js" async="async"></script>
+    
+
+    
+    <script src="/libs/instantpage/instantpage.js" type="module"></script>
+    
+
+</body>
+
+</html>

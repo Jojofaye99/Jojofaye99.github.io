@@ -1,0 +1,2181 @@
+<!DOCTYPE HTML>
+<html lang="zh-CN">
+
+
+<head>
+    <meta charset="utf-8">
+    <meta name="keywords" content="MySQL8, 造梦空间">
+    <meta name="description" content="Install1、安装 docker-compose
+# 下载文件
+sudo curl -L &amp;quot;https:&amp;#x2F;&amp;#x2F;github.com&amp;#x2F;docker&amp;#x2F;compose&amp;#x2F;releases">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta name="renderer" content="webkit|ie-stand|ie-comp">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="referrer" content="no-referrer-when-downgrade">
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+
+
+    <title>MySQL8 | 造梦空间</title>
+    <link rel="icon" type="image/png" href="/favicon.png">
+    
+
+
+    <!-- bg-cover style     -->
+
+
+
+<link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.min.css">
+<link rel="stylesheet" type="text/css" href="/libs/materialize/materialize.min.css">
+<link rel="stylesheet" type="text/css" href="/libs/aos/aos.css">
+<link rel="stylesheet" type="text/css" href="/libs/animate/animate.min.css">
+<link rel="stylesheet" type="text/css" href="/libs/lightGallery/css/lightgallery.min.css">
+<link rel="stylesheet" type="text/css" href="/css/matery.css">
+<link rel="stylesheet" type="text/css" href="/css/my.css">
+<link rel="stylesheet" type="text/css" href="/css/dark.css" media="none" onload="if(media!='all')media='all'">
+
+
+
+
+    <link rel="stylesheet" href="/libs/tocbot/tocbot.css">
+    <link rel="stylesheet" href="/css/post.css">
+
+
+
+
+    
+
+
+
+    <script src="/libs/jquery/jquery-3.6.0.min.js"></script>
+
+<meta name="generator" content="Hexo 7.3.0"><link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css">
+<link rel="stylesheet" href="/css/prism-line-numbers.css" type="text/css"></head>
+
+
+<body>
+    <header class="navbar-fixed">
+    <nav id="headNav" class="bg-color nav-transparent">
+        <div id="navContainer" class="nav-wrapper container">
+            <div class="brand-logo">
+                <a href="/" class="waves-effect waves-light">
+                    
+                    <img src="/medias/logo.png" class="logo-img" alt="LOGO">
+                    
+                    <span class="logo-span">造梦空间</span>
+                </a>
+            </div>
+            
+
+<a href="#" data-target="mobile-nav" class="sidenav-trigger button-collapse"><i class="fas fa-bars"></i></a>
+<ul class="right nav-menu">
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/" class="waves-effect waves-light">
+      
+      <i class="fas fa-home" style="zoom: 0.6;"></i>
+      
+      <span>首页</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/tags" class="waves-effect waves-light">
+      
+      <i class="fas fa-tags" style="zoom: 0.6;"></i>
+      
+      <span>标签</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/categories" class="waves-effect waves-light">
+      
+      <i class="fas fa-bookmark" style="zoom: 0.6;"></i>
+      
+      <span>分类</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/archives" class="waves-effect waves-light">
+      
+      <i class="fas fa-archive" style="zoom: 0.6;"></i>
+      
+      <span>归档</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/about" class="waves-effect waves-light">
+      
+      <i class="fas fa-user-circle" style="zoom: 0.6;"></i>
+      
+      <span>关于</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/contact" class="waves-effect waves-light">
+      
+      <i class="fas fa-comments" style="zoom: 0.6;"></i>
+      
+      <span>留言板</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/friends" class="waves-effect waves-light">
+      
+      <i class="fas fa-address-book" style="zoom: 0.6;"></i>
+      
+      <span>友情链接</span>
+    </a>
+    
+  </li>
+  
+  <li>
+    <a href="#searchModal" class="modal-trigger waves-effect waves-light">
+      <i id="searchIcon" class="fas fa-search" title="搜索" style="zoom: 0.85;"></i>
+    </a>
+  </li>
+  <li>
+    <a href="javascript:;" class="waves-effect waves-light" onclick="switchNightMode()" title="深色/浅色模式" >
+      <i id="sum-moon-icon" class="fas fa-sun" style="zoom: 0.85;"></i>
+    </a>
+  </li>
+</ul>
+
+
+<div id="mobile-nav" class="side-nav sidenav">
+
+    <div class="mobile-head bg-color">
+        
+        <img src="/medias/logo.png" class="logo-img circle responsive-img">
+        
+        <div class="logo-name">造梦空间</div>
+        <div class="logo-desc">
+            
+            Never really desperate, only the lost of the soul.
+            
+        </div>
+    </div>
+
+    <ul class="menu-list mobile-menu-list">
+        
+        <li class="m-nav-item">
+	  
+		<a href="/" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-home"></i>
+			
+			首页
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/tags" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-tags"></i>
+			
+			标签
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/categories" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-bookmark"></i>
+			
+			分类
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/archives" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-archive"></i>
+			
+			归档
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/about" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-user-circle"></i>
+			
+			关于
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/contact" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-comments"></i>
+			
+			留言板
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/friends" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-address-book"></i>
+			
+			友情链接
+		</a>
+          
+        </li>
+        
+        
+    </ul>
+</div>
+
+
+        </div>
+
+        
+    </nav>
+
+</header>
+
+    
+
+
+
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/2.jpg')">
+    <div class="container" style="right: 0px;left: 0px;">
+        <div class="row">
+            <div class="col s12 m12 l12">
+                <div class="brand">
+                    <h1 class="description center-align post-title">MySQL8</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+<main class="post-container content">
+
+    
+    <div class="row">
+    <div id="main-content" class="col s12 m12 l9">
+        <!-- 文章内容详情 -->
+<div id="artDetail">
+    <div class="card">
+        <div class="card-content article-info">
+            <div class="row tag-cate">
+                <div class="col s7">
+                    
+                    <div class="article-tag">
+                        
+                            <a href="/tags/Note/">
+                                <span class="chip bg-color">Note</span>
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+                <div class="col s5 right-align">
+                    
+                    <div class="post-cate">
+                        <i class="fas fa-bookmark fa-fw icon-category"></i>
+                        
+                            <a href="/categories/MySQL/" class="post-category">
+                                MySQL
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+            </div>
+
+            <div class="post-info">
+                
+                <div class="post-date info-break-policy">
+                    <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
+                    2023-11-18
+                </div>
+                
+
+                
+
+                
+                <div class="info-break-policy">
+                    <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
+                    7.7k
+                </div>
+                
+
+                
+                <div class="info-break-policy">
+                    <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
+                    36 分
+                </div>
+                
+
+                
+            </div>
+        </div>
+        <hr class="clearfix">
+
+        
+        <!-- 是否加载使用自带的 prismjs. -->
+        <link rel="stylesheet" href="/libs/prism/prism.min.css">
+        
+
+        
+
+        <div class="card-content article-card-content">
+            <div id="articleContent">
+                <h2 id="Install"><a href="#Install" class="headerlink" title="Install"></a>Install</h2><p>1、安装 docker-compose</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"># 下载文件
+sudo curl -L &quot;https:&#x2F;&#x2F;github.com&#x2F;docker&#x2F;compose&#x2F;releases&#x2F;download&#x2F;1.29.2&#x2F;docker-compose-$(uname -s)-$(uname -m)&quot; -o &#x2F;usr&#x2F;local&#x2F;bin&#x2F;docker-compose
+# 设置权限
+sudo chmod +x &#x2F;usr&#x2F;local&#x2F;bin&#x2F;docker-compose
+# 设置软链接
+sudo ln -s &#x2F;usr&#x2F;local&#x2F;bin&#x2F;docker-compose &#x2F;usr&#x2F;bin&#x2F;docker-compose
+# 检测是否成功
+docker-compose --version<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>2、构建文件</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"># 新建 data、conf、init 文件夹用于挂载
+mkdir -r &#x2F;usr&#x2F;local&#x2F;mysql8docker&#x2F;&#123;data,conf,init&#125;
+# 编写 docker-compose.yml 文件
+cd &#x2F;usr&#x2F;local&#x2F;mysql8docker
+vim docker-compose.yml<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">version: &quot;3&quot;
+
+services:
+  db:
+  image: mysql:latest
+  container_name: mysql8
+  restart: always
+  command: --default-authentication-plugin&#x3D;mysql_native_password
+  environment:
+    TZ: Asia&#x2F;Shanghai
+    MYSQL_ROOT_PASSWORD: root
+    MYSQL_DATABASE: test
+  ports:
+    - 3306:3306
+  volumes:
+    - &quot;.&#x2F;data:&#x2F;var&#x2F;lib&#x2F;mysql&quot;
+    - &quot;.&#x2F;conf:&#x2F;etc&#x2F;mysql&#x2F;conf.d&quot;
+    - &quot;.&#x2F;init:&#x2F;docker-entrypoint-initdb.d&quot;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>3、运行容器</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"># 构建容器并后台运行
+docker-compose up -d
+
+# 查看容器运行情况
+docker container ls
+
+# 以可交互终端 bash 进入 mysql8 容器
+docker exec -it mysql8 bash
+
+# 登录 root 用于并指定密码为 root
+mysql -uroot -proot<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>4、配置 mysql</p>
+<pre class="line-numbers language-mysql" data-language="mysql"><code class="language-mysql"># 显示 mysql 字符集
+show variables like &#39;character_%&#39;;
+# 显示 mysql 校对集
+show variables like &#39;collation_%&#39;;
+# 新建 reajason 用户，% 指定所有 ip 可连接，设置密码为 123456
+create user reajason@&#39;%&#39; identified by &#39;123456&#39;;
+# 将所有权限授予 reajason
+grant all privileges on *.* to &#39;reajason&#39;;
+# 刷新权限
+flush privileges;
+
+# root 用户
+grant all privileges on *.* to &#39;root&#39;@&#39;%&#39; identified with mysql_native_password by &#39;root&#39;;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h2 id="Select"><a href="#Select" class="headerlink" title="Select"></a>Select</h2><p>1、简单使用</p>
+<pre class="line-numbers language-mysql" data-language="mysql"><code class="language-mysql"># 使用别名，表明和列名都可使用别名，使用 AS 关键字
+SELECT
+	employee_id,
+	first_name ,
+	last_name ,
+	salary * 1.05 AS &quot;totalSalary&quot;
+FROM
+	employees;
+
+# 表使用别名
+SELECT
+	e.employee_id ,
+	e.email
+FROM
+	employees e;
+
+# 去重 DISTINCT 关键字，可以对多列去重，多列全不同才去掉
+SELECT
+	DISTINCT e.department_id
+FROM
+	employees e;
+
+# 空值参与运算也为空值（NULL）
+SELECT
+	e.employee_id ,
+	e.salary * (1 + e.commission_pct) * 12 &quot;年工资&quot;
+FROM
+	employees e;
+
+# 使用反引号，规避名称为关键字的情况
+SELECT * FROM &#96;order&#96;;
+
+# 显示表结构，显示表列名、数据类型、键约束等信息
+DESCRIBE employees;
+DESC employees;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>2、使用 where</p>
+<pre class="line-numbers language-mysql" data-language="mysql"><code class="language-mysql"># 1.查询员工12个月的工资总和，并起别名为ANNUAL SALARY
+SELECT
+	e.employee_id ,
+	e.salary * 12 AS &quot;ANNUAL SALARY&quot;
+FROM
+	employees e;
+# 2.查询employees表中去除重复的job_id以后的数据
+SELECT
+	DISTINCT e.job_id
+FROM
+	employees e;
+# 3.查询工资大于12000的员工姓名和工资
+SELECT
+	e.first_name ,
+	e.last_name,
+	e.salary
+FROM
+	employees e
+WHERE
+	e.salary &gt; 12000;
+# 4.查询员工号为176的员工的姓名和部门号
+SELECT
+	e.last_name,
+	e.department_id
+FROM
+	employees e
+WHERE
+	e.employee_id &#x3D; 176;
+# 5.显示表 departments 的结构，并查询其中的全部数据
+DESC departments;
+
+SELECT * FROM departments;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>3、运算符</p>
+<ul>
+<li><strong>NULL 参与运算结果为 NULL</strong></li>
+</ul>
+<pre class="line-numbers language-mysql" data-language="mysql"><code class="language-mysql"># 运算符 +、-、*、&#x2F;（DIV）、%（MOD）
+SELECT 2 DIV 1 FROM DUAL;
+SELECT -1 MOD 8 FROM DUAL;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+
+<pre class="line-numbers language-mysql" data-language="mysql"><code class="language-mysql"># 比较运算符 &#x3D;、&lt;&#x3D;&gt;（安全等于）、&lt;&gt;（不等于）、!&#x3D;、&gt;、&lt;、&gt;&#x3D;、&lt;&#x3D;
+# &#x3D; NULL 不会有结果，而 &lt;&#x3D;&gt; NULL 则会输出为 NULL 的值<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+
+<pre class="line-numbers language-mysql" data-language="mysql"><code class="language-mysql"># IS NULL（为 NULL）、IS NOT NULL（不为 NULL）、ISNULL()（为 NULL）
+SELECT NULL IS NULL FROM DUAL;
+# LEAST(value1,value2,...)--获取最小、GREATEST(value1,value2,...)--获取最大
+
+# BETWEEN ... AND，包括边界值
+# 1、查询工资 6000 到 8000 的的员工信息（不能调换两个值的位置）
+SELECT * FROM employees e WHERE salary BETWEEN 6000 AND 8000;
+SELECT * FROM employees e WHERE salary&gt;&#x3D;6000 AND salary&lt;&#x3D;8000;
+# 2、查询工资低于 6000 以及 高于 8000 的员工信息
+SELECT * FROM employees e WHERE salary NOT BETWEEN 6000 AND 8000;
+SELECT * FROM employees e WHERE salary&lt;6000 OR salary&gt;8000;
+
+# IN(set)、NOT IN(set)
+
+
+# LIKE 模糊查询，% 匹配任意字符、_ 匹配单个字符
+
+# REGEXP 正则表达式<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<pre class="line-numbers language-mysql" data-language="mysql"><code class="language-mysql"># 逻辑运算符 NOT、AND、OR、XOR<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<pre class="line-numbers language-mysql" data-language="mysql"><code class="language-mysql"># 位运算符 &amp;、|、^、~、&gt;&gt;、&lt;&lt;<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<pre class="line-numbers language-mysql" data-language="mysql"><code class="language-mysql"># 1.选择工资不在5000到12000的员工的姓名和工资
+SELECT e.last_name, e.salary FROM employees e WHERE e.salary NOT BETWEEN 5000 AND 12000;
+# 2.选择在20或50号部门工作的员工姓名和部门号
+SELECT e.last_name ,e.department_id FROM employees e WHERE e.department_id IN (20,50);
+# 3.选择公司中没有管理者的员工姓名及job_id
+SELECT e.last_name ,e.job_id FROM employees e WHERE e.manager_id IS NULL;
+# 4.选择公司中有奖金的员工姓名，工资和奖金级别
+SELECT e.last_name ,e.salary ,e.commission_pct FROM employees e WHERE e.commission_pct IS NOT NULL;
+# 5.选择员工姓名的第三个字母是a的员工姓名
+SELECT e.last_name FROM employees e WHERE e.last_name LIKE &#39;__a%&#39;;
+# 6.选择姓名中有字母a和k的员工姓名
+SELECT e.last_name FROM employees e WHERE e.last_name LIKE &#39;%a%k%&#39;OR  e.last_name LIKE &#39;%k%a%&#39;;
+# 7.显示出表 employees 表中 first_name 以 &#39;e&#39;结尾的员工信息
+SELECT * FROM employees e WHERE e.first_name LIKE &#39;%e&#39;;
+# 8.显示出表 employees 部门编号在 80-100 之间的姓名、工种
+SELECT e.last_name,e.job_id FROM employees e WHERE department_id BETWEEN 80 AND 100;
+# 9.显示出表 employees 的 manager_id 是 100,101,110 的员工姓名、工资、管理者id
+SELECT e.last_name ,e.salary ,e.manager_id FROM employees e WHERE e.manager_id IN (100,101,110);<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h2 id="Order"><a href="#Order" class="headerlink" title="Order"></a>Order</h2><p>不使用 ORDER BY 时默认排序为数据添加的顺序</p>
+<p>使用 ORDER BY 不指定排序规则默认为升序(ASC)，指定降序使用 DESC</p>
+<p>列别名可以在 ORDER BY 中使用不能在 WHERE 使用</p>
+<p>可以指定多个排序列，从前往后进行排序</p>
+<pre class="line-numbers language-mysql" data-language="mysql"><code class="language-mysql"># 指定以 salary 排序
+SELECT * FROM employees e WHERE e.salary &gt; 5000 ORDER BY e.salary;
+SELECT * FROM employees e WHERE e.salary &gt; 5000 ORDER BY e.salary DESC;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+
+<pre class="line-numbers language-mysql" data-language="mysql"><code class="language-mysql"># 查询员工的姓名和部门号和年薪，按年薪降序,按姓名升序显示
+SELECT e.last_name,e.salary * 12 annual_sal FROM employees e ORDER BY e.salary DESC, e.last_name;
+
+# 查询邮箱中包含 e 的员工信息，并先按邮箱的字节数降序，再按部门号升序
+SELECT * FROM employees e WHERE e.email LIKE &#39;%e%&#39; ORDER BY LENGTH(e.email) DESC, e.department_id;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h2 id="Limit"><a href="#Limit" class="headerlink" title="Limit"></a>Limit</h2><p>实现分页，LIMIT(offset, size)</p>
+<pre class="line-numbers language-MYSQL" data-language="MYSQL"><code class="language-MYSQL"># 每页 20 条记录，显示第 1、2 页
+SELECT e.employee_id, e.last_name FROM employees e LIMIT 0, 20;
+SELECT e.employee_id, e.last_name FROM employees e LIMIT 20, 20;
+
+# 显示前 10 条数据
+SELECT e.employee_id, e.last_name,e.salary FROM employees e 
+ORDER BY e.salary DESC 
+LIMIT 10;
+
+# MySQL8 LIMIT ... OFFSET ...
+# 获取 21、22 位置的数据
+LIMIT 2 OFFSET 20; <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<pre class="line-numbers language-mysql" data-language="mysql"><code class="language-mysql"># 选择工资不在 8000 到 17000 的员工的姓名和工资，按工资降序，显示第21到40位置的数据
+SELECT e.last_name,e.salary FROM employees e WHERE e.salary NOT BETWEEN 8000 AND 17000 ORDER BY e.salary DESC LIMIT 20,20;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+
+<h2 id="Join"><a href="#Join" class="headerlink" title="Join"></a>Join</h2><pre class="line-numbers language-mysql" data-language="mysql"><code class="language-mysql"># 当使用 , 连接两表产生笛卡尔积，使用 WHERE 条件可获取正确需要的数据
+SELECT * FROM employees e,departments d;
+
+SELECT * FROM employees e,departments d WHERE e.department_id &#x3D; d.department_id;
+
+# 自连接
+
+# 内连接，... JOIN ... ON ...
+# 左外连接，保留左表的所有行，右表没数据的使用 NULL 填充，... LEFT JOIN ...ON ...
+# 右外连接，反之，... LEFT JOIN ...ON ...<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>UNION 返回两个查询的结果集并集，去除重复记录</p>
+<p>UNION ALL 返回两个查询的结果集并集，不去重</p>
+<pre class="line-numbers language-mysql" data-language="mysql"><code class="language-mysql"># 自然连接，... NATUAL JOIN ...，自动查询两张表相同字段进行等值连接<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<pre class="line-numbers language-mysql" data-language="mysql"><code class="language-mysql"># 1.显示所有员工的姓名，部门号和部门名称。
+SELECT e.last_name ,e.department_id,d.department_name 
+FROM employees e LEFT JOIN departments d 
+ON e.department_id &#x3D; d.department_id;
+
+# 2.查询90号部门员工的job_id和90号部门的location_id
+SELECT e.job_id, d.location_id FROM employees e , departments d 
+WHERE e.department_id &#x3D; d.department_id 
+AND e.department_id &#x3D; 90;
+
+# 3.选择所有有奖金的员工的 last_name , department_name , location_id , city
+SELECT e.last_name , d.department_name, l.location_id, l.city 
+FROM employees e LEFT JOIN departments d ON  e.department_id &#x3D; d.department_id 
+LEFT JOIN locations l ON d.location_id &#x3D; l.location_id
+WHERE e.commission_pct IS NOT NULL;
+
+# 4.选择city在Toronto工作的员工的 last_name , job_id , department_id , department_name
+SELECT e.last_name , e.job_id, d.department_id, d.department_name 
+FROM employees e ,departments d, locations l 
+WHERE e.department_id &#x3D; d.department_id 
+AND d.location_id &#x3D; l.location_id
+AND l.city &#x3D; &#39;Toronto&#39;;
+
+# 5.查询员工所在的部门名称、部门地址、姓名、工作、工资，其中员工所在部门的部门名称为’Executive’
+SELECT d.department_name,l.street_address , e.last_name, e.job_id, e.salary 
+FROM employees e ,departments d, locations l 
+WHERE d.location_id &#x3D; l.location_id 
+AND e.department_id &#x3D; d.department_id 
+AND d.department_name &#x3D;&#39;Executive&#39;;
+
+# 6.选择指定员工的姓名，员工号，以及他的管理者的姓名和员工号，结果类似于下面的格式
+SELECT e.last_name, e.employee_id AS &quot;EMP#&quot;, m.last_name, m.employee_id AS &quot;Mgr#&quot;
+FROM employees e LEFT JOIN employees m 
+ON e.manager_id &#x3D; m.employee_id;
+
+# 7.查询哪些部门没有员工
+SELECT d.* FROM departments d LEFT JOIN employees e 
+ON d.department_id &#x3D; e.department_id 
+WHERE e.department_id IS NULL;
+
+# 8. 查询哪个城市没有部门
+SELECT l.location_id, l.street_address 
+FROM departments d RIGHT JOIN locations l 
+ON d.location_id &#x3D; l.location_id 
+WHERE d.location_id IS NULL;
+
+# 9. 查询部门名为 Sales 或 IT 的员工信息
+SELECT e.*,d.department_name FROM employees e, departments d 
+WHERE e.department_id &#x3D; d.department_id 
+AND d.department_name IN (&#39;Sales&#39;, &#39;IT&#39;);<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h2 id="Func"><a href="#Func" class="headerlink" title="Func"></a>Func</h2><p>数值函数：</p>
+<pre class="line-numbers language-mysql" data-language="mysql"><code class="language-mysql">&#x2F;*
+ABS(X) 求绝对值
+CELING(X) 向上取整
+FLOOR(X) 向下取整
+RADN(X) X 为随机数种子的随机数
+RAND() 0-1 随机数
+ROUND(X) 四舍五入，取整
+ROUND(X,Y) 保留 Y 位小数，四舍五入
+TRUNCATE(X,Y) 保留 Y 位小数，截断
+三角函数
+指数对数
+进制转换
+*&#x2F;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>字符串函数：</p>
+<pre class="line-numbers language-mysql" data-language="mysql"><code class="language-mysql">&#x2F;*
+ASCII(C) 获取 c 的 ascii 码值
+CHAR_LENGTH(S) 获取字符长度
+LENGTH(S) 获取字节数（和编码有关）
+CONCAT(s1,s2...) 字符串拼接
+CONCAT_WS(sep,s1,s2...) 使用 sep 分隔符连接字符串
+INSERT(str,index,length,reolacestr) 字符索引 1 开始
+REPLACE(str,a,b) 字符串替换
+UPPLER(S) 转大写
+LOWER(S) 转小写
+LEFT(S,n) 取左边 n 个
+RIGHT(S,n) 取右边 n 个
+LPAD(S,length,pad) 扩展 s 长度，左边使用 pad 补充
+RPAD(S,length,pad) 扩展 s 长度，右边使用 pad 补充
+TRIM(S) 去除字符左右的空白字符
+REPEAT(S,n) 重复 n 次
+SUBSTR(S,index,length) 取子串
+LOCATE(substr,S) 查找子串
+*&#x2F;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>日期时间函数：</p>
+<pre class="line-numbers language-mysql" data-language="mysql"><code class="language-mysql">&#x2F;*
+CURDATE() 当前日期，年月日
+CURTIME() 当前时间，时分秒
+NOW() 当前系统时间
+UTC_DATE()
+UTC_TIME()
+UNIX_TIMESTAMP() 时间戳
+UNIX_TIMESTAMP(DATE) 将 date 转为时间戳
+FROM_UNIXTIME(TIMESTAMP) 将时间戳转为时间
+YEAR(DATE)&#x2F;MONTH(DATE)&#x2F;DAY(DATE)
+HOUR(TIME)&#x2F;MINUTE(TIME)&#x2F;SECOND(TIME)
+TIME_TO_SEC(TIME) 时间转为秒钟
+SEC_TO_TIME(SECONDS) 秒转时间
+ADDDATE(DATE,INTERVAL expr type) 增加日期
+SUBDATE(DATE, INTERVAL expr type) 减少日期
+ADDTIME(time1,time2)
+SUBTIME(time1,time2)
+DATEDIFF(date1,date2)
+TIMEDIFF(time1,time2)
+DATE_FORMAT(date,format) %Y-%m-%d %H:%i:%s
+TIME_FORMAT(time,format)
+STR_TO_DATE(str,format)
+*&#x2F;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>流程控制处理函数：</p>
+<pre class="line-numbers language-mysql" data-language="mysql"><code class="language-mysql">&#x2F;*
+如果 value 为 true，则 value1，反之 value2
+IF(value,value1,value2) 
+
+如果 value1 不为空返回 value1，某则返回 value2
+IFNULL(value1,value2) 
+
+CASE 
+WHEN condition1 THEN result1
+WHEN condition2 THEN result2
+ELSE result
+END
+
+CASE expr
+WHEN value1 THEN result1
+WHEN value2 THEN result2
+ELSE result
+END
+*&#x2F;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>加密与解密函数：</p>
+<pre class="line-numbers language-mysql" data-language="mysql"><code class="language-mysql">&#x2F;*
+PASSWORD(str)  
+MD5(str) 
+SHA(str) 
+ENCODE(value,seed) 以 seed 作为加密密码加密 value
+DECODE(value,seed) 以 seed 作为加密密码解密 value
+*&#x2F;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>MySQL 相关函数：</p>
+<pre class="line-numbers language-mysql" data-language="mysql"><code class="language-mysql">&#x2F;*
+VERSION() 返回 mysql 版本号
+CONNECTION_ID() 返回 mysql 连接数
+DATABASE() 返回当前所在数据库
+USER() 返回当前连接用户
+CHARSET(value) 返回 value 字符集
+COLLATION(value) 返回 value 校对规则
+*&#x2F;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<pre class="line-numbers language-mysql" data-language="mysql"><code class="language-mysql"># 1.显示系统时间(注：日期+时间)
+SELECT NOW() FROM DUAL;
+
+# 2.查询员工号，姓名，工资，以及工资提高百分之20%后的结果（new salary）
+SELECT e.employee_id,e.last_name, e.salary, 
+e.salary * 1.2 &quot;new salary&quot; 
+FROM employees e;
+
+# 3.将员工的姓名按首字母排序，并写出姓名的长度（length）
+SELECT e.last_name, LENGTH(e.last_name) FROM employees e 
+ORDER BY e.last_name DESC;
+
+# 4.查询员工id,last_name,salary，并作为一个列输出，别名为OUT_PUT
+SELECT CONCAT(employee_id, &#39;,&#39; , last_name , &#39;,&#39;, salary) OUT_PUT FROM employees e;
+
+# 5.查询公司各员工工作的年数、工作的天数，并按工作年数的降序排序
+SELECT e.hire_date, YEAR(NOW()) - YEAR(e.hire_date) years, 
+DATEDIFF(NOW(),e.hire_date) 
+FROM employees e
+ORDER BY years DESC;
+
+# 6.查询员工姓名，hire_date , department_id，满足以下条件：雇用时间在1997年之后，department_id 为80 或 90 或110, commission_pct不为空
+SELECT e.employee_id,e.hire_date,e.department_id 
+FROM employees e
+WHERE e.commission_pct IS NOT NULL
+AND e.department_id in (80, 90, 100)
+AND YEAR(e.hire_date) &gt;&#x3D; 1997;
+
+# 7.查询公司中入职超过10000天的员工姓名、入职时间
+SELECT e.employee_id ,e.hire_date FROM employees e 
+WHERE DATEDIFF(NOW(),e.hire_date) &gt; 10000;
+
+# 8、使用 case when
+SELECT e.last_name,e.job_id,
+(CASE e.job_id WHEN &#39;AD_PRES&#39; THEN &#39;A&#39;
+WHEN &#39;ST_MAN&#39; THEN &#39;B&#39;
+WHEN &#39;IT_PROG&#39; THEN &#39;C&#39;
+WHEN &#39;SA_REP&#39; THEN &#39;D&#39;
+WHEN &#39;ST_CLERK&#39; THEN &#39;E&#39;
+ELSE &#39;F&#39;
+END) Grade
+FROM employees e;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>聚合函数：</p>
+<pre class="line-numbers language-mysql" data-language="mysql"><code class="language-mysql">&#x2F;*  不能在 WHERE 使用聚合函数，因为 WHERE 的数据只有一行没有多行
+AVG() 对数值型使用，求平均
+SUM() 对数值型使用，求和
+MIN() 对任意类型，取最小
+MAX() 对任意类型，取最大
+COUNT(*) 返回记录总数，包括 NULL 行
+COUNT(ecpr) 返回 expr 不为 NULL 行
+*&#x2F;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h2 id="Group"><a href="#Group" class="headerlink" title="Group"></a>Group</h2><p>GROUP BY 分组，和聚合函数结合使用</p>
+<p>可以对多个列进行分组，分组的列必须列出来，不分组的列需要使用聚合函数来使得分组后的数据进行处理</p>
+<p>WITH ROLLUP 在分组之后会增加一条记录，计算查询记录总和，不可与 ORDER BY 同时出现</p>
+<p>HAVING 分组后过滤，必须在 GROUP BY 后使用</p>
+<p>SELECT 格式与执行顺序：</p>
+<pre class="line-numbers language-mysql" data-language="mysql"><code class="language-mysql">#（1）from：从哪些表中筛选
+#（2）on：关联多表查询时，去除笛卡尔积
+#（3）where：从表中筛选的条件
+#（4）group by：分组依据
+#（5）having：在统计结果中再次筛选
+#（6）order by：排序
+#（7）limit：分页
+
+# 执行顺序：FROM -&gt; WHERE -&gt; GROUP BY -&gt; HAVING -&gt; SELECT 的字段 -&gt; DISTINCT -&gt; ORDER BY -&gt; LIMIT<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<pre class="line-numbers language-mysql" data-language="mysql"><code class="language-mysql">#2.查询公司员工工资的最大值，最小值，平均值，总和
+SELECT MAX(e.salary),MIN(e.salary),AVG(e.salary),SUM(e.salary) FROM employees e;
+
+#3.查询各job_id的员工工资的最大值，最小值，平均值，总和
+SELECT e.job_id, MAX(e.salary),MIN(e.salary),AVG(e.salary),SUM(e.salary) 
+FROM employees e GROUP BY e.job_id;
+
+#4.选择具有各个job_id的员工人数
+SELECT e.job_id, COUNT(*)
+FROM employees e GROUP BY e.job_id;
+
+# 5.查询员工最高工资和最低工资的差距（DIFFERENCE）
+SELECT MAX(e.salary) - MIN(e.salary) DIFFERENCE 
+FROM employees e;
+
+# 6.查询各个管理者手下员工的最低工资，其中最低工资不能低于6000，没有管理者的员工不计算在内
+SELECT e.manager_id, MIN(e.salary) minS FROM employees e 
+WHERE e.manager_id IS NOT NULL
+GROUP BY e.manager_id
+HAVING minS &gt; 6000;
+
+# 7.查询所有部门的名字，location_id，员工数量和平均工资，并按平均工资降序
+SELECT d.department_name,d.location_id, COUNT(e.employee_id) counts, AVG(e.salary) avgS
+FROM employees e, departments d
+WHERE e.department_id &#x3D; d.department_id 
+GROUP BY d.department_name,d.location_id
+ORDER BY avgS;
+
+# 8.查询每个工种、每个部门的部门名、工种名和最低工资
+SELECT d.department_name,e.job_id,MIN(e.salary)
+FROM departments d LEFT JOIN employees e
+ON e.department_id &#x3D; d.department_id
+GROUP BY d.department_name,e.job_id<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h2 id="Subquery"><a href="#Subquery" class="headerlink" title="Subquery"></a>Subquery</h2><p>子查询要包含在括号内</p>
+<p>将子查询放在比较条件的右侧</p>
+<p>单行操作符对应单行子查询，多行操作符对应多行子查询</p>
+<p>ANY 与子查询某一个值进行比较</p>
+<p>ALL 与子查询所有值进行比较</p>
+<p>EXISTS 子查询满足条件返回 true</p>
+<p>NOT EXISTS 子查询不满足条件，返回 true</p>
+<pre class="line-numbers language-mysql" data-language="mysql"><code class="language-mysql">#1.查询和Zlotkey相同部门的员工姓名和工资
+SELECT * FROM employees e WHERE e.department_id &#x3D; (
+	SELECT e.department_id FROM employees e WHERE e.last_name &#x3D; &#39;Zlotkey&#39;
+);
+
+#2.查询工资比公司平均工资高的员工的员工号，姓名和工资。
+SELECT e.employee_id,e.last_name ,e.salary 
+FROM employees e 
+WHERE e.salary &gt; (
+	SELECT AVG(e.salary) FROM employees e
+);
+
+#3.选择工资大于所有JOB_ID &#x3D; &#39;SA_MAN&#39;的员工的工资的员工的last_name, job_id, salary
+SELECT e.last_name ,e.job_id ,e.salary 
+FROM employees e 
+WHERE e.salary &gt; ALL(
+	SELECT e.salary 
+	FROM employees e 
+	WHERE e.job_id &#x3D; &#39;SA_MAN&#39;
+);
+
+#4.查询和姓名中包含字母u的员工在相同部门的员工的员工号和姓名
+SELECT * FROM employees e
+WHERE e.department_id IN (
+	SELECT e.department_id 
+	FROM employees e 
+	WHERE e.last_name LIKE &#39;%u%&#39;
+);
+
+#5.查询在部门的location_id为1700的部门工作的员工的员工号
+SELECT e.employee_id 
+FROM employees e 
+WHERE e.department_id IN (
+	SELECT d.department_id 
+	FROM departments d 
+	WHERE d.location_id &#x3D; 1700
+);
+
+
+#6.查询管理者是King的员工姓名和工资
+SELECT e.last_name, e.salary 
+FROM employees e 
+WHERE e.manager_id IN (
+	SELECT e.employee_id 
+	FROM employees e 
+	WHERE e.last_name &#x3D; &#39;King&#39;
+);
+
+
+#7.查询工资最低的员工信息: last_name, salary
+SELECT e.last_name, e.salary 
+FROM employees e 
+WHERE e.salary &#x3D; (
+	SELECT MIN(salary) 
+	FROM employees
+);
+
+#8.查询平均工资最低的部门信息
+SELECT * FROM departments d WHERE d.department_id &#x3D; (
+	SELECT e.department_id FROM employees e 
+	GROUP BY e.department_id 
+	ORDER BY AVG(e.salary) LIMIT 1
+);
+
+#9.查询平均工资最低的部门信息和该部门的平均工资（相关子查询）
+
+SELECT d.*,t.avgS
+	FROM departments d,(
+		SELECT e.department_id,AVG(e.salary) avgS FROM employees e 
+		GROUP BY e.department_id 
+		ORDER BY AVG(e.salary) LIMIT 1
+		) t WHERE d.department_id &#x3D; t.department_id;
+
+
+#10.查询平均工资最高的 job 信息
+SELECT * FROM jobs j WHERE j.job_id &#x3D; (
+	SELECT e.job_id 
+	FROM employees e 
+	GROUP BY e.job_id 
+	ORDER BY AVG(e.salary) DESC 
+	LIMIT 1
+);
+
+#11.查询平均工资高于公司平均工资的部门有哪些?
+SELECT e.department_id FROM employees e
+WHERE e.department_id IS NOT NULL
+GROUP BY e.department_id 
+HAVING AVG(e.salary) &gt; (SELECT AVG(e.salary) FROM employees e);
+
+#12.查询出公司中所有 manager 的详细信息
+SELECT DISTINCT e.* 
+FROM employees e ,employees m 
+WHERE e.employee_id &#x3D; m.manager_id; 
+
+SELECT * FROM employees e WHERE EXISTS (
+	SELECT * FROM employees e2 
+	WHERE e2.manager_id &#x3D; e.employee_id
+);
+
+#13.各个部门中 最高工资中最低的那个部门的 最低工资是多少?
+SELECT MIN(e.salary) FROM employees e WHERE e.department_id &#x3D; (
+	SELECT e.department_id FROM employees e 
+	GROUP BY e.department_id 
+	ORDER BY MAX(e.salary) LIMIT 1
+);
+
+
+#14.查询平均工资最高的部门的 manager 的详细信息: last_name, department_id, email, salary
+SELECT e.last_name ,e.department_id ,e.email ,e.salary 
+FROM employees e 
+WHERE e.employee_id IN (
+	SELECT e.manager_id FROM  employees e 
+	WHERE e.department_id &#x3D; (
+		SELECT e.department_id 
+		FROM employees e 
+		GROUP BY e.department_id 
+		ORDER BY AVG(e.salary) DESC 
+		LIMIT 1
+));
+
+
+#15. 查询部门的部门号，其中不包括job_id是&quot;ST_CLERK&quot;的部门号
+SELECT * FROM departments d 
+WHERE d.department_id NOT IN (
+	SELECT e.department_id 
+	FROM employees e 
+	WHERE e.job_id &#x3D; &#39;ST_CLERK&#39;	
+);
+
+
+#16. 选择所有没有管理者的员工的last_name
+SELECT e.last_name FROM employees e WHERE e.manager_id IS NULL;
+
+SELECT e.last_name
+FROM employees e
+WHERE NOT EXISTS (
+	SELECT * FROM employees e1
+	WHERE e.manager_id &#x3D; e1.employee_id
+);
+
+#17．查询员工号、姓名、雇用时间、工资，其中员工的管理者为 &#39;De Haan&#39;
+SELECT e.employee_id ,e.last_name ,e.hire_date ,e.salary 
+FROM employees e 
+WHERE e.manager_id &#x3D; (
+	SELECT e.employee_id 
+	FROM employees e 
+	WHERE e.last_name &#x3D; &#39;De Haan&#39;
+);
+
+#18.查询各部门中工资比本部门平均工资高的员工的员工号, 姓名和工资（相关子查询）
+SELECT e.employee_id ,e.last_name ,e.salary 
+FROM employees e 
+WHERE e.salary &gt; (
+			SELECT AVG(e1.salary) FROM employees e1 
+			WHERE e1.department_id &#x3D; e.department_id 
+			GROUP BY e1.department_id
+);
+
+
+#19.查询每个部门下的部门人数大于 5 的部门名称（相关子查询）
+SELECT * FROM departments d WHERE 5 &lt; (
+	SELECT COUNT(*) 
+	FROM employees e 
+	WHERE e.department_id &#x3D;d.department_id
+);
+
+#20.查询每个国家下的部门个数大于 2 的国家编号（相关子查询）
+SELECT * FROM countries c , locations l 
+WHERE c.country_id &#x3D; l.country_id 
+AND 2 &lt; (
+	SELECT COUNT(*) 
+	FROM departments d 
+	WHERE d.location_id &#x3D; l.location_id 
+);<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h2 id="DATABASE"><a href="#DATABASE" class="headerlink" title="DATABASE"></a>DATABASE</h2><p>创建数据库：</p>
+<pre class="line-numbers language-mysql" data-language="mysql"><code class="language-mysql"># 以默认方式创建数据库
+CREATE DATABASE mytest;
+
+# 查看数据库创建语句
+SHOW CREATE DATABASE mytest;
+
+# 创建数据库，存在则不创建，指定字符集和校对规则
+CREATE DATABASE IF NOT EXISTS mytest2 
+CHARACTER SET &#39;utf8mb4&#39; 
+COLLATE &#39;utf8mb4_0900_ai_ci&#39;;
+
+# 切换数据库
+USE mytest;
+
+# 查看数据库下的表
+SHOW TABLES;
+SHOW TABLES FROM mysql;
+
+# 查看当前所在数据库
+SELECT DATABASE() FROM DUAL;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>修改数据库：</p>
+<pre class="line-numbers language-mysql" data-language="mysql"><code class="language-mysql">ALTER DATABASE mytest2 CHARACTER SET &#39;utf8&#39;;<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<p>删除数据库：</p>
+<pre class="line-numbers language-mysql" data-language="mysql"><code class="language-mysql">DROP DATABASE IF EXISTS mytest2;<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<h2 id="TABLE"><a href="#TABLE" class="headerlink" title="TABLE"></a>TABLE</h2><p>创建表：</p>
+<pre class="line-numbers language-mysql" data-language="mysql"><code class="language-mysql">&#x2F;*
+CREATE TABLE [IF NOT EXISTS] 表名(
+字段1, 数据类型 [约束条件] [默认值],
+字段2, 数据类型 [约束条件] [默认值],
+字段3, 数据类型 [约束条件] [默认值],
+……
+[表约束条件]
+);
+*&#x2F;
+
+# 创建表
+CREATE TABLE emp (
+    emp_id INT,
+    emp_name VARCHAR(20),
+    salary DOUBLE,
+    birthday DATE
+);
+
+# 查看表结构
+DESC emp;
+
+# 使用 AS 基于查询创建表和插入查询到的数据
+CREATE TABLE dept80
+AS
+SELECT employee_id, last_name, salary*12 ANNSAL, hire_date
+FROM employees
+WHERE department_id &#x3D; 80;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>修改表：</p>
+<pre class="line-numbers language-mysql" data-language="mysql"><code class="language-mysql"># 添加列
+ALTER TABLE emp 
+ADD phone_num VARCHAR(14) AFTER emp_name;
+
+# 修改列
+&#x2F;*
+ALTER TABLE 表名 
+MODIFY 【COLUMN】 字段名1 字段类型 【
+DEFAULT 默认值】
+【FIRST|AFTER 字段名2】;
+*&#x2F;
+
+ALTER TABLE dept80
+MODIFY salary double(9,2) default 1000;
+
+ALTER TABLE dept80
+CHANGE department_name dept_name varchar(15);
+
+# 删除列
+ALTER TABLE emp
+DROP COLUMN phone_num;
+
+# 重命名表
+RENAME TABLE emp
+TO myemp;
+
+# 删除表
+DROP TABLE IF EXISTS emp;
+
+# 清空表 TRUNCATE 不可回滚，DELETE 有事务可回滚
+TRUNCATE TABLE emp;
+DELETE FROM emp;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<pre class="line-numbers language-mysql" data-language="mysql"><code class="language-mysql">#1. 创建数据库test01_office,指明字符集为utf8。并在此数据库下执行下述操作
+CREATE DATABASE test01_office CHARACTER SET &#39;utf8&#39;;
+USE test01_office;
+#2. 创建表dept01
+&#x2F;*
+字段 类型
+id INT(7)
+NAME VARCHAR(25)
+*&#x2F;
+CREATE TABLE dept01 (
+ id INT(7),
+ name VARCHAR(25)
+);
+
+#3. 将表departments中的数据插入新表dept02中
+CREATE TABLE dept02
+AS
+SELECT * FROM atguigudb.departments;
+
+#4. 创建表emp01
+&#x2F;*
+字段 类型
+id INT(7)
+first_name VARCHAR (25)
+last_name VARCHAR(25)
+dept_id INT(7)
+*&#x2F;
+CREATE TABLE emp01 (
+	id INT(7),
+	first_name VARCHAR(25),
+	last_name VARCHAR(25),
+	dept_id INT(7)
+);
+
+DESC emp01;
+#5. 将列last_name的长度增加到50
+ALTER TABLE emp01
+MODIFY last_name VARCHAR(50);
+
+#6. 根据表employees创建emp02
+CREATE TABLE emp02
+AS
+SELECT * FROM atguigudb.employees;
+
+#7. 删除表emp01
+DROP TABLE emp01;
+
+#8. 将表emp02重命名为emp01
+RENAME TABLE emp02 TO emp01;
+
+#9.在表dept02和emp01中添加新列test_column，并检查所作的操作
+ALTER TABLE dept02 
+ADD test_column VARCHAR(1);
+ALTER TABLE emp01 
+ADD test_column VARCHAR(1);
+DESC dept02;
+DESC emp01;
+
+#10.直接删除表emp01中的列 department_id
+ALTER TABLE emp01
+DROP COLUMN department_id;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h2 id="RECORD"><a href="#RECORD" class="headerlink" title="RECORD"></a>RECORD</h2><p>插入数据：</p>
+<pre class="line-numbers language-mysql" data-language="mysql"><code class="language-mysql">&#x2F;*
+INSERT INTO 表名(column1 [, column2, …, columnn])
+VALUES
+(value1 [,value2, …, valuen]),
+(value1 [,value2, …, valuen]),
+……
+(value1 [,value2, …, valuen]);
+*&#x2F;
+
+&#x2F;* 使用查询的数据插入表中
+INSERT INTO 目标表名
+(tar_column1 [, tar_column2, …, tar_columnn])
+SELECT
+(src_column1 [, src_column2, …, src_columnn])
+FROM 源表名
+[WHERE condition]
+*&#x2F;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>更新数据：</p>
+<pre class="line-numbers language-mysql" data-language="mysql"><code class="language-mysql">&#x2F;*
+UPDATE table_name
+SET column1&#x3D;value1, column2&#x3D;value2, … , column&#x3D;valuen
+[WHERE condition]
+*&#x2F;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>删除数据：</p>
+<pre class="line-numbers language-mysql" data-language="mysql"><code class="language-mysql">&#x2F;*
+DELETE FROM table_name [WHERE &lt;condition&gt;];
+*&#x2F;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+
+<p>MySQL8计算列：</p>
+<pre class="line-numbers language-mysql" data-language="mysql"><code class="language-mysql"># 使用其他列计算而来
+CREATE TABLE tb1(
+id INT,
+a INT,
+b INT,
+c INT GENERATED ALWAYS AS (a + b) VIRTUAL
+);<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<pre class="line-numbers language-mysql" data-language="mysql"><code class="language-mysql"># 1、创建数据库test01_library
+CREATE DATABASE test01_library;
+USE test01_library;
+# 2、创建表 books
+CREATE TABLE books(
+	id INT,
+	name VARCHAR(50),
+	authors VARCHAR(100),
+	price FLOAT,
+	pubdate YEAR,
+	note VARCHAR(100),
+	num INT
+);
+
+DESC books;
+SELECT * FROM books;
+# 3、向books表中插入记录
+# 1）不指定字段名称，插入第一条记录
+INSERT INTO books VALUES(1, &#39;Tal of AAA&#39;, &#39;Dickes&#39;, 23, 1995, &#39;novel&#39;, 11);
+# 2）指定所有字段名称，插入第二记录
+INSERT INTO books(id, name, authors, price, pubdate, note, num)
+VALUES (2, &#39;EmmaT&#39;, &#39;Jane lura&#39;, 35, 1993, &#39;joke&#39;, 22),
+	(3, &#39;Story of Jane&#39;, &#39;Jane Tim&#39;, 40, 2001, &#39;novel&#39;, 0);
+# 3）同时插入多条记录（剩下的所有记录）
+INSERT INTO books
+VALUES (4, &#39;Lovey Day&#39;, &#39;George Byron&#39;, 20, 2005, &#39;novel&#39;, 30),
+	(5, &#39;Old land&#39;, &#39;Honore Blade&#39;, 30, 2010, &#39;law&#39;, 0),
+	(6, &#39;The Battle&#39;, &#39;Upton Sara&#39;, 30, 1999, &#39;medicine&#39;, 40),
+	(7, &#39;Rose Hood&#39;, &#39;Richard haggard&#39;, 28, 2008, &#39;cartoon&#39;, 28);
+# 4、将小说类型(novel)的书的价格都增加5
+UPDATE books b SET b.price &#x3D; b.price + 5 WHERE b.note &#x3D; &#39;novel&#39;;
+
+# 5、将名称为EmmaT的书的价格改为40，并将说明改为drama
+UPDATE books b SET b.price &#x3D; 40, b.note &#x3D; &#39;drama&#39; WHERE b.name &#x3D; &#39;EmmaT&#39;;
+# 6、删除库存为0的记录
+DELETE FROM books WHERE num &#x3D; 0;
+# 7、统计书名中包含a字母的书
+SELECT * FROM books b WHERE b.name LIKE &#39;%a%&#39;;
+
+# 8、统计书名中包含a字母的书的数量和库存总量
+SELECT COUNT(*),SUM(num) FROM books b WHERE b.name LIKE &#39;%a%&#39;;
+
+# 9、找出“novel”类型的书，按照价格降序排列
+SELECT * FROM books b WHERE b.note &#x3D; &#39;novel&#39; ORDER BY b.price DESC;
+
+# 10、查询图书信息，按照库存量降序排列，如果库存量相同的按照note升序排列
+SELECT * FROM books b ORDER BY b.num DESC, b.note;
+
+# 11、按照note分类统计书的数量
+SELECT b.note ,COUNT(*) FROM books b GROUP BY b.note;
+
+# 12、按照note分类统计书的库存量，显示库存量超过30本的
+SELECT b.note ,SUM(b.num) sums FROM books b 
+GROUP BY b.note
+HAVING sums &gt;&#x3D; 30;
+
+# 13、查询所有图书，每页显示5本，显示第二页
+SELECT * FROM books b LIMIT 5,5;
+
+# 14、按照note分类统计书的库存量，显示库存量最多的
+SELECT b.note FROM books b 
+GROUP BY b.note
+ORDER BY SUM(b.num)
+LIMIT 1;
+
+# 15、查询书名达到10个字符的书，不包括里面的空格
+SELECT * FROM books b WHERE CHAR_LENGTH(REPLACE(b.name,&#39; &#39;,&#39;&#39;)) &gt;&#x3D; 10;
+
+# 16、查询书名和类型，其中note值为novel显示小说，law显示法律，medicine显示医药，cartoon显示卡通，joke显示笑话
+SELECT b.name, b.note,(CASE b.note 
+WHEN &#39;novel&#39; THEN &#39;小说&#39;
+WHEN &#39;law&#39; THEN &#39;法律&#39;
+WHEN &#39;medicine&#39; THEN &#39;医药&#39;
+WHEN &#39;cartoon&#39; THEN &#39;卡通&#39;
+WHEN &#39;joke&#39; THEN &#39;笑话&#39;
+ELSE &#39;其他&#39;
+END) zhname
+FROM books b;
+
+# 17、查询书名、库存，其中num值超过30本的，显示滞销，大于0并低于10的，显示畅销，为0的显示需要无货
+SELECT b.name, b.num,(CASE 
+WHEN b.num &gt;&#x3D; 30 THEN &#39;滞销&#39;
+WHEN b.num &lt; 10 AND b.num &gt; 0 THEN &#39;畅销&#39;
+WHEN b.num &#x3D; 0 THEN &#39;无货&#39;
+ELSE &#39;正常&#39;
+END) status
+FROM books b;
+
+# 18、统计每一种note的库存量，并合计总量
+SELECT b.note, SUM(b.num) FROM books b GROUP BY b.note WITH ROLLUP;
+
+# 19、统计每一种note的数量，并合计总量
+SELECT b.note,COUNT(1) FROM books b GROUP BY b.note WITH ROLLUP;
+
+# 20、统计库存量前三名的图书
+SELECT * FROM books b ORDER BY sums DESC  LIMIT 3;
+
+# 21、找出最早出版的一本书
+SELECT * FROM books b ORDER BY b.pubdate LIMIT 1;
+
+# 22、找出novel中价格最高的一本书
+SELECT * FROM books b WHERE b.note &#x3D; &#39;novel&#39; ORDER BY b.price DESC LIMIT 1;
+
+# 23、找出书名中字数最多的一本书，不含空格
+SELECT * FROM books ORDER BY CHAR_LENGTH(REPLACE(name,&#39; &#39;,&#39;&#39;)) DESC LIMIT 0,1;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h2 id="Type"><a href="#Type" class="headerlink" title="Type"></a>Type</h2><p><strong>整型：</strong></p>
+<p>TINYINT（1字节）、SMALLINT（2字节）、MEDIUMINT（3字节）、INT&#x2F;INTEGER（4字节）、BIGINT（8字节）</p>
+<pre class="line-numbers language-mysql" data-language="mysql"><code class="language-mysql"># 其中的 5 表示显示宽度，搭配 ZEROFILL 零填充才能看到效果，MySQL 8.0.17 不再有显示宽度
+# UNSIGNED 设置无符号
+CREATE TABLE test_int(
+	f1 INT(5),
+    f2 INT(5) ZEROFILL
+);<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p><strong>浮点型：</strong></p>
+<p>FLOAT（4字节）、DOUBLE（8字节）、REAL（默认就是 DOUBLE）</p>
+<p>表示精度不精准，不应使用 &#x3D; 比较浮点型</p>
+<p><strong>定点数：</strong></p>
+<p>DECIMAL(M,D)，M 位有效位，小数点后 D 位。使用字符串存储。</p>
+<p><strong>位类型：</strong></p>
+<p>BIT(M)</p>
+<p><strong>日期时间类型：</strong></p>
+<p>YEAR（年）、TIME（时分秒）、DATE（年月日）、DATETIME（年月日时分秒）、TIMESTAMP（年月日时分秒）</p>
+<p>DATE：标准格式为：<code>YYYY-MM-DD</code></p>
+<p>TIME：标准格式：<code>D HH-MM-SS</code>、<code>HH-MM-SS</code>，D 会转为小时与 HH 相加</p>
+<p>DATETIME（8个字节）：标准格式：YYYY-MM-DD HH:MM:SS</p>
+<p>TIMESTAMP（4字节）：标准格式：YYYY-MM-DD HH:MM:SS，存储范围为 “1970-01-01 00:00:01 UTC”到“2038-01-19 03:14:07 UTC”，存储的数据时区不同显示不同。</p>
+<p>尽量使用 DATETIME，注册时间等常用于计算的存储使用时间戳</p>
+<p><strong>文本字符串类型：</strong></p>
+<p>CHAR(M)、VARCHAR(M)、TINYTEXT、TEXT、MEDIUMTEXT、LONGTEXT、ENUM、SET</p>
+<p>VARCHAR(20)：4.0版本以下指20字节，5.0版本以上指20字符，存储字节为字符串实际长+1，InnoDB 建议使用 VARCHAR</p>
+<p>ENUM：<code>season ENUM(&#39;春&#39;,&#39;夏&#39;,&#39;秋&#39;,&#39;冬&#39;,unknow&#39;)</code>，只能选择一个</p>
+<p>SET：<code>s SET (&#39;A&#39;, &#39;B&#39;, &#39;C&#39;)</code>，可多选存储</p>
+<p><strong>二进制：</strong></p>
+<p>BINARY、VARBINARY、TIBYBLOB、BLOB、MEDIUMBLOB、LONGBLOB </p>
+<p>BLOG 和 TEXT 执行大量更新和删除操作时，会产生空洞现象，为提高性能应定期使用 OPTIMIZE TABLE 进行碎片处理。尽量分离到单独的表中，减少主表的碎片。</p>
+<p><strong>JSON 类型：</strong></p>
+<pre class="line-numbers language-mysql" data-language="mysql"><code class="language-mysql">CREATE TABLE test_json(
+js json
+);
+
+INSERT INTO test_json (js)
+VALUES (&#39;&#123;&quot;name&quot;:&quot;songhk&quot;, &quot;age&quot;:18, &quot;address&quot;:&#123;&quot;province&quot;:&quot;beijing&quot;,
+&quot;city&quot;:&quot;beijing&quot;&#125;&#125;&#39;);
+
+SELECT js -&gt; &#39;$.name&#39; AS NAME,js -&gt; &#39;$.age&#39; AS age ,js -&gt; &#39;$.address.province&#39;
+AS province, js -&gt; &#39;$.address.city&#39; AS city
+FROM test_json;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h2 id="Constraint"><a href="#Constraint" class="headerlink" title="Constraint"></a>Constraint</h2><p>实体完整性、域完整性、引用完整性、用户自定义完整性</p>
+<pre class="line-numbers language-mysql" data-language="mysql"><code class="language-mysql"># 列级约束，约束在列之后
+CREATE TABLE mytest(
+	id int NOT NULL
+);
+
+# 表级约束，在所有字段之后
+CREATE TABLE mytest(
+	id int NOT NULL,
+    last_name VARCHAR(25),
+    email VARCHAR(25)
+    CONSTRAINT uk_mytest_email UNIQUE(email) 
+);<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<ul>
+<li><p>NOT NULL 非空约束，规定某个字段不能为空</p>
+</li>
+<li><p>UNIQUE 唯一约束，规定某个字段在整个表中是唯一的</p>
+<ul>
+<li>定义 UNIQUE 约束时会自动创建一个唯一性索引</li>
+<li>删除唯一约束，只能通过删除唯一约束来删除</li>
+</ul>
+</li>
+</ul>
+<pre class="line-numbers language-mysql" data-language="mysql"><code class="language-mysql"># 设置 name 和 pwd 组合唯一
+CREATE TABLE mytest(
+	id INT,
+    name VARCHAR(25),
+    pwd VARCHAR25),
+    CONSTRAINT uk_mytest_name_pwd UNIQUE(&#96;name&#96;, pwd) # 指定索引名
+    # UNIQUE KEY(&#96;name&#96;, pwd)  # 索引自动命名为第一个列名
+);
+
+# 查看表索引
+SHOW INDEX FROM mytest;
+
+# 删除唯一性约束
+ALTER TABLE mytest 
+DROP INDEX uk_mytest_name_pwd;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<ul>
+<li>PRIMARY KEY 主键(非空且唯一)约束，只能有一个主键约束</li>
+</ul>
+<pre class="line-numbers language-mysql" data-language="mysql"><code class="language-mysql"># 列级约束
+id INT PRIMARY KEY
+
+# 表级约束，索引自动命名为列名
+PRIMARY KEY(id)<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<ul>
+<li>AUTO_INCREMENT 自增，一个表只能有一个自增列，必须是主键列、整数类型</li>
+</ul>
+<pre class="line-numbers language-mysql" data-language="mysql"><code class="language-mysql">&#x2F;*
+MySQL5.7 自增下一个值保存在内存中，重启服务则清空了缓存
+MySQL8 则是保存在重做日志中
+*&#x2F;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+
+<ul>
+<li>FOREIGN KEY 外键约束，限定表的引用完整性<ul>
+<li>外键必须是主表的主键或唯一约束</li>
+<li>表可以创建多个外键约束</li>
+<li>外键有性能开销，推荐应用层解决引用完整性而不是使用外键</li>
+</ul>
+</li>
+</ul>
+<pre class="line-numbers language-mysql" data-language="mysql"><code class="language-mysql"># 表级约束
+CONSTRANT fk_dept_id FOREIGN KEY(dept_id) REFERENCE department(dept_id)
+
+# 约束等级
+# Cascade 主表删除对应数据时，从表相关数据也删除
+# Set null 主表删除对应数据时，从表的外键设为 null 而不删除记录
+
+# 删除外键约束
+SELECT * FROM information_schema.table_constraints WHERE table_name &#x3D; &#39;表名称&#39;;#查看某个
+表的约束名
+ALTER TABLE 从表名 DROP FOREIGN KEY 外键约束名;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<ul>
+<li>CHECK 检查约束，检查值的范围，5.7 不支持，8 支持</li>
+</ul>
+<pre class="line-numbers language-mysql" data-language="mysql"><code class="language-mysql">salary DECIMAL(10,2) CHECK(salary &gt; 2000)<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<ul>
+<li>DEFAULT 默认值约束</li>
+</ul>
+<h2 id="View"><a href="#View" class="headerlink" title="View"></a>View</h2><p>视图可以看作是一个虚拟表，修改视图数据，基表数据也会修改，视图数据删除，基表不会删除。</p>
+<p>视图更新需要视图的行和基表一一对应关系，以下情况不能更新：</p>
+<ul>
+<li>视图定义时指定 <code>ALGORITHM=TEMPTABLE</code>，不支持插入和删除操作</li>
+<li>视图中不包含基表中所有被定义为非空又未指定默认值的列，视图将不支持INSERT操作</li>
+<li>视图查询语句使用 join，不支持插入和删除操作</li>
+<li>查询语句使用数学表达式或子查询，不h支持插入和更新哪些列</li>
+<li>视图列中使用 DISTINCT、聚合函数、GROUP BY、HASVING、UNION 等，不支持插入、更新和删除操作</li>
+<li>通常视图就是为了方便查询，更新修改数据都是在基表上操作</li>
+</ul>
+<pre class="line-numbers language-mysql" data-language="mysql"><code class="language-mysql">&#x2F;*
+CREATE [OR REPLACE]
+[ALGORITHM &#x3D; &#123;UNDEFINED | MERGE | TEMPTABLE&#125;]
+VIEW 视图名称 [(字段列表)]
+AS 查询语句
+[WITH [CASCADED|LOCAL] CHECK OPTION]
+*&#x2F;
+
+# 查看视图
+DESC 视图名称;
+
+# 删除视图
+DROP VIEW IF EXISTS 视图名称;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h2 id="Procedure-Function"><a href="#Procedure-Function" class="headerlink" title="Procedure&amp;Function"></a>Procedure&amp;Function</h2><p>存储过程是一段程序化sql，对底层表进行操作</p>
+<pre class="line-numbers language-mysql" data-language="mysql"><code class="language-mysql">&#x2F;*
+CREATE PROCEDURE 存储过程名(IN|OUT|INOUT 参数名 参数类型,...)
+[characteristics ...]
+BEGIN
+存储过程体
+END
+*&#x2F;
+
+# 调用：CALL 存储过程名(实参列表)<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+                
+            </div>
+            <hr/>
+
+            
+
+    <div class="reprint" id="reprint-statement">
+        
+            <div class="reprint__author">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-user">
+                        文章作者:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="/about" rel="external nofollow noreferrer">John Faye</a>
+                </span>
+            </div>
+            <div class="reprint__type">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-link">
+                        文章链接:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="https://jojofaye99.github.io/2023/11/18/mysql8learning/">https://jojofaye99.github.io/2023/11/18/mysql8learning/</a>
+                </span>
+            </div>
+            <div class="reprint__notice">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-copyright">
+                        版权声明:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    本博客所有文章除特別声明外，均采用
+                    <a href="https://creativecommons.org/licenses/by/4.0/deed.zh" rel="external nofollow noreferrer" target="_blank">CC BY 4.0</a>
+                    许可协议。转载请注明来源
+                    <a href="/about" target="_blank">John Faye</a>
+                    !
+                </span>
+            </div>
+        
+    </div>
+
+    <script async defer>
+      document.addEventListener("copy", function (e) {
+        let toastHTML = '<span>复制成功，请遵循本文的转载规则</span><button class="btn-flat toast-action" onclick="navToReprintStatement()" style="font-size: smaller">查看</a>';
+        M.toast({html: toastHTML})
+      });
+
+      function navToReprintStatement() {
+        $("html, body").animate({scrollTop: $("#reprint-statement").offset().top - 80}, 800);
+      }
+    </script>
+
+
+
+            <div class="tag_share" style="display: block;">
+                <div class="post-meta__tag-list" style="display: inline-block;">
+                    
+                        <div class="article-tag">
+                            
+                                <a href="/tags/Note/">
+                                    <span class="chip bg-color">Note</span>
+                                </a>
+                            
+                        </div>
+                    
+                </div>
+                <div class="post_share" style="zoom: 80%; width: fit-content; display: inline-block; float: right; margin: -0.15rem 0;">
+                    <link rel="stylesheet" type="text/css" href="/libs/share/css/share.min.css">
+<div id="article-share">
+
+    
+    <div class="social-share" data-sites="twitter,facebook,google,qq,qzone,wechat,weibo,douban,linkedin" data-wechat-qrcode-helper="<p>微信扫一扫即可分享！</p>"></div>
+    <script src="/libs/share/js/social-share.min.js"></script>
+    
+
+    
+
+</div>
+
+                </div>
+            </div>
+            
+        </div>
+    </div>
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+<article id="prenext-posts" class="prev-next articles">
+    <div class="row article-row">
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge left-badge text-color">
+                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+            <div class="card">
+                <a href="/2024/01/05/codecompletion/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/17.jpg" class="responsive-img" alt="Code Completion 代码大全读书笔记">
+                        
+                        <span class="card-title">Code Completion 代码大全读书笔记</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            
+                        
+                    </div>
+                    <div class="publish-info">
+                        <span class="publish-date">
+                            <i class="far fa-clock fa-fw icon-date"></i>2024-01-05
+                        </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/Code/" class="post-category">
+                                    Code
+                                </a>
+                            
+                            <a href="/categories/Code/Reading/" class="post-category">
+                                    Reading
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/Note/">
+                        <span class="chip bg-color">Note</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
+            </div>
+            <div class="card">
+                <a href="/2023/04/10/vimlearning/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/9.jpg" class="responsive-img" alt="Vim使用方法">
+                        
+                        <span class="card-title">Vim使用方法</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2023-04-10
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/Linux/" class="post-category">
+                                    Linux
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/Vim/">
+                        <span class="chip bg-color">Vim</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+    </div>
+</article>
+
+</div>
+
+
+<script>
+    $('#articleContent').on('copy', function (e) {
+        // IE8 or earlier browser is 'undefined'
+        if (typeof window.getSelection === 'undefined') return;
+
+        var selection = window.getSelection();
+        // if the selection is short let's not annoy our users.
+        if (('' + selection).length < Number.parseInt('50')) {
+            return;
+        }
+
+        // create a div outside of the visible area and fill it with the selected text.
+        var bodyElement = document.getElementsByTagName('body')[0];
+        var newdiv = document.createElement('div');
+        newdiv.style.position = 'absolute';
+        newdiv.style.left = '-99999px';
+        bodyElement.appendChild(newdiv);
+        newdiv.appendChild(selection.getRangeAt(0).cloneContents());
+
+        // we need a <pre> tag workaround.
+        // otherwise the text inside "pre" loses all the line breaks!
+        if (selection.getRangeAt(0).commonAncestorContainer.nodeName === 'PRE' || selection.getRangeAt(0).commonAncestorContainer.nodeName === 'CODE') {
+            newdiv.innerHTML = "<pre>" + newdiv.innerHTML + "</pre>";
+        }
+
+        var url = document.location.href;
+        newdiv.innerHTML += '<br />'
+            + '来源: 造梦空间<br />'
+            + '文章作者: John Faye<br />'
+            + '文章链接: <a href="' + url + '">' + url + '</a><br />'
+            + '本文章著作权归作者所有，任何形式的转载都请注明出处。';
+
+        selection.selectAllChildren(newdiv);
+        window.setTimeout(function () {bodyElement.removeChild(newdiv);}, 200);
+    });
+</script>
+
+
+<!-- 代码块功能依赖 -->
+<script type="text/javascript" src="/libs/codeBlock/codeBlockFuction.js"></script>
+
+
+  <!-- 是否加载使用自带的 prismjs. -->
+  <script type="text/javascript" src="/libs/prism/prism.min.js"></script>
+
+
+<!-- 代码语言 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeLang.js"></script>
+
+
+<!-- 代码块复制 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeCopy.js"></script>
+
+
+<!-- 代码块收缩 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeShrink.js"></script>
+
+
+
+    </div>
+    <div id="toc-aside" class="expanded col l3 hide-on-med-and-down">
+        <div class="toc-widget card" style="background-color: white;">
+            <div class="toc-title"><i class="far fa-list-alt"></i>&nbsp;&nbsp;目录</div>
+            <div id="toc-content"></div>
+        </div>
+    </div>
+</div>
+
+<!-- TOC 悬浮按钮. -->
+
+<div id="floating-toc-btn" class="hide-on-med-and-down">
+    <a class="btn-floating btn-large bg-color">
+        <i class="fas fa-list-ul"></i>
+    </a>
+</div>
+
+
+<script src="/libs/tocbot/tocbot.min.js"></script>
+<script>
+    $(function () {
+        tocbot.init({
+            tocSelector: '#toc-content',
+            contentSelector: '#articleContent',
+            headingsOffset: -($(window).height() * 0.4 - 45),
+            collapseDepth: Number('0'),
+            headingSelector: 'h2, h3, h4'
+        });
+
+        // Set scroll toc fixed.
+        let tocHeight = parseInt($(window).height() * 0.4 - 64);
+        let $tocWidget = $('.toc-widget');
+        $(window).scroll(function () {
+            let scroll = $(window).scrollTop();
+            /* add post toc fixed. */
+            if (scroll > tocHeight) {
+                $tocWidget.addClass('toc-fixed');
+            } else {
+                $tocWidget.removeClass('toc-fixed');
+            }
+        });
+
+        
+        /* 修复文章卡片 div 的宽度. */
+        let fixPostCardWidth = function (srcId, targetId) {
+            let srcDiv = $('#' + srcId);
+            if (srcDiv.length === 0) {
+                return;
+            }
+
+            let w = srcDiv.width();
+            if (w >= 450) {
+                w = w + 21;
+            } else if (w >= 350 && w < 450) {
+                w = w + 18;
+            } else if (w >= 300 && w < 350) {
+                w = w + 16;
+            } else {
+                w = w + 14;
+            }
+            $('#' + targetId).width(w);
+        };
+
+        // 切换TOC目录展开收缩的相关操作.
+        const expandedClass = 'expanded';
+        let $tocAside = $('#toc-aside');
+        let $mainContent = $('#main-content');
+        $('#floating-toc-btn .btn-floating').click(function () {
+            if ($tocAside.hasClass(expandedClass)) {
+                $tocAside.removeClass(expandedClass).hide();
+                $mainContent.removeClass('l9');
+            } else {
+                $tocAside.addClass(expandedClass).show();
+                $mainContent.addClass('l9');
+            }
+            fixPostCardWidth('artDetail', 'prenext-posts');
+        });
+        
+    });
+</script>
+
+    
+
+</main>
+
+
+
+
+    <footer class="page-footer bg-color">
+    
+        <link rel="stylesheet" href="/libs/aplayer/APlayer.min.css">
+<style>
+    .aplayer .aplayer-lrc p {
+        
+        display: none;
+        
+        font-size: 12px;
+        font-weight: 700;
+        line-height: 16px !important;
+    }
+
+    .aplayer .aplayer-lrc p.aplayer-lrc-current {
+        
+        display: none;
+        
+        font-size: 15px;
+        color: #42b983;
+    }
+
+    
+    .aplayer.aplayer-fixed.aplayer-narrow .aplayer-body {
+        left: -66px !important;
+    }
+
+    .aplayer.aplayer-fixed.aplayer-narrow .aplayer-body:hover {
+        left: 0px !important;
+    }
+
+    
+</style>
+<div class="">
+    
+    <div class="row">
+        <meting-js class="col l8 offset-l2 m10 offset-m1 s12"
+                   server="netease"
+                   type="playlist"
+                   id="503838841"
+                   fixed='true'
+                   autoplay='false'
+                   theme='#42b983'
+                   loop='all'
+                   order='random'
+                   preload='auto'
+                   volume='0.7'
+                   list-folded='true'
+        >
+        </meting-js>
+    </div>
+</div>
+
+<script src="/libs/aplayer/APlayer.min.js"></script>
+<script src="/libs/aplayer/Meting.min.js"></script>
+
+    
+
+    <div class="container row center-align"
+         style="margin-bottom: 0px !important;">
+        <div class="col s12 m8 l8 copy-right">
+            Copyright&nbsp;&copy;
+            
+                <span id="year">2021-2025</span>
+            
+            <a href="/about" target="_blank">John Faye</a>
+            |&nbsp;Powered by&nbsp;<a href="https://hexo.io/" target="_blank">Hexo</a>
+            |&nbsp;Theme&nbsp;<a href="https://github.com/blinkfox/hexo-theme-matery" target="_blank">Matery</a>
+            
+            <br>
+            
+            
+            
+            
+            
+            <br>
+
+            <!-- 运行天数提醒. -->
+            
+            <br>
+            
+        </div>
+        <div class="col s12 m4 l4 social-link ">
+    <a href="https://github.com/jojofaye99" class="tooltipped" target="_blank" data-tooltip="访问我的GitHub" data-position="top" data-delay="50">
+        <i class="fab fa-github"></i>
+    </a>
+
+
+
+    <a href="mailto:1358282083@qq.com" class="tooltipped" target="_blank" data-tooltip="邮件联系我" data-position="top" data-delay="50">
+        <i class="fas fa-envelope-open"></i>
+    </a>
+
+
+
+
+
+
+
+    <a href="tencent://AddContact/?fromId=50&fromSubId=1&subcmd=all&uin=1358282083" class="tooltipped" target="_blank" data-tooltip="QQ联系我: 1358282083" data-position="top" data-delay="50">
+        <i class="fab fa-qq"></i>
+    </a>
+
+
+
+
+
+
+
+</div>
+    </div>
+</footer>
+
+<div class="progress-bar"></div>
+
+
+    <!-- 搜索遮罩框 -->
+<div id="searchModal" class="modal">
+    <div class="modal-content">
+        <div class="search-header">
+            <span class="title"><i class="fas fa-search"></i>&nbsp;&nbsp;搜索</span>
+            <input type="search" id="searchInput" name="s" placeholder="请输入搜索的关键字"
+                   class="search-input">
+        </div>
+        <div id="searchResult"></div>
+    </div>
+</div>
+
+<script type="text/javascript">
+$(function () {
+    var searchFunc = function (path, search_id, content_id) {
+        'use strict';
+        $.ajax({
+            url: path,
+            dataType: "xml",
+            success: function (xmlResponse) {
+                // get the contents from search data
+                var datas = $("entry", xmlResponse).map(function () {
+                    return {
+                        title: $("title", this).text(),
+                        content: $("content", this).text(),
+                        url: $("url", this).text()
+                    };
+                }).get();
+                var $input = document.getElementById(search_id);
+                var $resultContent = document.getElementById(content_id);
+                $input.addEventListener('input', function () {
+                    var str = '<ul class=\"search-result-list\">';
+                    var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
+                    $resultContent.innerHTML = "";
+                    if (this.value.trim().length <= 0) {
+                        return;
+                    }
+                    // perform local searching
+                    datas.forEach(function (data) {
+                        var isMatch = true;
+                        var data_title = data.title.trim().toLowerCase();
+                        var data_content = data.content.trim().replace(/<[^>]+>/g, "").toLowerCase();
+                        var data_url = data.url;
+                        data_url = data_url.indexOf('/') === 0 ? data.url : '/' + data_url;
+                        var index_title = -1;
+                        var index_content = -1;
+                        var first_occur = -1;
+                        // only match artiles with not empty titles and contents
+                        if (data_title !== '' && data_content !== '') {
+                            keywords.forEach(function (keyword, i) {
+                                index_title = data_title.indexOf(keyword);
+                                index_content = data_content.indexOf(keyword);
+                                if (index_title < 0 && index_content < 0) {
+                                    isMatch = false;
+                                } else {
+                                    if (index_content < 0) {
+                                        index_content = 0;
+                                    }
+                                    if (i === 0) {
+                                        first_occur = index_content;
+                                    }
+                                }
+                            });
+                        }
+                        // show search results
+                        if (isMatch) {
+                            str += "<li><a href='" + data_url + "' class='search-result-title'>" + data_title + "</a>";
+                            var content = data.content.trim().replace(/<[^>]+>/g, "");
+                            if (first_occur >= 0) {
+                                // cut out 100 characters
+                                var start = first_occur - 20;
+                                var end = first_occur + 80;
+                                if (start < 0) {
+                                    start = 0;
+                                }
+                                if (start === 0) {
+                                    end = 100;
+                                }
+                                if (end > content.length) {
+                                    end = content.length;
+                                }
+                                var match_content = content.substr(start, end);
+                                // highlight all keywords
+                                keywords.forEach(function (keyword) {
+                                    var regS = new RegExp(keyword, "gi");
+                                    match_content = match_content.replace(regS, "<em class=\"search-keyword\">" + keyword + "</em>");
+                                });
+
+                                str += "<p class=\"search-result\">" + match_content + "...</p>"
+                            }
+                            str += "</li>";
+                        }
+                    });
+                    str += "</ul>";
+                    $resultContent.innerHTML = str;
+                });
+            }
+        });
+    };
+
+    searchFunc('/search.xml', 'searchInput', 'searchResult');
+});
+</script>
+
+    <!-- 白天和黑夜主题 -->
+<div class="stars-con">
+    <div id="stars"></div>
+    <div id="stars2"></div>
+    <div id="stars3"></div>  
+</div>
+
+<script>
+    function switchNightMode() {
+        $('<div class="Cuteen_DarkSky"><div class="Cuteen_DarkPlanet"></div></div>').appendTo($('body')),
+        setTimeout(function () {
+            $('body').hasClass('DarkMode') 
+            ? ($('body').removeClass('DarkMode'), localStorage.setItem('isDark', '0'), $('#sum-moon-icon').removeClass("fa-sun").addClass('fa-moon')) 
+            : ($('body').addClass('DarkMode'), localStorage.setItem('isDark', '1'), $('#sum-moon-icon').addClass("fa-sun").removeClass('fa-moon')),
+            
+            setTimeout(function () {
+            $('.Cuteen_DarkSky').fadeOut(1e3, function () {
+                $(this).remove()
+            })
+            }, 2e3)
+        })
+    }
+</script>
+
+    <!-- 回到顶部按钮 -->
+<div id="backTop" class="top-scroll">
+    <a class="btn-floating btn-large waves-effect waves-light" href="#!">
+        <i class="fas fa-arrow-up"></i>
+    </a>
+</div>
+
+
+    <script src="/libs/materialize/materialize.min.js"></script>
+    <script src="/libs/masonry/masonry.pkgd.min.js"></script>
+    <script src="/libs/aos/aos.js"></script>
+    <script src="/libs/scrollprogress/scrollProgress.min.js"></script>
+    <script src="/libs/lightGallery/js/lightgallery-all.min.js"></script>
+    <script src="/js/matery.js"></script>
+
+    
+
+    
+    
+    
+
+    <!-- 雪花特效 -->
+    
+
+    <!-- 鼠标星星特效 -->
+    
+
+     
+        <script src="https://ssl.captcha.qq.com/TCaptcha.js"></script>
+        <script src="/libs/others/TencentCaptcha.js"></script>
+        <button id="TencentCaptcha" data-appid="xxxxxxxxxx" data-cbfn="callback" type="button" hidden></button>
+    
+
+    <!-- Baidu Analytics -->
+
+    <!-- Baidu Push -->
+
+<script>
+    (function () {
+        var bp = document.createElement('script');
+        var curProtocol = window.location.protocol.split(':')[0];
+        if (curProtocol === 'https') {
+            bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+        } else {
+            bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+        }
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(bp, s);
+    })();
+</script>
+
+    
+    <script src="/libs/others/clicklove.js" async="async"></script>
+    
+    
+
+    
+
+    
+
+    <!--腾讯兔小巢-->
+    
+    
+
+    
+
+    
+    <script type="text/javascript" src="/libs/background/ribbon-dynamic.js" async="async"></script>
+    
+
+    
+    <script src="/libs/instantpage/instantpage.js" type="module"></script>
+    
+
+</body>
+
+</html>
